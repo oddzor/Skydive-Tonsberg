@@ -1,0 +1,19 @@
+import { Metadata } from "next";
+import { TandemContent } from "./TandemContent";
+
+export const metadata: Metadata = {
+  title: "Tandemhopp | Opplev fritt fall | Skydive Tønsberg",
+  description:
+    "Book tandemhopp hos Skydive Tønsberg - desidert nærmest Oslo! Hopp fra 4000 meter med ca. 40 sekunder fritt fall. Fra kun 4690 kr inkl. alt.",
+  openGraph: {
+    title: "Tandemhopp | Skydive Tønsberg",
+    description:
+      "Opplev fritt fall fra 4000 meter med vakker utsikt over Oslofjorden. Book ditt tandemhopp i dag!",
+  },
+};
+
+export default function TandemPage() {
+  return <TandemContent />;
+}
+
+
