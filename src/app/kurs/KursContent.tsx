@@ -184,8 +184,8 @@ export function KursContent() {
             poster="/kurs-hero.webp"
             className="w-full h-full object-cover"
           >
-            <source src="/kurs-hero.mov" type="video/quicktime" />
             <source src="/kurs-hero.webm" type="video/webm" />
+            <source src="/kurs-hero.mp4" type="video/mp4" />
           </video>
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent" />
         </div>
