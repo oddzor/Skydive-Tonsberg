@@ -70,7 +70,7 @@ export function Header() {
                 alt="Skydive Tønsberg"
                 width={1000}
                 height={246}
-                className="h-10 sm:h-12 w-auto"
+                className="h-11 sm:h-12 w-auto"
                 priority
                 quality={100}
               />
