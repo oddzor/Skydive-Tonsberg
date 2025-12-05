@@ -62,7 +62,7 @@ export function Hero() {
               alt="Skydive Tønsberg"
               width={1000}
               height={246}
-              className="h-32 sm:h-40 md:h-52 lg:h-56 w-auto mx-auto drop-shadow-2xl"
+              className="max-w-[85vw] h-auto mx-auto drop-shadow-2xl"
               priority
               quality={100}
             />
