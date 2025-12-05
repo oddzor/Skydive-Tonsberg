@@ -55,15 +55,16 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="mb-8"
+            className="mb-4 -mt-12 sm:-mt-16 md:-mt-20"
           >
             <Image
               src="/Skydive_Tonsberg_hero_header.png"
               alt="Skydive Tønsberg"
-              width={500}
-              height={123}
-              className="h-24 sm:h-32 md:h-40 w-auto mx-auto drop-shadow-2xl"
+              width={1000}
+              height={246}
+              className="h-28 sm:h-36 md:h-48 w-auto mx-auto drop-shadow-2xl"
               priority
+              quality={100}
             />
           </motion.div>
 

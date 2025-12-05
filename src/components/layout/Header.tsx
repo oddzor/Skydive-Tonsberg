@@ -68,10 +68,11 @@ export function Header() {
               <Image
                 src="/Skydive_Tonsberg_hero_header.png"
                 alt="Skydive Tønsberg"
-                width={500}
-                height={123}
+                width={1000}
+                height={246}
                 className="h-10 sm:h-12 w-auto"
                 priority
+                quality={100}
               />
             </motion.div>
           </Link>

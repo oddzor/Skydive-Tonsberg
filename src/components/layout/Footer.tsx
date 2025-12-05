@@ -56,9 +56,10 @@ export function Footer() {
               <Image
                 src="/skydive-tonsberg-footer.png"
                 alt="Skydive Tønsberg"
-                width={500}
-                height={123}
+                width={1000}
+                height={246}
                 className="h-12 w-auto"
+                quality={100}
               />
             </Link>
             <p className="text-background/70 text-sm leading-relaxed mb-6">
