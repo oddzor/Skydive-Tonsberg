@@ -174,15 +174,19 @@ export function KursContent() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden">
+      <section className="relative pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden min-h-[85vh] flex items-center">
         <div className="absolute inset-0 z-0">
-          <Image
-            src="/kurs-hero.webp"
-            alt="AFF Kurs"
-            fill
-            className="object-cover"
-            priority
-          />
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            poster="/kurs-hero.webp"
+            className="w-full h-full object-cover"
+          >
+            <source src="/kurs-hero.mov" type="video/quicktime" />
+            <source src="/kurs-hero.webm" type="video/webm" />
+          </video>
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent" />
         </div>
 
@@ -342,7 +346,7 @@ export function KursContent() {
             >
               <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
                 <Image
-                  src="/aff-training.webp"
+                  src="/aff-trening.webp"
                   alt="AFF trening"
                   fill
                   className="object-cover"

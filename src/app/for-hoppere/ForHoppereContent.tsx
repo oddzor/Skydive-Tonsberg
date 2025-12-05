@@ -240,15 +240,19 @@ export function ForHoppereContent() {
       </AnimatePresence>
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden">
+      <section className="relative pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden min-h-[85vh] flex items-center">
         <div className="absolute inset-0 z-0">
-          <Image
-            src="/for-hoppere-hero.webp"
-            alt="Erfarne hoppere i formasjon"
-            fill
-            className="object-cover"
-            priority
-          />
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            poster="/for-hoppere-hero.webp"
+            className="w-full h-full object-cover"
+          >
+            <source src="/for-hoppere.mov" type="video/quicktime" />
+            <source src="/for-hoppere.mov" type="video/mov" />
+          </video>
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent" />
         </div>
 
@@ -1056,7 +1060,7 @@ export function ForHoppereContent() {
               className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl"
             >
               <Image
-                src="/twin-otter.webp"
+                src="/ln-jmp.webp"
                 alt="Twin Otter LN-JMP"
                 fill
                 className="object-cover"

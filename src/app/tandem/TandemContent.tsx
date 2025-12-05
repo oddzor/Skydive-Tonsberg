@@ -165,15 +165,19 @@ export function TandemContent() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden">
+      <section className="relative pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden min-h-[85vh] flex items-center">
         <div className="absolute inset-0 z-0">
-          <Image
-            src="/tandem-hero.webp"
-            alt="Tandemhopp over Oslofjorden"
-            fill
-            className="object-cover"
-            priority
-          />
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            poster="/tandemhopp-landing.webp"
+            className="w-full h-full object-cover"
+          >
+            <source src="/tandemhopp.webm" type="video/webm" />
+            <source src="/tandemhopp.mp4" type="video/mp4" />
+          </video>
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent" />
         </div>
 
@@ -339,15 +343,14 @@ export function TandemContent() {
                 Under ser du et eksempel på en typisk tandemvideo
               </p>
             </div>
-            <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl bg-muted">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-20 h-20 rounded-full bg-sky/20 flex items-center justify-center mx-auto mb-4">
-                    <Play className="w-10 h-10 text-sky" />
-                  </div>
-                  <p className="text-muted-foreground">Video placeholder</p>
-                </div>
-              </div>
+            <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl">
+              <iframe
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/8s2Z2td60OI"
+                title="Tandemhopp video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
             </div>
           </motion.div>
         </div>
@@ -561,7 +564,7 @@ export function TandemContent() {
               className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl"
             >
               <Image
-                src="/tandem-landing.webp"
+                src="/tandemhopp-landing.webp"
                 alt="Tandemhopp landing"
                 fill
                 className="object-cover"

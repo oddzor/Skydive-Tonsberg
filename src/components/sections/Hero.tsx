@@ -77,7 +77,7 @@ export function Hero() {
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 hero-text-shadow leading-tight"
           >
             Opplev{" "}
-            <span className="text-gradient">friheten</span>
+            <span className="text-gradient">frihet</span>
             <br />i fritt fall
           </motion.h1>
 

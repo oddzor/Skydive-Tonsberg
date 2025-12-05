@@ -80,7 +80,7 @@ export function Services() {
             Våre tjenester
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-            Finn ditt neste <span className="text-gradient">eventyr</span>
+            Start ditt neste <span className="text-gradient">eventyr</span>
           </h2>
           <p className="text-lg text-muted-foreground">
             Enten du vil prøve fallskjermhopping for første gang eller er en 
