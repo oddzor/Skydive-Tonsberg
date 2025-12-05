@@ -103,6 +103,14 @@ export default function RootLayout({
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
+        {/* Preload logo font for instant rendering */}
+        <link
+          rel="preload"
+          as="font"
+          href="/fonts/masque__.woff2"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
         {/* Preload hero video for better LCP */}
         <link
           rel="preload"
