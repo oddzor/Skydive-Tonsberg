@@ -58,10 +58,10 @@ export function Hero() {
             className="mb-8"
           >
             <Image
-              src="/logo.svg"
+              src="/Skydive_Tonsberg_hero_header.png"
               alt="Skydive Tønsberg"
-              width={400}
-              height={120}
+              width={500}
+              height={123}
               className="h-24 sm:h-32 md:h-40 w-auto mx-auto drop-shadow-2xl"
               priority
             />

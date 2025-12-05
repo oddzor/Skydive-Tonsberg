@@ -55,10 +55,10 @@ export function Header() {
               className="relative"
             >
               <Image
-                src="/logo.svg"
+                src="/Skydive_Tonsberg_hero_header.png"
                 alt="Skydive Tønsberg"
-                width={180}
-                height={50}
+                width={500}
+                height={123}
                 className="h-10 sm:h-12 w-auto"
                 priority
               />

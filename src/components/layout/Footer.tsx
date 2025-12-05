@@ -54,11 +54,11 @@ export function Footer() {
           <motion.div variants={itemVariants} className="lg:col-span-1">
             <Link href="/" className="inline-block mb-6">
               <Image
-                src="/logo.svg"
+                src="/skydive-tonsberg-footer.png"
                 alt="Skydive Tønsberg"
-                width={180}
-                height={50}
-                className="h-12 w-auto brightness-0 invert"
+                width={500}
+                height={123}
+                className="h-12 w-auto"
               />
             </Link>
             <p className="text-background/70 text-sm leading-relaxed mb-6">
