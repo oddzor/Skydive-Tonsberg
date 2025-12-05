@@ -24,11 +24,19 @@ const externalLinks = [
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [showMobileLogo, setShowMobileLogo] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
+      // Hide logo on mobile homepage until scrolled past hero logo (approx 600px)
+      if (window.location.pathname === '/') {
+        setShowMobileLogo(window.scrollY > 600);
+      } else {
+        setShowMobileLogo(true);
+      }
     };
+    handleScroll(); // Check initial state
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -52,7 +60,10 @@ export function Header() {
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="relative"
+              className={cn(
+                "relative transition-opacity duration-300",
+                !showMobileLogo && "md:opacity-100 opacity-0"
+              )}
             >
               <Image
                 src="/Skydive_Tonsberg_hero_header.png"

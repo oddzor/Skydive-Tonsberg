@@ -106,10 +106,9 @@ export function Services() {
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                  <div className={`absolute inset-0 bg-gradient-to-t ${service.gradient} opacity-60`} />
                   <div className="absolute top-4 left-4">
-                    <div className="p-3 rounded-xl bg-white/20 backdrop-blur-sm">
-                      <service.icon className="w-6 h-6 text-white" />
+                    <div className="p-3 rounded-xl bg-white/90 backdrop-blur-sm">
+                      <service.icon className="w-6 h-6 text-foreground" />
                     </div>
                   </div>
                 </div>

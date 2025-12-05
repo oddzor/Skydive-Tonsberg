@@ -340,15 +340,14 @@ export function TandemContent() {
                 Under ser du et eksempel på en typisk tandemvideo
               </p>
             </div>
-            <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl bg-muted">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-20 h-20 rounded-full bg-sky/20 flex items-center justify-center mx-auto mb-4">
-                    <Play className="w-10 h-10 text-sky" />
-                  </div>
-                  <p className="text-muted-foreground">Video placeholder</p>
-                </div>
-              </div>
+            <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl">
+              <iframe
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/olKR6xCSB7M"
+                title="Tandemhopp video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
             </div>
           </motion.div>
         </div>
@@ -562,7 +561,7 @@ export function TandemContent() {
               className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl"
             >
               <Image
-                src="/tandem-landing.webp"
+                src="/tandemhopp-landing.webp"
                 alt="Tandemhopp landing"
                 fill
                 className="object-cover"

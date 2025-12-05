@@ -63,7 +63,7 @@ export function About() {
           className="grid lg:grid-cols-2 gap-16 items-center"
         >
           {/* Content */}
-          <motion.div variants={itemVariants} className="order-2 lg:order-1">
+          <motion.div variants={itemVariants} className="order-1 lg:order-1">
             <span className="inline-block px-3 py-1 text-sm font-medium text-sky bg-sky/10 rounded-full mb-4">
               Om oss
             </span>
@@ -110,7 +110,7 @@ export function About() {
           {/* Image Grid */}
           <motion.div
             variants={itemVariants}
-            className="order-1 lg:order-2 relative"
+            className="order-2 lg:order-2 relative"
           >
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-4">
