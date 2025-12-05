@@ -28,13 +28,13 @@ export function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      const isHomepage = window.location.pathname === '/';
+      // On homepage, only go solid after scrolling past hero (800px)
+      // On other pages, go solid after 20px
+      setScrolled(isHomepage ? window.scrollY > 800 : window.scrollY > 20);
+      
       // Hide logo on mobile homepage until scrolled past hero logo (approx 600px)
-      if (window.location.pathname === '/') {
-        setShowMobileLogo(window.scrollY > 600);
-      } else {
-        setShowMobileLogo(true);
-      }
+      setShowMobileLogo(isHomepage ? window.scrollY > 600 : true);
     };
     handleScroll(); // Check initial state
     window.addEventListener("scroll", handleScroll);
