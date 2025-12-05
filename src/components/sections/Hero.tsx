@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { HeroVideo } from "@/components/ui/hero-video";
 import { ChevronDown, Play } from "lucide-react";
 
 export function Hero() {
@@ -27,20 +28,16 @@ export function Hero() {
         style={{ scale }}
         className="absolute inset-0 z-0"
       >
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
+        <HeroVideo
+          desktopSrc="/herovideo-optimized.webm"
+          mobileSrc="/herovideo-mobile.webm"
           poster="/hero-poster.webp"
           className="w-full h-full object-cover"
-        >
-          <source src="/herovideo.webm" type="video/webm" />
-          <source src="/herovideo.mp4" type="video/mp4" />
-        </video>
+          priority={true}
+        />
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-t  o-b from-black/40 via-black/20 to-black/60" />
-        <div className="absolute inset-0 bg-gradie  nt-to-r from-sky/10 to-leaf/10 mix-blend-overlay" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
+        <div className="absolute inset-0 bg-gradient-to-r from-sky/10 to-leaf/10 mix-blend-overlay" />
       </motion.div>
 
       {/* Content */}

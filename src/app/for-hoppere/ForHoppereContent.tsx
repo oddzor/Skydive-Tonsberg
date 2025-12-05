@@ -43,6 +43,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { HeroVideo } from "@/components/ui/hero-video";
 
 const hoppfeltbriefImages = [
   {
@@ -242,17 +243,13 @@ export function ForHoppereContent() {
       {/* Hero Section */}
       <section className="relative pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden min-h-[85vh] flex items-center">
         <div className="absolute inset-0 z-0">
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
+          <HeroVideo
+            desktopSrc="/for-hoppere-optimized.webm"
+            mobileSrc="/for-hoppere-mobile.webm"
             poster="/for-hoppere-hero.webp"
             className="w-full h-full object-cover"
-          >
-            <source src="/for-hoppere.mov" type="video/quicktime" />
-            <source src="/for-hoppere.mov" type="video/mov" />
-          </video>
+            priority={false}
+          />
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent" />
         </div>
 

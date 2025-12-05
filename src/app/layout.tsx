@@ -103,6 +103,21 @@ export default function RootLayout({
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
+        {/* Preload hero video for better LCP */}
+        <link
+          rel="preload"
+          as="video"
+          href="/herovideo-mobile.webm"
+          type="video/webm"
+          media="(max-width: 768px)"
+        />
+        <link
+          rel="preload"
+          as="video"
+          href="/herovideo-optimized.webm"
+          type="video/webm"
+          media="(min-width: 769px)"
+        />
       </head>
       <body className="font-sans antialiased min-h-screen flex flex-col">
         <Header />

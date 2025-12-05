@@ -27,6 +27,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { HeroVideo } from "@/components/ui/hero-video";
 
 const courseModules = [
   {
@@ -176,17 +177,13 @@ export function KursContent() {
       {/* Hero Section */}
       <section className="relative pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden min-h-[85vh] flex items-center">
         <div className="absolute inset-0 z-0">
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
+          <HeroVideo
+            desktopSrc="/kurs-hero-optimized.webm"
+            mobileSrc="/kurs-hero-mobile.webm"
             poster="/kurs-hero.webp"
             className="w-full h-full object-cover"
-          >
-            <source src="/kurs-hero.webm" type="video/webm" />
-            <source src="/kurs-hero.mp4" type="video/mp4" />
-          </video>
+            priority={false}
+          />
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent" />
         </div>
 
