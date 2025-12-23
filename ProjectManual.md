@@ -39,7 +39,44 @@ https://store.burblesoft.com/?dz_id=551
 instagram.com/skydivetonsberg
 https://www.youtube.com/@skydivetnsberg9501
 
+## Content Management System (CMS)
 
+The website includes a custom CMS that allows non-technical users to update content without code changes.
 
+### Features:
+- **Monthly rotating passwords** for security (password changes automatically every month)
+- **Tab-based interface** organized by page: Home, Tandem, Kurs, For Hoppere
+- **User-friendly forms** with clear labels for editing content
+- **Real-time updates** - changes take effect immediately after saving
 
+### What Can Be Edited:
+- Prices and fees (tandem, courses, jump prices, equipment rentals)
+- FAQ sections on all pages
+- Customer testimonials
+- Course inclusions and descriptions
+- Contact information
+- Accommodation rules and pricing
+
+### What Cannot Be Edited:
+- Page layouts and design
+- Images and videos
+- Main headlines and section structure
+- Website navigation
+
+### Documentation:
+- `CMS_SETUP.md` - Quick setup guide for first-time configuration
+- `CMS_DOCUMENTATION.md` - Comprehensive documentation for users and developers
+- `get-cms-password.js` - Utility script to get current/future passwords
+
+### Technical Details:
+- Content stored in: `/public/cms/content.json`
+- CMS interface: `/cms` route
+- Authentication: Token-based with monthly rotating passwords
+- Password generation: SHA-256 hash of `CMS_SECRET + YYYY-MM`
+
+### Setup:
+1. Create `.env.local` with `CMS_SECRET=your-secret-here`
+2. Run `node get-cms-password.js` to get current password
+3. Access CMS at `/cms` route
+4. See `CMS_SETUP.md` for detailed instructions
 

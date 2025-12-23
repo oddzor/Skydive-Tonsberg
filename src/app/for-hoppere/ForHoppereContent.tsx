@@ -4,6 +4,8 @@ import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { useForHoppereData } from "@/hooks/useForHoppereData";
 import {
   Plane,
   Calendar,
@@ -13,8 +15,6 @@ import {
   CheckCircle2,
   ExternalLink,
   Clock,
-  Sun,
-  Wind,
   ShoppingBag,
   Home,
   CreditCard,
@@ -43,7 +43,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { HeroVideo } from "@/components/ui/hero-video";
 
 const hoppfeltbriefImages = [
   {
@@ -63,142 +62,25 @@ const hoppfeltbriefImages = [
   },
 ];
 
-const facilities = [
-  {
-    title: "Twin Otter LN-JMP",
-    description: "Norges største og beste hoppfly med plass til 20 hoppere. Til 12 500 fot på 10 minutter!",
-    icon: Plane,
-  },
-  {
-    title: "Bunkhouse",
-    description: "16 soveplasser – 7 rom med senger, sengetøy og alt du trenger. Fra 210 kr/natt.",
-    icon: Home,
-  },
-  {
-    title: "Gjestehoppere",
-    description: "Velkommen til Jarlsberg! Registrer deg i resepsjonen og sett opp BurbleMe.",
-    icon: Users,
-  },
-  {
-    title: "Flott beliggenhet",
-    description: "Ved E18 utenfor Tønsberg med fantastisk utsikt over Oslofjorden og skjærgården.",
-    icon: MapPin,
-  },
-];
-
-const pricing = [
-  { name: "Normalhopp", price: "385 kr", note: "" },
-  { name: "Hopperdeal", price: "335 kr", note: "+ 2500 kr innskudd" },
-  { name: "Storhopperdeal", price: "285 kr", note: "+ 10 000 kr innskudd" },
-  { name: "15 000 fot", price: "+60 kr", note: "" },
-];
-
-const registrationFees = [
-  { name: "Årsavgift", price: "1 350 kr" },
-  { name: "Årsavgift veteraner/studenter", price: "950 kr" },
-  { name: "Dagsavgift", price: "150 kr" },
-  { name: "Helgeavgift (lør+søn)", price: "250 kr" },
-  { name: "Ukesavgift (7 dager)", price: "750 kr" },
-];
-
-const equipmentPricing = [
-  { name: "Leierigg per hopp", price: "215 kr" },
-  { name: "Leierigg elever per hopp", price: "125 kr" },
-  { name: "Høydemåler (ARESII), per dag", price: "100 kr" },
-  { name: "Pakk sportsrigg", price: "85 kr" },
-];
-
-const bunkhousingPricing = [
-  { name: "3-manns rom, per natt", price: "210 kr" },
-  { name: "Dobbeltrom single, per natt", price: "370 kr" },
-  { name: "Dobbeltrom to pers., per natt", price: "520 kr" },
-  { name: "Sengetøy og utvask (obligatorisk)", price: "200 kr" },
-  { name: "Bobil/vogn med strøm, per døgn", price: "150 kr" },
-  { name: "Bobil/vogn med strøm, per uke", price: "600 kr" },
-  { name: "Telt/bil/vogn uten strøm, per døgn", price: "80 kr" },
-];
-
-const coursePricing = [
-  { name: "Fallskjermkurs AFF inkl vindtunnel", price: "18 990 kr" },
-  { name: "Omhopp Nivå 1-3", price: "2 070 kr" },
-  { name: "Omhopp Nivå 4-7", price: "1 300 kr" },
-  { name: "Nivå 8 (inkl riggleie)", price: "530 kr" },
-  { name: "Utsjekkshopp Nivå 8", price: "1 065 kr" },
-];
-
-const tandemPricing = [
-  { name: "Tandem ukedager", price: "4 690 kr" },
-  { name: "Tandem lør/søn", price: "5 190 kr" },
-  { name: "Video", price: "800 kr" },
-  { name: "Video og bilder", price: "1 290 kr" },
-  { name: "Full videopakke", price: "1 780 kr" },
-];
-
-const exitOrder = [
-  "Trackinggruppe 1",
-  "FS/Mage-grupper",
-  "Freefly",
-  "AFF Nivå 8",
-  "AFF Nivå 1-7",
-  "Trackinggruppe 2",
-  "Tandem",
-  "Trekke høyt (maks 5000 fot)",
-  "Wingsuit/trackingsuit, øst",
-  "Wingsuit med TL1, øst",
-];
-
-const seasonInfo = [
-  { label: "Sesongstart", value: "17. april", icon: Sun },
-  { label: "Sesongslutt", value: "Medio oktober", icon: Wind },
-  { label: "Åpent", value: "4-7 dager/uke", icon: Calendar },
-  { label: "App", value: "BurbleMe", icon: Smartphone },
-];
-
-const openingHours = [
-  { day: "Mandag - Fredag", hours: "10:00 - 18:00" },
-  { day: "Lørdag", hours: "10:00 - 18:00" },
-  { day: "Søndag", hours: "13:00 - 18:00" },
-];
-
-const faqs = [
-  {
-    question: "Hvordan fornyer jeg medlemskapet?",
-    answer: "Gå til nlf.no/grener/fallskjerm/Medlem/minidrett/ for å fornye medlemskap, forsikring og kompetansebevis.",
-  },
-  {
-    question: "Jeg har ikke hoppet på en stund, hva må jeg gjøre?",
-    answer: "Det avhenger av hvilket kompetansebevis du hadde sist du hoppet, og hvor lenge det er siden. Se tabell i Håndboka del 300, fallskjermlisenser.",
-  },
-  {
-    question: "Hva er vedlikeholdskravene for kompetansebeviset mitt?",
-    answer: "A-bevis: 20 hopp siste år. B-bevis: 20 hopp siste år. C-bevis: 40 hopp siste år. D-bevis: 40 hopp siste år. Se Håndboka del 300 for alle detaljer.",
-  },
-  {
-    question: "Kan jeg sette inn penger på min Burblekonto på Internett?",
-    answer: "Nei, ikke enda. Du må sette inn penger i resepsjonen (debetkort eller cash), eller overføre til vår konto 1594.16.71664.",
-  },
-  {
-    question: "Hva med forsikring for utenlandske hoppere?",
-    answer: "Norske hoppere er dekket gjennom NLF. Utenlandske må ha gyldig tredjeparts ansvarsforsikring. Uten dokumentasjon kan du kjøpe NLFs forsikring for 503 NOK (30 dager). For hoppere utenfor EU/EØS anbefaler vi sterkt reiseforsikring som dekker medisinsk behandling i Norge.",
-  },
-  {
-    question: "Hva er reglene for tracking og wingsuit?",
-    answer: "Maks 3 horisontale grupper per løft: Maks 2 Angle (tracking) + Maks 1 WS/Tracksuit. Sjekk Jumper Manifest Display før du manifesterer deg. Må du tracke når det allerede er to grupper må du koordinere eller finne på noe annet. Bruk 'Angle' under Formation, ikke 'Tracking'.",
-  },
-  {
-    question: "Jeg sliter med Min Idrett. Hva kan jeg gjøre?",
-    answer: "Se tips fra NLF på deres hjemmesider. Husk at det nå heter 'kompetansebevis' og ikke 'lisens' eller 'sertifikat'. Ordet 'lisens' i MinIdrett betyr 'forsikring'.",
-  },
-  {
-    question: "Hvor finner jeg Driftshåndbok JLS?",
-    answer: "Driftshåndboka finner du på jarlsbergluftsportssenter.no. Når du registrerer deg på Skydive Tønsberg må du signere på at du har gjort deg kjent med denne.",
-  },
-];
-
 export function ForHoppereContent() {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const { t } = useLanguage();
+  const {
+    seasonInfo,
+    quickLinks,
+    bunkhousingPricing,
+    bunkhouseRules,
+    exitOrder,
+    pricing,
+    registrationFees,
+    equipmentPricing,
+    coursePricing,
+    tandemPricing,
+    openingHours,
+    faqs,
+  } = useForHoppereData();
 
   return (
     <>
@@ -241,15 +123,19 @@ export function ForHoppereContent() {
       </AnimatePresence>
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden min-h-[85vh] flex items-center">
+      <section className="relative pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden min-h-[90vh] flex items-center">
         <div className="absolute inset-0 z-0">
-          <HeroVideo
-            desktopSrc="/for-hoppere-optimized.webm"
-            mobileSrc="/for-hoppere-mobile.webm"
-            poster="/for-hoppere-hero.webp"
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            poster="/service-experienced.webp"
             className="w-full h-full object-cover"
-            priority={false}
-          />
+          >
+            <source src="/for-hoppere-optimized.webm" type="video/webm" />
+            <source src="/for-hoppere-mobile.webm" type="video/webm" />
+          </video>
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent" />
         </div>
 
@@ -266,15 +152,14 @@ export function ForHoppereContent() {
               transition={{ delay: 0.3 }}
               className="inline-block px-4 py-2 mb-6 text-sm font-medium bg-leaf/20 backdrop-blur-sm rounded-full text-white border border-leaf/30"
             >
-              For erfarne hoppere
+              {t("forHoppere.hero.badge")}
             </motion.span>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-              Kom og få sol, sommer og{" "}
-              <span className="text-gradient">fallskjermhopp!</span>
+              {t("forHoppere.hero.title")}{" "}
+              <span className="text-gradient">{t("forHoppere.hero.titleHighlight")}</span>
             </h1>
             <p className="text-xl text-white/90 mb-8 leading-relaxed">
-              Velkommen til Skydive Tønsberg på Jarlsberg flyplass – 
-              med Norges største og beste hoppfly, Twin Otter LN-JMP!
+              {t("forHoppere.hero.description")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button
@@ -287,7 +172,7 @@ export function ForHoppereContent() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Hoppkalender
+                  {t("forHoppere.hero.jumpCalendar")}
                   <ExternalLink className="ml-2 w-5 h-5" />
                 </a>
               </Button>
@@ -303,7 +188,7 @@ export function ForHoppereContent() {
                   rel="noopener noreferrer"
                 >
                   <Smartphone className="mr-2 w-5 h-5" />
-                  BurbleMe
+                  {t("forHoppere.hero.burbleMe")}
                 </a>
               </Button>
             </div>
@@ -312,7 +197,7 @@ export function ForHoppereContent() {
       </section>
 
       {/* Season Info Bar */}
-      <section className="py-8 bg-sky text-white">
+      <section className="py-10 bg-sky text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {seasonInfo.map((info, index) => (
@@ -339,17 +224,7 @@ export function ForHoppereContent() {
       <section className="py-8 bg-muted/50 border-b">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap justify-center gap-3">
-            {[
-              { label: "Slik fornyer du", href: "#fornye" },
-              { label: "Bunkhouse", href: "#bunkhouse" },
-              { label: "BurbleMe", href: "#burbleme" },
-              { label: "Hoppfeltbrief", href: "#hoppfeltbrief" },
-              { label: "Priser", href: "#priser" },
-              { label: "Flyet", href: "#flyet" },
-              { label: "Forsikring", href: "#forsikring" },
-              { label: "Varsling", href: "#varsling" },
-              { label: "Vær & Kamera", href: "#vaer" },
-            ].map((link) => (
+            {quickLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
@@ -372,13 +247,13 @@ export function ForHoppereContent() {
             className="max-w-3xl mx-auto text-center"
           >
             <span className="inline-block px-3 py-1 text-sm font-medium text-sky bg-sky/10 rounded-full mb-4">
-              Medlemskap
+              {t("forHoppere.renewal.badge")}
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">
-              Slik fornyer du <span className="text-gradient">medlemskapet</span>
+              {t("forHoppere.renewal.title")} <span className="text-gradient">{t("forHoppere.renewal.titleHighlight")}</span>
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
-              Forny medlemskap, forsikring og kompetansebevis via Min Idrett.
+              {t("forHoppere.renewal.description")}
             </p>
             <Button
               asChild
@@ -391,7 +266,7 @@ export function ForHoppereContent() {
                 rel="noopener noreferrer"
               >
                 <FileText className="mr-2 w-5 h-5" />
-                Gå til Min Idrett
+                {t("forHoppere.renewal.button")}
                 <ExternalLink className="ml-2 w-4 h-4" />
               </a>
             </Button>
@@ -409,14 +284,29 @@ export function ForHoppereContent() {
             className="text-center max-w-3xl mx-auto mb-16"
           >
             <span className="inline-block px-3 py-1 text-sm font-medium text-leaf bg-leaf/10 rounded-full mb-4">
-              Overnatting
+              {t("forHoppere.bunkhouse.badge")}
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-              Bunkhouse – <span className="text-gradient">16 soveplasser</span>
+              {t("forHoppere.bunkhouse.title")} <span className="text-gradient">{t("forHoppere.bunkhouse.titleHighlight")}</span>
             </h2>
-            <p className="text-lg text-muted-foreground">
-              Vi har 7 rom tilgjengelig for hoppere. Book i resepsjonen eller via e-post.
+            <p className="text-lg text-muted-foreground mb-6">
+              {t("forHoppere.bunkhouse.description")}
             </p>
+            <Button
+              asChild
+              size="lg"
+              className="bg-gradient-brand hover:opacity-90 text-white font-semibold"
+            >
+              <a
+                href="https://calendly.com/skydive-tonsberg-bunkhouse"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Home className="mr-2 w-5 h-5" />
+                {t("forHoppere.bunkhouse.bookButton")}
+                <ExternalLink className="ml-2 w-4 h-4" />
+              </a>
+            </Button>
           </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-start">
@@ -429,39 +319,21 @@ export function ForHoppereContent() {
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <Home className="w-5 h-5 text-sky" />
-                    Regler for Bunkhouse
+                    {t("forHoppere.bunkhouse.rulesTitle")}
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-3">
                   <ul className="space-y-3">
-                    <li className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-leaf flex-shrink-0 mt-0.5" />
-                      <span>Innsjekk og utsjekk i resepsjonen</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-leaf flex-shrink-0 mt-0.5" />
-                      <span>5 rom med enkeltseng + køyeseng, 2 rom med dobbelseng (140 cm)</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-leaf flex-shrink-0 mt-0.5" />
-                      <span>Dette er til soving, ikke party – festen foregår et annet sted</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-leaf flex-shrink-0 mt-0.5" />
-                      <span>Vi holder madrass, dyne, pute og sengetøy</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-leaf flex-shrink-0 mt-0.5" />
-                      <span>Vi trekker deg i Burble for overnattingen(e)</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-leaf flex-shrink-0 mt-0.5" />
-                      <span>Rom nr. 3 er kun for jenter</span>
-                    </li>
+                    {bunkhouseRules.map((rule, index) => (
+                      <li key={index} className="flex items-start gap-3">
+                        <CheckCircle2 className="w-5 h-5 text-leaf shrink-0 mt-0.5" />
+                        <span>{rule}</span>
+                      </li>
+                    ))}
                   </ul>
                   <div className="pt-4">
                     <p className="text-sm text-muted-foreground">
-                      Kommer du utenom åpningstid? Send oss en e-post til{" "}
+                      {t("forHoppere.bunkhouse.contactText")}{" "}
                       <a href="mailto:info@hoppfallskjerm.no" className="text-sky hover:underline">
                         info@hoppfallskjerm.no
                       </a>
@@ -480,7 +352,7 @@ export function ForHoppereContent() {
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <CreditCard className="w-5 h-5 text-sky" />
-                    Priser overnatting
+                    {t("forHoppere.bunkhouse.pricingTitle")}
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -495,7 +367,7 @@ export function ForHoppereContent() {
                   <div className="mt-6 p-4 bg-muted rounded-lg">
                     <p className="text-sm text-muted-foreground">
                       <AlertCircle className="w-4 h-4 inline mr-1" />
-                      All overnatting skal forhåndsregistreres i resepsjonen. Brudd på dette medfører 500 kr i gebyr.
+                      {t("forHoppere.bunkhouse.warningText")}
                     </p>
                   </div>
                 </CardContent>
@@ -515,13 +387,13 @@ export function ForHoppereContent() {
             className="text-center max-w-3xl mx-auto mb-16"
           >
             <span className="inline-block px-3 py-1 text-sm font-medium text-sky bg-sky/10 rounded-full mb-4">
-              Manifestering
+              {t("forHoppere.burbleMe.badge")}
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-              BurbleMe – <span className="text-gradient">manifester deg selv!</span>
+              {t("forHoppere.burbleMe.title")} <span className="text-gradient">{t("forHoppere.burbleMe.titleHighlight")}</span>
             </h2>
             <p className="text-lg text-muted-foreground mb-4">
-              Du trenger BurbleMe for å hoppe på Skydive Tønsberg. Last ned fra AppStore eller Google Play.
+              {t("forHoppere.burbleMe.description")}
             </p>
             <Button
               asChild
@@ -533,7 +405,7 @@ export function ForHoppereContent() {
                 rel="noopener noreferrer"
               >
                 <Smartphone className="mr-2 w-5 h-5" />
-                Åpne BurbleMe Web
+                {t("forHoppere.burbleMe.openButton")}
               </a>
             </Button>
           </motion.div>
@@ -549,7 +421,7 @@ export function ForHoppereContent() {
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2 text-lg">
                     <Users className="w-5 h-5 text-sky" />
-                    Sett opp profilen
+                    {t("forHoppere.burbleMe.profileSetup.title")}
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
@@ -583,14 +455,14 @@ export function ForHoppereContent() {
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2 text-lg">
                     <CheckCircle2 className="w-5 h-5 text-sky" />
-                    Check In & Formation
+                    {t("forHoppere.burbleMe.checkIn.title")}
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div>
                     <h4 className="font-semibold text-foreground mb-2">Dropzone & Check In</h4>
                     <p className="text-sm text-muted-foreground">
-                      Velg "Skydive Tønsberg" som Dropzone øverst i appen, deretter Check In før du manifesterer.
+                      Velg &quot;Skydive Tønsberg&quot; som Dropzone øverst i appen, deretter Check In før du manifesterer.
                     </p>
                   </div>
                   <div>
@@ -604,7 +476,7 @@ export function ForHoppereContent() {
                     <ul className="text-xs text-muted-foreground space-y-1">
                       <li>• Maks 2 Angle (tracking) grupper</li>
                       <li>• Maks 1 WS/Tracksuit gruppe</li>
-                      <li>• Bruk "Angle", ikke "Tracking" under Formation</li>
+                      <li>• Bruk &quot;Angle&quot;, ikke &quot;Tracking&quot; under Formation</li>
                     </ul>
                   </div>
                 </CardContent>
@@ -622,7 +494,7 @@ export function ForHoppereContent() {
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2 text-lg">
                     <Bell className="w-5 h-5 text-sky" />
-                    Varsling & Sikkerhet
+                    {t("forHoppere.burbleMe.notifications.title")}
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
@@ -635,13 +507,13 @@ export function ForHoppereContent() {
                   <div>
                     <h4 className="font-semibold text-foreground mb-2">Ved utelanding</h4>
                     <p className="text-sm text-muted-foreground">
-                      Bruk "Contact DZ/Emergency" så manifest vet hvor du er. Ha Manifest Notifications påslått!
+                      Bruk &quot;Contact DZ/Emergency&quot; så manifest vet hvor du er. Ha Manifest Notifications påslått!
                     </p>
                   </div>
                   <div>
                     <h4 className="font-semibold text-foreground mb-2">Location tracking</h4>
                     <p className="text-sm text-muted-foreground">
-                      Slå på "Allow Burble to track my location when I am on a load" under Settings for ekstra sikkerhet.
+                      Slå på &quot;Allow Burble to track my location when I am on a load&quot; under Settings for ekstra sikkerhet.
                     </p>
                   </div>
                 </CardContent>
@@ -661,13 +533,13 @@ export function ForHoppereContent() {
             className="text-center max-w-3xl mx-auto mb-16"
           >
             <span className="inline-block px-3 py-1 text-sm font-medium text-leaf bg-leaf/10 rounded-full mb-4">
-              Du skal kunne hoppfeltbriefen!
+              {t("forHoppere.hoppfeltbrief.badge")}
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-              Hoppfeltbrief & <span className="text-gradient">prosedyrer</span>
+              {t("forHoppere.hoppfeltbrief.title")} <span className="text-gradient">{t("forHoppere.hoppfeltbrief.titleHighlight")}</span>
             </h2>
             <p className="text-lg text-muted-foreground">
-              Lokale forhold og bestemmelser for hopping på Jarlsberg flyplass.
+              {t("forHoppere.hoppfeltbrief.description")}
             </p>
           </motion.div>
 
@@ -683,7 +555,7 @@ export function ForHoppereContent() {
                 onClick={() => setSelectedImage(image.src)}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-lg group cursor-pointer"
+                className="relative aspect-4/3 rounded-xl overflow-hidden shadow-lg group cursor-pointer"
               >
                 <Image
                   src={image.src}
@@ -706,7 +578,7 @@ export function ForHoppereContent() {
             ))}
           </div>
           <p className="text-sm text-muted-foreground text-center mb-12">
-            Klikk på bildene for å se dem i full størrelse
+            {t("forHoppere.hoppfeltbrief.clickToZoom")}
           </p>
 
           <div className="grid lg:grid-cols-2 gap-12">
@@ -716,13 +588,13 @@ export function ForHoppereContent() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h3 className="text-2xl font-bold text-foreground mb-6">Exitrekkefølge</h3>
+              <h3 className="text-2xl font-bold text-foreground mb-6">{t("forHoppere.hoppfeltbrief.exitOrderTitle")}</h3>
               <Card className="border-0 shadow-lg">
                 <CardContent className="p-6">
                   <ol className="space-y-2">
                     {exitOrder.map((item, index) => (
                       <li key={index} className="flex items-center gap-3">
-                        <span className="w-7 h-7 rounded-full bg-sky text-white text-sm flex items-center justify-center font-semibold flex-shrink-0">
+                        <span className="w-7 h-7 rounded-full bg-sky text-white text-sm flex items-center justify-center font-semibold shrink-0">
                           {index + 1}
                         </span>
                         <span className="text-foreground">{item}</span>
@@ -730,7 +602,7 @@ export function ForHoppereContent() {
                     ))}
                   </ol>
                   <p className="text-sm text-muted-foreground mt-4 p-3 bg-muted rounded-lg">
-                    Tid mellom gruppene er ca 7-9 sekunder hvis ikke annet er sagt av hoppmester.
+                    {t("forHoppere.hoppfeltbrief.exitOrderNote")}
                   </p>
                 </CardContent>
               </Card>
@@ -744,7 +616,7 @@ export function ForHoppereContent() {
               transition={{ delay: 0.1 }}
               className="space-y-6"
             >
-              <h3 className="text-2xl font-bold text-foreground mb-6">Prosedyrer</h3>
+              <h3 className="text-2xl font-bold text-foreground mb-6">{t("forHoppere.hoppfeltbrief.proceduresTitle")}</h3>
               
               <Card className="border-0 shadow-lg">
                 <CardContent className="p-6 space-y-4">
@@ -800,10 +672,10 @@ export function ForHoppereContent() {
             className="text-center max-w-3xl mx-auto mb-16"
           >
             <span className="inline-block px-3 py-1 text-sm font-medium text-sky bg-sky/10 rounded-full mb-4">
-              Priser 2025
+              {t("forHoppere.pricing.badge")}
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-              Priser, dealer og <span className="text-gradient">avgifter</span>
+              {t("forHoppere.pricing.title")} <span className="text-gradient">{t("forHoppere.pricing.titleHighlight")}</span>
             </h2>
           </motion.div>
 
@@ -813,7 +685,7 @@ export function ForHoppereContent() {
               <CardHeader className="bg-sky text-white rounded-t-xl">
                 <CardTitle className="flex items-center gap-2">
                   <Plane className="w-5 h-5" />
-                  Hoppriser
+                  {t("forHoppere.pricing.jumpPrices")}
                 </CardTitle>
               </CardHeader>
               <CardContent className="pt-6">
@@ -834,11 +706,11 @@ export function ForHoppereContent() {
             </Card>
 
             {/* Registration fees */}
-            <Card className="border-0 shadow-lg">
+              <Card className="border-0 shadow-lg">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-lg">
                   <CreditCard className="w-5 h-5 text-sky" />
-                  Registreringsavgift
+                  {t("forHoppere.pricing.registrationFees")}
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -1054,7 +926,7 @@ export function ForHoppereContent() {
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl"
+              className="relative aspect-4/3 rounded-2xl overflow-hidden shadow-2xl"
             >
               <Image
                 src="/ln-jmp.webp"
@@ -1174,7 +1046,7 @@ export function ForHoppereContent() {
                     Vi benytter MittVarsel, en digital portal for trygg og sikker varsling. Du kan varsle med navn eller anonymt.
                   </p>
                   <p className="text-sm text-muted-foreground mb-4">
-                    Velg: <strong>"Idrettslag & Idrettsråd"</strong> → <strong>"Vestfold og Telemark"</strong> → <strong>"Tønsberg Fallskjermklubb"</strong>
+                    Velg: <strong>&quot;Idrettslag & Idrettsråd&quot;</strong> → <strong>&quot;Vestfold og Telemark&quot;</strong> → <strong>&quot;Tønsberg Fallskjermklubb&quot;</strong>
                   </p>
                   <Button asChild variant="outline">
                     <a
@@ -1348,7 +1220,7 @@ export function ForHoppereContent() {
               <Card className="border-0 shadow-lg">
                 <CardContent className="p-6 space-y-4">
                   <div className="flex items-start gap-4">
-                    <MapPin className="w-5 h-5 text-sky flex-shrink-0 mt-1" />
+                    <MapPin className="w-5 h-5 text-sky shrink-0 mt-1" />
                     <div>
                       <p className="font-semibold text-foreground">Adresse</p>
                       <p className="text-muted-foreground">Flyplassveien 6, 3170 Sem</p>
@@ -1356,7 +1228,7 @@ export function ForHoppereContent() {
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
-                    <Phone className="w-5 h-5 text-sky flex-shrink-0 mt-1" />
+                    <Phone className="w-5 h-5 text-sky shrink-0 mt-1" />
                     <div>
                       <p className="font-semibold text-foreground">Telefon</p>
                       <a href="tel:+4733380670" className="text-muted-foreground hover:text-sky">
@@ -1365,7 +1237,7 @@ export function ForHoppereContent() {
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
-                    <Mail className="w-5 h-5 text-sky flex-shrink-0 mt-1" />
+                    <Mail className="w-5 h-5 text-sky shrink-0 mt-1" />
                     <div>
                       <p className="font-semibold text-foreground">E-post</p>
                       <a href="mailto:info@hoppfallskjerm.no" className="text-muted-foreground hover:text-sky">
@@ -1374,7 +1246,7 @@ export function ForHoppereContent() {
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
-                    <Clock className="w-5 h-5 text-sky flex-shrink-0 mt-1" />
+                    <Clock className="w-5 h-5 text-sky shrink-0 mt-1" />
                     <div>
                       <p className="font-semibold text-foreground">Åpningstider</p>
                       {openingHours.map((item) => (

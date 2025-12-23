@@ -4,6 +4,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useMemo } from "react";
 import Image from "next/image";
 import { Users, Award, Shield, Heart } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 // Club founded in September 1981
 const FOUNDING_YEAR = 1981;
@@ -21,11 +22,11 @@ function calculateYearsOfExperience(): number {
   return currentYear - FOUNDING_YEAR;
 }
 
-const getStats = () => [
-  { label: "Aktive medlemmer", value: "400+", icon: Users },
-  { label: "År med erfaring", value: `${calculateYearsOfExperience()}+`, icon: Award },
-  { label: "Sikre hopp årlig", value: "20 000+", icon: Shield },
-  { label: "Fornøyde hoppere", value: "100%", icon: Heart },
+const getStats = (t: (key: string) => string) => [
+  { label: t('home.about.stats.members'), value: "400+", icon: Users },
+  { label: t('home.about.stats.experience'), value: `${calculateYearsOfExperience()}+`, icon: Award },
+  { label: t('home.about.stats.jumps'), value: "20 000+", icon: Shield },
+  { label: t('home.about.stats.satisfaction'), value: "100%", icon: Heart },
 ];
 
 const containerVariants = {
@@ -48,9 +49,10 @@ const itemVariants = {
 };
 
 export function About() {
+  const { t } = useLanguage();
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const stats = useMemo(() => getStats(), []);
+  const stats = useMemo(() => getStats(t), [t]);
 
   return (
     <section id="about" className="py-24 lg:py-32 bg-gradient-hero">
@@ -65,27 +67,22 @@ export function About() {
           {/* Content */}
           <motion.div variants={itemVariants} className="order-1 lg:order-1">
             <span className="inline-block px-3 py-1 text-sm font-medium text-sky bg-sky/10 rounded-full mb-4">
-              Om oss
+              {t('home.about.badge')}
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6 leading-tight">
-              Din port til{" "}
-              <span className="text-gradient">himmelen</span>
+              {t('home.about.title')}{" "}
+              <span className="text-gradient">{t('home.about.titleHighlight')}</span>
             </h2>
             <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-              Skydive Tønsberg er en av Norges mest etablerte og aktive 
-              fallskjermklubber. Med base på Tønsberg Flyplass (Jarlsberg) 
-              tilbyr vi alt fra tandemhopp for nybegynnere til avansert 
-              trening for erfarne hoppere.
+              {t('home.about.description1')}
             </p>
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              Vårt dedikerte team av instruktører og erfarne hoppere sørger for 
-              at hver eneste opplevelse er trygg, spennende og minneverdig. 
-              Bli med i vårt fellesskap og oppdag gleden ved fritt fall!
+              {t('home.about.description2')}
             </p>
 
             {/* Stats Grid */}
             <div className="grid grid-cols-2 gap-6">
-              {stats.map((stat, index) => (
+              {stats.map((stat) => (
                 <motion.div
                   key={stat.label}
                   variants={itemVariants}
@@ -116,7 +113,7 @@ export function About() {
               <div className="space-y-4">
                 <motion.div
                   whileHover={{ scale: 1.02 }}
-                  className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl"
+                  className="relative aspect-4/5 rounded-2xl overflow-hidden shadow-2xl"
                 >
                   <Image
                     src="/about-1.webp"
@@ -151,7 +148,7 @@ export function About() {
                 </motion.div>
                 <motion.div
                   whileHover={{ scale: 1.02 }}
-                  className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl"
+                  className="relative aspect-4/5 rounded-2xl overflow-hidden shadow-2xl"
                 >
                   <Image
                     src="/about-4.webp"

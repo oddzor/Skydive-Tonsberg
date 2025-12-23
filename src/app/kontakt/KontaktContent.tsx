@@ -18,35 +18,37 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { useKontaktData } from "@/hooks/useKontaktData";
 
-const contactInfo = [
+const getContactInfoWithIcons = (t: (key: string) => string) => [
   {
     icon: Mail,
-    label: "E-post",
-    value: "post@skydivetonsberg.no",
-    href: "mailto:post@skydivetonsberg.no",
+    label: t('kontakt.info.email.label'),
+    value: t('kontakt.info.email.value'),
+    href: `mailto:${t('kontakt.info.email.value')}`,
     color: "text-sky",
     bgColor: "bg-sky/10",
   },
   {
     icon: MapPin,
-    label: "Adresse",
-    value: "Tønsberg Flyplass, Jarlsberg",
+    label: t('kontakt.info.address.label'),
+    value: t('kontakt.info.address.value'),
     href: "https://goo.gl/maps/YOUR_MAPS_LINK",
     color: "text-leaf",
     bgColor: "bg-leaf/10",
   },
   {
     icon: Clock,
-    label: "Åpent",
-    value: "Hopphelger lør-søn i sesongen",
+    label: t('kontakt.info.hours.label'),
+    value: t('kontakt.info.hours.value'),
     href: "https://www.skydivetonsberg.no/hoppkalender-1",
     color: "text-sky",
     bgColor: "bg-sky/10",
   },
 ];
 
-const socialLinks = [
+const socialLinksWithIcons = [
   {
     name: "Instagram",
     href: "https://instagram.com/skydivetonsberg",
@@ -61,14 +63,11 @@ const socialLinks = [
   },
 ];
 
-const inquiryTypes = [
-  { value: "tandem", label: "Tandemhopp" },
-  { value: "kurs", label: "AFF Grunnkurs" },
-  { value: "gjest", label: "Gjesthopping" },
-  { value: "annet", label: "Annet" },
-];
-
 export function KontaktContent() {
+  const { t } = useLanguage();
+  const { contactInfo, socialLinks } = useKontaktData();
+  const contactInfoWithIcons = getContactInfoWithIcons(t);
+  
   const [formState, setFormState] = useState({
     name: "",
     email: "",
@@ -78,6 +77,13 @@ export function KontaktContent() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const inquiryTypes = [
+    { value: "tandem", label: t('kontakt.form.typeOptions.tandem') },
+    { value: "kurs", label: t('kontakt.form.typeOptions.course') },
+    { value: "gjest", label: t('kontakt.form.typeOptions.guest') },
+    { value: "annet", label: t('kontakt.form.typeOptions.other') },
+  ];
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -121,14 +127,13 @@ export function KontaktContent() {
               transition={{ delay: 0.3 }}
               className="inline-block px-4 py-2 mb-6 text-sm font-medium bg-sky/10 rounded-full text-sky border border-sky/20"
             >
-              Vi er her for deg
+              {t('kontakt.hero.badge')}
             </motion.span>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
-              Ta <span className="text-gradient">kontakt</span> med oss
+              {t('kontakt.hero.title')} <span className="text-gradient">{t('kontakt.hero.titleHighlight')}</span> {t('kontakt.hero.titleEnd')}
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Har du spørsmål om fallskjermhopping? Vi hjelper deg gjerne! 
-              Send oss en melding eller kontakt oss direkte.
+              {t('kontakt.hero.description')}
             </p>
           </motion.div>
         </div>
@@ -138,7 +143,7 @@ export function KontaktContent() {
       <section className="py-12 -mt-8 relative z-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            {contactInfo.map((item, index) => (
+            {contactInfoWithIcons.map((item, index) => (
               <motion.a
                 key={item.label}
                 href={item.href}
@@ -180,7 +185,7 @@ export function KontaktContent() {
               transition={{ duration: 0.6 }}
             >
               <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-6">
-                Send oss en <span className="text-gradient">melding</span>
+                {t('kontakt.form.title')}
               </h2>
               
               {isSubmitted ? (
@@ -191,10 +196,10 @@ export function KontaktContent() {
                 >
                   <CheckCircle2 className="w-16 h-16 text-leaf mx-auto mb-4" />
                   <h3 className="text-xl font-semibold text-foreground mb-2">
-                    Takk for din henvendelse!
+                    {t('kontakt.form.successTitle')}
                   </h3>
                   <p className="text-muted-foreground">
-                    Vi har mottatt meldingen din og vil svare så snart som mulig.
+                    {t('kontakt.form.successMessage')}
                   </p>
                 </motion.div>
               ) : (
@@ -205,7 +210,7 @@ export function KontaktContent() {
                         htmlFor="name"
                         className="block text-sm font-medium text-foreground mb-2"
                       >
-                        Navn *
+                        {t('kontakt.form.name')} *
                       </label>
                       <Input
                         id="name"
@@ -214,7 +219,7 @@ export function KontaktContent() {
                         required
                         value={formState.name}
                         onChange={handleChange}
-                        placeholder="Ditt navn"
+                        placeholder={t('kontakt.form.namePlaceholder')}
                         className="h-12"
                       />
                     </div>
@@ -223,7 +228,7 @@ export function KontaktContent() {
                         htmlFor="email"
                         className="block text-sm font-medium text-foreground mb-2"
                       >
-                        E-post *
+                        {t('kontakt.form.email')} *
                       </label>
                       <Input
                         id="email"
@@ -232,7 +237,7 @@ export function KontaktContent() {
                         required
                         value={formState.email}
                         onChange={handleChange}
-                        placeholder="din@epost.no"
+                        placeholder={t('kontakt.form.emailPlaceholder')}
                         className="h-12"
                       />
                     </div>
@@ -244,7 +249,7 @@ export function KontaktContent() {
                         htmlFor="phone"
                         className="block text-sm font-medium text-foreground mb-2"
                       >
-                        Telefon
+                        {t('kontakt.form.phone')}
                       </label>
                       <Input
                         id="phone"
@@ -252,7 +257,7 @@ export function KontaktContent() {
                         type="tel"
                         value={formState.phone}
                         onChange={handleChange}
-                        placeholder="12345678"
+                        placeholder={t('kontakt.form.phonePlaceholder')}
                         className="h-12"
                       />
                     </div>
@@ -261,7 +266,7 @@ export function KontaktContent() {
                         htmlFor="type"
                         className="block text-sm font-medium text-foreground mb-2"
                       >
-                        Henvendelse gjelder *
+                        {t('kontakt.form.type')} *
                       </label>
                       <select
                         id="type"
@@ -269,9 +274,9 @@ export function KontaktContent() {
                         required
                         value={formState.type}
                         onChange={handleChange}
-                        className="flex h-12 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                        className="w-full h-12 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                       >
-                        <option value="">Velg type</option>
+                        <option value="">{t('kontakt.form.typePlaceholder')}</option>
                         {inquiryTypes.map((type) => (
                           <option key={type.value} value={type.value}>
                             {type.label}
@@ -286,7 +291,7 @@ export function KontaktContent() {
                       htmlFor="message"
                       className="block text-sm font-medium text-foreground mb-2"
                     >
-                      Melding *
+                      {t('kontakt.form.message')} *
                     </label>
                     <Textarea
                       id="message"
@@ -294,33 +299,35 @@ export function KontaktContent() {
                       required
                       value={formState.message}
                       onChange={handleChange}
-                      placeholder="Skriv din melding her..."
+                      placeholder={t('kontakt.form.messagePlaceholder')}
                       rows={6}
+                      className="resize-none"
                     />
                   </div>
 
                   <Button
                     type="submit"
-                    size="lg"
                     disabled={isSubmitting}
-                    className="w-full sm:w-auto bg-gradient-brand hover:opacity-90 text-white font-semibold px-8"
+                    size="lg"
+                    className="w-full bg-gradient-brand hover:opacity-90 text-white font-semibold h-12"
                   >
                     {isSubmitting ? (
-                      <>
-                        <span className="animate-pulse">Sender...</span>
-                      </>
+                      <span className="flex items-center gap-2">
+                        <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                        {t('kontakt.form.sending')}
+                      </span>
                     ) : (
-                      <>
-                        <Send className="mr-2 w-5 h-5" />
-                        Send melding
-                      </>
+                      <span className="flex items-center gap-2">
+                        <Send className="w-5 h-5" />
+                        {t('kontakt.form.submit')}
+                      </span>
                     )}
                   </Button>
                 </form>
               )}
             </motion.div>
 
-            {/* Sidebar */}
+            {/* Social Links & Info */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -329,104 +336,41 @@ export function KontaktContent() {
               className="space-y-8"
             >
               {/* Social Media */}
-              <Card className="border-0 shadow-lg overflow-hidden">
-                <CardContent className="p-6">
-                  <h3 className="text-lg font-semibold text-foreground mb-4">
-                    Følg oss
-                  </h3>
-                  <div className="space-y-4">
-                    {socialLinks.map((social) => (
-                      <a
-                        key={social.name}
-                        href={social.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-4 p-3 rounded-xl hover:bg-muted transition-colors group"
-                      >
-                        <div className="w-12 h-12 rounded-xl bg-gradient-brand flex items-center justify-center text-white">
-                          <social.icon className="w-6 h-6" />
-                        </div>
-                        <div className="flex-1">
-                          <p className="font-medium text-foreground">
-                            {social.name}
-                          </p>
-                          <p className="text-sm text-muted-foreground">
-                            {social.handle}
-                          </p>
-                        </div>
-                        <ExternalLink className="w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors" />
-                      </a>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Map / Location Image */}
-              <Card className="border-0 shadow-lg overflow-hidden">
-                <div className="relative aspect-video">
-                  <Image
-                    src="/map-location.webp"
-                    alt="Kart over beliggenhet"
-                    fill
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                  <div className="absolute bottom-4 left-4 right-4 text-white">
-                    <p className="font-semibold">Tønsberg Flyplass (Jarlsberg)</p>
-                    <p className="text-sm text-white/80">Vestfold, Norge</p>
-                  </div>
+              <div>
+                <h3 className="text-xl font-bold text-foreground mb-4">
+                  {t('kontakt.social.title')}
+                </h3>
+                <div className="space-y-4">
+                  {socialLinksWithIcons.map((social) => (
+                    <a
+                      key={social.name}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-4 p-4 rounded-xl bg-card hover:bg-muted/50 transition-colors group"
+                    >
+                      <div className="w-12 h-12 rounded-xl bg-gradient-brand flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <social.icon className="w-6 h-6 text-white" />
+                      </div>
+                      <div>
+                        <p className="font-semibold text-foreground">{social.name}</p>
+                        <p className="text-sm text-muted-foreground">{social.handle}</p>
+                      </div>
+                      <ExternalLink className="w-5 h-5 text-muted-foreground ml-auto opacity-0 group-hover:opacity-100 transition-opacity" />
+                    </a>
+                  ))}
                 </div>
-                <CardContent className="p-4">
-                  <Button asChild variant="outline" className="w-full">
-                    <a
-                      href="https://goo.gl/maps/YOUR_MAPS_LINK"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <MapPin className="mr-2 w-4 h-4" />
-                      Åpne i Google Maps
-                    </a>
-                  </Button>
-                </CardContent>
-              </Card>
+              </div>
 
-              {/* Quick Links */}
-              <Card className="border-0 shadow-lg">
-                <CardContent className="p-6">
-                  <h3 className="text-lg font-semibold text-foreground mb-4">
-                    Rask tilgang
-                  </h3>
-                  <div className="space-y-3">
-                    <a
-                      href="https://bookings.burblesoft.eu/551/18"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-3 p-3 rounded-xl bg-sky/10 hover:bg-sky/20 transition-colors"
-                    >
-                      <span className="text-sky font-medium">→</span>
-                      <span className="text-foreground">Book tandemhopp</span>
-                    </a>
-                    <a
-                      href="https://www.skydivetonsberg.no/hoppkalender-1"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-3 p-3 rounded-xl bg-leaf/10 hover:bg-leaf/20 transition-colors"
-                    >
-                      <span className="text-leaf font-medium">→</span>
-                      <span className="text-foreground">Se hoppkalender</span>
-                    </a>
-                    <a
-                      href="https://store.burblesoft.com/?dz_id=551"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-3 p-3 rounded-xl bg-muted hover:bg-muted/80 transition-colors"
-                    >
-                      <span className="text-foreground font-medium">→</span>
-                      <span className="text-foreground">Nettbutikk</span>
-                    </a>
-                  </div>
-                </CardContent>
-              </Card>
+              {/* Image */}
+              <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-xl">
+                <Image
+                  src="/contact-team.webp"
+                  alt="Skydive Tønsberg Team"
+                  fill
+                  className="object-cover"
+                />
+              </div>
             </motion.div>
           </div>
         </div>
@@ -434,9 +378,4 @@ export function KontaktContent() {
     </>
   );
 }
-
-
-
-
-
 

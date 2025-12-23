@@ -2,8 +2,6 @@ import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://skydivetonsberg.no";
-
-  // Define all static routes
   const routes = [
     {
       url: baseUrl,
@@ -33,6 +31,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return routes;
 }
+
+
 
 
 

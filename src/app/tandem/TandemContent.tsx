@@ -1,22 +1,10 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
-import Image from "next/image";
-import Link from "next/link";
+import { motion } from "framer-motion";
 import {
-  Plane,
-  Users,
-  Clock,
   CheckCircle2,
-  ArrowRight,
   ExternalLink,
   Camera,
-  Gift,
-  MapPin,
-  AlertCircle,
-  Heart,
-  Play,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -27,263 +15,157 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { HeroVideo } from "@/components/ui/hero-video";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { useTandemData } from "@/hooks/useTandemData";
 
-const highlights = [
+const getPricing = (t: (key: string) => string) => [
   {
-    title: "Desidert nærmest Oslo",
-    description: "Ved E18 utenfor Tønsberg, enkelt tilgjengelig fra hele østlandet.",
-    icon: MapPin,
-  },
-  {
-    title: "Vakker utsikt",
-    description: "Fantastisk panorama over Oslofjorden og Tønsbergs skjærgård.",
-    icon: Heart,
-  },
-  {
-    title: "Norges beste fly",
-    description: "Twin Otter med plass til 20 hoppere – det største og beste hoppflyet i Norge.",
-    icon: Plane,
-  },
-  {
-    title: "Erfarne instruktører",
-    description: "Våre tandeminstruktører er blant landets mest erfarne og tar deg trygt gjennom hoppet.",
-    icon: Users,
-  },
-];
-
-const pricing = [
-  {
-    name: "Tandemhopp ukedag",
+    name: t('tandem.pricing.weekday.name'),
     price: "4 690",
-    description: "Mandag - Fredag",
+    description: t('tandem.pricing.weekday.description'),
     popular: false,
   },
   {
-    name: "Tandemhopp helg",
+    name: t('tandem.pricing.weekend.name'),
     price: "5 190",
-    description: "Lørdag - Søndag",
+    description: t('tandem.pricing.weekend.description'),
     popular: true,
   },
 ];
 
-const mediaPackages = [
+const getMediaPackages = (t: (key: string) => string) => [
   {
-    name: "Video",
+    name: t('tandem.pricing.media.video.name'),
     price: "800 kr",
-    description: "Profesjonell video av hoppet ditt",
+    description: t('tandem.pricing.media.video.description'),
   },
   {
-    name: "Video og bilder",
+    name: t('tandem.pricing.media.videoPhotos.name'),
     price: "1 290 kr",
-    description: "Video + stillbilder fra fritt fall og landing",
+    description: t('tandem.pricing.media.videoPhotos.description'),
   },
   {
-    name: "Full videopakke",
+    name: t('tandem.pricing.media.fullPackage.name'),
     price: "1 780 kr",
-    description: "Egen kameraperson + video fra instruktørens arm + bilder",
-  },
-];
-
-const requirements = [
-  "Fylt 18 år – eller fra 16 år med skriftlig aksept fra begge foresatte",
-  "Godkjent legeerklæring hvis du er over 80 år",
-  "Maksimal vekt 110 kg",
-  "Ikke påvirket av rusmidler",
-];
-
-const jumpDaySteps = [
-  {
-    step: 1,
-    title: "Ankomst og registrering",
-    description: "Meld deg i resepsjonen, se sikkerhetsvideo og fyll ut skjema.",
-  },
-  {
-    step: 2,
-    title: "Briefing med instruktør",
-    description: "Du får hoppdress, seletøy og gjennomgang med din tandeminstruktør.",
-  },
-  {
-    step: 3,
-    title: "Flytur til 4000 meter",
-    description: "10-12 minutter opp med fantastisk utsikt over Tønsbergs skjærgård.",
-  },
-  {
-    step: 4,
-    title: "Fritt fall!",
-    description: "Ca. 40 sekunder i fritt fall i rundt 200 km/t – ren adrenalin!",
-  },
-  {
-    step: 5,
-    title: "Skjermtur",
-    description: "5 minutter under skjerm fra 1500 meter – kanskje du får styre litt?",
-  },
-  {
-    step: 6,
-    title: "Myk landing",
-    description: "Instruktøren lander deg trygt på landingsområdet.",
-  },
-];
-
-const faqs = [
-  {
-    question: "Hoppet skal være en overraskelse – hva gjør jeg?",
-    answer: "Når du booker for andre, og det skal være en overraskelse, oppgi DIN e-post og DITT mobilnr – da kommuniserer vi bare med deg. Våre regler sier at den som hopper skal varsles minst 48 timer før hoppet.",
-  },
-  {
-    question: "Værmeldinga er dårlig, blir det hopping?",
-    answer: "Vi hopper ikke når det regner, er for mye vind (mer enn 11 m/s), eller hvis skydekket er lavt eller tett. Dersom vi må kansellere varsler vi deg på SMS samme dag. Hører du ikke fra oss er det bare å komme!",
-  },
-  {
-    question: "Jeg veier over 100 kg, kan jeg hoppe?",
-    answer: "I enkelte tilfeller tillater vi over 100 kg, men det er avhengig av din fysiske tilstand/form, og vurderes av instruktøren i hvert tilfelle. Maksgrense er 110 kg. Vær- og vindforhold spiller også inn.",
-  },
-  {
-    question: "Kan jeg hoppe sammen med andre?",
-    answer: "Ja! Dere vil være på samme fly, inntil 4 samtidig, og hopper ut med ca. 10 sekunders mellomrom. Dere lander på samme sted med kort mellomrom. Har du en venn som er fallskjermhopper kan han/hun hoppe sammen med deg hvis instruktøren godkjenner det.",
-  },
-  {
-    question: "Hva skjer hvis hoppet mitt blir kansellert?",
-    answer: "Dersom vi må kansellere pga vær eller andre årsaker, booker vi deg kostnadsfritt på et nytt tidspunkt. Eller vi refunderer det du har betalt, bortsett fra depositumet. Opp til deg!",
-  },
-  {
-    question: "Hvor lenge er gavekortet gyldig?",
-    answer: "Gavekortet er gyldig i 12 måneder fra kjøpsdato. Du kan gi det videre til andre hvis du ikke benytter det selv.",
-  },
-  {
-    question: "Jeg har ikke fått link til filmen fra hoppet!",
-    answer: "Sjekk spamfilteret ditt. Avsender er skydive-tonsberg.wetransfer.com. Du kan også søke på 'wetransfer' på PC-en din. Finner du den fremdeles ikke – kontakt oss!",
-  },
-  {
-    question: "Hvor lang tid i forveien bør jeg bestille?",
-    answer: "Høysesongen er fra mai til ut oktober. De populære tidspunktene fylles fort opp, spesielt lørdager og søndager. Book så tidlig som mulig for å sikre ønsket tidspunkt. På hverdager er det mer romslig med plass.",
+    description: t('tandem.pricing.media.fullPackage.description'),
   },
 ];
 
 export function TandemContent() {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const { t } = useLanguage();
+  const { highlights, requirements, jumpDaySteps, faqData } = useTandemData();
+  const pricing = getPricing(t);
+  const mediaPackages = getMediaPackages(t);
 
   return (
     <>
       {/* Hero Section */}
-      <section className="relative pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden min-h-[85vh] flex items-center">
+      <section className="relative pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden min-h-[90vh] flex items-center">
         <div className="absolute inset-0 z-0">
           <HeroVideo
             desktopSrc="/tandemhopp-optimized.webm"
             mobileSrc="/tandemhopp-mobile.webm"
             poster="/tandemhopp-landing.webp"
             className="w-full h-full object-cover"
-            priority={false}
+            priority={true}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent" />
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-2xl"
-          >
-            <motion.span
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.3 }}
-              className="inline-block px-4 py-2 mb-6 text-sm font-medium bg-sky/20 backdrop-blur-sm rounded-full text-white border border-sky/30"
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
             >
-              Tandemhopp
-            </motion.span>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-              Opplev{" "}
-              <span className="text-gradient">frihet i fritt fall</span>
-            </h1>
-            <p className="text-xl text-white/90 mb-4 leading-relaxed">
-              Lyst på en luftetur og et adrenalinkick av de sjeldne? Kjenne spenningen 
-              når du faller fritt mot moder jord? Da er et tandemhopp noe for deg!
-            </p>
-            <p className="text-lg text-white/70 mb-8">
-              Fra <span className="text-2xl font-bold text-white">4000 meter</span> får du 
-              ca. <span className="text-2xl font-bold text-white">40 sekunder</span> fritt fall 
-              før instruktøren utløser fallskjermen.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button
-                asChild
-                size="lg"
-                className="bg-gradient-brand hover:opacity-90 text-white font-semibold px-8"
-              >
-                <a
-                  href="https://bookings.burblesoft.eu/551/18"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Book Tandemhopp
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </a>
-              </Button>
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="border-white/30 bg-white/10 text-white hover:bg-white/20"
-              >
-                <a
-                  href="https://bookings.burblesoft.eu/551/18"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Gift className="mr-2 w-5 h-5" />
-                  Kjøp Gavekort
-                </a>
-              </Button>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+              <span className="inline-block px-3 py-1 text-sm font-medium bg-sky/20 rounded-full mb-4 text-white backdrop-blur-sm">
+                {t('tandem.hero.badge')}
+              </span>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 leading-tight">
+                {t('tandem.hero.title')}{" "}
+                <span className="text-gradient-bright">{t('tandem.hero.titleHighlight')}</span>
+              </h1>
+              <p className="text-lg sm:text-xl text-white/90 mb-8 leading-relaxed">
+                {t('tandem.hero.description')}
+              </p>
 
-      {/* Price Banner */}
-      <section className="bg-sky text-white py-8">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="text-center md:text-left">
-              <p className="text-black/70 text-sm font-medium mb-1">Fra kun</p>
-              <p className="text-4xl font-bold">4 690 kr!</p>
-              <p className="text-black/70 text-sm">Inkl. alt av avgifter, medlemskap og forsikring</p>
-            </div>
-            <div className="flex flex-wrap justify-center gap-8 text-center">
-              <div>
-                <p className="text-2xl font-bold">4000m</p>
-                <p className="text-black/70 text-sm">Hopphøyde</p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-gradient-brand hover:opacity-90 text-white font-semibold px-8 py-6 text-lg shadow-2xl"
+                >
+                  <a
+                    href="https://bookings.burblesoft.eu/551/18"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2"
+                  >
+                    <ExternalLink className="w-5 h-5" />
+                    {t('tandem.hero.bookNow')}
+                  </a>
+                </Button>
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20 px-8 py-6 text-lg"
+                >
+                  <a href="#pricing">{t('tandem.hero.learnMore')}</a>
+                </Button>
               </div>
-              <div>
-                <p className="text-2xl font-bold">40 sek</p>
-                <p className="text-black/70 text-sm">Fritt fall</p>
-              </div>
-              <div>
-                <p className="text-2xl font-bold">200 km/t</p>
-                <p className="text-black/70 text-sm">Hastighet</p>
-              </div>
-            </div>
-            <Button
-              asChild
-              size="lg"
-              className="bg-white text-sky hover:bg-white/90 font-semibold"
-            >
-              <a
-                href="https://bookings.burblesoft.eu/551/18"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Book nå
-                <ExternalLink className="ml-2 w-5 h-5" />
-              </a>
-            </Button>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Highlights */}
-      <section className="py-24 lg:py-32 bg-gradient-hero">
+      {/* Jump Specs Bar */}
+      <section className="py-10 bg-sky text-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-3 gap-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0 }}
+              className="flex items-center gap-3 justify-center"
+            >
+              <div className="text-center">
+                <p className="text-3xl font-bold text-white mb-1">4000m</p>
+                <p className="text-sm text-white/70">{t('tandem.hero.altitude')}</p>
+              </div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="flex items-center gap-3 justify-center"
+            >
+              <div className="text-center">
+                <p className="text-3xl font-bold text-white mb-1">40 sek</p>
+                <p className="text-sm text-white/70">{t('tandem.hero.freefall')}</p>
+              </div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="flex items-center gap-3 justify-center"
+            >
+              <div className="text-center">
+                <p className="text-3xl font-bold text-white mb-1">5 min</p>
+                <p className="text-sm text-white/70">{t('tandem.hero.canopy')}</p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Jump With Us */}
+      <section className="py-24 lg:py-32 bg-muted/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -292,69 +174,36 @@ export function TandemContent() {
             className="text-center max-w-3xl mx-auto mb-16"
           >
             <span className="inline-block px-3 py-1 text-sm font-medium text-sky bg-sky/10 rounded-full mb-4">
-              Hvorfor velge oss?
+              {t('tandem.highlights.badge')}
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-              Norges beste <span className="text-gradient">tandemopplevelse</span>
-            </h2>
           </motion.div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-            {highlights.map((item, index) => (
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {highlights.map((highlight, index) => (
               <motion.div
-                key={item.title}
+                key={highlight.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <Card className="h-full border-0 shadow-lg hover:shadow-xl transition-shadow text-center">
-                  <CardContent className="pt-8 pb-6">
-                    <div className="w-14 h-14 rounded-2xl bg-gradient-brand flex items-center justify-center text-white mx-auto mb-4">
-                      <item.icon className="w-7 h-7" />
+                <Card className="h-full text-center">
+                  <CardContent className="pt-6">
+                    <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-brand flex items-center justify-center">
+                      <highlight.icon className="w-8 h-8 text-white" />
                     </div>
-                    <h3 className="text-lg font-semibold text-foreground mb-2">
-                      {item.title}
-                    </h3>
-                    <p className="text-foreground/70 text-sm">
-                      {item.description}
-                    </p>
+                    <h3 className="text-xl font-bold mb-3">{highlight.title}</h3>
+                    <p className="text-muted-foreground">{highlight.description}</p>
                   </CardContent>
                 </Card>
               </motion.div>
             ))}
           </div>
-
-          {/* Video Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="max-w-4xl mx-auto"
-          >
-            <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold text-foreground mb-2">
-                Se hva som venter deg!
-              </h3>
-              <p className="text-foreground/70">
-                Under ser du et eksempel på en typisk tandemvideo
-              </p>
-            </div>
-            <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl">
-              <iframe
-                className="w-full h-full"
-                src="https://www.youtube.com/embed/olKR6xCSB7M"
-                title="Tandemhopp video"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              />
-            </div>
-          </motion.div>
         </div>
       </section>
 
-      {/* Pricing Section */}
-      <section className="py-24 lg:py-32 bg-muted/30">
+      {/* Pricing */}
+      <section id="pricing" className="py-24 lg:py-32">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -363,52 +212,37 @@ export function TandemContent() {
             className="text-center max-w-3xl mx-auto mb-16"
           >
             <span className="inline-block px-3 py-1 text-sm font-medium text-leaf bg-leaf/10 rounded-full mb-4">
-              Priser
+              {t('tandem.pricing.badge')}
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-              Våre <span className="text-gradient">priser</span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
+              {t('tandem.pricing.title')}
             </h2>
-            <p className="text-lg text-foreground/70">
-              Prisene inkluderer alt av avgifter, medlemskap og forsikring.
-            </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-2xl mx-auto mb-16">
-            {pricing.map((item, index) => (
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12">
+            {pricing.map((plan) => (
               <motion.div
-                key={item.name}
+                key={plan.name}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
               >
-                <Card className={`h-full border-2 ${item.popular ? "border-sky shadow-xl" : "border-border"}`}>
-                  {item.popular && (
-                    <div className="bg-sky text-white text-center py-2 text-sm font-medium">
-                      Mest populær
+                <Card className={`relative h-full ${plan.popular ? "border-sky shadow-xl" : ""}`}>
+                  {plan.popular && (
+                    <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+                      <span className="bg-gradient-brand text-white text-sm font-semibold px-4 py-1 rounded-full">
+                        {t('tandem.pricing.weekend.popular')}
+                      </span>
                     </div>
                   )}
-                  <CardContent className="p-8 text-center">
-                    <h3 className="text-xl font-semibold text-foreground mb-2">
-                      {item.name}
-                    </h3>
-                    <p className="text-foreground/70 text-sm mb-4">{item.description}</p>
-                    <p className="text-4xl font-bold text-foreground mb-4">
-                      {item.price} <span className="text-lg font-normal">kr</span>
-                    </p>
-                    <Button
-                      asChild
-                      className={`w-full ${item.popular ? "bg-gradient-brand hover:opacity-90 text-white" : ""}`}
-                      variant={item.popular ? "default" : "outline"}
-                    >
-                      <a
-                        href="https://bookings.burblesoft.eu/551/18"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        Book nå
-                      </a>
-                    </Button>
+                  <CardHeader>
+                    <CardTitle className="text-2xl">{plan.name}</CardTitle>
+                    <p className="text-muted-foreground">{plan.description}</p>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="text-4xl font-bold mb-6">
+                      {plan.price} <span className="text-lg font-normal text-muted-foreground">kr</span>
+                    </div>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -416,163 +250,56 @@ export function TandemContent() {
           </div>
 
           {/* Media Packages */}
-          <motion.div
-            ref={ref}
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-          >
-            <div className="text-center mb-8">
-              <Camera className="w-10 h-10 mx-auto mb-4 text-sky" />
-              <h3 className="text-2xl font-bold text-foreground mb-2">
-                Video & Bilder
-              </h3>
-              <p className="text-foreground/70 max-w-2xl mx-auto">
-                Det er mest sannsynlig at du gjør dette kun én gang i ditt liv. 
-                Vi tar vare på minnene for deg! Vi anbefaler å velge bilder og håndkamera.
-              </p>
-            </div>
-            <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-              {mediaPackages.map((pkg, index) => (
-                <motion.div
-                  key={pkg.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ delay: index * 0.1 }}
-                >
-                  <Card className="h-full border-0 shadow-lg text-center">
-                    <CardContent className="p-6">
-                      <h4 className="font-semibold text-foreground mb-1">{pkg.name}</h4>
-                      <p className="text-2xl font-bold text-sky mb-2">{pkg.price}</p>
-                      <p className="text-sm text-foreground/70">{pkg.description}</p>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
-            <p className="text-center text-sm text-foreground/60 mt-6">
-              * Full videopakke kommer med egen kameraperson, bilder og videokamera på instruktørens arm
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Jump Day Timeline */}
-      <section className="py-24 lg:py-32 bg-gradient-hero">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center max-w-3xl mx-auto mb-16"
-          >
-            <span className="inline-block px-3 py-1 text-sm font-medium text-sky bg-sky/10 rounded-full mb-4">
-              Hoppdagen
-            </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-              Hva skjer <span className="text-gradient">hoppdagen?</span>
-            </h2>
-            <p className="text-lg text-foreground/70">
-              Fra du møter til hoppet er gjennomført går det vanligvis 1-3 timer.
-            </p>
-          </motion.div>
-
-          <div className="max-w-4xl mx-auto">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {jumpDaySteps.map((step, index) => (
-                <motion.div
-                  key={step.step}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                >
-                  <Card className="h-full border-0 shadow-lg">
-                    <CardContent className="p-6">
-                      <div className="w-10 h-10 rounded-full bg-sky text-white flex items-center justify-center font-bold mb-4">
-                        {step.step}
+          <div className="max-w-3xl mx-auto">
+            <h3 className="text-2xl font-bold text-center mb-8">{t('tandem.pricing.media.title')}</h3>
+            <div className="grid gap-4">
+              {mediaPackages.map((pkg) => (
+                <Card key={pkg.name}>
+                  <CardContent className="flex justify-between items-center p-6">
+                    <div className="flex items-center gap-4">
+                      <Camera className="w-8 h-8 text-sky" />
+                      <div>
+                        <h4 className="font-semibold">{pkg.name}</h4>
+                        <p className="text-sm text-muted-foreground">{pkg.description}</p>
                       </div>
-                      <h4 className="font-semibold text-foreground mb-2">{step.title}</h4>
-                      <p className="text-sm text-foreground/70">{step.description}</p>
-                    </CardContent>
-                  </Card>
-                </motion.div>
+                    </div>
+                    <div className="text-2xl font-bold">{pkg.price}</div>
+                  </CardContent>
+                </Card>
               ))}
             </div>
           </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="max-w-3xl mx-auto mt-12 p-6 bg-card rounded-2xl shadow-lg border border-border"
-          >
-            <div className="flex items-start gap-4">
-              <AlertCircle className="w-6 h-6 text-sky flex-shrink-0 mt-1" />
-              <div>
-                <h4 className="font-semibold text-foreground mb-2">Praktisk informasjon</h4>
-                <ul className="text-sm text-foreground/70 space-y-2">
-                  <li>• Kle deg komfortabelt og etter værforholdene – ulltrøye innerst anbefales vår/høst</li>
-                  <li>• Ha på gode sko med knyting, helst joggesko</li>
-                  <li>• Legg inn slakk i tidsplanen – været kan påvirke forsinkelser</li>
-                  <li>• For de som skal se på: Ta med ekstra klær. Vi har kafeteria og bord/benker på feltet</li>
-                </ul>
-              </div>
-            </div>
-          </motion.div>
         </div>
       </section>
 
       {/* Requirements */}
       <section className="py-24 lg:py-32 bg-muted/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <span className="inline-block px-3 py-1 text-sm font-medium text-leaf bg-leaf/10 rounded-full mb-4">
-                Krav og betingelser
-              </span>
-              <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">
-                Før du <span className="text-gradient">hopper</span>
-              </h2>
-              <ul className="space-y-4 mb-8">
-                {requirements.map((req, index) => (
-                  <li key={index} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-leaf flex-shrink-0 mt-0.5" />
-                    <span className="text-foreground">{req}</span>
-                  </li>
-                ))}
-              </ul>
-              <div className="p-4 bg-muted rounded-xl">
-                <p className="text-sm text-foreground/80">
-                  <strong>Betaling:</strong> Når du booker betaler du kr 400 i depositum. 
-                  Alt du har betalt, bortsett fra depositumet, er refunderbart dersom hoppet 
-                  ikke blir gjennomført. Vi har betalingsterminal (kort) og tar kontant.
-                </p>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl"
-            >
-              <Image
-                src="/tandemhopp-landing.webp"
-                alt="Tandemhopp landing"
-                fill
-                className="object-cover"
-              />
-            </motion.div>
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">
+              {t('tandem.requirements.title')}
+            </h2>
+            <div className="space-y-4">
+              {requirements.map((req, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="flex items-start gap-3 bg-card p-4 rounded-lg"
+                >
+                  <CheckCircle2 className="w-6 h-6 text-sky shrink-0 mt-1" />
+                  <span className="text-lg">{req}</span>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="py-24 lg:py-32 bg-gradient-hero">
+      {/* Jump Day Timeline */}
+      <section className="py-24 lg:py-32">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -580,95 +307,109 @@ export function TandemContent() {
             viewport={{ once: true }}
             className="text-center max-w-3xl mx-auto mb-16"
           >
-            <span className="inline-block px-3 py-1 text-sm font-medium text-sky bg-sky/10 rounded-full mb-4">
-              Spørsmål?
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">
-              Vanlige <span className="text-gradient">spørsmål</span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
+              {t('tandem.jumpDay.title')}
             </h2>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="max-w-3xl mx-auto"
-          >
-            <Accordion type="single" collapsible className="space-y-4">
-              {faqs.map((faq, index) => (
-                <AccordionItem
-                  key={index}
-                  value={`item-${index}`}
-                  className="bg-card border border-border rounded-xl px-6 shadow-sm"
-                >
-                  <AccordionTrigger className="text-left text-foreground font-semibold hover:no-underline py-5">
-                    {faq.question}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-foreground/70 pb-5 leading-relaxed">
-                    {faq.answer}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </motion.div>
+          <div className="max-w-4xl mx-auto space-y-8">
+            {jumpDaySteps.map((step, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+              >
+                <Card>
+                  <CardContent className="p-6 flex gap-6">
+                    <div className="shrink-0 w-12 h-12 rounded-full bg-gradient-brand flex items-center justify-center text-white text-xl font-bold">
+                      {index + 1}
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold mb-2">{step.title}</h3>
+                      <p className="text-muted-foreground">{step.description}</p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-24 lg:py-32 bg-foreground text-background">
+      {/* FAQ */}
+      <section className="py-24 lg:py-32 bg-muted/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="max-w-3xl mx-auto text-center"
+            className="text-center max-w-3xl mx-auto mb-16"
           >
-            <Plane className="w-16 h-16 mx-auto mb-6 text-sky" />
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-              Klar for å ta spranget?
+              {t('tandem.faq.title')}
             </h2>
-            <p className="text-xl text-background/80 mb-4">
-              Book ditt tandemhopp i dag – vi hopper 4-6 dager i uka fra slutten av april til medio oktober.
-            </p>
-            <p className="text-lg text-background/60 mb-10 italic">
-              &ldquo;Kanskje du får styre litt også? Gled deg!&rdquo;
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                asChild
-                size="lg"
-                className="bg-gradient-brand hover:opacity-90 text-white font-semibold px-8"
-              >
-                <a
-                  href="https://bookings.burblesoft.eu/551/18"
-                  target="_blank"
-                  rel="noopener noreferrer"
+          </motion.div>
+
+          <div className="max-w-3xl mx-auto">
+            <Accordion type="single" collapsible className="space-y-4">
+              {faqData.map((faq, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.05 }}
                 >
-                  Book Tandemhopp
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </a>
-              </Button>
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="border-background/30 bg-background/10 text-background hover:bg-background/20"
+                  <AccordionItem
+                    value={`item-${index}`}
+                    className="bg-card border border-border rounded-xl px-6 shadow-sm"
+                  >
+                    <AccordionTrigger className="text-left font-semibold hover:no-underline py-5">
+                      {faq.question}
+                    </AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground pb-5">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                </motion.div>
+              ))}
+            </Accordion>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-24 lg:py-32 bg-gradient-to-b from-sky to-leaf text-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
+              {t('tandem.hero.bookNow')}
+            </h2>
+            <Button
+              asChild
+              size="lg"
+              className="bg-white text-foreground hover:bg-white/90 font-semibold px-8 py-6 text-lg"
+            >
+              <a
+                href="https://bookings.burblesoft.eu/551/18"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 mx-auto w-fit"
               >
-                <a
-                  href="https://bookings.burblesoft.eu/551/18"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Gift className="mr-2 w-5 h-5" />
-                  Kjøp Gavekort
-                </a>
-              </Button>
-            </div>
+                <ExternalLink className="w-5 h-5" />
+                {t('tandem.hero.bookNow')}
+              </a>
+            </Button>
           </motion.div>
         </div>
       </section>
     </>
   );
 }
-
 

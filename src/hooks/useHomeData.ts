@@ -1,0 +1,105 @@
+import { useLanguage } from '@/contexts/LanguageContext';
+
+export const useHomeData = () => {
+  const { t } = useLanguage();
+
+  const faqData = [
+    {
+      question: t('home.faq.questions.q1.question'),
+      answer: t('home.faq.questions.q1.answer'),
+    },
+    {
+      question: t('home.faq.questions.q2.question'),
+      answer: t('home.faq.questions.q2.answer'),
+    },
+    {
+      question: t('home.faq.questions.q3.question'),
+      answer: t('home.faq.questions.q3.answer'),
+    },
+    {
+      question: t('home.faq.questions.q4.question'),
+      answer: t('home.faq.questions.q4.answer'),
+    },
+    {
+      question: t('home.faq.questions.q5.question'),
+      answer: t('home.faq.questions.q5.answer'),
+    },
+    {
+      question: t('home.faq.questions.q6.question'),
+      answer: t('home.faq.questions.q6.answer'),
+    },
+    {
+      question: t('home.faq.questions.q7.question'),
+      answer: t('home.faq.questions.q7.answer'),
+    },
+    {
+      question: t('home.faq.questions.q8.question'),
+      answer: t('home.faq.questions.q8.answer'),
+    },
+    {
+      question: t('home.faq.questions.q9.question'),
+      answer: t('home.faq.questions.q9.answer'),
+    },
+    {
+      question: t('home.faq.questions.q10.question'),
+      answer: t('home.faq.questions.q10.answer'),
+    },
+  ];
+
+  const testimonials = [
+    {
+      name: "Emma Hansen",
+      role: "Tandemhopper",
+      image: "/testimonials/emma.jpg",
+      rating: 5,
+      text: "En helt fantastisk opplevelse! Instruktøren min var super trygg og profesjonell. Utsikten over Oslofjorden var magisk. Dette vil jeg huske resten av livet!"
+    },
+    {
+      name: "Marcus Johansen",
+      role: "AFF-student",
+      image: "/testimonials/marcus.jpg",
+      rating: 5,
+      text: "Jeg tok AFF-kurs i sommer og er nå sertifisert hopper! Instruktørene er utrolig dyktige og tålmodige. Fallskjermklubben har et fantastisk miljø hvor alle hjelper hverandre."
+    },
+    {
+      name: "Sofia Larsen",
+      role: "Tandemhopper",
+      image: "/testimonials/sofia.jpg",
+      rating: 5,
+      text: "Hoppet tandem som gave til meg selv på 30-årsdagen. Helt magisk! Anbefaler virkelig å ta videoen – så gøy å se det om igjen. Instruktøren gjorde at jeg følte meg trygg hele tiden."
+    },
+    {
+      name: "Daniel Andersen",
+      role: "Erfaren hopper",
+      image: "/testimonials/daniel.jpg",
+      rating: 5,
+      text: "Jeg hopper gjerne hit fra Østlandet for å være med i dette miljøet. Twin Otter er Norges beste hoppfly, og dropzone er godt organisert med gode instruktører og hoppledere."
+    },
+    {
+      name: "Nina Berg",
+      role: "Tandemhopper",
+      image: "/testimonials/nina.jpg",
+      rating: 5,
+      text: "Min ektemann og jeg hoppet tandem sammen – en utrolig opplevelse! Vi var nervøse, men instruktørene var så trygge at vi følte oss helt komfortable. Anbefales på det varmeste!"
+    },
+    {
+      name: "Oliver Nilsen",
+      role: "AFF-student",
+      image: "/testimonials/oliver.jpg",
+      rating: 5,
+      text: "Tok AFF-kurset og det var den beste beslutningen jeg har tatt! Grunnkurset var grundig og forberedte meg godt. Instruktørene er kjempefleksible og hjelper deg hele veien."
+    }
+  ];
+
+  return {
+    faqData,
+    testimonials,
+  };
+};
+
+
+
+
+
+
+

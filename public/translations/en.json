@@ -1,0 +1,741 @@
+{
+  "nav": {
+    "home": "Home",
+    "courses": "Courses",
+    "forJumpers": "For Jumpers",
+    "tandem": "Tandem",
+    "contact": "Contact",
+    "jumpCalendar": "Jump Calendar",
+    "bookTandem": "Book Tandem Jump",
+    "openMenu": "Open menu",
+    "navigationMenu": "Navigation menu",
+    "externalLinks": "External links",
+    "switchToEnglish": "Switch to English",
+    "switchToNorwegian": "Bytt til Norsk",
+    "shop": "Web Shop"
+  },
+  "forHoppere": {
+    "hero": {
+      "badge": "For experienced jumpers",
+      "title": "Come get sun, summer and",
+      "titleHighlight": "skydiving!",
+      "description": "Welcome to Skydive Tønsberg at Jarlsberg Airport – with Norway's largest and best jump plane, Twin Otter LN-JMP!",
+      "jumpCalendar": "Jump Calendar",
+      "burbleMe": "BurbleMe"
+    },
+    "seasonInfo": {
+      "seasonStart": "Season start",
+      "seasonEnd": "Season end",
+      "open": "Open",
+      "app": "App",
+      "startDate": "April 17",
+      "endDate": "Mid October",
+      "openDays": "4-7 days/week"
+    },
+    "quickLinks": {
+      "renewal": "How to renew",
+      "bunkhouse": "Bunkhouse",
+      "burbleme": "BurbleMe",
+      "dropzoneBrief": "Dropzone Brief",
+      "pricing": "Pricing",
+      "aircraft": "Aircraft",
+      "insurance": "Insurance",
+      "reporting": "Reporting",
+      "weather": "Weather & Camera"
+    },
+    "renewal": {
+      "badge": "Membership",
+      "title": "How to renew your",
+      "titleHighlight": "membership",
+      "description": "Renew membership, insurance and license via Min Idrett.",
+      "button": "Go to Min Idrett"
+    },
+    "bunkhouse": {
+      "badge": "Accommodation",
+      "title": "Bunkhouse –",
+      "titleHighlight": "16 beds",
+      "description": "We have 7 rooms available for jumpers. Book at reception or via email.",
+      "bookButton": "Book Bunkhouse",
+      "rulesTitle": "Bunkhouse Rules",
+      "pricingTitle": "Accommodation Prices",
+      "rules": {
+        "checkin": "Check-in and check-out at reception",
+        "rooms": "5 rooms with single bed + bunk bed, 2 rooms with double bed (140 cm)",
+        "noParty": "This is for sleeping, not partying – the party happens elsewhere",
+        "bedding": "We provide mattress, duvet, pillow and bedding",
+        "billing": "We will charge you in Burble for the night(s)",
+        "girlsRoom": "Room no. 3 is for girls only"
+      },
+      "pricing": {
+        "threeMan": "3-person room, per night",
+        "doubleSingle": "Double room single, per night",
+        "doubleTwo": "Double room two persons, per night",
+        "bedding": "Bedding and cleaning (mandatory)",
+        "rvPower": "RV/caravan with power, per day",
+        "rvPowerWeek": "RV/caravan with power, per week",
+        "tentNoPower": "Tent/car/caravan without power, per day"
+      },
+      "contactText": "Arriving outside opening hours? Send us an email at",
+      "warningText": "All accommodation must be pre-registered at reception. Violation results in a 500 NOK fee."
+    },
+    "burbleMe": {
+      "badge": "Manifesting",
+      "title": "BurbleMe –",
+      "titleHighlight": "manifest yourself!",
+      "description": "You need BurbleMe to jump at Skydive Tønsberg. Download from AppStore or Google Play.",
+      "openButton": "Open BurbleMe Web",
+      "profileSetup": {
+        "title": "Set up your profile",
+        "personalDetails": "Personal Details",
+        "personalDetailsDesc": "Fill out all personal information. Remember to press Update at the bottom.",
+        "editCredentials": "Edit Credentials",
+        "licenceType": "Licence Type: Select your license",
+        "licenceNumber": "Licence number: I2, AFF-I, MK, Demo etc.",
+        "memberNumber": "Member Number: Your Person ID from Min Idrett (6-7 digits)",
+        "note": "NOTE! You cannot manifest until your profile is correctly set up and we have approved you at reception."
+      },
+      "checkIn": {
+        "title": "Check In & Formation",
+        "dropzone": "Dropzone & Check In",
+        "dropzoneDesc": "Select \"Skydive Tønsberg\" as Dropzone at the top of the app, then Check In before manifesting.",
+        "formation": "Choose Formation first!",
+        "formationDesc": "Always choose Formation before selecting a load. Jump master and TøFSK like to know what you're doing.",
+        "trackingRules": "Tracking / WS rules:",
+        "trackingRule1": "Max 2 Angle (tracking) groups",
+        "trackingRule2": "Max 1 WS/Tracksuit group",
+        "trackingRule3": "Use \"Angle\", not \"Tracking\" under Formation"
+      },
+      "notifications": {
+        "title": "Notifications & Safety",
+        "loadTime": "Load Time alerts",
+        "loadTimeDesc": "Set Badge and Alarm to get alerts at 5 and 10 min call.",
+        "outlanding": "In case of outlanding",
+        "outlandingDesc": "Use \"Contact DZ/Emergency\" so manifest knows where you are. Keep Manifest Notifications on!",
+        "location": "Location tracking",
+        "locationDesc": "Turn on \"Allow Burble to track my location when I am on a load\" under Settings for extra safety."
+      }
+    },
+    "hoppfeltbrief": {
+      "badge": "You need to know the dropzone brief!",
+      "title": "Dropzone Brief &",
+      "titleHighlight": "procedures",
+      "description": "Local conditions and regulations for jumping at Jarlsberg Airport.",
+      "clickToZoom": "Click on the images to view them in full size",
+      "exitOrderTitle": "Exit Order",
+      "exitOrderNote": "Time between groups is approx 7-9 seconds unless otherwise stated by jump master.",
+      "exitOrder": {
+        "tracking1": "Tracking group 1",
+        "fs": "FS/Belly groups",
+        "freefly": "Freefly",
+        "aff8": "AFF Level 8",
+        "aff17": "AFF Level 1-7",
+        "tracking2": "Tracking group 2",
+        "tandem": "Tandem",
+        "pullHigh": "Pull high (max 5000 ft)",
+        "wingsuit": "Wingsuit/tracksuit, east",
+        "wingsuitTL1": "Wingsuit with TL1, east"
+      },
+      "proceduresTitle": "Procedures",
+      "boarding": {
+        "title": "Boarding (10 min call)",
+        "rule1": "Meet Jump Master at loading area, fully geared up",
+        "rule2": "Line up with your freefall group",
+        "rule3": "Planned high-speed landings: Inform JM"
+      },
+      "inAircraft": {
+        "title": "In the aircraft",
+        "rule1": "Everyone buckled with helmet on until 1500 ft",
+        "rule2": "Sit upright so everyone fits",
+        "rule3": "Give students/tandems space from 9000 ft",
+        "rule4": "Red light = open door, Green = jump!"
+      },
+      "landingPattern": {
+        "title": "Landing Pattern",
+        "rule1": "Downwind always runs straight south or north, parallel to the runway",
+        "rule2": "Max 90° turn for landing north or south",
+        "rule3": "Don't cross the runway below 300 ft (in extension: 1000 ft)",
+        "rule4": "Max deployment altitude: 5000 ft (shared airspace with Torp)"
+      },
+      "outlanding": {
+        "title": "Outlanding",
+        "rule1": "Report via BurbleMe so we know where you are",
+        "rule2": "Follow tractor tracks, trample as little as possible! (500 NOK fine)",
+        "rule3": "Watch out for the cows in the north end – they can be dangerous!",
+        "rule4": "Report to HFL as soon as you're back"
+      }
+    },
+    "pricing": {
+      "badge": "Prices 2025",
+      "title": "Prices, deals and",
+      "titleHighlight": "fees",
+      "jumpPrices": "Jump Prices",
+      "registrationFees": "Registration Fees",
+      "equipment": "Equipment",
+      "tandem": "Tandem",
+      "courses": "Courses / Students",
+      "misc": "Miscellaneous / Referral",
+      "jumps": {
+        "normal": "Normal jump",
+        "deal": "Jumper deal",
+        "dealNote": "+ 2500 NOK deposit",
+        "bigDeal": "Big jumper deal",
+        "bigDealNote": "+ 10 000 NOK deposit",
+        "highAlt": "15 000 ft"
+      },
+      "registration": {
+        "annual": "Annual fee",
+        "annualVeteran": "Annual fee veterans/students",
+        "day": "Day fee",
+        "weekend": "Weekend fee (Sat+Sun)",
+        "week": "Week fee (7 days)"
+      },
+      "equipmentItems": {
+        "rentalRig": "Rental rig per jump",
+        "studentRig": "Student rental rig per jump",
+        "altimeter": "Altimeter (ARESII), per day",
+        "packing": "Pack sport rig"
+      },
+      "tandemItems": {
+        "weekday": "Tandem weekdays",
+        "weekend": "Tandem Sat/Sun",
+        "video": "Video",
+        "videoPhotos": "Video and photos",
+        "fullPackage": "Full video package"
+      },
+      "courseItems": {
+        "affCourse": "Skydiving course AFF incl wind tunnel",
+        "rejump13": "Rejump Level 1-3",
+        "rejump47": "Rejump Level 4-7",
+        "level8": "Level 8 (incl rig rental)",
+        "checkoutJump": "Checkout jump Level 8"
+      },
+      "miscItems": {
+        "membership": "Membership fee TøFSK",
+        "withdrawal": "Burble withdrawal",
+        "referTandem": "Refer tandem",
+        "referAFF": "Refer AFF student",
+        "familyDiscount": "Family discount tandem"
+      },
+      "deals": {
+        "title": "Jumper deals – save money!",
+        "dealTitle": "Jumper deal",
+        "dealPrice": "335 NOK/jump",
+        "dealDesc": "Deposit 2 500 NOK → 50 NOK discount per jump. Break even at 50 jumps.",
+        "bigDealTitle": "Big jumper deal",
+        "bigDealPrice": "285 NOK/jump",
+        "bigDealDesc": "Deposit 10 000 NOK → 100 NOK discount per jump. Break even at 100 jumps. Pays off at 150+ jumps.",
+        "warning": "NOTE! You buy jumper deals at your own risk! Deals do not apply at events with higher slot prices. If you get a medical certificate stating you cannot jump anymore this season, we will convert to normal price."
+      }
+    },
+    "aircraft": {
+      "badge": "The Aircraft",
+      "title": "Twin Otter –",
+      "titleHighlight": "world's best jump plane!",
+      "intro": "We are very proud of our aircraft – LN-JMP – a newly overhauled Twin Otter with room for 20 jumpers. The aircraft type is DHC6-200, and JMP was produced at the De Havilland factory in Canada in 1968.",
+      "history": "JMP came to Jarlsberg in 2006 and is now owned by Hoppfly AS, where TøFSK has 10% and the main owner is Per Kølner.",
+      "renovation": "Before the 2016 season, JMP was completely renovated for over 10 million NOK, with new instruments, new paint, and not least new engines of type PT6A-34 with quiet four-blade propellers.",
+      "stats": {
+        "jumpers": "jumpers",
+        "climbTime": "to 12 500 ft",
+        "hours": "hours logged",
+        "year": "built"
+      },
+      "care": "We ask you to help take care of JMP. Treat The White Swan with care and love!"
+    },
+    "insurance": {
+      "badge": "Insurance",
+      "title": "Insurance for",
+      "titleHighlight": "visiting jumpers",
+      "norwegianTitle": "Norwegian jumpers",
+      "norwegianText": "Are covered through NLF and do not need additional insurance.",
+      "foreignTitle": "Foreign jumpers",
+      "foreignIntro": "You must have valid third-party liability insurance.",
+      "foreignBuy": "If you cannot document this, you can buy NLF's insurance for 503 NOK (30 days) through the club.",
+      "foreignWarning": "For jumpers from countries outside EU/EEA, we strongly recommend having travel insurance that covers medical treatment in Norway."
+    },
+    "reporting": {
+      "badge": "Safe Sport",
+      "title": "Reporting",
+      "intro": "We want Tønsberg Fallskjermklubb to be a safe sports arena for all our members, students and visitors. This includes safety during jumping activities and in social settings.",
+      "policy": "In Norwegian sports, everyone should be safe. There is zero tolerance for discrimination, bullying and harassment. By reporting, you give us the opportunity to handle critical conditions.",
+      "systemTitle": "MittVarsel",
+      "systemDesc": "We use MittVarsel, a digital portal for safe and secure reporting. You can report with your name or anonymously.",
+      "systemPath": "Select: \"Idrettslag & Idrettsråd\" → \"Vestfold og Telemark\" → \"Tønsberg Fallskjermklubb\"",
+      "button": "Go to reporting page",
+      "group": "Reporting group: Leader: Odd Pedersen. Members: Anna Fasting and Silje Søraas."
+    },
+    "weather": {
+      "badge": "Practical",
+      "title": "Camera &",
+      "titleHighlight": "Weather",
+      "webcam": "Webcam",
+      "webcamDesc": "Check the conditions at Jarlsberg in real time.",
+      "webcamButton": "View webcam",
+      "forecast": "Weather Forecast",
+      "forecastDesc": "Weather forecast for Jarlsberg Airport from Yr.no.",
+      "forecastButton": "View forecast",
+      "grassroots": {
+        "title": "Grassroots Share",
+        "desc": "Register Tønsberg Fallskjermklubb as recipient of the Grassroots Share when you play at Norsk Tipping. The club can receive up to 7% of what you play!",
+        "button": "Register Grassroots Share"
+      }
+    },
+    "faq": {
+      "badge": "Questions?",
+      "title": "Frequently asked",
+      "titleHighlight": "questions",
+      "questions": {
+        "q1": {
+          "question": "How do I renew my membership?",
+          "answer": "Go to nlf.no/grener/fallskjerm/Medlem/minidrett/ to renew membership, insurance and license."
+        },
+        "q2": {
+          "question": "I haven't jumped in a while, what do I need to do?",
+          "answer": "It depends on which license you had when you last jumped, and how long it's been. See table in Handbook part 300, parachute licenses."
+        },
+        "q3": {
+          "question": "What are the currency requirements for my license?",
+          "answer": "A-license: 20 jumps last year. B-license: 20 jumps last year. C-license: 40 jumps last year. D-license: 40 jumps last year. See Handbook part 300 for all details."
+        },
+        "q4": {
+          "question": "Can I deposit money to my Burble account online?",
+          "answer": "No, not yet. You must deposit money at reception (debit card or cash), or transfer to our account 1594.16.71664."
+        },
+        "q5": {
+          "question": "What about insurance for foreign jumpers?",
+          "answer": "Norwegian jumpers are covered through NLF. Foreign jumpers must have valid third-party liability insurance. Without documentation, you can buy NLF's insurance for 503 NOK (30 days). For jumpers from outside EU/EEA, we strongly recommend travel insurance that covers medical treatment in Norway."
+        },
+        "q6": {
+          "question": "What are the rules for tracking and wingsuit?",
+          "answer": "Max 3 horizontal groups per load: Max 2 Angle (tracking) + Max 1 WS/Tracksuit. Check Jumper Manifest Display before manifesting. If you need to track when there are already two groups, you must coordinate or do something else. Use 'Angle' under Formation, not 'Tracking'."
+        },
+        "q7": {
+          "question": "I'm having trouble with Min Idrett. What can I do?",
+          "answer": "See tips from NLF on their website. Remember that it's now called 'kompetansebevis' and not 'lisens' or 'sertifikat'. The word 'lisens' in MinIdrett means 'insurance'."
+        },
+        "q8": {
+          "question": "Where can I find the JLS Operations Manual?",
+          "answer": "The Operations Manual can be found at jarlsbergluftsportssenter.no. When you register at Skydive Tønsberg, you must sign that you have familiarized yourself with it."
+        }
+      }
+    },
+    "contact": {
+      "title": "Contact",
+      "titleHighlight": "us",
+      "linksTitle": "Useful",
+      "linksTitleHighlight": "links",
+      "address": "Address",
+      "addressValue": "Flyplassveien 6, 3170 Sem",
+      "orgNumber": "Org no: 991 021 698",
+      "phone": "Phone",
+      "email": "Email",
+      "openingHours": "Opening Hours",
+      "hours": {
+        "weekday": "Monday - Friday",
+        "saturday": "Saturday",
+        "sunday": "Sunday"
+      },
+      "links": {
+        "calendar": "Jump Calendar",
+        "burbleme": "BurbleMe",
+        "shop": "Web Shop",
+        "minIdrett": "Min Idrett",
+        "facebook": "Facebook",
+        "handbook": "JLS Operations Manual"
+      }
+    },
+    "cta": {
+      "title": "See you in the sky!",
+      "description": "Check the jump calendar and join us for some amazing jumps over Vestfold.",
+      "calendarButton": "Jump Calendar",
+      "contactButton": "Contact us"
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "Experience",
+      "titleHighlight": "freedom",
+      "titleEnd": "in freefall",
+      "description": "Jump tandem with professional instructors, or start your journey as an independent skydiver. Unforgettable experiences await.",
+      "bookTandem": "Book Tandem Jump",
+      "watchVideo": "Watch video",
+      "scrollDown": "Scroll down"
+    },
+    "about": {
+      "badge": "About us",
+      "title": "Your gateway to the",
+      "titleHighlight": "sky",
+      "description1": "Skydive Tønsberg is one of Norway's most established and active skydiving clubs. Based at Tønsberg Airport (Jarlsberg), we offer everything from tandem jumps for beginners to advanced training for experienced jumpers.",
+      "description2": "Our dedicated team of instructors and experienced jumpers ensures that every single experience is safe, exciting and memorable. Join our community and discover the joy of freefall!",
+      "stats": {
+        "members": "Active members",
+        "experience": "Years of experience",
+        "jumps": "Safe jumps annually",
+        "satisfaction": "Satisfied jumpers"
+      }
+    },
+    "services": {
+      "badge": "Our services",
+      "title": "Choose your",
+      "titleHighlight": "experience",
+      "tandem": {
+        "title": "Tandem Jump",
+        "description": "Experience freefall from 4000 meters with approx. 40 seconds in freefall. Jump with one of our experienced instructors – closest to Oslo with beautiful views of the Oslo Fjord. From only 4690 NOK.",
+        "cta": "Book now"
+      },
+      "aff": {
+        "title": "AFF Basic Course",
+        "description": "Become an independent skydiver! The course includes 10 hours ground school, wind tunnel at Gardermoen and 7 jumps with instructors. Complete course only 18,990 NOK.",
+        "cta": "Read more"
+      },
+      "experienced": {
+        "title": "For Experienced Jumpers",
+        "description": "Already a certified jumper? We offer guest jumping, equipment rental and an active jumping environment. We operate Norway's largest and best aircraft for skydiving!",
+        "cta": "See offers"
+      }
+    },
+    "testimonials": {
+      "badge": "Reviews",
+      "title": "What our",
+      "titleHighlight": "jumpers",
+      "titleEnd": "say",
+      "description": "Read about the experiences of those who have already taken the leap with us.",
+      "prevButton": "Previous review",
+      "nextButton": "Next review",
+      "jumpToReview": "Go to review",
+      "viewAllGoogle": "See all reviews on Google"
+    },
+    "faq": {
+      "badge": "Questions?",
+      "title": "Frequently asked",
+      "titleHighlight": "questions",
+      "description": "Here you'll find answers to the most common questions we get. Don't hesitate to contact us if you have other questions!",
+      "questions": {
+        "q1": {
+          "question": "What is the age limit for tandem jumping?",
+          "answer": "You must be 18 years old to jump tandem. If you're between 16 and 18, you need written consent from both parents. If you're over 80, you need an approved medical certificate."
+        },
+        "q2": {
+          "question": "How high do we jump from?",
+          "answer": "We jump from 4000 meters! This gives you about 40 seconds of freefall at around 200 km/h before the tandem instructor deploys the parachute at 1500 meters. During the 5-minute canopy ride, you can enjoy the view over the Oslo Fjord and Tønsberg archipelago."
+        },
+        "q3": {
+          "question": "What is the maximum weight for tandem jumping?",
+          "answer": "Maximum weight is 110 kg. In some cases we can allow slightly over 100 kg, but this depends on your physical condition and is assessed by the instructor in each case."
+        },
+        "q4": {
+          "question": "What happens if the weather is bad?",
+          "answer": "We don't jump when it's raining, too windy (more than 11 m/s ground wind), or if the cloud cover is low or dense. If we have to cancel due to weather, we'll notify you by SMS the same day. You can then book a new time free of charge, or get a refund for everything except the deposit."
+        },
+        "q5": {
+          "question": "How long does a tandem jump take?",
+          "answer": "From arrival to jump completion usually takes 1-3 hours. This includes video briefing, form filling, gear fitting and briefing with your tandem instructor. Add some extra time as weather and wind can affect the schedule."
+        },
+        "q6": {
+          "question": "Can I bring my own camera?",
+          "answer": "For safety reasons, it's not allowed to bring your own camera during the jump. We recommend ordering video and photos when you book – you'll most likely only do this once in your life, so it's nice to have good memories!"
+        },
+        "q7": {
+          "question": "How much does a tandem jump cost?",
+          "answer": "Tandem jumps cost 4690 NOK on weekdays and 5190 NOK on weekends. Prices include all fees, membership and insurance. Video costs 800 NOK, video and photos 1290 NOK, and full video package with dedicated camera person costs 1780 NOK."
+        },
+        "q8": {
+          "question": "How can I become an independent skydiver?",
+          "answer": "Take our AFF basic course (Accelerated Freefall)! The course includes 10 hours ground school, 10 min wind tunnel at Gardermoen, and 7 jumps with instructors. After the course (Level 1-7) you do 13 solo jumps before you can get your A-license. Complete course costs 18,990 NOK."
+        },
+        "q9": {
+          "question": "How long is the gift certificate valid?",
+          "answer": "Gift certificates are valid for 12 months from purchase date. You can pass it on to others if you don't use it yourself."
+        },
+        "q10": {
+          "question": "Can I jump together with friends or family?",
+          "answer": "Yes! You'll be on the same aircraft, up to 4 at once, and jump out with about 10 seconds between each. You'll land in the same area shortly after each other. If you have a friend who's a skydiver, they can also jump with you if the tandem instructor approves it."
+        }
+      }
+    },
+    "cta": {
+      "title": "Ready to take the",
+      "titleHighlight": "leap",
+      "titleEnd": "?",
+      "description": "Book your tandem jump today or contact us for more information about our courses and opportunities.",
+      "bookTandem": "Book Tandem Jump",
+      "contactUs": "Contact us",
+      "viewCalendar": "View jump calendar",
+      "visitShop": "Visit web shop"
+    }
+  },
+  "tandem": {
+    "hero": {
+      "badge": "Tandem Jump",
+      "title": "Experience",
+      "titleHighlight": "freedom in freefall",
+      "description": "Take the step into the unknown. Jump tandem with our experienced instructors and experience the feeling of freedom 4000 meters above ground.",
+      "bookNow": "Book tandem jump",
+      "learnMore": "Learn more",
+      "altitude": "4000 meters",
+      "freefall": "40 sec freefall",
+      "canopy": "5 min canopy ride"
+    },
+    "highlights": {
+      "badge": "Why jump with us?",
+      "closestOslo": {
+        "title": "Closest to Oslo",
+        "description": "By E18 outside Tønsberg, easily accessible from all of eastern Norway."
+      },
+      "beautifulView": {
+        "title": "Beautiful view",
+        "description": "Fantastic panorama over the Oslo Fjord and Tønsberg archipelago."
+      },
+      "bestPlane": {
+        "title": "Norway's best aircraft",
+        "description": "Twin Otter with room for 20 jumpers – the largest and best jump plane in Norway."
+      },
+      "experienced": {
+        "title": "Experienced instructors",
+        "description": "Our tandem instructors are among the country's most experienced and will take you safely through the jump."
+      }
+    },
+    "pricing": {
+      "badge": "Prices",
+      "title": "Pricing Guide",
+      "weekday": {
+        "name": "Tandem jump weekday",
+        "description": "Monday - Friday"
+      },
+      "weekend": {
+        "name": "Tandem jump weekend",
+        "description": "Saturday - Sunday",
+        "popular": "Most popular"
+      },
+      "media": {
+        "title": "Video Packages",
+        "video": {
+          "name": "Video",
+          "description": "Professional video of your jump"
+        },
+        "videoPhotos": {
+          "name": "Video and photos",
+          "description": "Video + still images from freefall and landing"
+        },
+        "fullPackage": {
+          "name": "Full video package",
+          "description": "Dedicated camera person + video from instructor's arm + photos"
+        }
+      }
+    },
+    "requirements": {
+      "title": "Requirements",
+      "age": "18 years old – or from 16 with written consent from both parents",
+      "medical": "Approved medical certificate if you're over 80",
+      "weight": "Maximum weight 110 kg",
+      "sober": "Not under the influence of intoxicants"
+    },
+    "jumpDay": {
+      "title": "How the jump day works",
+      "step1": {
+        "title": "Arrival and registration",
+        "description": "Check in at reception, watch safety video and fill out forms."
+      },
+      "step2": {
+        "title": "Briefing with instructor",
+        "description": "You get jumpsuit, harness and briefing with your tandem instructor."
+      },
+      "step3": {
+        "title": "Flight to 4000 meters",
+        "description": "10-12 minutes up with fantastic views over Tønsberg archipelago."
+      },
+      "step4": {
+        "title": "Freefall!",
+        "description": "About 40 seconds of freefall at around 200 km/h – pure adrenaline!"
+      },
+      "step5": {
+        "title": "Canopy ride",
+        "description": "5 minutes under canopy from 1500 meters – maybe you'll get to steer a bit?"
+      },
+      "step6": {
+        "title": "Soft landing",
+        "description": "The instructor lands you safely in the landing area."
+      }
+    },
+    "faq": {
+      "title": "Frequently asked questions",
+      "q1": {
+        "question": "The jump is a surprise – what do I do?",
+        "answer": "When booking for others as a surprise, provide YOUR email and YOUR mobile number – then we'll only communicate with you. Our rules state that the jumper must be notified at least 48 hours before the jump."
+      },
+      "q2": {
+        "question": "The weather forecast is bad, will there be jumping?",
+        "answer": "We don't jump when it's raining, too windy (more than 11 m/s), or if the cloud cover is low or dense. If we must cancel, we'll notify you by SMS the same day. If you don't hear from us, just come!"
+      },
+      "q3": {
+        "question": "I weigh over 100 kg, can I jump?",
+        "answer": "In some cases we allow over 100 kg, but it depends on your physical condition/fitness and is assessed by the instructor in each case. Maximum limit is 110 kg. Weather and wind conditions also play a role."
+      },
+      "q4": {
+        "question": "Can I jump together with others?",
+        "answer": "Yes! You'll be on the same aircraft, up to 4 at once, and jump out with about 10 seconds between each. You'll land in the same place shortly after each other. If you have a friend who's a skydiver, they can jump with you if the instructor approves it."
+      },
+      "q5": {
+        "question": "What happens if my jump is cancelled?",
+        "answer": "If we must cancel due to weather or other reasons, we'll book you for a new time free of charge. Or we'll refund what you paid, except the deposit. Up to you!"
+      },
+      "q6": {
+        "question": "How long is the gift certificate valid?",
+        "answer": "The gift certificate is valid for 12 months from purchase date. You can pass it on to others if you don't use it yourself."
+      },
+      "q7": {
+        "question": "I haven't received the video link from my jump!",
+        "answer": "Check your spam filter. Sender is skydive-tonsberg.wetransfer.com. You can also search for 'wetransfer' on your PC. Still can't find it – contact us!"
+      },
+      "q8": {
+        "question": "How far in advance should I book?",
+        "answer": "High season is from May to end of October. Popular times fill up quickly, especially Saturdays and Sundays. Book as early as possible to secure your preferred time. Weekdays have more availability."
+      }
+    }
+  },
+  "kurs": {
+    "hero": {
+      "badge": "AFF Skydiving Course",
+      "title": "Become a",
+      "titleHighlight": "skydiver",
+      "description": "Start your journey to becoming an independent skydiver. The AFF course is the fastest and safest way to master freefall.",
+      "price": "18,990 NOK",
+      "bookCourse": "Sign up for course",
+      "contactUs": "Contact us",
+      "duration": "7-10 days",
+      "jumps": "7 jumps with instructors"
+    },
+    "modules": {
+      "title": "What the course includes",
+      "groundSchool": {
+        "title": "Ground School",
+        "description": "10 hours theory and practical training. Learn about aerodynamics, equipment, emergency procedures and safety over 1.5 days.",
+        "duration": "10 hours"
+      },
+      "windTunnel": {
+        "title": "Wind Tunnel",
+        "description": "10 minutes in the wind tunnel at Gardermoen to practice body control and fall position before your first jump.",
+        "duration": "10 min"
+      },
+      "level13": {
+        "title": "Level 1-3",
+        "description": "Your first 3 jumps with two instructors holding onto you. Focus on body control, practice pulls and independent deployment.",
+        "duration": "2 instructors"
+      },
+      "level47": {
+        "title": "Level 4-7",
+        "description": "4 jumps with one instructor. Progressive exercises with turns, flips and solo exit until you master solo jumps.",
+        "duration": "1 instructor"
+      }
+    },
+    "included": {
+      "title": "Included in the course",
+      "groundSchool": "10 hours ground school",
+      "windTunnel": "10 min in wind tunnel (Gardermoen)",
+      "equipment": "All necessary equipment during the course",
+      "gear": "Goggles, logbook, gloves, altimeter",
+      "jumpsuit": "Jumpsuit and parachute rig",
+      "jumps13": "3 jumps with two instructors",
+      "jumps47": "4 jumps with one instructor",
+      "packing": "Packing vouchers and packing course",
+      "aCourse": "A-course",
+      "video": "Video on one jump",
+      "accommodation": "Free accommodation during course week (bunk bed)"
+    },
+    "requirements": {
+      "title": "Requirements to participate",
+      "age": "18 years old (or 16 with written consent from both parents)",
+      "medical": "Approved medical certificate (must be presented upon arrival)",
+      "weight": "Maximum weight 100 kg",
+      "declaration": "Sign health declaration",
+      "motivation": "Motivation and dedication"
+    },
+    "faq": {
+      "title": "Frequently asked questions",
+      "q1": {
+        "question": "What does a rejump cost if I don't pass a level?",
+        "answer": "The 7 jumps in the course each have their own skill requirements. If you fail a level, you must redo it. Rejumps with instructors are paid in addition to the course price. See price list at the dropzone."
+      },
+      "q2": {
+        "question": "What happens after the course (Level 1-7)?",
+        "answer": "After the course you're a Level 8 student. You must do 13 Level 8 jumps alone, including 2 FS checkouts and 2 low jumps with instructor. Then you can get your A-license through written exam, packing course and A-course."
+      },
+      "q3": {
+        "question": "How dangerous is skydiving?",
+        "answer": "There's always a risk with skydiving. But if you do as you're told and instructed, you're safe. If your main parachute doesn't work as it should, you get rid of it and deploy the reserve. You also have an AAD that opens the reserve automatically at a certain altitude."
+      },
+      "q4": {
+        "question": "What if I don't dare to jump?",
+        "answer": "If you're already in the aircraft, you'll come down with it again. You still have to pay for the instructors and your own seat in the aircraft."
+      },
+      "q5": {
+        "question": "How far in advance should I sign up?",
+        "answer": "The first courses fill up first. Sign up as soon as you've found a course with dates that suit you! We run 13 courses in the season from late April to mid-October."
+      },
+      "q6": {
+        "question": "What do I need to bring to the course?",
+        "answer": "Bring workout clothes, sneakers, warm clothes (especially spring and fall), something to take notes on, and a good mood! Wool sweater as base layer is smart, and some days you'll need tights or long underwear under the jumpsuit."
+      }
+    }
+  },
+  "kontakt": {
+    "hero": {
+      "badge": "We're here for you",
+      "title": "Get in",
+      "titleHighlight": "touch",
+      "titleEnd": "with us",
+      "description": "Have questions about skydiving? We're happy to help! Send us a message or contact us directly."
+    },
+    "info": {
+      "email": {
+        "label": "Email",
+        "value": "post@skydivetonsberg.no"
+      },
+      "address": {
+        "label": "Address",
+        "value": "Tønsberg Airport, Jarlsberg"
+      },
+      "hours": {
+        "label": "Open",
+        "value": "Jump weekends Sat-Sun in season"
+      }
+    },
+    "social": {
+      "title": "Follow us",
+      "instagram": "@skydivetonsberg",
+      "youtube": "Skydive Tønsberg"
+    },
+    "form": {
+      "title": "Send us a message",
+      "name": "Full name",
+      "namePlaceholder": "Your name",
+      "email": "Email address",
+      "emailPlaceholder": "your@email.com",
+      "phone": "Phone",
+      "phonePlaceholder": "+47 123 45 678",
+      "type": "What is this about?",
+      "typePlaceholder": "Select inquiry type",
+      "typeOptions": {
+        "tandem": "Tandem jump",
+        "course": "AFF Basic Course",
+        "guest": "Guest jumping",
+        "other": "Other"
+      },
+      "message": "Message",
+      "messagePlaceholder": "How can we help you?",
+      "submit": "Send message",
+      "sending": "Sending...",
+      "successTitle": "Thanks for your message!",
+      "successMessage": "We'll respond as soon as possible."
+    }
+  },
+  "footer": {
+    "description": "Experience freedom in freefall over beautiful Vestfold. Norway's most accessible skydiving club with focus on safety, community and adventure.",
+    "pages": "Pages",
+    "services": "Services",
+    "contact": "Contact",
+    "copyright": "Skydive Tønsberg. All rights reserved.",
+    "privacy": "Privacy",
+    "terms": "Terms"
+  }
+}

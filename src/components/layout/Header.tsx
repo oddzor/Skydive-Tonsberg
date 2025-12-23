@@ -3,35 +3,46 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { motion } from "framer-motion";
+import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/contexts/LanguageContext";
 
-const navigation = [
-  { name: "Hjem", href: "/" },
-  { name: "Tandem", href: "/tandem" },
-  { name: "Kurs", href: "/kurs" },
-  { name: "For Hoppere", href: "/for-hoppere" },
-  { name: "Kontakt", href: "/kontakt" },
-];
-
-const externalLinks = [
-  { name: "Hoppkalender", href: "https://www.skydivetonsberg.no/hoppkalender-1", external: true },
-];
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [showMobileLogo, setShowMobileLogo] = useState(true);
+  const { language, setLanguage, t } = useLanguage();
+
+  const navigation = [
+    { name: t('nav.home'), href: "/" },
+    { name: t('nav.tandem'), href: "/tandem" },
+    { name: t('nav.courses'), href: "/kurs" },
+    { name: t('nav.contact'), href: "/kontakt" },
+  ];
+
+  const rightNavigation = [
+    { name: t('nav.forJumpers'), href: "/for-hoppere", external: false },
+    { name: t('nav.jumpCalendar'), href: "https://www.skydivetonsberg.no/hoppkalender-1", external: true },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
-      const isHomepage = window.location.pathname === '/';
+      const pathname = window.location.pathname;
+      const isHomepage = pathname === '/';
+      const hasVideoHero = pathname === '/tandem' || pathname === '/kurs' || pathname === '/for-hoppere';
+      
+      // On pages with video hero, wait until after video + bar (approx 100vh)
       // On homepage, only go solid after scrolling past hero (800px)
       // On other pages, go solid after 20px
-      setScrolled(isHomepage ? window.scrollY > 800 : window.scrollY > 20);
+      if (hasVideoHero) {
+        setScrolled(window.scrollY > window.innerHeight);
+      } else {
+        setScrolled(isHomepage ? window.scrollY > 800 : window.scrollY > 20);
+      }
       
       // Hide logo on mobile homepage until scrolled past hero logo (approx 600px)
       setShowMobileLogo(isHomepage ? window.scrollY > 600 : true);
@@ -92,21 +103,41 @@ export function Header() {
             
             <div className="w-px h-6 bg-border mx-2" />
             
-            {externalLinks.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-4 py-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors"
-              >
-                {item.name}
-              </a>
+            {rightNavigation.map((item) => (
+              item.external ? (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors"
+                >
+                  {item.name}
+                </a>
+              ) : (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="relative px-4 py-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors group"
+                >
+                  {item.name}
+                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-brand group-hover:w-3/4 transition-all duration-300" />
+                </Link>
+              )
             ))}
           </div>
 
-          {/* CTA Button */}
+          {/* Language Toggle & CTA Button */}
           <div className="hidden lg:flex items-center gap-4">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => setLanguage(language === "no" ? "en" : "no")}
+              className="flex items-center gap-2 px-3"
+              title={language === "no" ? t('nav.switchToEnglish') : t('nav.switchToNorwegian')}
+            >
+              <span className="text-2xl">{language === "no" ? "🇬🇧" : "🇳🇴"}</span>
+            </Button>
             <Button
               asChild
               className="bg-gradient-brand hover:opacity-90 text-white font-semibold px-6 shadow-lg shadow-sky/25"
@@ -116,7 +147,7 @@ export function Header() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Book Tandemhopp
+                {t('nav.bookTandem')}
               </a>
             </Button>
           </div>
@@ -126,11 +157,11 @@ export function Header() {
             <SheetTrigger asChild className="lg:hidden">
               <Button variant="ghost" size="icon" className="relative">
                 <Menu className="h-6 w-6" />
-                <span className="sr-only">Åpne meny</span>
+                <span className="sr-only">{t('nav.openMenu')}</span>
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-full sm:w-80 p-0">
-              <SheetTitle className="sr-only">Navigasjonsmeny</SheetTitle>
+              <SheetTitle className="sr-only">{t('nav.navigationMenu')}</SheetTitle>
               <div className="flex flex-col h-full">
                 <div className="flex items-center justify-between p-4 border-b">
                   <Image
@@ -164,31 +195,52 @@ export function Header() {
                   
                   <div className="my-6 border-t pt-6">
                     <p className="px-4 text-sm font-medium text-muted-foreground mb-3">
-                      Eksterne lenker
+                      {t('nav.externalLinks')}
                     </p>
                     <div className="space-y-1">
-                      {externalLinks.map((item, index) => (
+                      {rightNavigation.map((item, index) => (
                         <motion.div
                           key={item.name}
                           initial={{ opacity: 0, x: 20 }}
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ delay: (navigation.length + index) * 0.1 }}
                         >
-                          <a
-                            href={item.href}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="block px-4 py-3 text-lg font-medium text-foreground hover:bg-accent rounded-lg transition-colors"
-                          >
-                            {item.name}
-                          </a>
+                          {item.external ? (
+                            <a
+                              href={item.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="block px-4 py-3 text-lg font-medium text-foreground hover:bg-accent rounded-lg transition-colors"
+                            >
+                              {item.name}
+                            </a>
+                          ) : (
+                            <Link
+                              href={item.href}
+                              onClick={() => setMobileOpen(false)}
+                              className="block px-4 py-3 text-lg font-medium text-foreground hover:bg-accent rounded-lg transition-colors"
+                            >
+                              {item.name}
+                            </Link>
+                          )}
                         </motion.div>
                       ))}
                     </div>
                   </div>
                 </nav>
                 
-                <div className="p-4 border-t">
+                <div className="p-4 border-t space-y-3">
+                  <Button
+                    variant="outline"
+                    onClick={() => {
+                      setLanguage(language === "no" ? "en" : "no");
+                      setMobileOpen(false);
+                    }}
+                    className="w-full flex items-center justify-center gap-3"
+                  >
+                    <span className="text-2xl">{language === "no" ? "🇬🇧" : "🇳🇴"}</span>
+                    <span>{language === "no" ? t('nav.switchToEnglish') : t('nav.switchToNorwegian')}</span>
+                  </Button>
                   <Button
                     asChild
                     className="w-full bg-gradient-brand hover:opacity-90 text-white font-semibold shadow-lg"
@@ -198,7 +250,7 @@ export function Header() {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      Book Tandemhopp
+                      {t('nav.bookTandem')}
                     </a>
                   </Button>
                 </div>

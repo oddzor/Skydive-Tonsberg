@@ -19,6 +19,7 @@ export function HeroVideo({
 }: HeroVideoProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [shouldLoad, setShouldLoad] = useState(priority);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     // If priority, load immediately
@@ -44,16 +45,51 @@ export function HeroVideo({
     return () => observer.disconnect();
   }, [priority]);
 
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video || !shouldLoad) return;
+
+    const handleCanPlayThrough = () => {
+      setIsLoaded(true);
+      // Only play once the video is fully loaded and ready
+      video.play().catch((error) => {
+        console.log("Video autoplay prevented:", error);
+      });
+    };
+
+    const handleLoadedData = () => {
+      // Video has loaded enough to start playing
+      setIsLoaded(true);
+    };
+
+    // Listen for when the video is ready to play through without buffering
+    video.addEventListener("canplaythrough", handleCanPlayThrough);
+    video.addEventListener("loadeddata", handleLoadedData);
+
+    // If video is already loaded (cached), play immediately
+    if (video.readyState >= 3) {
+      handleCanPlayThrough();
+    }
+
+    return () => {
+      video.removeEventListener("canplaythrough", handleCanPlayThrough);
+      video.removeEventListener("loadeddata", handleLoadedData);
+    };
+  }, [shouldLoad]);
+
   return (
     <video
       ref={videoRef}
-      autoPlay
       muted
       loop
       playsInline
       poster={poster}
       className={className}
-      preload={priority ? "auto" : "none"}
+      preload={priority ? "auto" : "metadata"}
+      style={{
+        // Ensure poster is visible until video loads
+        backgroundColor: "transparent",
+      }}
     >
       {shouldLoad && (
         <>
@@ -76,4 +112,6 @@ export function HeroVideo({
     </video>
   );
 }
+
+
 

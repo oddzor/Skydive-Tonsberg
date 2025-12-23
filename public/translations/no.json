@@ -1,0 +1,741 @@
+{
+  "nav": {
+    "home": "Hjem",
+    "courses": "Kurs",
+    "forJumpers": "For Hoppere",
+    "tandem": "Tandem",
+    "contact": "Kontakt",
+    "jumpCalendar": "Hoppkalender",
+    "bookTandem": "Book Tandemhopp",
+    "openMenu": "Åpne meny",
+    "navigationMenu": "Navigasjonsmeny",
+    "externalLinks": "Eksterne lenker",
+    "switchToEnglish": "Switch to English",
+    "switchToNorwegian": "Bytt til Norsk",
+    "shop": "Nettbutikk"
+  },
+  "home": {
+    "hero": {
+      "title": "Opplev",
+      "titleHighlight": "frihet",
+      "titleEnd": "i fritt fall",
+      "description": "Hopp tandem med profesjonelle instruktører, eller start din reise som selvstendig fallskjermhopper. Uforglemmelige opplevelser venter.",
+      "bookTandem": "Book Tandemhopp",
+      "watchVideo": "Se video",
+      "scrollDown": "Scroll ned"
+    },
+    "about": {
+      "badge": "Om oss",
+      "title": "Din port til",
+      "titleHighlight": "himmelen",
+      "description1": "Skydive Tønsberg er en av Norges mest etablerte og aktive fallskjermklubber. Med base på Tønsberg Flyplass (Jarlsberg) tilbyr vi alt fra tandemhopp for nybegynnere til avansert trening for erfarne hoppere.",
+      "description2": "Vårt dedikerte team av instruktører og erfarne hoppere sørger for at hver eneste opplevelse er trygg, spennende og minneverdig. Bli med i vårt fellesskap og oppdag gleden ved fritt fall!",
+      "stats": {
+        "members": "Aktive medlemmer",
+        "experience": "År med erfaring",
+        "jumps": "Sikre hopp årlig",
+        "satisfaction": "Fornøyde hoppere"
+      }
+    },
+    "services": {
+      "badge": "Våre tjenester",
+      "title": "Velg din",
+      "titleHighlight": "opplevelse",
+      "tandem": {
+        "title": "Tandemhopp",
+        "description": "Opplev fritt fall fra 4000 meter med ca. 40 sekunder i fritt fall. Hopp med en av våre erfarne instruktører – desidert nærmest Oslo med vakker utsikt over Oslofjorden. Fra kun 4690 kr.",
+        "cta": "Book nå"
+      },
+      "aff": {
+        "title": "AFF Grunnkurs",
+        "description": "Bli selvstendig fallskjermhopper! Kurset inkluderer 10 timer bakkekurs, vindtunell på Gardermoen og 7 hopp med instruktører. Komplett kurs kun 18 990 kr.",
+        "cta": "Les mer"
+      },
+      "experienced": {
+        "title": "For Erfarne Hoppere",
+        "description": "Allerede sertifisert hopper? Vi tilbyr gjesthopping, utstyrsleie og et aktivt hoppmiljø. Vi opererer Norges største og beste fly for fallskjermhopping!",
+        "cta": "Se tilbud"
+      }
+    },
+    "testimonials": {
+      "badge": "Anmeldelser",
+      "title": "Hva våre",
+      "titleHighlight": "hoppere",
+      "titleEnd": "sier",
+      "description": "Les om opplevelsene til de som allerede har tatt spranget med oss.",
+      "prevButton": "Forrige anmeldelse",
+      "nextButton": "Neste anmeldelse",
+      "jumpToReview": "Gå til anmeldelse",
+      "viewAllGoogle": "Se alle anmeldelser på Google"
+    },
+    "faq": {
+      "badge": "Spørsmål?",
+      "title": "Ofte stilte",
+      "titleHighlight": "spørsmål",
+      "description": "Her finner du svar på de vanligste spørsmålene vi får. Ikke nøl med å kontakte oss hvis du lurer på noe annet!",
+      "questions": {
+        "q1": {
+          "question": "Hva er aldersgrensen for tandemhopp?",
+          "answer": "Du må ha fylt 18 år for å hoppe tandem. Er du mellom 16 og 18 år må du ha med skriftlig aksept fra begge foresatte. Er du over 80 år må du ha med godkjent legeerklæring."
+        },
+        "q2": {
+          "question": "Hvor høyt hopper vi fra?",
+          "answer": "Vi hopper fra 4000 meter! Dette gir deg ca. 40 sekunder i fritt fall i rundt 200 km/t før tandeminstruktøren utløser skjermen på 1500 meter. Under skjermturen på ca. 5 minutter kan du nyte utsikten over Oslofjorden og Tønsbergs skjærgård."
+        },
+        "q3": {
+          "question": "Hva er maksimal vekt for tandemhopp?",
+          "answer": "Maksimal vekt er 110 kg. I enkelte tilfeller kan vi tillate noe over 100 kg, men dette er avhengig av din fysiske form og vurderes av instruktøren i hvert tilfelle."
+        },
+        "q4": {
+          "question": "Hva skjer hvis været er dårlig?",
+          "answer": "Vi hopper ikke når det regner, er for mye vind (mer enn 11 m/s bakkevind), eller hvis skydekket er lavt eller tett. Dersom vi må kansellere på grunn av været, varsler vi deg på SMS samme dag. Du kan da booke et nytt tidspunkt kostnadsfritt, eller få refundert alt utenom depositumet."
+        },
+        "q5": {
+          "question": "Hvor lang tid tar et tandemhopp?",
+          "answer": "Fra du møter til hoppet er gjennomført går det vanligvis 1-3 timer. Dette inkluderer video-briefing, utfylling av skjema, påkledning av utstyr og gjennomgang med din tandeminstruktør. Legg gjerne inn litt ekstra tid da vær og vind kan påvirke tidsplanen."
+        },
+        "q6": {
+          "question": "Kan jeg ta med kamera?",
+          "answer": "Av sikkerhetsmessige årsaker er det ikke tillatt å ha med eget kamera under hoppet. Vi anbefaler å bestille video og bilder når du booker – det er mest sannsynlig at du gjør dette kun én gang i ditt liv, så det er fint å ha gode minner!"
+        },
+        "q7": {
+          "question": "Hva koster tandemhopp?",
+          "answer": "Tandemhopp koster 4690 kr på ukedager og 5190 kr i helger. Prisene inkluderer alt av avgifter, medlemskap og forsikring. Video koster 800 kr, video og bilder 1290 kr, og full videopakke med egen kameraperson koster 1780 kr."
+        },
+        "q8": {
+          "question": "Hvordan kan jeg bli selvstendig fallskjermhopper?",
+          "answer": "Ta vårt AFF grunnkurs (Accelerated Freefall)! Kurset inkluderer 10 timer bakkekurs, 10 min vindtunell på Gardermoen, og 7 hopp med instruktører. Etter kurset (Nivå 1-7) gjør du 13 hopp alene før du kan ta A-lisens. Komplett kurs koster 18 990 kr."
+        },
+        "q9": {
+          "question": "Hvor lenge er gavekortet gyldig?",
+          "answer": "Gavekort er gyldig i 12 måneder fra kjøpsdato. Du kan gi det videre til andre hvis du ikke benytter det selv."
+        },
+        "q10": {
+          "question": "Kan jeg hoppe sammen med venner eller familie?",
+          "answer": "Ja! Dere vil være på samme fly, inntil 4 samtidig, og hopper ut med ca. 10 sekunders mellomrom. Dere lander på samme sted med kort mellomrom. Har du en venn som er fallskjermhopper kan han/hun også hoppe sammen med deg hvis tandeminstruktøren godkjenner det."
+        }
+      }
+    },
+    "cta": {
+      "title": "Klar for å ta",
+      "titleHighlight": "spranget",
+      "titleEnd": "?",
+      "description": "Book ditt tandemhopp i dag eller kontakt oss for mer informasjon om våre kurs og muligheter.",
+      "bookTandem": "Book Tandemhopp",
+      "contactUs": "Kontakt oss",
+      "viewCalendar": "Se hoppkalenderen",
+      "visitShop": "Besøk nettbutikken"
+    }
+  },
+  "tandem": {
+    "hero": {
+      "badge": "Tandemhopp",
+      "title": "Opplev",
+      "titleHighlight": "frihet i fritt fall",
+      "description": "Ta steget ut i det ukjente. Hopp tandem med våre erfarne instruktører og opplev følelsen av frihet 4000 meter over bakken.",
+      "bookNow": "Book tandemhopp",
+      "learnMore": "Les mer",
+      "altitude": "4000 meter",
+      "freefall": "40 sek fritt fall",
+      "canopy": "5 min skjermtur"
+    },
+    "highlights": {
+      "badge": "Hvorfor hoppe med oss?",
+      "closestOslo": {
+        "title": "Desidert nærmest Oslo",
+        "description": "Ved E18 utenfor Tønsberg, enkelt tilgjengelig fra hele østlandet."
+      },
+      "beautifulView": {
+        "title": "Vakker utsikt",
+        "description": "Fantastisk panorama over Oslofjorden og Tønsbergs skjærgård."
+      },
+      "bestPlane": {
+        "title": "Norges beste fly",
+        "description": "Twin Otter med plass til 20 hoppere – det største og beste hoppflyet i Norge."
+      },
+      "experienced": {
+        "title": "Erfarne instruktører",
+        "description": "Våre tandeminstruktører er blant landets mest erfarne og tar deg trygt gjennom hoppet."
+      }
+    },
+    "pricing": {
+      "badge": "Priser",
+      "title": "Prisguide",
+      "weekday": {
+        "name": "Tandemhopp ukedag",
+        "description": "Mandag - Fredag"
+      },
+      "weekend": {
+        "name": "Tandemhopp helg",
+        "description": "Lørdag - Søndag",
+        "popular": "Mest populært"
+      },
+      "media": {
+        "title": "Videopakker",
+        "video": {
+          "name": "Video",
+          "description": "Profesjonell video av hoppet ditt"
+        },
+        "videoPhotos": {
+          "name": "Video og bilder",
+          "description": "Video + stillbilder fra fritt fall og landing"
+        },
+        "fullPackage": {
+          "name": "Full videopakke",
+          "description": "Egen kameraperson + video fra instruktørens arm + bilder"
+        }
+      }
+    },
+    "requirements": {
+      "title": "Krav",
+      "age": "Fylt 18 år – eller fra 16 år med skriftlig aksept fra begge foresatte",
+      "medical": "Godkjent legeerklæring hvis du er over 80 år",
+      "weight": "Maksimal vekt 110 kg",
+      "sober": "Ikke påvirket av rusmidler"
+    },
+    "jumpDay": {
+      "title": "Slik foregår hoppdagen",
+      "step1": {
+        "title": "Ankomst og registrering",
+        "description": "Meld deg i resepsjonen, se sikkerhetsvideo og fyll ut skjema."
+      },
+      "step2": {
+        "title": "Briefing med instruktør",
+        "description": "Du får hoppdress, seletøy og gjennomgang med din tandeminstruktør."
+      },
+      "step3": {
+        "title": "Flytur til 4000 meter",
+        "description": "10-12 minutter opp med fantastisk utsikt over Tønsbergs skjærgård."
+      },
+      "step4": {
+        "title": "Fritt fall!",
+        "description": "Ca. 40 sekunder i fritt fall i rundt 200 km/t – ren adrenalin!"
+      },
+      "step5": {
+        "title": "Skjermtur",
+        "description": "5 minutter under skjerm fra 1500 meter – kanskje du får styre litt?"
+      },
+      "step6": {
+        "title": "Myk landing",
+        "description": "Instruktøren lander deg trygt på landingsområdet."
+      }
+    },
+    "faq": {
+      "title": "Vanlige spørsmål",
+      "q1": {
+        "question": "Hoppet skal være en overraskelse – hva gjør jeg?",
+        "answer": "Når du booker for andre, og det skal være en overraskelse, oppgi DIN e-post og DITT mobilnr – da kommuniserer vi bare med deg. Våre regler sier at den som hopper skal varsles minst 48 timer før hoppet."
+      },
+      "q2": {
+        "question": "Værmeldinga er dårlig, blir det hopping?",
+        "answer": "Vi hopper ikke når det regner, er for mye vind (mer enn 11 m/s), eller hvis skydekket er lavt eller tett. Dersom vi må kansellere varsler vi deg på SMS samme dag. Hører du ikke fra oss er det bare å komme!"
+      },
+      "q3": {
+        "question": "Jeg veier over 100 kg, kan jeg hoppe?",
+        "answer": "I enkelte tilfeller tillater vi over 100 kg, men det er avhengig av din fysiske tilstand/form, og vurderes av instruktøren i hvert tilfelle. Maksgrense er 110 kg. Vær- og vindforhold spiller også inn."
+      },
+      "q4": {
+        "question": "Kan jeg hoppe sammen med andre?",
+        "answer": "Ja! Dere vil være på samme fly, inntil 4 samtidig, og hopper ut med ca. 10 sekunders mellomrom. Dere lander på samme sted med kort mellomrom. Har du en venn som er fallskjermhopper kan han/hun hoppe sammen med deg hvis instruktøren godkjenner det."
+      },
+      "q5": {
+        "question": "Hva skjer hvis hoppet mitt blir kansellert?",
+        "answer": "Dersom vi må kansellere pga vær eller andre årsaker, booker vi deg kostnadsfritt på et nytt tidspunkt. Eller vi refunderer det du har betalt, bortsett fra depositumet. Opp til deg!"
+      },
+      "q6": {
+        "question": "Hvor lenge er gavekortet gyldig?",
+        "answer": "Gavekortet er gyldig i 12 måneder fra kjøpsdato. Du kan gi det videre til andre hvis du ikke benytter det selv."
+      },
+      "q7": {
+        "question": "Jeg har ikke fått link til filmen fra hoppet!",
+        "answer": "Sjekk spamfilteret ditt. Avsender er skydive-tonsberg.wetransfer.com. Du kan også søke på 'wetransfer' på PC-en din. Finner du den fremdeles ikke – kontakt oss!"
+      },
+      "q8": {
+        "question": "Hvor lang tid i forveien bør jeg bestille?",
+        "answer": "Høysesongen er fra mai til ut oktober. De populære tidspunktene fylles fort opp, spesielt lørdager og søndager. Book så tidlig som mulig for å sikre ønsket tidspunkt. På hverdager er det mer romslig med plass."
+      }
+    }
+  },
+  "kurs": {
+    "hero": {
+      "badge": "AFF Fallskjermkurs",
+      "title": "Bli",
+      "titleHighlight": "fallskjermhopper",
+      "description": "Start din reise mot å bli selvstendig fallskjermhopper. AFF-kurset er den raskeste og sikreste veien til å mestre fritt fall.",
+      "price": "18 990 kr",
+      "bookCourse": "Meld deg på kurs",
+      "contactUs": "Kontakt oss",
+      "duration": "7-10 dager",
+      "jumps": "7 hopp med instruktører"
+    },
+    "modules": {
+      "title": "Hva kurset inkluderer",
+      "groundSchool": {
+        "title": "Bakkekurs",
+        "description": "10 timer teori og praktisk trening. Lær om aerodynamikk, utstyr, nødprosedyrer og sikkerhet fordelt over 1,5 dager.",
+        "duration": "10 timer"
+      },
+      "windTunnel": {
+        "title": "Vindtunell",
+        "description": "10 minutter i vindtunellen på Gardermoen for å øve på kroppskontroll og fallstilling før ditt første hopp.",
+        "duration": "10 min"
+      },
+      "level13": {
+        "title": "Nivå 1-3",
+        "description": "Dine første 3 hopp med to instruktører som holder grep i deg. Fokus på kroppskontroll, prøvetrekk og selvstendig trekk.",
+        "duration": "2 instruktører"
+      },
+      "level47": {
+        "title": "Nivå 4-7",
+        "description": "4 hopp med én instruktør. Progressive øvelser med svinger, saltoer og solo exit inntil du mestrer solo-hopp.",
+        "duration": "1 instruktør"
+      }
+    },
+    "included": {
+      "title": "Inkludert i kurset",
+      "groundSchool": "10 timer bakkekurs",
+      "windTunnel": "10 min i vindtunell (Gardermoen)",
+      "equipment": "Alt nødvendig utstyr under kurset",
+      "gear": "Goggles, loggbok, hansker, høydemåler",
+      "jumpsuit": "Hoppdress og fallskjermrigg",
+      "jumps13": "3 hopp med to instruktører",
+      "jumps47": "4 hopp med én instruktør",
+      "packing": "Pakkebonger og pakkekurs",
+      "aCourse": "A-kurs",
+      "video": "Video på ett hopp",
+      "accommodation": "Gratis overnatting kursuka (køyeseng)"
+    },
+    "requirements": {
+      "title": "Krav for å delta",
+      "age": "Fylt 18 år (eller 16 år med skriftlig aksept fra begge foresatte)",
+      "medical": "Godkjent legeerklæring (må fremvises ved fremmøte)",
+      "weight": "Maksimal vekt 100 kg",
+      "declaration": "Signere egenerklæring om fysisk helse",
+      "motivation": "Motivasjon og dedikasjon"
+    },
+    "faq": {
+      "title": "Vanlige spørsmål",
+      "q1": {
+        "question": "Hva koster omhopp hvis jeg ikke består et nivå?",
+        "answer": "De 7 hoppene på kurset har hver sine ferdighetskrav. Hvis du får et nivå underkjent må du gjøre det om igjen. Omhopp med instruktører betales i tillegg til kursprisen. Se prisliste på hoppfeltet."
+      },
+      "q2": {
+        "question": "Hva skjer etter kurset (Nivå 1-7)?",
+        "answer": "Etter kurset er du elev på Nivå 8. Du skal gjøre 13 nivå 8-hopp alene, hvorav 2 FS-utsjekker og 2 lavhopp med instruktør. Deretter kan du ta A-lisens gjennom skriftlig eksamen, pakkekurs og A-kurs."
+      },
+      "q3": {
+        "question": "Hvor farlig er fallskjermhopping?",
+        "answer": "Det er alltid en risiko med fallskjermhopping. Men gjør du som du blir fortalt og instruert, er du trygg. Virker ikke hovedskjermen din som den skal, kvitter du deg med den og trekker reserveskjermen. Du har også en nødåpner som åpner reserven automatisk i en viss høyde."
+      },
+      "q4": {
+        "question": "Hva hvis jeg ikke tør hoppe?",
+        "answer": "Hvis du allerede er i flyet blir du med flyet ned igjen. Du må allikevel betale for instruktørene og din egen plass i flyet."
+      },
+      "q5": {
+        "question": "Hvor lang tid i forveien bør jeg melde meg på?",
+        "answer": "De første kursene fylles opp først. Meld deg på så fort du har funnet et kurs med datoer som passer deg! Vi kjører 13 kurs i sesongen fra slutten av april til medio oktober."
+      },
+      "q6": {
+        "question": "Hva trenger jeg ha med på kurs?",
+        "answer": "Ta med treningsklær, joggesko, varmt tøy (spesielt vår og høst), gjerne noe å notere på, og godt humør! Ulltrøye innerst er lurt, og noen dager trenger du tights eller stillongs under hoppdressen."
+      }
+    }
+  },
+  "kontakt": {
+    "hero": {
+      "badge": "Vi er her for deg",
+      "title": "Ta",
+      "titleHighlight": "kontakt",
+      "titleEnd": "med oss",
+      "description": "Har du spørsmål om fallskjermhopping? Vi hjelper deg gjerne! Send oss en melding eller kontakt oss direkte."
+    },
+    "info": {
+      "email": {
+        "label": "E-post",
+        "value": "post@skydivetonsberg.no"
+      },
+      "address": {
+        "label": "Adresse",
+        "value": "Tønsberg Flyplass, Jarlsberg"
+      },
+      "hours": {
+        "label": "Åpent",
+        "value": "Hopphelger lør-søn i sesongen"
+      }
+    },
+    "social": {
+      "title": "Følg oss",
+      "instagram": "@skydivetonsberg",
+      "youtube": "Skydive Tønsberg"
+    },
+    "form": {
+      "title": "Send oss en melding",
+      "name": "Fullt navn",
+      "namePlaceholder": "Ditt navn",
+      "email": "E-postadresse",
+      "emailPlaceholder": "din@epost.no",
+      "phone": "Telefon",
+      "phonePlaceholder": "+47 123 45 678",
+      "type": "Hva gjelder det?",
+      "typePlaceholder": "Velg type henvendelse",
+      "typeOptions": {
+        "tandem": "Tandemhopp",
+        "course": "AFF Grunnkurs",
+        "guest": "Gjesthopping",
+        "other": "Annet"
+      },
+      "message": "Melding",
+      "messagePlaceholder": "Hva kan vi hjelpe deg med?",
+      "submit": "Send melding",
+      "sending": "Sender...",
+      "successTitle": "Takk for meldingen!",
+      "successMessage": "Vi vil svare deg så snart som mulig."
+    }
+  },
+  "forHoppere": {
+    "hero": {
+      "badge": "For erfarne hoppere",
+      "title": "Kom og få sol, sommer og",
+      "titleHighlight": "fallskjermhopp!",
+      "description": "Velkommen til Skydive Tønsberg på Jarlsberg flyplass – med Norges største og beste hoppfly, Twin Otter LN-JMP!",
+      "jumpCalendar": "Hoppkalender",
+      "burbleMe": "BurbleMe"
+    },
+    "seasonInfo": {
+      "seasonStart": "Sesongstart",
+      "seasonEnd": "Sesongslutt",
+      "open": "Åpent",
+      "app": "App",
+      "startDate": "17. april",
+      "endDate": "Medio oktober",
+      "openDays": "4-7 dager/uke"
+    },
+    "quickLinks": {
+      "renewal": "Slik fornyer du",
+      "bunkhouse": "Bunkhouse",
+      "burbleme": "BurbleMe",
+      "dropzoneBrief": "Hoppfeltbrief",
+      "pricing": "Priser",
+      "aircraft": "Flyet",
+      "insurance": "Forsikring",
+      "reporting": "Varsling",
+      "weather": "Vær & Kamera"
+    },
+    "renewal": {
+      "badge": "Medlemskap",
+      "title": "Slik fornyer du",
+      "titleHighlight": "medlemskapet",
+      "description": "Forny medlemskap, forsikring og kompetansebevis via Min Idrett.",
+      "button": "Gå til Min Idrett"
+    },
+    "bunkhouse": {
+      "badge": "Overnatting",
+      "title": "Bunkhouse –",
+      "titleHighlight": "16 soveplasser",
+      "description": "Vi har 7 rom tilgjengelig for hoppere. Book i resepsjonen eller via e-post.",
+      "bookButton": "Book Bunkhouse",
+      "rulesTitle": "Regler for Bunkhouse",
+      "pricingTitle": "Priser overnatting",
+      "rules": {
+        "checkin": "Innsjekk og utsjekk i resepsjonen",
+        "rooms": "5 rom med enkeltseng + køyeseng, 2 rom med dobbelseng (140 cm)",
+        "noParty": "Dette er til soving, ikke party – festen foregår et annet sted",
+        "bedding": "Vi holder madrass, dyne, pute og sengetøy",
+        "billing": "Vi trekker deg i Burble for overnattingen(e)",
+        "girlsRoom": "Rom nr. 3 er kun for jenter"
+      },
+      "pricing": {
+        "threeMan": "3-manns rom, per natt",
+        "doubleSingle": "Dobbeltrom single, per natt",
+        "doubleTwo": "Dobbeltrom to pers., per natt",
+        "bedding": "Sengetøy og utvask (obligatorisk)",
+        "rvPower": "Bobil/vogn med strøm, per døgn",
+        "rvPowerWeek": "Bobil/vogn med strøm, per uke",
+        "tentNoPower": "Telt/bil/vogn uten strøm, per døgn"
+      },
+      "contactText": "Kommer du utenom åpningstid? Send oss en e-post til",
+      "warningText": "All overnatting skal forhåndsregistreres i resepsjonen. Brudd på dette medfører 500 kr i gebyr."
+    },
+    "burbleMe": {
+      "badge": "Manifestering",
+      "title": "BurbleMe –",
+      "titleHighlight": "manifester deg selv!",
+      "description": "Du trenger BurbleMe for å hoppe på Skydive Tønsberg. Last ned fra AppStore eller Google Play.",
+      "openButton": "Åpne BurbleMe Web",
+      "profileSetup": {
+        "title": "Sett opp profilen",
+        "personalDetails": "Personal Details",
+        "personalDetailsDesc": "Fyll ut all personalia. Husk å trykke Update nederst.",
+        "editCredentials": "Edit Credentials",
+        "licenceType": "Licence Type: Velg ditt kompetansebevis",
+        "licenceNumber": "Licence number: I2, AFF-I, MK, Demo osv.",
+        "memberNumber": "Member Number: Din Personid fra Min Idrett (6-7 siffer)",
+        "note": "OBS! Du får ikke manifestert deg før profilen er riktig satt opp og vi har godkjent deg i resepsjonen."
+      },
+      "checkIn": {
+        "title": "Check In & Formation",
+        "dropzone": "Dropzone & Check In",
+        "dropzoneDesc": "Velg \"Skydive Tønsberg\" som Dropzone øverst i appen, deretter Check In før du manifesterer.",
+        "formation": "Velg Formation først!",
+        "formationDesc": "Velg alltid Formation før du velger løft. Hoppmester og TøFSK liker å vite hva du skal gjøre.",
+        "trackingRules": "Tracking / WS regler:",
+        "trackingRule1": "Maks 2 Angle (tracking) grupper",
+        "trackingRule2": "Maks 1 WS/Tracksuit gruppe",
+        "trackingRule3": "Bruk \"Angle\", ikke \"Tracking\" under Formation"
+      },
+      "notifications": {
+        "title": "Varsling & Sikkerhet",
+        "loadTime": "Load Time varsler",
+        "loadTimeDesc": "Still inn Badge og Alarm for å få varsel på 5 og 10 min call.",
+        "outlanding": "Ved utelanding",
+        "outlandingDesc": "Bruk \"Contact DZ/Emergency\" så manifest vet hvor du er. Ha Manifest Notifications påslått!",
+        "location": "Location tracking",
+        "locationDesc": "Slå på \"Allow Burble to track my location when I am on a load\" under Settings for ekstra sikkerhet."
+      }
+    },
+    "hoppfeltbrief": {
+      "badge": "Du skal kunne hoppfeltbriefen!",
+      "title": "Hoppfeltbrief &",
+      "titleHighlight": "prosedyrer",
+      "description": "Lokale forhold og bestemmelser for hopping på Jarlsberg flyplass.",
+      "clickToZoom": "Klikk på bildene for å se dem i full størrelse",
+      "exitOrderTitle": "Exitrekkefølge",
+      "exitOrderNote": "Tid mellom gruppene er ca 7-9 sekunder hvis ikke annet er sagt av hoppmester.",
+      "exitOrder": {
+        "tracking1": "Trackinggruppe 1",
+        "fs": "FS/Mage-grupper",
+        "freefly": "Freefly",
+        "aff8": "AFF Nivå 8",
+        "aff17": "AFF Nivå 1-7",
+        "tracking2": "Trackinggruppe 2",
+        "tandem": "Tandem",
+        "pullHigh": "Trekke høyt (maks 5000 fot)",
+        "wingsuit": "Wingsuit/trackingsuit, øst",
+        "wingsuitTL1": "Wingsuit med TL1, øst"
+      },
+      "proceduresTitle": "Prosedyrer",
+      "boarding": {
+        "title": "Boarding (10 min call)",
+        "rule1": "Møt Hoppmester ved innlastningsområdet, ferdig påselet",
+        "rule2": "Still deg opp med din frittfallgruppe",
+        "rule3": "Planlagte høyhastighetslandinger: Meld fra til HM"
+      },
+      "inAircraft": {
+        "title": "I flyet",
+        "rule1": "Alle fastspent med hjelm på til 1500 fot",
+        "rule2": "Sett deg oppreist i ryggen så alle får plass",
+        "rule3": "Gi elever/tandemer plass fra 9000 fot",
+        "rule4": "Rød lampe = åpne døra, Grønn = hopp!"
+      },
+      "landingPattern": {
+        "title": "Landingsmønster",
+        "rule1": "Runet går alltid rett sør eller nord, parallelt med stripa",
+        "rule2": "Maks 90° sving for landing mot nord eller sør",
+        "rule3": "Ikke kryss stripa under 300 fot (i forlengelsen: 1000 fot)",
+        "rule4": "Maks trekkhøyde: 5000 fot (delt luftrom med Torp)"
+      },
+      "outlanding": {
+        "title": "Utelanding",
+        "rule1": "Meld fra med BurbleMe så vi vet hvor du er",
+        "rule2": "Følg traktorspor, tråkk ned minst mulig! (500 kr gebyr)",
+        "rule3": "Pass opp for kuene i nordenden – de kan være farlige!",
+        "rule4": "Meld fra til HFL straks du er tilbake"
+      }
+    },
+    "pricing": {
+      "badge": "Priser 2025",
+      "title": "Priser, dealer og",
+      "titleHighlight": "avgifter",
+      "jumpPrices": "Hoppriser",
+      "registrationFees": "Registreringsavgift",
+      "equipment": "Utstyr",
+      "tandem": "Tandem",
+      "courses": "Kurs / Elever",
+      "misc": "Diverse / Verving",
+      "jumps": {
+        "normal": "Normalhopp",
+        "deal": "Hopperdeal",
+        "dealNote": "+ 2500 kr innskudd",
+        "bigDeal": "Storhopperdeal",
+        "bigDealNote": "+ 10 000 kr innskudd",
+        "highAlt": "15 000 fot"
+      },
+      "registration": {
+        "annual": "Årsavgift",
+        "annualVeteran": "Årsavgift veteraner/studenter",
+        "day": "Dagsavgift",
+        "weekend": "Helgeavgift (lør+søn)",
+        "week": "Ukesavgift (7 dager)"
+      },
+      "equipmentItems": {
+        "rentalRig": "Leierigg per hopp",
+        "studentRig": "Leierigg elever per hopp",
+        "altimeter": "Høydemåler (ARESII), per dag",
+        "packing": "Pakk sportsrigg"
+      },
+      "tandemItems": {
+        "weekday": "Tandem ukedager",
+        "weekend": "Tandem lør/søn",
+        "video": "Video",
+        "videoPhotos": "Video og bilder",
+        "fullPackage": "Full videopakke"
+      },
+      "courseItems": {
+        "affCourse": "Fallskjermkurs AFF inkl vindtunnel",
+        "rejump13": "Omhopp Nivå 1-3",
+        "rejump47": "Omhopp Nivå 4-7",
+        "level8": "Nivå 8 (inkl riggleie)",
+        "checkoutJump": "Utsjekkshopp Nivå 8"
+      },
+      "miscItems": {
+        "membership": "Medlemsavgift TøFSK",
+        "withdrawal": "Uttak Burble",
+        "referTandem": "Verve tandem",
+        "referAFF": "Verve AFF-elev",
+        "familyDiscount": "Familierabatt tandem"
+      },
+      "deals": {
+        "title": "Hopperdealer – spar penger!",
+        "dealTitle": "Hopperdeal",
+        "dealPrice": "335 kr/hopp",
+        "dealDesc": "Innskudd kr 2 500 → 50 kr avslag på hvert hopp. Break even ved 50 hopp.",
+        "bigDealTitle": "Storhopperdeal",
+        "bigDealPrice": "285 kr/hopp",
+        "bigDealDesc": "Innskudd kr 10 000 → 100 kr avslag på hvert hopp. Break even ved 100 hopp. Lønner seg ved 150+ hopp.",
+        "warning": "OBS! Du kjøper hopperdealer på egen risiko! Ved arrangementer med høyere slotpriser gjelder ikke dealene. Får du legeattest på at du ikke kan hoppe mer denne sesongen, gjør vi om til normalpris."
+      }
+    },
+    "aircraft": {
+      "badge": "Flyet",
+      "title": "Twin Otter –",
+      "titleHighlight": "verdens beste hoppfly!",
+      "intro": "Vi er svært stolte av flyet vårt – LN-JMP – en nyoverhalt Twin Otter med plass til 20 hoppere. Flytypen heter DHC6-200, og JMP ble produsert på De Havilland-fabrikken i Canada i 1968.",
+      "history": "JMP kom til Jarlsberg i 2006 og er nå eid av Hoppfly AS, hvor TøFSK har 10% og hovedeier er Per Kølner.",
+      "renovation": "Før sesongen 2016 ble JMP totalrenovert for over 10 millioner kroner, med nye instrumenter, ny lakk, og ikke minst nye motorer av typen PT6A-34 med støysvake firebladspropeller.",
+      "stats": {
+        "jumpers": "hoppere",
+        "climbTime": "til 12 500 fot",
+        "hours": "timer logget",
+        "year": "byggeår"
+      },
+      "care": "Vi ber deg hjelpe til å ta vare på JMP. Behandle Den Hvite Svane med nennsomhet og kjærlighet!"
+    },
+    "insurance": {
+      "badge": "Forsikring",
+      "title": "Forsikring for",
+      "titleHighlight": "besøkende hoppere",
+      "norwegianTitle": "Norske hoppere",
+      "norwegianText": "Er dekket gjennom NLF og trenger ikke ytterligere forsikring.",
+      "foreignTitle": "Utenlandske hoppere",
+      "foreignIntro": "Du må ha gyldig tredjeparts ansvarsforsikring.",
+      "foreignBuy": "Kan du ikke dokumentere dette, kan du kjøpe NLFs forsikring for 503 NOK (30 dager) via klubben.",
+      "foreignWarning": "For hoppere fra land utenfor EU/EØS anbefaler vi sterkt at du har en reiseforsikring som dekker medisinsk behandling i Norge."
+    },
+    "reporting": {
+      "badge": "Trygg Idrett",
+      "title": "Varsling",
+      "intro": "Vi ønsker at Tønsberg Fallskjermklubb skal være en trygg idrettsarena for alle våre medlemmer, elever og besøkende. Dette innebærer trygghet under hoppvirksomheten og i de sosiale settingene.",
+      "policy": "I norsk idrett skal alle være trygge. Det er nulltoleranse for diskriminering, mobbing og trakassering. Ved å varsle gir du oss mulighet til å håndtere kritikkverdige forhold.",
+      "systemTitle": "MittVarsel",
+      "systemDesc": "Vi benytter MittVarsel, en digital portal for trygg og sikker varsling. Du kan varsle med navn eller anonymt.",
+      "systemPath": "Velg: \"Idrettslag & Idrettsråd\" → \"Vestfold og Telemark\" → \"Tønsberg Fallskjermklubb\"",
+      "button": "Gå til varslingssiden",
+      "group": "Varslingsgruppe: Leder: Odd Pedersen. Medlemmer: Anna Fasting og Silje Søraas."
+    },
+    "weather": {
+      "badge": "Praktisk",
+      "title": "Kamera &",
+      "titleHighlight": "Vær",
+      "webcam": "Webkamera",
+      "webcamDesc": "Sjekk forholdene på Jarlsberg i sanntid.",
+      "webcamButton": "Se webkamera",
+      "forecast": "Værmelding",
+      "forecastDesc": "Værvarsel for Jarlsberg flyplass fra Yr.no.",
+      "forecastButton": "Se værmelding",
+      "grassroots": {
+        "title": "Grasrotandelen",
+        "desc": "Registrer Tønsberg Fallskjermklubb som mottaker av Grasrotandelen når du spiller på Norsk Tipping. Klubben kan motta inntil 7% av det du spiller for!",
+        "button": "Registrer Grasrotandelen"
+      }
+    },
+    "faq": {
+      "badge": "Spørsmål?",
+      "title": "Vanlige",
+      "titleHighlight": "spørsmål",
+      "questions": {
+        "q1": {
+          "question": "Hvordan fornyer jeg medlemskapet?",
+          "answer": "Gå til nlf.no/grener/fallskjerm/Medlem/minidrett/ for å fornye medlemskap, forsikring og kompetansebevis."
+        },
+        "q2": {
+          "question": "Jeg har ikke hoppet på en stund, hva må jeg gjøre?",
+          "answer": "Det avhenger av hvilket kompetansebevis du hadde sist du hoppet, og hvor lenge det er siden. Se tabell i Håndboka del 300, fallskjermlisenser."
+        },
+        "q3": {
+          "question": "Hva er vedlikeholdskravene for kompetansebeviset mitt?",
+          "answer": "A-bevis: 20 hopp siste år. B-bevis: 20 hopp siste år. C-bevis: 40 hopp siste år. D-bevis: 40 hopp siste år. Se Håndboka del 300 for alle detaljer."
+        },
+        "q4": {
+          "question": "Kan jeg sette inn penger på min Burblekonto på Internett?",
+          "answer": "Nei, ikke enda. Du må sette inn penger i resepsjonen (debetkort eller cash), eller overføre til vår konto 1594.16.71664."
+        },
+        "q5": {
+          "question": "Hva med forsikring for utenlandske hoppere?",
+          "answer": "Norske hoppere er dekket gjennom NLF. Utenlandske må ha gyldig tredjeparts ansvarsforsikring. Uten dokumentasjon kan du kjøpe NLFs forsikring for 503 NOK (30 dager). For hoppere utenfor EU/EØS anbefaler vi sterkt reiseforsikring som dekker medisinsk behandling i Norge."
+        },
+        "q6": {
+          "question": "Hva er reglene for tracking og wingsuit?",
+          "answer": "Maks 3 horisontale grupper per løft: Maks 2 Angle (tracking) + Maks 1 WS/Tracksuit. Sjekk Jumper Manifest Display før du manifesterer deg. Må du tracke når det allerede er to grupper må du koordinere eller finne på noe annet. Bruk 'Angle' under Formation, ikke 'Tracking'."
+        },
+        "q7": {
+          "question": "Jeg sliter med Min Idrett. Hva kan jeg gjøre?",
+          "answer": "Se tips fra NLF på deres hjemmesider. Husk at det nå heter 'kompetansebevis' og ikke 'lisens' eller 'sertifikat'. Ordet 'lisens' i MinIdrett betyr 'forsikring'."
+        },
+        "q8": {
+          "question": "Hvor finner jeg Driftshåndbok JLS?",
+          "answer": "Driftshåndboka finner du på jarlsbergluftsportssenter.no. Når du registrerer deg på Skydive Tønsberg må du signere på at du har gjort deg kjent med denne."
+        }
+      }
+    },
+    "contact": {
+      "title": "Kontakt",
+      "titleHighlight": "oss",
+      "linksTitle": "Nyttige",
+      "linksTitleHighlight": "lenker",
+      "address": "Adresse",
+      "addressValue": "Flyplassveien 6, 3170 Sem",
+      "orgNumber": "Org nr: 991 021 698",
+      "phone": "Telefon",
+      "email": "E-post",
+      "openingHours": "Åpningstider",
+      "hours": {
+        "weekday": "Mandag - Fredag",
+        "saturday": "Lørdag",
+        "sunday": "Søndag"
+      },
+      "links": {
+        "calendar": "Hoppkalender",
+        "burbleme": "BurbleMe",
+        "shop": "Nettbutikk",
+        "minIdrett": "Min Idrett",
+        "facebook": "Facebook",
+        "handbook": "JLS Driftshåndbok"
+      }
+    },
+    "cta": {
+      "title": "Vi sees i lufta!",
+      "description": "Sjekk hoppkalenderen og bli med oss for noen fantastiske hopp over Vestfold.",
+      "calendarButton": "Hoppkalender",
+      "contactButton": "Kontakt oss"
+    }
+  },
+  "footer": {
+    "description": "Opplev frihet i fritt fall over vakre Vestfold. Norges mest tilgjengelige fallskjermklubb med fokus på sikkerhet, fellesskap og eventyr.",
+    "pages": "Sider",
+    "services": "Tjenester",
+    "contact": "Kontakt",
+    "copyright": "Skydive Tønsberg. Alle rettigheter reservert.",
+    "privacy": "Personvern",
+    "terms": "Vilkår"
+  }
+}

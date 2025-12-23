@@ -3,26 +3,12 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Instagram, Youtube, Mail, MapPin, Phone, ExternalLink } from "lucide-react";
+import { Instagram, Youtube, Mail, MapPin, ExternalLink, KeyRound } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useLanguage } from "@/contexts/LanguageContext";
 
-const footerLinks = {
-  navigation: [
-    { name: "Hjem", href: "/" },
-    { name: "Kurs", href: "/kurs" },
-    { name: "For Hoppere", href: "/for-hoppere" },
-    { name: "Kontakt", href: "/kontakt" },
-  ],
-  external: [
-    { name: "Hoppkalender", href: "https://www.skydivetonsberg.no/hoppkalender-1" },
-    { name: "Book Tandemhopp", href: "https://bookings.burblesoft.eu/551/18" },
-    { name: "Nettbutikk", href: "https://store.burblesoft.com/?dz_id=551" },
-  ],
-  social: [
-    { name: "Instagram", href: "https://instagram.com/skydivetonsberg", icon: Instagram },
-    { name: "YouTube", href: "https://www.youtube.com/@skydivetnsberg9501", icon: Youtube },
-  ],
-};
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -40,6 +26,28 @@ const itemVariants = {
 };
 
 export function Footer() {
+  const [showKeyhole, setShowKeyhole] = useState(false);
+  const router = useRouter();
+  const { t } = useLanguage();
+
+  const footerLinks = {
+    navigation: [
+      { name: t('nav.home'), href: "/" },
+      { name: t('nav.courses'), href: "/kurs" },
+      { name: t('nav.forJumpers'), href: "/for-hoppere" },
+      { name: t('nav.contact'), href: "/kontakt" },
+    ],
+    external: [
+      { name: t('nav.jumpCalendar'), href: "https://www.skydivetonsberg.no/hoppkalender-1" },
+      { name: t('nav.bookTandem'), href: "https://bookings.burblesoft.eu/551/18" },
+      { name: t('nav.shop'), href: "https://store.burblesoft.com/?dz_id=551" },
+    ],
+    social: [
+      { name: "Instagram", href: "https://instagram.com/skydivetonsberg", icon: Instagram },
+      { name: "YouTube", href: "https://www.youtube.com/@skydivetnsberg9501", icon: Youtube },
+    ],
+  };
+
   return (
     <footer className="bg-foreground text-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -63,9 +71,7 @@ export function Footer() {
               />
             </Link>
             <p className="text-background/70 text-sm leading-relaxed mb-6">
-              Opplev frihet i fritt fall over vakre Vestfold. 
-              Norges mest tilgjengelige fallskjermklubb med fokus på sikkerhet, 
-              fellesskap og eventyr.
+              {t('footer.description')}
             </p>
             <div className="flex gap-4">
               {footerLinks.social.map((item) => (
@@ -85,7 +91,7 @@ export function Footer() {
 
           {/* Navigation Links */}
           <motion.div variants={itemVariants}>
-            <h3 className="text-lg font-semibold mb-6">Sider</h3>
+            <h3 className="text-lg font-semibold mb-6">{t('footer.pages')}</h3>
             <ul className="space-y-3">
               {footerLinks.navigation.map((link) => (
                 <li key={link.name}>
@@ -102,7 +108,7 @@ export function Footer() {
 
           {/* External Links */}
           <motion.div variants={itemVariants}>
-            <h3 className="text-lg font-semibold mb-6">Tjenester</h3>
+            <h3 className="text-lg font-semibold mb-6">{t('footer.services')}</h3>
             <ul className="space-y-3">
               {footerLinks.external.map((link) => (
                 <li key={link.name}>
@@ -122,17 +128,17 @@ export function Footer() {
 
           {/* Contact Info */}
           <motion.div variants={itemVariants}>
-            <h3 className="text-lg font-semibold mb-6">Kontakt</h3>
+            <h3 className="text-lg font-semibold mb-6">{t('footer.contact')}</h3>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 mt-0.5 text-sky flex-shrink-0" />
+                <MapPin className="w-5 h-5 mt-0.5 text-sky shrink-0" />
                 <span className="text-background/70 text-sm">
                   Tønsberg Flyplass<br />
                   Jarlsberg, Vestfold
                 </span>
               </li>
               <li className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-leaf flex-shrink-0" />
+                <Mail className="w-5 h-5 text-leaf shrink-0" />
                 <a
                   href="mailto:post@skydivetonsberg.no"
                   className="text-background/70 hover:text-background transition-colors text-sm"
@@ -152,13 +158,43 @@ export function Footer() {
           viewport={{ once: true }}
           className="flex flex-col sm:flex-row justify-between items-center gap-4 text-background/50 text-sm"
         >
-          <p>© {new Date().getFullYear()} Skydive Tønsberg. Alle rettigheter reservert.</p>
+          <div className="flex items-center gap-3">
+            {/* Hidden keyhole button - click 3 times on the copyright text */}
+            <button
+              onClick={() => {
+                const clicks = parseInt(sessionStorage.getItem("keyholeClicks") || "0") + 1;
+                sessionStorage.setItem("keyholeClicks", clicks.toString());
+                
+                if (clicks >= 3) {
+                  sessionStorage.removeItem("keyholeClicks");
+                  router.push("/cms");
+                } else if (clicks === 1) {
+                  setShowKeyhole(true);
+                  setTimeout(() => setShowKeyhole(false), 2000);
+                }
+              }}
+              className="text-background/50 hover:text-background/70 transition-colors cursor-pointer relative"
+              aria-label="CMS Access"
+            >
+              <span>© {new Date().getFullYear()} {t('footer.copyright')}</span>
+              {showKeyhole && (
+                <motion.div
+                  initial={{ scale: 0, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  exit={{ scale: 0, opacity: 0 }}
+                  className="absolute -right-6 top-1/2 -translate-y-1/2"
+                >
+                  <KeyRound className="w-4 h-4 text-leaf" />
+                </motion.div>
+              )}
+            </button>
+          </div>
           <div className="flex gap-6">
             <Link href="/personvern" className="hover:text-background transition-colors">
-              Personvern
+              {t('footer.privacy')}
             </Link>
             <Link href="/vilkar" className="hover:text-background transition-colors">
-              Vilkår
+              {t('footer.terms')}
             </Link>
           </div>
         </motion.div>

@@ -6,8 +6,10 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { HeroVideo } from "@/components/ui/hero-video";
 import { ChevronDown, Play } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export function Hero() {
+  const { t } = useLanguage();
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -31,7 +33,7 @@ export function Hero() {
         <HeroVideo
           desktopSrc="/herovideo-optimized.webm"
           mobileSrc="/herovideo-mobile.webm"
-          poster="/hero-poster.webp"
+          poster="/about-1.webp"
           className="w-full h-full object-cover"
           priority={true}
         />
@@ -74,9 +76,9 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.5 }}
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 hero-text-shadow leading-tight"
           >
-            Opplev{" "}
-            <span className="text-gradient">frihet</span>
-            <br />i fritt fall
+            {t('home.hero.title')}{" "}
+            <span className="text-gradient">{t('home.hero.titleHighlight')}</span>
+            <br />{t('home.hero.titleEnd')}
           </motion.h1>
 
           <motion.p
@@ -85,8 +87,7 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.7 }}
             className="text-lg sm:text-xl text-white/90 mb-10 max-w-2xl mx-auto leading-relaxed"
           >
-            Hopp tandem med profesjonelle instruktører, eller start din reise som 
-            selvstendig fallskjermhopper. Uforglemmelige opplevelser venter.
+            {t('home.hero.description')}
           </motion.p>
 
           <motion.div
@@ -105,7 +106,7 @@ export function Hero() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Book Tandemhopp
+                {t('home.hero.bookTandem')}
               </a>
             </Button>
             <Button
@@ -116,7 +117,7 @@ export function Hero() {
             >
               <a href="#about" className="flex items-center gap-2">
                 <Play className="w-5 h-5" />
-                Se video
+                {t('home.hero.watchVideo')}
               </a>
             </Button>
           </motion.div>
@@ -136,7 +137,7 @@ export function Hero() {
           transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
           className="flex flex-col items-center gap-2 text-white/70 hover:text-white transition-colors"
         >
-          <span className="text-sm font-medium">Scroll ned</span>
+          <span className="text-sm font-medium">{t('home.hero.scrollDown')}</span>
           <ChevronDown className="w-6 h-6" />
         </motion.a>
       </motion.div>

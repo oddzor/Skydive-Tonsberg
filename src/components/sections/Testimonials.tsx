@@ -6,6 +6,7 @@ import Image from "next/image";
 import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface Review {
   author_name: string;
@@ -44,6 +45,7 @@ const fallbackReviews: Review[] = [
 ];
 
 export function Testimonials() {
+  const { t } = useLanguage();
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [reviews, setReviews] = useState<Review[]>(fallbackReviews);
@@ -64,7 +66,7 @@ export function Testimonials() {
             setReviews(sortedReviews);
           }
         }
-      } catch (error) {
+      } catch {
         console.log("Using fallback reviews");
       }
     };
@@ -98,13 +100,13 @@ export function Testimonials() {
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <span className="inline-block px-3 py-1 text-sm font-medium text-sky bg-sky/10 rounded-full mb-4">
-            Anmeldelser
+            {t('home.testimonials.badge')}
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-            Hva våre <span className="text-gradient">hoppere</span> sier
+            {t('home.testimonials.title')} <span className="text-gradient">{t('home.testimonials.titleHighlight')}</span> {t('home.testimonials.titleEnd')}
           </h2>
           <p className="text-lg text-muted-foreground">
-            Les om opplevelsene til de som allerede har tatt spranget med oss.
+            {t('home.testimonials.description')}
           </p>
         </motion.div>
 
@@ -150,7 +152,7 @@ export function Testimonials() {
               size="icon"
               onClick={prevReview}
               className="rounded-full"
-              aria-label="Forrige anmeldelse"
+              aria-label={t('home.testimonials.prevButton')}
             >
               <ChevronLeft className="w-5 h-5" />
             </Button>
@@ -164,7 +166,7 @@ export function Testimonials() {
                       ? "w-8 bg-gradient-brand"
                       : "bg-border hover:bg-muted-foreground/30"
                   }`}
-                  aria-label={`Gå til anmeldelse ${index + 1}`}
+                  aria-label={`${t('home.testimonials.jumpToReview')} ${index + 1}`}
                 />
               ))}
             </div>
@@ -173,7 +175,7 @@ export function Testimonials() {
               size="icon"
               onClick={nextReview}
               className="rounded-full"
-              aria-label="Neste anmeldelse"
+              aria-label={t('home.testimonials.nextButton')}
             >
               <ChevronRight className="w-5 h-5" />
             </Button>
@@ -201,7 +203,7 @@ export function Testimonials() {
               height={16}
               className="opacity-70"
             />
-            Se alle anmeldelser på Google
+            {t('home.testimonials.viewAllGoogle')}
           </a>
         </motion.div>
       </div>
@@ -240,7 +242,7 @@ function ReviewCard({ review }: { review: Review }) {
 
         {/* Review Text */}
         <p className="text-foreground/80 leading-relaxed flex-1 mb-6">
-          "{review.text}"
+          &ldquo;{review.text}&rdquo;
         </p>
 
         {/* Author */}
@@ -259,6 +261,7 @@ function ReviewCard({ review }: { review: Review }) {
     </Card>
   );
 }
+
 
 
 

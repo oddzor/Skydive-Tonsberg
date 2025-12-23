@@ -7,38 +7,36 @@ import Link from "next/link";
 import { ArrowRight, Users, GraduationCap, Plane } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { useLanguage } from "@/contexts/LanguageContext";
 
-const services = [
+const getServices = (t: (key: string) => string) => [
   {
-    title: "Tandemhopp",
-    description:
-      "Opplev fritt fall fra 4000 meter med ca. 40 sekunder i fritt fall. Hopp med en av våre erfarne instruktører – desidert nærmest Oslo med vakker utsikt over Oslofjorden. Fra kun 4690 kr.",
+    title: t('home.services.tandem.title'),
+    description: t('home.services.tandem.description'),
     image: "/service-tandem.webp",
     icon: Users,
     href: "https://bookings.burblesoft.eu/551/18",
-    cta: "Book nå",
+    cta: t('home.services.tandem.cta'),
     external: true,
     gradient: "from-sky to-sky-dark",
   },
   {
-    title: "AFF Grunnkurs",
-    description:
-      "Bli selvstendig fallskjermhopper! Kurset inkluderer 10 timer bakkekurs, vindtunell på Gardermoen og 7 hopp med instruktører. Komplett kurs kun 18 990 kr.",
+    title: t('home.services.aff.title'),
+    description: t('home.services.aff.description'),
     image: "/service-aff.webp",
     icon: GraduationCap,
     href: "/kurs",
-    cta: "Les mer",
+    cta: t('home.services.aff.cta'),
     external: false,
     gradient: "from-leaf to-leaf-dark",
   },
   {
-    title: "For Erfarne Hoppere",
-    description:
-      "Allerede sertifisert hopper? Vi tilbyr gjesthopping, utstyrsleie og et aktivt hoppmiljø. Vi opererer Norges største og beste fly for fallskjermhopping!",
+    title: t('home.services.experienced.title'),
+    description: t('home.services.experienced.description'),
     image: "/service-experienced.webp",
     icon: Plane,
     href: "/for-hoppere",
-    cta: "Se tilbud",
+    cta: t('home.services.experienced.cta'),
     external: false,
     gradient: "from-sky-dark to-leaf-dark",
   },
@@ -62,8 +60,10 @@ const cardVariants = {
 };
 
 export function Services() {
+  const { t } = useLanguage();
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const services = getServices(t);
 
   return (
     <section className="py-24 lg:py-32 bg-muted/30">
@@ -77,15 +77,11 @@ export function Services() {
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <span className="inline-block px-3 py-1 text-sm font-medium text-leaf bg-leaf/10 rounded-full mb-4">
-            Våre tjenester
+            {t('home.services.badge')}
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-            Start ditt neste <span className="text-gradient">eventyr</span>
+            {t('home.services.title')} <span className="text-gradient">{t('home.services.titleHighlight')}</span>
           </h2>
-          <p className="text-lg text-muted-foreground">
-            Enten du vil prøve fallskjermhopping for første gang eller er en 
-            erfaren hopper, har vi noe for deg.
-          </p>
         </motion.div>
 
         {/* Services Grid */}
@@ -99,7 +95,7 @@ export function Services() {
           {services.map((service) => (
             <motion.div key={service.title} variants={cardVariants}>
               <Card className="group h-full overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-shadow duration-300">
-                <div className="relative aspect-[4/3] overflow-hidden">
+                <div className="relative aspect-4/3 overflow-hidden">
                   <Image
                     src={service.image}
                     alt={service.title}

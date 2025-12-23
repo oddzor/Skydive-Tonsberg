@@ -6,8 +6,10 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Calendar, Phone } from "lucide-react";
 import Link from "next/link";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export function CTA() {
+  const { t } = useLanguage();
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -52,11 +54,11 @@ export function CTA() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 leading-tight"
           >
-            Klar for å ta{" "}
+            {t('home.cta.title')}{" "}
             <span className="underline decoration-4 underline-offset-8 decoration-white/50">
-              spranget
+              {t('home.cta.titleHighlight')}
             </span>
-            ?
+            {t('home.cta.titleEnd')}
           </motion.h2>
           
           <motion.p
@@ -65,8 +67,7 @@ export function CTA() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="text-lg sm:text-xl text-white/90 mb-10 max-w-2xl mx-auto"
           >
-            Book ditt tandemhopp i dag eller kontakt oss for mer informasjon om 
-            våre kurs og muligheter.
+            {t('home.cta.description')}
           </motion.p>
 
           <motion.div
@@ -87,7 +88,7 @@ export function CTA() {
                 className="flex items-center gap-2"
               >
                 <Calendar className="w-5 h-5" />
-                Book Tandemhopp
+                {t('home.cta.bookTandem')}
                 <ArrowRight className="w-5 h-5" />
               </a>
             </Button>
@@ -99,7 +100,7 @@ export function CTA() {
             >
               <Link href="/kontakt" className="flex items-center gap-2">
                 <Phone className="w-5 h-5" />
-                Kontakt oss
+                {t('home.cta.contactUs')}
               </Link>
             </Button>
           </motion.div>
@@ -118,7 +119,7 @@ export function CTA() {
               className="hover:text-white transition-colors text-sm flex items-center gap-1"
             >
               <Calendar className="w-4 h-4" />
-              Se hoppkalenderen
+              {t('home.cta.viewCalendar')}
             </a>
             <span className="text-white/30">•</span>
             <a
@@ -127,7 +128,7 @@ export function CTA() {
               rel="noopener noreferrer"
               className="hover:text-white transition-colors text-sm"
             >
-              Besøk nettbutikken
+              {t('home.cta.visitShop')}
             </a>
           </motion.div>
         </motion.div>
@@ -135,6 +136,7 @@ export function CTA() {
     </section>
   );
 }
+
 
 
 

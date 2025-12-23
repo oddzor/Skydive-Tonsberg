@@ -1,0 +1,40 @@
+import { useLanguage } from '@/contexts/LanguageContext';
+
+export const useKontaktData = () => {
+  const { t } = useLanguage();
+
+  const contactInfo = [
+    {
+      label: t('kontakt.info.email.label'),
+      value: t('kontakt.info.email.value'),
+      type: 'email' as const,
+    },
+    {
+      label: t('kontakt.info.address.label'),
+      value: t('kontakt.info.address.value'),
+      type: 'text' as const,
+    },
+    {
+      label: t('kontakt.info.hours.label'),
+      value: t('kontakt.info.hours.value'),
+      type: 'text' as const,
+    },
+  ];
+
+  const socialLinks = {
+    instagram: t('kontakt.social.instagram'),
+    youtube: t('kontakt.social.youtube'),
+  };
+
+  return {
+    contactInfo,
+    socialLinks,
+  };
+};
+
+
+
+
+
+
+
