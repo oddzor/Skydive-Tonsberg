@@ -140,10 +140,10 @@ export function Footer() {
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-leaf shrink-0" />
                 <a
-                  href="mailto:post@skydivetonsberg.no"
+                  href="mailto:info@hoppfallskjerm.no"
                   className="text-background/70 hover:text-background transition-colors text-sm"
                 >
-                  post@skydivetonsberg.no
+                  info@hoppfallskjerm.no
                 </a>
               </li>
             </ul>

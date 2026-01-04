@@ -1,0 +1,10 @@
+{
+  "crons": [
+    {
+      "path": "/api/reviews/refresh?secret=$CRON_SECRET",
+      "schedule": "0 0 1 * *"
+    }
+  ]
+}
+
+

@@ -42,6 +42,9 @@ next-env.d.ts
 *.log
 lighthouse-report.json
 
+# Documentation (markdown files)
+*.md
+
 
 
 

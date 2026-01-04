@@ -13,6 +13,7 @@ import {
   Youtube,
   ExternalLink,
   CheckCircle2,
+  AlertCircle,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -20,6 +21,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useKontaktData } from "@/hooks/useKontaktData";
+import { sendContactEmail, type ContactFormData } from "@/lib/emailjs";
 
 const getContactInfoWithIcons = (t: (key: string) => string) => [
   {
@@ -68,7 +70,7 @@ export function KontaktContent() {
   const { contactInfo, socialLinks } = useKontaktData();
   const contactInfoWithIcons = getContactInfoWithIcons(t);
   
-  const [formState, setFormState] = useState({
+  const [formState, setFormState] = useState<ContactFormData>({
     name: "",
     email: "",
     phone: "",
@@ -77,6 +79,7 @@ export function KontaktContent() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const inquiryTypes = [
     { value: "tandem", label: t('kontakt.form.typeOptions.tandem') },
@@ -88,12 +91,29 @@ export function KontaktContent() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError(null);
     
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    
-    setIsSubmitting(false);
-    setIsSubmitted(true);
+    try {
+      await sendContactEmail(formState);
+      setIsSubmitted(true);
+      // Reset form
+      setFormState({
+        name: "",
+        email: "",
+        phone: "",
+        type: "",
+        message: "",
+      });
+    } catch (err) {
+      console.error('Form submission error:', err);
+      setError(
+        err instanceof Error 
+          ? err.message 
+          : "Failed to send message. Please try emailing us directly at info@hoppfallskjerm.no"
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
@@ -198,12 +218,29 @@ export function KontaktContent() {
                   <h3 className="text-xl font-semibold text-foreground mb-2">
                     {t('kontakt.form.successTitle')}
                   </h3>
-                  <p className="text-muted-foreground">
+                  <p className="text-muted-foreground mb-4">
                     {t('kontakt.form.successMessage')}
                   </p>
+                  <Button
+                    onClick={() => setIsSubmitted(false)}
+                    variant="outline"
+                    className="mt-2"
+                  >
+                    Send another message
+                  </Button>
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
+                  {error && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="bg-destructive/10 border border-destructive/20 rounded-lg p-4 flex items-start gap-3"
+                    >
+                      <AlertCircle className="w-5 h-5 text-destructive shrink-0 mt-0.5" />
+                      <p className="text-sm text-destructive">{error}</p>
+                    </motion.div>
+                  )}
                   <div className="grid sm:grid-cols-2 gap-6">
                     <div>
                       <label
