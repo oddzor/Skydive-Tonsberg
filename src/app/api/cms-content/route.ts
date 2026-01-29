@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { put, list } from '@vercel/blob';
+import { put, list, del } from '@vercel/blob';
 import { readFile } from 'fs/promises';
 import { join } from 'path';
 
@@ -42,18 +42,25 @@ export async function POST(request: Request) {
     
     if (process.env.BLOB_READ_WRITE_TOKEN) {
       try {
+        const { blobs } = await list({ prefix: BLOB_FILENAME });
+        if (blobs.length > 0) {
+          await del(blobs.map(blob => blob.url));
+          console.log('Deleted existing blob(s)');
+        }
+        
         const blob = await put(BLOB_FILENAME, jsonString, {
           access: 'public',
           contentType: 'application/json',
+          addRandomSuffix: false,
         });
         console.log('Successfully saved to Blob storage:', blob.url);
         return NextResponse.json({ success: true, storage: 'blob', url: blob.url });
       } catch (blobError) {
         console.error('Blob storage error:', blobError);
         return NextResponse.json({ 
-          error: 'Blob Storage not configured. Please set up Vercel Blob Storage in your Vercel dashboard (Storage tab → Create Database → Blob)',
+          error: 'Failed to save to Blob Storage',
           details: blobError instanceof Error ? blobError.message : 'Unknown error'
-        }, { status: 503 });
+        }, { status: 500 });
       }
     } else {
       const { writeFile } = await import('fs/promises');
