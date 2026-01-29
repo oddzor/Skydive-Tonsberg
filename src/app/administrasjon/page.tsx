@@ -61,16 +61,21 @@ export default function AdministrasjonPage() {
         },
         body: JSON.stringify(content),
       });
+      const data = await response.json();
       if (response.ok) {
-        setMessage('Content saved successfully! Changes are now live on the website.');
+        const storageInfo = data.storage === 'blob' ? ' (Vercel Blob)' : ' (Local)';
+        setMessage('Content saved successfully!' + storageInfo + ' Changes are now live on the website.');
         setTimeout(() => setMessage(""), 5000);
         await fetchContent();
       } else {
-        setMessage('Failed to save content');
+        const errorMsg = data.error || 'Failed to save content';
+        const details = data.details ? `\n\nDetails: ${data.details}` : '';
+        setMessage(`❌ ${errorMsg}${details}`);
+        console.error('Save error:', data);
       }
     } catch (error) {
       console.error('Error saving content:', error);
-      setMessage('Error saving content');
+      setMessage('❌ Network error: Could not connect to API');
     } finally {
       setSaving(false);
     }
@@ -197,7 +202,7 @@ export default function AdministrasjonPage() {
         </div>
         {message && (
           <div className={`mb-4 p-4 rounded-lg ${message.includes('success') ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
-            {message}
+            <pre className="whitespace-pre-wrap font-sans">{message}</pre>
           </div>
         )}
         <div className="mb-6 flex gap-4 sticky top-4 z-10 bg-background pb-4">

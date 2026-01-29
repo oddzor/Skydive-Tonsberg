@@ -41,18 +41,31 @@ export async function POST(request: Request) {
     const jsonString = JSON.stringify(data, null, 2);
     
     if (process.env.BLOB_READ_WRITE_TOKEN) {
-      await put(BLOB_FILENAME, jsonString, {
-        access: 'public',
-        contentType: 'application/json',
-      });
+      try {
+        const blob = await put(BLOB_FILENAME, jsonString, {
+          access: 'public',
+          contentType: 'application/json',
+        });
+        console.log('Successfully saved to Blob storage:', blob.url);
+        return NextResponse.json({ success: true, storage: 'blob', url: blob.url });
+      } catch (blobError) {
+        console.error('Blob storage error:', blobError);
+        return NextResponse.json({ 
+          error: 'Blob Storage not configured. Please set up Vercel Blob Storage in your Vercel dashboard (Storage tab → Create Database → Blob)',
+          details: blobError instanceof Error ? blobError.message : 'Unknown error'
+        }, { status: 503 });
+      }
     } else {
       const { writeFile } = await import('fs/promises');
       await writeFile(LOCAL_CONTENT_FILE, jsonString);
+      console.log('Successfully saved to local file');
+      return NextResponse.json({ success: true, storage: 'local' });
     }
-    
-    return NextResponse.json({ success: true });
   } catch (error) {
     console.error('Error saving CMS content:', error);
-    return NextResponse.json({ error: 'Failed to save content' }, { status: 500 });
+    return NextResponse.json({ 
+      error: 'Failed to save content',
+      details: error instanceof Error ? error.message : 'Unknown error'
+    }, { status: 500 });
   }
 }
