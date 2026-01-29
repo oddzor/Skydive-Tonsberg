@@ -1,5 +1,4 @@
 "use client";
-
 import { motion, useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
@@ -7,7 +6,6 @@ import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useLanguage } from "@/contexts/LanguageContext";
-
 interface Review {
   author_name: string;
   rating: number;
@@ -15,8 +13,6 @@ interface Review {
   time: number;
   profile_photo_url?: string;
 }
-
-// Fallback reviews in case API fails or for development
 const fallbackReviews: Review[] = [
   {
     author_name: "Maria Johansen",
@@ -43,15 +39,12 @@ const fallbackReviews: Review[] = [
     time: Date.now() - 86400000 * 30,
   },
 ];
-
 export function Testimonials() {
   const { t } = useLanguage();
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [reviews, setReviews] = useState<Review[]>(fallbackReviews);
   const [currentIndex, setCurrentIndex] = useState(0);
-
-  // Fetch reviews from API (with rate limiting built into the API route)
   useEffect(() => {
     const fetchReviews = async () => {
       try {
@@ -59,7 +52,6 @@ export function Testimonials() {
         if (response.ok) {
           const data = await response.json();
           if (data.reviews && data.reviews.length > 0) {
-            // Sort by newest first
             const sortedReviews = data.reviews.sort(
               (a: Review, b: Review) => b.time - a.time
             );
@@ -70,28 +62,42 @@ export function Testimonials() {
         console.log("Using fallback reviews");
       }
     };
-
     fetchReviews();
   }, []);
-
   const nextReview = () => {
-    setCurrentIndex((prev) => (prev + 1) % reviews.length);
+    setCurrentIndex((prev) => (prev + 3) % reviews.length);
   };
-
   const prevReview = () => {
-    setCurrentIndex((prev) => (prev - 1 + reviews.length) % reviews.length);
+    setCurrentIndex((prev) => (prev - 3 + reviews.length) % reviews.length);
   };
-
   const visibleReviews = [
     reviews[currentIndex],
     reviews[(currentIndex + 1) % reviews.length],
     reviews[(currentIndex + 2) % reviews.length],
   ];
-
+  const totalPages = Math.ceil(reviews.length / 3);
+  const currentPage = Math.floor(currentIndex / 3);
+  const goToPage = (pageIndex: number) => {
+    setCurrentIndex(pageIndex * 3);
+  };
+  const getVisiblePages = () => {
+    const maxDots = 4;
+    if (totalPages <= maxDots) {
+      return Array.from({ length: totalPages }, (_, i) => i);
+    }
+    const halfWindow = Math.floor(maxDots / 2);
+    let start = Math.max(0, currentPage - halfWindow);
+    const end = Math.min(totalPages, start + maxDots);
+    if (end - start < maxDots) {
+      start = Math.max(0, end - maxDots);
+    }
+    return Array.from({ length: end - start }, (_, i) => start + i);
+  };
+  const visiblePages = getVisiblePages();
   return (
-    <section className="py-24 lg:py-32 bg-gradient-to-b from-background to-muted/30 overflow-hidden">
+    <section className="py-24 lg:py-32 bg-linear-to-b from-background to-muted/30 overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
+        {}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -109,8 +115,7 @@ export function Testimonials() {
             {t('home.testimonials.description')}
           </p>
         </motion.div>
-
-        {/* Reviews Carousel */}
+        {}
         <motion.div
           ref={ref}
           initial={{ opacity: 0 }}
@@ -118,7 +123,7 @@ export function Testimonials() {
           transition={{ duration: 0.6 }}
           className="relative"
         >
-          {/* Desktop: Show 3 cards */}
+          {}
           <div className="hidden lg:grid lg:grid-cols-3 gap-8">
             {visibleReviews.map((review, index) => (
               <motion.div
@@ -131,8 +136,7 @@ export function Testimonials() {
               </motion.div>
             ))}
           </div>
-
-          {/* Mobile: Show 1 card */}
+          {}
           <div className="lg:hidden">
             <motion.div
               key={currentIndex}
@@ -144,8 +148,7 @@ export function Testimonials() {
               <ReviewCard review={reviews[currentIndex]} />
             </motion.div>
           </div>
-
-          {/* Navigation */}
+          {}
           <div className="flex justify-center items-center gap-4 mt-10">
             <Button
               variant="outline"
@@ -157,16 +160,16 @@ export function Testimonials() {
               <ChevronLeft className="w-5 h-5" />
             </Button>
             <div className="flex gap-2">
-              {reviews.map((_, index) => (
+              {visiblePages.map((pageIndex) => (
                 <button
-                  key={index}
-                  onClick={() => setCurrentIndex(index)}
+                  key={pageIndex}
+                  onClick={() => goToPage(pageIndex)}
                   className={`w-2 h-2 rounded-full transition-all ${
-                    index === currentIndex
+                    pageIndex === currentPage
                       ? "w-8 bg-gradient-brand"
                       : "bg-border hover:bg-muted-foreground/30"
                   }`}
-                  aria-label={`${t('home.testimonials.jumpToReview')} ${index + 1}`}
+                  aria-label={`${t('home.testimonials.jumpToReview')} ${pageIndex + 1}`}
                 />
               ))}
             </div>
@@ -181,8 +184,7 @@ export function Testimonials() {
             </Button>
           </div>
         </motion.div>
-
-        {/* Google Reviews Badge */}
+        {}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -210,8 +212,13 @@ export function Testimonials() {
     </section>
   );
 }
-
 function ReviewCard({ review }: { review: Review }) {
+  const { t } = useLanguage();
+  const MAX_LENGTH = 200; 
+  const needsTruncation = review.text.length > MAX_LENGTH;
+  const displayText = needsTruncation 
+    ? review.text.slice(0, MAX_LENGTH) + "..."
+    : review.text;
   const formatDate = (timestamp: number) => {
     const date = new Date(timestamp);
     return date.toLocaleDateString("nb-NO", {
@@ -219,15 +226,14 @@ function ReviewCard({ review }: { review: Review }) {
       month: "long",
     });
   };
-
+  const googleMapsUrl = "https://www.google.com/maps/search/?api=1&query=Skydive+Tønsberg";
   return (
-    <Card className="h-full border-0 shadow-lg bg-card">
-      <CardContent className="p-6 flex flex-col h-full">
-        {/* Quote Icon */}
-        <Quote className="w-10 h-10 text-sky/20 mb-4" />
-
-        {/* Stars */}
-        <div className="flex gap-1 mb-4">
+    <Card className="h-full border-0 shadow-lg bg-card flex flex-col">
+      <CardContent className="p-6 flex flex-col flex-1">
+        {}
+        <Quote className="w-10 h-10 text-sky/20 mb-4 shrink-0" />
+        {}
+        <div className="flex gap-1 mb-4 shrink-0">
           {[...Array(5)].map((_, i) => (
             <Star
               key={i}
@@ -239,14 +245,27 @@ function ReviewCard({ review }: { review: Review }) {
             />
           ))}
         </div>
-
-        {/* Review Text */}
-        <p className="text-foreground/80 leading-relaxed flex-1 mb-6">
-          &ldquo;{review.text}&rdquo;
-        </p>
-
-        {/* Author */}
-        <div className="flex items-center gap-3 pt-4 border-t border-border">
+        {}
+        <div className="mb-6 flex-1 min-h-0">
+          <p className="text-foreground/80 leading-relaxed">
+            &ldquo;{displayText}&rdquo;
+          </p>
+          {needsTruncation && (
+            <a
+              href={googleMapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sky hover:text-sky/80 text-sm font-medium inline-flex items-center gap-1 mt-2 transition-colors"
+            >
+              {t('home.testimonials.readMore')}
+              <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+          )}
+        </div>
+        {}
+        <div className="flex items-center gap-3 pt-4 border-t border-border shrink-0">
           <div className="w-10 h-10 rounded-full bg-gradient-brand flex items-center justify-center text-white font-semibold">
             {review.author_name.charAt(0)}
           </div>
@@ -261,10 +280,3 @@ function ReviewCard({ review }: { review: Review }) {
     </Card>
   );
 }
-
-
-
-
-
-
-

@@ -1,139 +1,434 @@
-"use client";
-
-import { motion } from "framer-motion";
-import Link from "next/link";
-import Image from "next/image";
+'use client';
+import { motion } from 'framer-motion';
+import Image from 'next/image';
+import { CheckCircle2 } from 'lucide-react';
+import { Card, CardContent } from '@/components/ui/card';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { useCMSContent } from '@/hooks/useCMSContent';
 import {
-  CheckCircle2,
-  ExternalLink,
-} from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import { HeroVideo } from "@/components/ui/hero-video";
-import { useLanguage } from "@/contexts/LanguageContext";
-import { useKursData } from "@/hooks/useKursData";
-
+  KursHero,
+  KursFeaturedImage,
+  KursModules,
+  KursSchedule,
+  KursIncluded,
+  KursRequirements,
+  KursFAQ,
+} from '@/components/kurs';
 export function KursContent() {
   const { t } = useLanguage();
-  const { modules, included, requirements, faqData } = useKursData();
-
+  const { content } = useCMSContent();
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden min-h-[90vh] flex items-center">
-        <div className="absolute inset-0 z-0">
-          <HeroVideo
-            desktopSrc="/kurs-hero-optimized.webm"
-            mobileSrc="/kurs-hero-mobile.webm"
-            poster="/aff-trening.webp"
-            className="w-full h-full object-cover"
-            priority={true}
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent" />
-        </div>
-
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <span className="inline-block px-3 py-1 text-sm font-medium bg-leaf/20 rounded-full mb-4 text-white backdrop-blur-sm">
-                {t('kurs.hero.badge')}
-              </span>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 leading-tight">
-                {t('kurs.hero.title')}{" "}
-                <span className="text-gradient-bright">{t('kurs.hero.titleHighlight')}</span>
-              </h1>
-              <p className="text-lg sm:text-xl text-white/90 mb-8 leading-relaxed">
-                {t('kurs.hero.description')}
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button
-                  asChild
-                  size="lg"
-                  className="bg-gradient-brand hover:opacity-90 text-white font-semibold px-8 py-6 text-lg shadow-2xl"
-                >
-                  <a
-                    href="https://www.skydivetonsberg.no/kurs"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2"
-                  >
-                    <ExternalLink className="w-5 h-5" />
-                    {t('kurs.hero.bookCourse')}
-                  </a>
-                </Button>
-                <Button
-                  asChild
-                  size="lg"
-                  variant="outline"
-                  className="bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20 px-8 py-6 text-lg"
-                >
-                  <Link href="/kontakt" className="flex items-center gap-2">
-                    <ExternalLink className="w-5 h-5" />
-                    {t('kurs.hero.contactUs')}
-                  </Link>
-                </Button>
-              </div>
-            </motion.div>
+      {}
+      <KursHero />
+      {}
+      <KursFeaturedImage />
+      {}
+      <KursModules />
+      {}
+      <KursSchedule />
+      {}
+      <KursIncluded />
+      {}
+      <section className="py-24 lg:py-32 bg-muted/30">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center max-w-3xl mx-auto mb-12"
+          >
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+              {t('kurs.payment.title')}
+            </h2>
+          </motion.div>
+          {}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="relative w-full max-w-md h-[400px] mx-auto rounded-2xl overflow-hidden shadow-2xl mb-12"
+          >
+            <Image
+              src={content?.course?.images?.registration || "/course-registration.webp"}
+              alt="Course Registration and Payment"
+              fill
+              className="object-cover"
+            />
+          </motion.div>
+          <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+            <Card className="border-0 shadow-lg">
+              <CardContent className="p-8">
+                <h3 className="text-xl font-bold mb-4">{t('kurs.payment.priceTitle')}</h3>
+                <div className="text-4xl font-bold text-sky mb-2">
+                  18 990 kr
+                </div>
+                <p className="text-muted-foreground mb-6">{t('kurs.payment.completeCourse')}</p>
+                <div className="space-y-4">
+                  <div className="p-4 bg-muted rounded-lg">
+                    <p className="font-semibold mb-2">📝 {t('kurs.payment.bookingTitle')}</p>
+                    <p className="text-sm text-muted-foreground">
+                      {t('kurs.payment.bookingDesc')}
+                    </p>
+                  </div>
+                  <div className="p-4 bg-muted rounded-lg">
+                    <p className="font-semibold mb-2">💳 {t('kurs.payment.startTitle')}</p>
+                    <p className="text-sm text-muted-foreground">
+                      {t('kurs.payment.startDesc')}
+                    </p>
+                  </div>
+                  <div className="p-4 bg-muted rounded-lg">
+                    <p className="font-semibold mb-2">📱 {t('kurs.payment.vippsTitle')}</p>
+                    <p className="text-sm text-muted-foreground">
+                      {t('kurs.payment.vippsDesc')}
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+            <Card className="border-0 shadow-lg">
+              <CardContent className="p-8">
+                <h3 className="text-xl font-bold mb-4">{t('kurs.payment.rejumpTitle')}</h3>
+                <div className="space-y-4">
+                  <div>
+                    <p className="font-semibold mb-2">🔄 {t('kurs.payment.rejumpSubtitle')}</p>
+                    <p className="text-sm text-muted-foreground mb-2">
+                      {t('kurs.payment.rejumpDesc1')}
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      {t('kurs.payment.rejumpDesc2')} <a href="/for-hoppere#priser" className="text-sky hover:underline">{t('nav.forJumpers')}</a>.
+                    </p>
+                  </div>
+                  <div className="p-4 bg-amber-50 dark:bg-amber-950/20 rounded-lg border border-amber-200 dark:border-amber-800">
+                    <p className="font-semibold mb-2 text-amber-900 dark:text-amber-100">⚠️ {t('kurs.payment.membershipTitle')}</p>
+                    <p className="text-sm text-amber-800 dark:text-amber-200">
+                      {t('kurs.payment.membershipDesc')}
+                    </p>
+                    <a 
+                      href="https://nlf.no/medlemsservice/kontingentkalkulator/" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-sm text-sky hover:underline mt-2 inline-block"
+                    >
+                      {t('kurs.payment.membershipLink')} →
+                    </a>
+                  </div>
+                  <div className="p-4 bg-muted rounded-lg">
+                    <p className="font-semibold mb-2">❌ {t('kurs.payment.cancellationTitle')}</p>
+                    <p className="text-sm text-muted-foreground">
+                      {t('kurs.payment.cancellationDesc')}
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
-
-      {/* Course Specs Bar */}
-      <section className="py-10 bg-leaf text-white">
+      {}
+      <section className="py-24 lg:py-32 bg-gradient-hero">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-3 gap-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center max-w-3xl mx-auto mb-16"
+          >
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+              {t('kurs.progression.title')}
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              {t('kurs.progression.description')}
+            </p>
+          </motion.div>
+          {}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl mb-16"
+          >
+            <Image
+              src={content?.course?.images?.freefallProgression || "/aff-freefall-progression.webp"}
+              alt="AFF Students with Instructors in Freefall"
+              fill
+              className="object-cover"
+            />
+          </motion.div>
+          <div className="max-w-6xl mx-auto space-y-6">
+            {}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0 }}
-              className="flex items-center gap-3 justify-center"
             >
-              <div className="text-center">
-                <p className="text-3xl font-bold text-white mb-1">18 990 kr</p>
-                <p className="text-sm text-white/70">{t('kurs.hero.price')}</p>
-              </div>
+              <Card className="border-0 shadow-lg">
+                <CardContent className="p-6">
+                  <div className="flex items-start gap-4">
+                    <div className="w-16 h-16 rounded-full bg-gradient-brand flex items-center justify-center text-white text-2xl font-bold shrink-0">
+                      1
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold mb-3">{t('kurs.progression.level1Title')}</h3>
+                      <div className="grid md:grid-cols-2 gap-4 text-sm">
+                        <div>
+                          <p className="text-muted-foreground mb-1"><strong>{t('kurs.progression.level1Instructors')}</strong> 2</p>
+                          <p className="text-muted-foreground mb-1"><strong>{t('kurs.progression.level1Altitude')}</strong> 12 500 fot</p>
+                          <p className="text-muted-foreground"><strong>{t('kurs.progression.level1Deploy')}</strong> 5 500 fot</p>
+                        </div>
+                        <div>
+                          <p className="text-muted-foreground mb-1"><strong>{t('kurs.progression.level1Freefall')}</strong> {t('kurs.progression.level1FreefallTime')}</p>
+                          <p className="text-muted-foreground mb-1"><strong>{t('kurs.progression.level1Canopy')}</strong> {t('kurs.progression.level1CanopyTime')}</p>
+                        </div>
+                      </div>
+                      <p className="text-muted-foreground mt-3">
+                        <strong>{t('kurs.requirements.title')}:</strong> {t('kurs.progression.level1Goal')}
+                      </p>
+                      <p className="text-sm text-muted-foreground mt-2">
+                        {t('kurs.progression.level1Desc')}
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
             </motion.div>
+            {}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="flex items-center gap-3 justify-center"
             >
-              <div className="text-center">
-                <p className="text-3xl font-bold text-white mb-1">7-10</p>
-                <p className="text-sm text-white/70">{t('kurs.hero.duration')}</p>
+              <Card className="border-0 shadow-lg">
+                <CardContent className="p-6">
+                  <div className="flex items-start gap-4">
+                    <div className="w-16 h-16 rounded-full bg-gradient-brand flex items-center justify-center text-white text-2xl font-bold shrink-0">
+                      2
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold mb-3">{t('kurs.progression.level2Title')}</h3>
+                      <div className="grid md:grid-cols-2 gap-4 text-sm">
+                        <div>
+                          <p className="text-muted-foreground mb-1"><strong>{t('kurs.progression.level1Instructors')}</strong> 2</p>
+                          <p className="text-muted-foreground mb-1"><strong>{t('kurs.progression.level1Altitude')}</strong> 12 500 fot</p>
+                          <p className="text-muted-foreground"><strong>{t('kurs.progression.level1Deploy')}</strong> 5 500 fot</p>
+                        </div>
+                        <div>
+                          <p className="text-muted-foreground mb-1"><strong>{t('kurs.progression.level1Freefall')}</strong> {t('kurs.progression.level1FreefallTime')}</p>
+                          <p className="text-muted-foreground mb-1"><strong>{t('kurs.progression.level1Canopy')}</strong> {t('kurs.progression.level1CanopyTime')}</p>
+                        </div>
+                      </div>
+                      <p className="text-muted-foreground mt-3">
+                        <strong>{t('kurs.requirements.title')}:</strong> {t('kurs.progression.level2Goal')}
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+            {}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+            >
+              <Card className="border-0 shadow-lg">
+                <CardContent className="p-6">
+                  <div className="flex items-start gap-4">
+                    <div className="w-16 h-16 rounded-full bg-gradient-brand flex items-center justify-center text-white text-2xl font-bold shrink-0">
+                      3
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold mb-3">{t('kurs.progression.level3Title')}</h3>
+                      <div className="grid md:grid-cols-2 gap-4 text-sm">
+                        <div>
+                          <p className="text-muted-foreground mb-1"><strong>{t('kurs.progression.level1Instructors')}</strong> 2</p>
+                          <p className="text-muted-foreground mb-1"><strong>{t('kurs.progression.level1Altitude')}</strong> 12 500 fot</p>
+                          <p className="text-muted-foreground"><strong>{t('kurs.progression.level1Deploy')}</strong> 5 500 fot</p>
+                        </div>
+                        <div>
+                          <p className="text-muted-foreground mb-1"><strong>{t('kurs.progression.level1Freefall')}</strong> {t('kurs.progression.level1FreefallTime')}</p>
+                          <p className="text-muted-foreground mb-1"><strong>{t('kurs.progression.level1Canopy')}</strong> {t('kurs.progression.level1CanopyTime')}</p>
+                        </div>
+                      </div>
+                      <p className="text-muted-foreground mt-3">
+                        <strong>{t('kurs.requirements.title')}:</strong> {t('kurs.progression.level3Goal')}
+                      </p>
+                      <p className="text-sm text-muted-foreground mt-2">
+                        {t('kurs.progression.level3Desc')}
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+            {}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="grid md:grid-cols-2 gap-6 my-12"
+            >
+              <div className="relative h-[350px] rounded-2xl overflow-hidden shadow-xl">
+                <Image
+                  src={content?.course?.images?.soloStudent || "/aff-solo-student.webp"}
+                  alt="Solo AFF Student Flying"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="relative h-[350px] rounded-2xl overflow-hidden shadow-xl">
+                <Image
+                  src={content?.course?.images?.instructorCoaching || "/aff-instructor-coaching.webp"}
+                  alt="Instructor Coaching Student in Freefall"
+                  fill
+                  className="object-cover"
+                />
               </div>
             </motion.div>
+            {}
+            <div className="grid md:grid-cols-2 gap-6">
+              {}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+              >
+                <Card className="border-0 shadow-lg h-full">
+                  <CardContent className="p-6">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-12 h-12 rounded-full bg-gradient-brand flex items-center justify-center text-white text-lg font-bold">
+                        4
+                      </div>
+                      <h3 className="text-lg font-bold">{t('kurs.progression.level4Title')}</h3>
+                    </div>
+                    <p className="text-sm text-muted-foreground mb-2">
+                      <strong>1 {t('kurs.progression.level1Instructors').toLowerCase()}</strong> | 12 500 fot | {t('kurs.progression.level47FreefallTime')} {t('kurs.progression.level1Freefall').toLowerCase()}
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      <strong>{t('kurs.requirements.title')}:</strong> {t('kurs.progression.level4Goal')}
+                    </p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+              {}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+              >
+                <Card className="border-0 shadow-lg h-full">
+                  <CardContent className="p-6">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-12 h-12 rounded-full bg-gradient-brand flex items-center justify-center text-white text-lg font-bold">
+                        5
+                      </div>
+                      <h3 className="text-lg font-bold">{t('kurs.progression.level5Title')}</h3>
+                    </div>
+                    <p className="text-sm text-muted-foreground mb-2">
+                      <strong>1 {t('kurs.progression.level1Instructors').toLowerCase()}</strong> | 12 500 fot | {t('kurs.progression.level47FreefallTime')} {t('kurs.progression.level1Freefall').toLowerCase()}
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      <strong>{t('kurs.requirements.title')}:</strong> {t('kurs.progression.level5Goal')}
+                    </p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+              {}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+              >
+                <Card className="border-0 shadow-lg h-full">
+                  <CardContent className="p-6">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-12 h-12 rounded-full bg-gradient-brand flex items-center justify-center text-white text-lg font-bold">
+                        6
+                      </div>
+                      <h3 className="text-lg font-bold">{t('kurs.progression.level6Title')}</h3>
+                    </div>
+                    <p className="text-sm text-muted-foreground mb-2">
+                      <strong>1 {t('kurs.progression.level1Instructors').toLowerCase()}</strong> | 12 500 fot | {t('kurs.progression.level47FreefallTime')} {t('kurs.progression.level1Freefall').toLowerCase()}
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      <strong>{t('kurs.requirements.title')}:</strong> {t('kurs.progression.level6Goal')}
+                    </p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+              {}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3 }}
+              >
+                <Card className="border-0 shadow-lg h-full">
+                  <CardContent className="p-6">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-12 h-12 rounded-full bg-gradient-brand flex items-center justify-center text-white text-lg font-bold">
+                        7
+                      </div>
+                      <h3 className="text-lg font-bold">{t('kurs.progression.level7Title')}</h3>
+                    </div>
+                    <p className="text-sm text-muted-foreground mb-2">
+                      <strong>1 {t('kurs.progression.level1Instructors').toLowerCase()}</strong> | 12 500 fot | {t('kurs.progression.level1Deploy')}: 4 000 fot
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      <strong>{t('kurs.requirements.title')}:</strong> {t('kurs.progression.level7Goal')}
+                    </p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            </div>
+            {}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="flex items-center gap-3 justify-center"
             >
-              <div className="text-center">
-                <p className="text-3xl font-bold text-white mb-1">7</p>
-                <p className="text-sm text-white/70">{t('kurs.hero.jumps')}</p>
-              </div>
+              <Card className="border-2 border-sky shadow-xl bg-linear-to-br from-sky/5 to-transparent">
+                <CardContent className="p-6">
+                  <div className="flex items-start gap-4">
+                    <div className="w-16 h-16 rounded-full bg-sky flex items-center justify-center text-white text-2xl font-bold shrink-0">
+                      8
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-2xl font-bold mb-3">{t('kurs.progression.level8Title')}</h3>
+                      <p className="text-muted-foreground mb-4">
+                        {t('kurs.progression.level8Desc')}
+                      </p>
+                      <div className="grid md:grid-cols-2 gap-4">
+                        <div className="p-4 bg-background rounded-lg">
+                          <p className="font-semibold mb-2">📋 {t('kurs.progression.level8Requirements')}</p>
+                          <ul className="text-sm text-muted-foreground space-y-1">
+                            <li>• {t('kurs.progression.level8Req1')}</li>
+                            <li>• {t('kurs.progression.level8Req2')}</li>
+                            <li>• {t('kurs.progression.level8Req3')}</li>
+                          </ul>
+                        </div>
+                        <div className="p-4 bg-background rounded-lg">
+                          <p className="font-semibold mb-2">🎓 {t('kurs.progression.level8NextSection')}</p>
+                          <ul className="text-sm text-muted-foreground space-y-1">
+                            <li>• {t('kurs.progression.level8Next1')}</li>
+                            <li>• {t('kurs.progression.level8Next2')}</li>
+                            <li>• {t('kurs.progression.level8Next3')}</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
             </motion.div>
           </div>
         </div>
       </section>
-
-      {/* Course Modules */}
+      {}
       <section className="py-24 lg:py-32 bg-muted/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -142,76 +437,124 @@ export function KursContent() {
             viewport={{ once: true }}
             className="text-center max-w-3xl mx-auto mb-16"
           >
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-              {t('kurs.modules.title')}
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+              {t('kurs.aLicense.title')}
             </h2>
+            <p className="text-lg text-muted-foreground">
+              {t('kurs.aLicense.description')}
+            </p>
           </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {modules.map((module, index) => (
-              <motion.div
-                key={module.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-              >
-                <Card className="h-full">
-                  <CardContent className="pt-6">
-                    <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-brand flex items-center justify-center">
-                      <module.icon className="w-8 h-8 text-white" />
+          {}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="relative w-full max-w-lg h-[450px] mx-auto rounded-2xl overflow-hidden shadow-2xl mb-12"
+          >
+            <Image
+              src={content?.course?.images?.packingCourse || "/packing-course.webp"}
+              alt="Student Learning to Pack Parachute"
+              fill
+              className="object-cover"
+            />
+          </motion.div>
+          <div className="max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-8 mb-8">
+              <Card className="border-0 shadow-lg">
+                <CardContent className="p-8">
+                  <h3 className="text-2xl font-bold mb-6">{t('kurs.aLicense.progressionTitle')}</h3>
+                  <div className="space-y-4">
+                    <div className="flex items-start gap-3">
+                      <CheckCircle2 className="w-6 h-6 text-leaf shrink-0 mt-1" />
+                      <div>
+                        <p className="font-semibold">{t('kurs.aLicense.soloJumps')}</p>
+                        <p className="text-sm text-muted-foreground">{t('kurs.aLicense.soloJumpsDesc')}</p>
+                      </div>
                     </div>
-                    <div className="text-center mb-2 text-sm text-muted-foreground font-semibold">
-                      {module.duration}
+                    <div className="flex items-start gap-3">
+                      <CheckCircle2 className="w-6 h-6 text-leaf shrink-0 mt-1" />
+                      <div>
+                        <p className="font-semibold">{t('kurs.aLicense.checkouts')}</p>
+                        <p className="text-sm text-muted-foreground">{t('kurs.aLicense.checkoutsDesc')}</p>
+                      </div>
                     </div>
-                    <h3 className="text-xl font-bold mb-3 text-center">{module.title}</h3>
-                    <p className="text-muted-foreground text-center">{module.description}</p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* What's Included */}
-      <section className="py-24 lg:py-32">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+                    <div className="flex items-start gap-3">
+                      <CheckCircle2 className="w-6 h-6 text-leaf shrink-0 mt-1" />
+                      <div>
+                        <p className="font-semibold">{t('kurs.aLicense.lowJumps')}</p>
+                        <p className="text-sm text-muted-foreground">{t('kurs.aLicense.lowJumpsDesc')}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <p className="text-sm text-muted-foreground mt-6 p-4 bg-muted rounded-lg">
+                    {t('kurs.aLicense.tempoDesc')}
+                  </p>
+                </CardContent>
+              </Card>
+              <Card className="border-0 shadow-lg">
+                <CardContent className="p-8">
+                  <h3 className="text-2xl font-bold mb-6">{t('kurs.aLicense.beforeLicenseTitle')}</h3>
+                  <div className="space-y-4">
+                    <div className="flex items-start gap-3">
+                      <CheckCircle2 className="w-6 h-6 text-leaf shrink-0 mt-1" />
+                      <div>
+                        <p className="font-semibold">{t('kurs.aLicense.packingCourse')}</p>
+                        <p className="text-sm text-muted-foreground">{t('kurs.aLicense.packingCourseDesc')}</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <CheckCircle2 className="w-6 h-6 text-leaf shrink-0 mt-1" />
+                      <div>
+                        <p className="font-semibold">{t('kurs.aLicense.packingExam')}</p>
+                        <p className="text-sm text-muted-foreground">{t('kurs.aLicense.packingExamDesc')}</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <CheckCircle2 className="w-6 h-6 text-leaf shrink-0 mt-1" />
+                      <div>
+                        <p className="font-semibold">{t('kurs.aLicense.aCourse')}</p>
+                        <p className="text-sm text-muted-foreground">{t('kurs.aLicense.aCourseDesc')}</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <CheckCircle2 className="w-6 h-6 text-leaf shrink-0 mt-1" />
+                      <div>
+                        <p className="font-semibold">{t('kurs.aLicense.aExam')}</p>
+                        <p className="text-sm text-muted-foreground">{t('kurs.aLicense.aExamDesc')}</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <CheckCircle2 className="w-6 h-6 text-leaf shrink-0 mt-1" />
+                      <div>
+                        <p className="font-semibold">{t('kurs.aLicense.renUtover')}</p>
+                        <p className="text-sm text-muted-foreground">{t('kurs.aLicense.renUtoverDesc')} <a href="https://renutover.no" target="_blank" rel="noopener noreferrer" className="text-sky hover:underline">renutover.no</a></p>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+            <Card className="border-2 border-leaf shadow-xl bg-linear-to-br from-leaf/5 to-transparent">
+              <CardContent className="p-8 text-center">
+                <h3 className="text-2xl font-bold mb-4">🎉 {t('kurs.aLicense.congratulations')}</h3>
+                <p className="text-lg text-muted-foreground mb-4">
+                  {t('kurs.aLicense.congratsDesc')}
+                </p>
+                <p className="text-muted-foreground">
+                  {t('kurs.aLicense.totalJumps')}
+                </p>
+              </CardContent>
+            </Card>
+            {}
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-            >
-              <h2 className="text-3xl sm:text-4xl font-bold mb-8">
-                {t('kurs.included.title')}
-              </h2>
-              <div className="space-y-4">
-                {included.map((item, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.05 }}
-                    className="flex items-start gap-3"
-                  >
-                    <CheckCircle2 className="w-6 h-6 text-leaf shrink-0 mt-1" />
-                    <span className="text-lg">{item}</span>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="relative h-[600px] rounded-2xl overflow-hidden shadow-2xl"
+              className="relative h-[450px] rounded-2xl overflow-hidden shadow-2xl mt-12"
             >
               <Image
-                src="/aff-student.webp"
-                alt="AFF Student"
+                src={content?.course?.images?.licenseCelebration || "/a-license-celebration.webp"}
+                alt="New A-License Graduate Celebrating"
                 fill
                 className="object-cover"
               />
@@ -219,105 +562,10 @@ export function KursContent() {
           </div>
         </div>
       </section>
-
-      {/* Requirements */}
-      <section className="py-24 lg:py-32 bg-muted/30">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">
-              {t('kurs.requirements.title')}
-            </h2>
-            <div className="space-y-4">
-              {requirements.map((req, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="flex items-start gap-3 bg-card p-4 rounded-lg"
-                >
-                  <CheckCircle2 className="w-6 h-6 text-leaf shrink-0 mt-1" />
-                  <span className="text-lg">{req}</span>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className="py-24 lg:py-32">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center max-w-3xl mx-auto mb-16"
-          >
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-              {t('kurs.faq.title')}
-            </h2>
-          </motion.div>
-
-          <div className="max-w-3xl mx-auto">
-            <Accordion type="single" collapsible className="space-y-4">
-              {faqData.map((faq, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.05 }}
-                >
-                  <AccordionItem
-                    value={`item-${index}`}
-                    className="bg-card border border-border rounded-xl px-6 shadow-sm"
-                  >
-                    <AccordionTrigger className="text-left font-semibold hover:no-underline py-5">
-                      {faq.question}
-                    </AccordionTrigger>
-                    <AccordionContent className="text-muted-foreground pb-5">
-                      {faq.answer}
-                    </AccordionContent>
-                  </AccordionItem>
-                </motion.div>
-              ))}
-            </Accordion>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-24 lg:py-32 bg-gradient-to-b from-leaf to-sky text-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-              {t('kurs.hero.bookCourse')}
-            </h2>
-            <Button
-              asChild
-              size="lg"
-              className="bg-white text-foreground hover:bg-white/90 font-semibold px-8 py-6 text-lg"
-            >
-              <a
-                href="https://www.skydivetonsberg.no/kurs"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 mx-auto w-fit"
-              >
-                <ExternalLink className="w-5 h-5" />
-                {t('kurs.hero.bookCourse')}
-              </a>
-            </Button>
-          </motion.div>
-        </div>
-      </section>
+      {}
+      <KursRequirements />
+      {}
+      <KursFAQ />
     </>
   );
 }
-

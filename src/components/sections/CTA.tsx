@@ -1,5 +1,4 @@
 "use client";
-
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
@@ -7,15 +6,13 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Calendar, Phone } from "lucide-react";
 import Link from "next/link";
 import { useLanguage } from "@/contexts/LanguageContext";
-
 export function CTA() {
   const { t } = useLanguage();
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-
   return (
     <section ref={ref} className="py-24 lg:py-32 relative overflow-hidden">
-      {/* Background */}
+      {}
       <div className="absolute inset-0 z-0">
         <Image
           src="/cta-background.webp"
@@ -26,8 +23,7 @@ export function CTA() {
         <div className="absolute inset-0 bg-gradient-to-r from-sky/90 to-leaf/90" />
         <div className="absolute inset-0 bg-black/20" />
       </div>
-
-      {/* Decorative Elements */}
+      {}
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         animate={isInView ? { opacity: 0.3, scale: 1 } : {}}
@@ -40,7 +36,6 @@ export function CTA() {
         transition={{ duration: 1, delay: 0.2 }}
         className="absolute bottom-10 left-10 w-48 h-48 bg-white rounded-full blur-3xl"
       />
-
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -60,7 +55,6 @@ export function CTA() {
             </span>
             {t('home.cta.titleEnd')}
           </motion.h2>
-          
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -69,7 +63,6 @@ export function CTA() {
           >
             {t('home.cta.description')}
           </motion.p>
-
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -104,8 +97,7 @@ export function CTA() {
               </Link>
             </Button>
           </motion.div>
-
-          {/* Quick Links */}
+          {}
           <motion.div
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
@@ -136,10 +128,3 @@ export function CTA() {
     </section>
   );
 }
-
-
-
-
-
-
-

@@ -1,5 +1,4 @@
 "use client";
-
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -9,53 +8,45 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/contexts/LanguageContext";
-
-
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [showMobileLogo, setShowMobileLogo] = useState(true);
+  const [showHeader, setShowHeader] = useState(true);
   const { language, setLanguage, t } = useLanguage();
-
   const navigation = [
     { name: t('nav.home'), href: "/" },
     { name: t('nav.tandem'), href: "/tandem" },
     { name: t('nav.courses'), href: "/kurs" },
     { name: t('nav.contact'), href: "/kontakt" },
   ];
-
   const rightNavigation = [
     { name: t('nav.forJumpers'), href: "/for-hoppere", external: false },
     { name: t('nav.jumpCalendar'), href: "https://www.skydivetonsberg.no/hoppkalender-1", external: true },
   ];
-
   useEffect(() => {
     const handleScroll = () => {
       const pathname = window.location.pathname;
-      const isHomepage = pathname === '/';
-      const hasVideoHero = pathname === '/tandem' || pathname === '/kurs' || pathname === '/for-hoppere';
-      
-      // On pages with video hero, wait until after video + bar (approx 100vh)
-      // On homepage, only go solid after scrolling past hero (800px)
-      // On other pages, go solid after 20px
-      if (hasVideoHero) {
-        setScrolled(window.scrollY > window.innerHeight);
+      const isHome = pathname === '/';
+      if (isHome) {
+        const heroThreshold = window.innerHeight * 0.9;
+        setShowHeader(window.scrollY > heroThreshold);
+        setScrolled(window.scrollY > heroThreshold + 50);
+        setShowMobileLogo(window.scrollY > 600);
       } else {
-        setScrolled(isHomepage ? window.scrollY > 800 : window.scrollY > 20);
+        setShowHeader(true);
+        setScrolled(true);
+        setShowMobileLogo(true);
       }
-      
-      // Hide logo on mobile homepage until scrolled past hero logo (approx 600px)
-      setShowMobileLogo(isHomepage ? window.scrollY > 600 : true);
     };
-    handleScroll(); // Check initial state
+    handleScroll(); 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
   return (
     <motion.header
       initial={{ y: -100 }}
-      animate={{ y: 0 }}
+      animate={{ y: showHeader ? 0 : -100 }}
       transition={{ duration: 0.5, ease: "easeOut" as const }}
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
@@ -66,7 +57,7 @@ export function Header() {
     >
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          {/* Logo */}
+          {}
           <Link href="/" className="flex items-center gap-3 group">
             <motion.div
               whileHover={{ scale: 1.05 }}
@@ -87,8 +78,7 @@ export function Header() {
               />
             </motion.div>
           </Link>
-
-          {/* Desktop Navigation */}
+          {}
           <div className="hidden lg:flex items-center gap-1">
             {navigation.map((item) => (
               <Link
@@ -100,9 +90,7 @@ export function Header() {
                 <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-brand group-hover:w-3/4 transition-all duration-300" />
               </Link>
             ))}
-            
             <div className="w-px h-6 bg-border mx-2" />
-            
             {rightNavigation.map((item) => (
               item.external ? (
                 <a
@@ -126,8 +114,7 @@ export function Header() {
               )
             ))}
           </div>
-
-          {/* Language Toggle & CTA Button */}
+          {}
           <div className="hidden lg:flex items-center gap-4">
             <Button
               variant="ghost"
@@ -151,8 +138,7 @@ export function Header() {
               </a>
             </Button>
           </div>
-
-          {/* Mobile Menu */}
+          {}
           <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
             <SheetTrigger asChild className="lg:hidden">
               <Button variant="ghost" size="icon" className="relative">
@@ -172,7 +158,6 @@ export function Header() {
                     className="h-8 w-auto"
                   />
                 </div>
-                
                 <nav className="flex-1 overflow-auto py-6 px-4">
                   <div className="space-y-1">
                     {navigation.map((item, index) => (
@@ -192,7 +177,6 @@ export function Header() {
                       </motion.div>
                     ))}
                   </div>
-                  
                   <div className="my-6 border-t pt-6">
                     <p className="px-4 text-sm font-medium text-muted-foreground mb-3">
                       {t('nav.externalLinks')}
@@ -228,7 +212,6 @@ export function Header() {
                     </div>
                   </div>
                 </nav>
-                
                 <div className="p-4 border-t space-y-3">
                   <Button
                     variant="outline"
@@ -262,4 +245,3 @@ export function Header() {
     </motion.header>
   );
 }
-

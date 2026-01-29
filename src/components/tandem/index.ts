@@ -1,0 +1,9 @@
+export { TandemHero } from './TandemHero';
+export { TandemFeaturedImage } from './TandemFeaturedImage';
+export { TandemGallery } from './TandemGallery';
+export { TandemHighlights } from './TandemHighlights';
+export { TandemPricing } from './TandemPricing';
+export { TandemRequirements } from './TandemRequirements';
+export { TandemJumpDay } from './TandemJumpDay';
+export { TandemFAQ } from './TandemFAQ';
+export { TandemCTA } from './TandemCTA';

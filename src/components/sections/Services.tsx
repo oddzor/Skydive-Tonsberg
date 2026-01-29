@@ -1,5 +1,4 @@
 "use client";
-
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
@@ -8,40 +7,58 @@ import { ArrowRight, Users, GraduationCap, Plane } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useCMSContent } from "@/hooks/useCMSContent";
+interface CMSContent {
+  pricing?: {
+    tandem?: { weekday?: number };
+    course?: { total?: number };
+    kurs?: { affCourse?: number };
+  };
+}
 
-const getServices = (t: (key: string) => string) => [
-  {
-    title: t('home.services.tandem.title'),
-    description: t('home.services.tandem.description'),
-    image: "/service-tandem.webp",
-    icon: Users,
-    href: "https://bookings.burblesoft.eu/551/18",
-    cta: t('home.services.tandem.cta'),
-    external: true,
-    gradient: "from-sky to-sky-dark",
-  },
-  {
-    title: t('home.services.aff.title'),
-    description: t('home.services.aff.description'),
-    image: "/service-aff.webp",
-    icon: GraduationCap,
-    href: "/kurs",
-    cta: t('home.services.aff.cta'),
-    external: false,
-    gradient: "from-leaf to-leaf-dark",
-  },
-  {
-    title: t('home.services.experienced.title'),
-    description: t('home.services.experienced.description'),
-    image: "/service-experienced.webp",
-    icon: Plane,
-    href: "/for-hoppere",
-    cta: t('home.services.experienced.cta'),
-    external: false,
-    gradient: "from-sky-dark to-leaf-dark",
-  },
-];
-
+const getServices = (
+  t: (key: string) => string,
+  cmsContent: CMSContent | null
+) => {
+  const services = [
+    {
+      title: t('home.services.tandem.title'),
+      description: t('home.services.tandem.description'),
+      price: `${cmsContent?.pricing?.tandem?.weekday || 4690} kr`,
+      image: "/service-tandem.webp",
+      icon: Users,
+      href: "/tandem",
+      cta: t('home.services.tandem.cta'),
+      external: false,
+      gradient: "from-sky to-sky-dark",
+      showPrice: true,
+    },
+    {
+      title: t('home.services.aff.title'),
+      description: t('home.services.aff.description'),
+      price: `${cmsContent?.pricing?.kurs?.affCourse || 18990} kr`,
+      image: "/service-aff.webp",
+      icon: GraduationCap,
+      href: "/kurs",
+      cta: t('home.services.aff.cta'),
+      external: false,
+      gradient: "from-leaf to-leaf-dark",
+      showPrice: true,
+    },
+    {
+      title: t('home.services.experienced.title'),
+      description: t('home.services.experienced.description'),
+      image: "/service-experienced.webp",
+      icon: Plane,
+      href: "/for-hoppere",
+      cta: t('home.services.experienced.cta'),
+      external: false,
+      gradient: "from-sky-dark to-leaf-dark",
+      showPrice: false,
+    },
+  ];
+  return services;
+};
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -49,7 +66,6 @@ const containerVariants = {
     transition: { staggerChildren: 0.2 },
   },
 };
-
 const cardVariants = {
   hidden: { opacity: 0, y: 40 },
   visible: {
@@ -58,17 +74,16 @@ const cardVariants = {
     transition: { duration: 0.6, ease: "easeOut" as const },
   },
 };
-
 export function Services() {
   const { t } = useLanguage();
+  const { content } = useCMSContent();
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const services = getServices(t);
-
+  const services = getServices(t, content);
   return (
     <section className="py-24 lg:py-32 bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
+        {}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -83,8 +98,7 @@ export function Services() {
             {t('home.services.title')} <span className="text-gradient">{t('home.services.titleHighlight')}</span>
           </h2>
         </motion.div>
-
-        {/* Services Grid */}
+        {}
         <motion.div
           ref={ref}
           variants={containerVariants}
@@ -116,7 +130,7 @@ export function Services() {
                     {service.description}
                   </p>
                   {service.external ? (
-                    <Button asChild variant="outline" className="group/btn">
+                    <Button asChild className="bg-gradient-brand hover:opacity-90 text-white font-semibold group/btn">
                       <a
                         href={service.href}
                         target="_blank"
@@ -128,7 +142,7 @@ export function Services() {
                       </a>
                     </Button>
                   ) : (
-                    <Button asChild variant="outline" className="group/btn">
+                    <Button asChild className="bg-gradient-brand hover:opacity-90 text-white font-semibold group/btn">
                       <Link href={service.href} className="flex items-center gap-2">
                         {service.cta}
                         <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
@@ -144,6 +158,3 @@ export function Services() {
     </section>
   );
 }
-
-
-

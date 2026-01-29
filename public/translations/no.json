@@ -20,7 +20,8 @@
       "titleHighlight": "frihet",
       "titleEnd": "i fritt fall",
       "description": "Hopp tandem med profesjonelle instruktører, eller start din reise som selvstendig fallskjermhopper. Uforglemmelige opplevelser venter.",
-      "bookTandem": "Book Tandemhopp",
+      "bookTandem": "Tandemhopp",
+      "bookCourse": "AFF Kurs",
       "watchVideo": "Se video",
       "scrollDown": "Scroll ned"
     },
@@ -66,6 +67,7 @@
       "prevButton": "Forrige anmeldelse",
       "nextButton": "Neste anmeldelse",
       "jumpToReview": "Gå til anmeldelse",
+      "readMore": "Les mer på Google",
       "viewAllGoogle": "Se alle anmeldelser på Google"
     },
     "faq": {
@@ -134,10 +136,31 @@
       "titleHighlight": "frihet i fritt fall",
       "description": "Ta steget ut i det ukjente. Hopp tandem med våre erfarne instruktører og opplev følelsen av frihet 4000 meter over bakken.",
       "bookNow": "Book tandemhopp",
+      "bookNowCTA": "Book Tandemhopp Nå",
       "learnMore": "Les mer",
       "altitude": "4000 meter",
       "freefall": "40 sek fritt fall",
       "canopy": "5 min skjermtur"
+    },
+    "pricingCards": {
+      "tandemTitle": "Tandemhopp Priser",
+      "weekdayLabel": "Mandag–Fredag",
+      "weekdayDesc": "Ukedager",
+      "weekendLabel": "Lørdag & Søndag",
+      "weekendDesc": "Helg",
+      "includedLabel": "Inkludert:",
+      "includedDesc": "Komplett utstyr, trening, og 40 sekunder fritt fall fra 4000m",
+      "videoTitle": "Video & Foto",
+      "videoLabel": "Video",
+      "videoPhotosLabel": "Video + Bilder",
+      "fullPackageLabel": "Full Pakke",
+      "videoDesc": "Video og bilder tas av egen fotograf som hopper med dere",
+      "callUs": "Eller ring oss på",
+      "keyFacts": {
+        "altitudeLabel": "Utsprangshøyde",
+        "freefallLabel": "Fritt fall",
+        "canopyLabel": "Skjermtur"
+      }
     },
     "highlights": {
       "badge": "Hvorfor hoppe med oss?",
@@ -220,6 +243,14 @@
         "description": "Instruktøren lander deg trygt på landingsområdet."
       }
     },
+    "video": {
+      "title": "Opplev Tandemhopp",
+      "description": "Se hvordan det er å hoppe med oss"
+    },
+    "gallery": {
+      "title": "Tandem Galleri",
+      "description": "Se den fantastiske utsikten og opplevelsen"
+    },
     "faq": {
       "title": "Vanlige spørsmål",
       "q1": {
@@ -263,10 +294,150 @@
       "titleHighlight": "fallskjermhopper",
       "description": "Start din reise mot å bli selvstendig fallskjermhopper. AFF-kurset er den raskeste og sikreste veien til å mestre fritt fall.",
       "price": "18 990 kr",
-      "bookCourse": "Meld deg på kurs",
+      "bookCourse": "Meld deg på AFF-kurs",
       "contactUs": "Kontakt oss",
       "duration": "7-10 dager",
-      "jumps": "7 hopp med instruktører"
+      "jumps": "7 hopp med instruktører",
+      "questionsEmail": "Spørsmål? Send e-post til"
+    },
+    "pricing": {
+      "title": "Kurspris",
+      "completeCourse": "Komplett AFF-kurs",
+      "included1": "10 min vindtunell på Gardermoen",
+      "included2": "1,5 dagers bakkekurs",
+      "included3": "7 hopp med instruktører (Nivå 1-7)",
+      "included4": "Alt utstyr inkludert",
+      "included5": "Faglig oppfølging og fadderordning",
+      "paymentTitle": "Betaling:",
+      "paymentDesc": "2 000 kr depositum ved booking, rest ved kursstart"
+    },
+    "details": {
+      "title": "Kursdetaljer",
+      "durationTitle": "Varighet",
+      "durationDesc": "1,5 dagers bakkekurs + 2-4 dager for hoppene (væravhengig)",
+      "jumpsTitle": "Antall hopp",
+      "jumpsDesc": "7 hopp inkludert (3 med 2 instruktører, 4 med 1 instruktør)",
+      "altitudeTitle": "Utsprangshøyde",
+      "altitudeDesc": "12 500 fot (ca. 3800m) - 45-50 sekunder fritt fall",
+      "ageTitle": "Alderskrav",
+      "ageDesc": "Minimum 16 år (med samtykke fra foresatte). Maks vekt: 100 kg"
+    },
+    "stats": {
+      "theoryDays": "Dager teori",
+      "jumps": "Hopp",
+      "windTunnel": "Vindtunell",
+      "minAge": "Min. alder"
+    },
+    "schedule": {
+      "title": "Fallskjermkurs, dag for dag",
+      "description": "Dagsplan og gjennomføring av kurs varierer noe fra kurs, avhengig av ukedag, flytilgjengelighet og vær.",
+      "structureTitle": "Kursets struktur",
+      "structureDesc": "Kurset består av 10 minutter i vindtunell på Gardermoen, et bakkekurs som tar 1,5 dager, og 7 hopp med instruktører (Nivå 1-7).",
+      "groundSchool": "10 timer fordelt på første og andre kursdag",
+      "windTunnel": "10 minutter på Gardermoen (Bodyflight)",
+      "day3": "3 hopp med 2 instruktører (Nivå 1-3)",
+      "day4": "4 hopp med én instruktør (Nivå 4-7)",
+      "importantTitle": "Viktig å vite:",
+      "importantDesc": "Været avgjør hvor fort du blir ferdig med Nivå 1-7. Ofte gjennomfører man på to dager, men vi anbefaler på det sterkeste å sette av fire dager til dette. Været er uforutsigbart, det kan bli venting. Er været bra får du god kontinuitet."
+    },
+    "payment": {
+      "title": "Betaling for kurs",
+      "priceTitle": "Kurspris",
+      "completeCourse": "Komplett AFF-kurs",
+      "bookingTitle": "Ved booking:",
+      "bookingDesc": "Du betaler 2 000 kr depositum når du melder deg på.",
+      "startTitle": "Ved kursstart:",
+      "startDesc": "Resten betaler du i resepsjonen på Jarlsberg flyplass. Vi tar debetkort eller kontant. OBS: Vi tar ikke kreditkort.",
+      "vippsTitle": "Vipps:",
+      "vippsDesc": "Du kan også betale med VIPPS, men det koster 3% mer.",
+      "rejumpTitle": "Omhopp & Tillegg",
+      "rejumpSubtitle": "Omhopp",
+      "rejumpDesc1": "De 7 hoppene på kurset har hver sine ferdighetskrav. Hvis du får et nivå underkjent må du gjøre det om igjen.",
+      "rejumpDesc2": "Omhopp med instruktører betales i tillegg til kursprisen underveis i progresjonen. Priser finner du under",
+      "membershipTitle": "Medlemskap påkrevd",
+      "membershipDesc": "I tillegg må du betale medlemsskap i klubb og forbund, samt forsikring, før du kan hoppe.",
+      "membershipLink": "Beregn medlemsskap",
+      "cancellationTitle": "Avbestilling",
+      "cancellationDesc": "Depositum er ikke refunderbart. Du kan flytte kurset til en annen uke, men da må vi ha beskjed samme år som du var påmeldt opprinnelig kurs."
+    },
+    "progression": {
+      "title": "AFF Progresjon – Nivå 1-8",
+      "description": "Her er målene og detaljert informasjon om de enkelte hoppene fra Nivå 1 til Nivå 8",
+      "level1Title": "Nivå 1 – Kroppskontroll",
+      "level1Instructors": "Instruktører:",
+      "level1Altitude": "Utsprangshøyde:",
+      "level1Deploy": "Trekkhøyde:",
+      "level1Freefall": "Fritt fall:",
+      "level1Canopy": "Skjermtid:",
+      "level1FreefallTime": "45 sekunder",
+      "level1CanopyTime": "4-5 minutter",
+      "level47FreefallTime": "50 sek",
+      "level1Goal": "Tre prøvetrekk, korrekt fallstilling, selvstendig trekk",
+      "level1Desc": "Instruktørene holder grep i eleven i utsprang, hele fritt fallet og til fallskjermen åpner.",
+      "level2Title": "Nivå 2 – Kroppskontroll +",
+      "level2Goal": "Tre prøvetrekk, 90° sving høyre og venstre, fremoverbevegelse, selvstendig trekk",
+      "level3Title": "Nivå 3 – Selvstendighetshoppet",
+      "level3Goal": "Ett prøvetrekk, fly alene, korrigere heading, selvstendig trekk",
+      "level3Desc": "Instruktørene holder grep i eleven i utsprang og første del av fritt fallet. Deretter kun ved behov.",
+      "level4Title": "90° sving & fremoverbevegelse",
+      "level4Goal": "Fly alene, svinger og fremoverbevegelse som nivå 2, selvstendig trekk",
+      "level5Title": "360° sving & fremoverbevegelse",
+      "level5Goal": "360° sving høyre og venstre og fremoverbevegelse",
+      "level6Title": "Solo exit (uassistert utsprang)",
+      "level6Goal": "Solo exit, gjenvinne stabilitet, baklengs salto, marsj",
+      "level7Title": "Solohoppet",
+      "level7Goal": "Solo dykkendel exit, forlengs salto, marsj",
+      "level8Title": "Nivå 8 – Veien til A-bevis",
+      "level8Desc": "Etter kurset er du på Nivå 8. Elever på dette nivået gjennomfører solo fritt fall hopp alene. En instruktør sjekker utstyret etter påseling på bakken, og er alltid med i flyet.",
+      "level8Requirements": "Krav:",
+      "level8Req1": "13 solo hopp (11 solo + 2 utsjekk)",
+      "level8Req2": "Utsprang fra 12 500 fot",
+      "level8Req3": "50 sekunder fritt fall",
+      "level8NextSection": "Se neste seksjon for:",
+      "level8Next1": "Pakkekurs & eksamen",
+      "level8Next2": "A-kurs & eksamen",
+      "level8Next3": "Ren Utøver kurs"
+    },
+    "aLicense": {
+      "title": "Veien til A-bevis",
+      "description": "Etter AFF-kurset (Nivå 1-7) fortsetter du med Nivå 8 og ytterligere krav for å få A-lisens",
+      "progressionTitle": "Nivå 8 progresjon",
+      "soloJumps": "11 solo hopp",
+      "soloJumpsDesc": "Hopp alene uten instruktør i fritt fall",
+      "checkouts": "2 FS-utsjekker",
+      "checkoutsDesc": "Formation skydiving med instruktør",
+      "lowJumps": "2 lavhopp",
+      "lowJumpsDesc": "Hopp fra lavere høyde",
+      "tempoDesc": "Disse hoppene gjør du når du har tid og lyst. Du bestemmer selv tempoet!",
+      "beforeLicenseTitle": "Før du får A-bevis",
+      "packingCourse": "Pakkekurs (3 timer)",
+      "packingCourseDesc": "Lær å pakke fallskjermen din",
+      "packingExam": "Pakkeeksamen",
+      "packingExamDesc": "Praktisk eksamen i pakking",
+      "aCourse": "A-kurs (2 timer)",
+      "aCourseDesc": "Teori for A-sertifikat",
+      "aExam": "A-eksamen",
+      "aExamDesc": "Multiple choice eksamen i Håndboka (del 100, 200, 500)",
+      "renUtover": "Ren Utøver",
+      "renUtoverDesc": "Online kurs (15 min) uten eksamen på",
+      "congratulations": "Gratulerer!",
+      "congratsDesc": "Når du har gjennomført alt dette er du selvstendig fallskjermhopper med A-bevis!",
+      "totalJumps": "Totalt minimum 20 hopp (7 fra AFF + 13 fra Nivå 8 + progresjon) kreves for A-lisens."
+    },
+    "declaration": {
+      "title": "Egenerklæring du må signere:",
+      "text": "Jeg erklærer at jeg er fysisk normal og at jeg ikke lider av eller har vært under behandling for hjertefeil eller nyresykdom, langvarig sykdom som har gitt varige mén, sukkersyke, epilepsi, besvimelsesanfall eller kramper, nervøse lidelser, nyresykdom, høyt eller lavt blodtrykk. Jeg er kjent med risikoen som er knyttet til fallskjermhopping og jeg har gjort en selvstendig vurdering av og er klar over mitt eget vurderingsansvar i forhold til risikoen."
+    },
+    "support": {
+      "title": "Du får god oppfølging!",
+      "facebook": "Du blir invitert til egen Facebook-gruppe for elever",
+      "mentor": "Du får en fadder som tar litt ekstra vare på deg",
+      "questions": "Spørsmål? Send e-post til",
+      "orCall": "eller ring oss på"
+    },
+    "video": {
+      "title": "AFF Kurs Oversikt",
+      "description": "Se hva du lærer i vårt omfattende AFF-kurs"
     },
     "modules": {
       "title": "Hva kurset inkluderer",
@@ -398,6 +569,7 @@
       "title": "Kom og få sol, sommer og",
       "titleHighlight": "fallskjermhopp!",
       "description": "Velkommen til Skydive Tønsberg på Jarlsberg flyplass – med Norges største og beste hoppfly, Twin Otter LN-JMP!",
+      "subDescription": "Praktisk informasjon for gjestehoppere og klubbmedlemmer. Sjekk priser, regler, og booking nedenfor.",
       "jumpCalendar": "Hoppkalender",
       "burbleMe": "BurbleMe"
     },
@@ -456,6 +628,23 @@
       "contactText": "Kommer du utenom åpningstid? Send oss en e-post til",
       "warningText": "All overnatting skal forhåndsregistreres i resepsjonen. Brudd på dette medfører 500 kr i gebyr."
     },
+    "cards": {
+      "calendar": {
+        "title": "Hoppkalender",
+        "desc": "Se når vi hopper og book din plass",
+        "button": "Åpne kalender"
+      },
+      "burbleme": {
+        "title": "BurbleMe",
+        "desc": "Last ned appen og manifester deg selv",
+        "button": "Åpne BurbleMe"
+      },
+      "pricing": {
+        "title": "Priser & Info",
+        "desc": "Se alle priser, regler og informasjon",
+        "button": "Se priser"
+      }
+    },
     "burbleMe": {
       "badge": "Manifestering",
       "title": "BurbleMe –",
@@ -501,6 +690,18 @@
       "clickToZoom": "Klikk på bildene for å se dem i full størrelse",
       "exitOrderTitle": "Exitrekkefølge",
       "exitOrderNote": "Tid mellom gruppene er ca 7-9 sekunder hvis ikke annet er sagt av hoppmester.",
+      "proceduresTitle": "Prosedyrer",
+      "setupProfile": "Sett opp profilen",
+      "checkInFormation": "Check In & Formation",
+      "notificationsSafety": "Varsling & Sikkerhet",
+      "images": {
+        "airspace": "Luftrom og landingsmønster",
+        "exitOrder": "Venteområder og landingsmønster",
+        "landingAreas": "Landingsområder",
+        "airspaceAlt": "Hoppfeltbrief - Luftrom og landingsmønster",
+        "exitOrderAlt": "Hoppfeltbrief - Exitrekkefølge",
+        "landingAreasAlt": "Hoppfeltbrief - Landingsområder"
+      },
       "exitOrder": {
         "tracking1": "Trackinggruppe 1",
         "fs": "FS/Mage-grupper",
@@ -552,10 +753,32 @@
       "tandem": "Tandem",
       "courses": "Kurs / Elever",
       "misc": "Diverse / Verving",
+      "deals": {
+        "title": "Hopperdealer – spar penger!",
+        "dealTitle": "Hopperdeal",
+        "dealPrice": "335 kr/hopp",
+        "dealDesc": "Innskudd kr 2 500 → 50 kr avslag på hvert hopp. Break even ved 50 hopp.",
+        "bigDealTitle": "Storhopperdeal",
+        "bigDealPrice": "285 kr/hopp",
+        "bigDealDesc": "Innskudd kr 10 000 → 100 kr avslag på hvert hopp. Break even ved 100 hopp. Lønner seg ved 150+ hopp.",
+        "warning": "OBS! Du kjøper hopperdealer på egen risiko! Ved arrangementer med høyere slotpriser gjelder ikke dealene. Får du legeattest på at du ikke kan hoppe mer denne sesongen, gjør vi om til normalpris."
+      }
+    },
+    "pricing": {
+      "badge": "Priser 2025",
+      "title": "Priser, dealer og",
+      "titleHighlight": "avgifter",
+      "jumpPrices": "Hoppriser",
+      "registrationFees": "Registreringsavgift",
+      "equipment": "Utstyr",
+      "tandem": "Tandem",
+      "courses": "Kurs / Elever",
+      "misc": "Diverse / Verving",
       "jumps": {
         "normal": "Normalhopp",
         "deal": "Hopperdeal",
         "dealNote": "+ 2500 kr innskudd",
+        "depositSuffix": "kr innskudd",
         "bigDeal": "Storhopperdeal",
         "bigDealNote": "+ 10 000 kr innskudd",
         "highAlt": "15 000 fot"
@@ -618,7 +841,8 @@
         "hours": "timer logget",
         "year": "byggeår"
       },
-      "care": "Vi ber deg hjelpe til å ta vare på JMP. Behandle Den Hvite Svane med nennsomhet og kjærlighet!"
+      "care": "Vi ber deg hjelpe til å ta vare på JMP. Behandle Den Hvite Svane med nennsomhet og kjærlighet!",
+      "alt": "Twin Otter LN-JMP"
     },
     "insurance": {
       "badge": "Forsikring",
@@ -630,6 +854,17 @@
       "foreignIntro": "Du må ha gyldig tredjeparts ansvarsforsikring.",
       "foreignBuy": "Kan du ikke dokumentere dette, kan du kjøpe NLFs forsikring for 503 NOK (30 dager) via klubben.",
       "foreignWarning": "For hoppere fra land utenfor EU/EØS anbefaler vi sterkt at du har en reiseforsikring som dekker medisinsk behandling i Norge."
+    },
+    "reporting": {
+      "badge": "Trygg Idrett",
+      "title": "Varsling",
+      "intro": "Vi ønsker at Tønsberg Fallskjermklubb skal være en trygg idrettsarena for alle våre medlemmer, elever og besøkende. Dette innebærer trygghet under hoppvirksomheten og i de sosiale settingene.",
+      "policy": "I norsk idrett skal alle være trygge. Det er nulltoleranse for diskriminering, mobbing og trakassering. Ved å varsle gir du oss mulighet til å håndtere kritikkverdige forhold.",
+      "systemTitle": "MittVarsel",
+      "systemDesc": "Vi benytter MittVarsel, en digital portal for trygg og sikker varsling. Du kan varsle med navn eller anonymt.",
+      "systemPath": "Velg: \"Idrettslag & Idrettsråd\" → \"Vestfold og Telemark\" → \"Tønsberg Fallskjermklubb\"",
+      "button": "Gå til varslingssiden",
+      "group": "Varslingsgruppe: Leder: Odd Pedersen. Medlemmer: Anna Fasting og Silje Søraas."
     },
     "reporting": {
       "badge": "Trygg Idrett",
@@ -656,6 +891,31 @@
         "title": "Grasrotandelen",
         "desc": "Registrer Tønsberg Fallskjermklubb som mottaker av Grasrotandelen når du spiller på Norsk Tipping. Klubben kan motta inntil 7% av det du spiller for!",
         "button": "Registrer Grasrotandelen"
+      }
+    },
+    "contact": {
+      "title": "Kontakt",
+      "titleHighlight": "oss",
+      "linksTitle": "Nyttige",
+      "linksTitleHighlight": "lenker",
+      "address": "Adresse",
+      "addressValue": "Flyplassveien 6, 3170 Sem",
+      "orgNumber": "Org nr: 991 021 698",
+      "phone": "Telefon",
+      "email": "E-post",
+      "openingHours": "Åpningstider",
+      "hours": {
+        "weekday": "Mandag - Fredag",
+        "saturday": "Lørdag",
+        "sunday": "Søndag"
+      },
+      "links": {
+        "calendar": "Hoppkalender",
+        "burbleme": "BurbleMe",
+        "shop": "Nettbutikk",
+        "minIdrett": "Min Idrett",
+        "facebook": "Facebook",
+        "handbook": "JLS Driftshåndbok"
       }
     },
     "faq": {

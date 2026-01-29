@@ -1,13 +1,11 @@
 "use client";
-
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { HeroVideo } from "@/components/ui/hero-video";
-import { ChevronDown, Play } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
-
 export function Hero() {
   const { t } = useLanguage();
   const ref = useRef<HTMLDivElement>(null);
@@ -15,34 +13,31 @@ export function Hero() {
     target: ref,
     offset: ["start start", "end start"],
   });
-
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.5], [1, 1.1]);
-
   return (
     <section
       ref={ref}
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Video Background */}
+      {}
       <motion.div
         style={{ scale }}
         className="absolute inset-0 z-0"
       >
         <HeroVideo
-          desktopSrc="/herovideo-optimized.webm"
-          mobileSrc="/herovideo-mobile.webm"
-          poster="/about-1.webp"
+          desktopSrc="/tandemhopp-optimized.webm"
+          mobileSrc="/tandemhopp-mobile.webm"
+          poster="/tandemhopp-landing.webp"
           className="w-full h-full object-cover"
           priority={true}
         />
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
-        <div className="absolute inset-0 bg-gradient-to-r from-sky/10 to-leaf/10 mix-blend-overlay" />
+        {}
+        <div className="absolute inset-0 bg-linear-to-b from-black/40 via-black/20 to-black/60" />
+        <div className="absolute inset-0 bg-linear-to-r from-sky/10 to-leaf/10 mix-blend-overlay" />
       </motion.div>
-
-      {/* Content */}
+      {}
       <motion.div
         style={{ y, opacity }}
         className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center"
@@ -69,7 +64,6 @@ export function Hero() {
               quality={100}
             />
           </motion.div>
-
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -80,7 +74,6 @@ export function Hero() {
             <span className="text-gradient">{t('home.hero.titleHighlight')}</span>
             <br />{t('home.hero.titleEnd')}
           </motion.h1>
-
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -89,7 +82,6 @@ export function Hero() {
           >
             {t('home.hero.description')}
           </motion.p>
-
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -101,11 +93,7 @@ export function Hero() {
               size="lg"
               className="bg-gradient-brand hover:opacity-90 text-white font-semibold px-8 py-6 text-lg shadow-2xl shadow-sky/30"
             >
-              <a
-                href="https://bookings.burblesoft.eu/551/18"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href="/tandem">
                 {t('home.hero.bookTandem')}
               </a>
             </Button>
@@ -115,16 +103,14 @@ export function Hero() {
               variant="outline"
               className="bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20 hover:text-white px-8 py-6 text-lg"
             >
-              <a href="#about" className="flex items-center gap-2">
-                <Play className="w-5 h-5" />
-                {t('home.hero.watchVideo')}
+              <a href="/kurs">
+                {t('home.hero.bookCourse')}
               </a>
             </Button>
           </motion.div>
         </motion.div>
       </motion.div>
-
-      {/* Scroll Indicator */}
+      {}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -144,7 +130,3 @@ export function Hero() {
     </section>
   );
 }
-
-
-
-

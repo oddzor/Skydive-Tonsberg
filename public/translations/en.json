@@ -20,6 +20,7 @@
       "title": "Come get sun, summer and",
       "titleHighlight": "skydiving!",
       "description": "Welcome to Skydive Tønsberg at Jarlsberg Airport – with Norway's largest and best jump plane, Twin Otter LN-JMP!",
+      "subDescription": "Practical information for guest jumpers and club members. Check prices, rules, and booking below.",
       "jumpCalendar": "Jump Calendar",
       "burbleMe": "BurbleMe"
     },
@@ -78,6 +79,23 @@
       "contactText": "Arriving outside opening hours? Send us an email at",
       "warningText": "All accommodation must be pre-registered at reception. Violation results in a 500 NOK fee."
     },
+    "cards": {
+      "calendar": {
+        "title": "Jump Calendar",
+        "desc": "See when we jump and book your spot",
+        "button": "Open calendar"
+      },
+      "burbleme": {
+        "title": "BurbleMe",
+        "desc": "Download the app and manifest yourself",
+        "button": "Open BurbleMe"
+      },
+      "pricing": {
+        "title": "Prices & Info",
+        "desc": "See all prices, rules and information",
+        "button": "View prices"
+      }
+    },
     "burbleMe": {
       "badge": "Manifesting",
       "title": "BurbleMe –",
@@ -123,6 +141,18 @@
       "clickToZoom": "Click on the images to view them in full size",
       "exitOrderTitle": "Exit Order",
       "exitOrderNote": "Time between groups is approx 7-9 seconds unless otherwise stated by jump master.",
+      "proceduresTitle": "Procedures",
+      "setupProfile": "Set up your profile",
+      "checkInFormation": "Check In & Formation",
+      "notificationsSafety": "Notifications & Safety",
+      "images": {
+        "airspace": "Airspace and landing pattern",
+        "exitOrder": "Holding areas and landing pattern",
+        "landingAreas": "Landing areas",
+        "airspaceAlt": "Dropzone Brief - Airspace and landing pattern",
+        "exitOrderAlt": "Dropzone Brief - Exit order",
+        "landingAreasAlt": "Dropzone Brief - Landing areas"
+      },
       "exitOrder": {
         "tracking1": "Tracking group 1",
         "fs": "FS/Belly groups",
@@ -174,10 +204,21 @@
       "tandem": "Tandem",
       "courses": "Courses / Students",
       "misc": "Miscellaneous / Referral",
+      "deals": {
+        "title": "Jumper deals – save money!",
+        "dealTitle": "Jumper deal",
+        "dealPrice": "335 NOK/jump",
+        "dealDesc": "Deposit 2 500 NOK → 50 NOK discount per jump. Break even at 50 jumps.",
+        "bigDealTitle": "Big jumper deal",
+        "bigDealPrice": "285 NOK/jump",
+        "bigDealDesc": "Deposit 10 000 NOK → 100 NOK discount per jump. Break even at 100 jumps. Pays off at 150+ jumps.",
+        "warning": "NOTE! You buy jumper deals at your own risk! Deals do not apply at events with higher slot prices. If you get a medical certificate stating you cannot jump anymore this season, we will convert to normal price."
+      },
       "jumps": {
         "normal": "Normal jump",
         "deal": "Jumper deal",
         "dealNote": "+ 2500 NOK deposit",
+        "depositSuffix": "NOK deposit",
         "bigDeal": "Big jumper deal",
         "bigDealNote": "+ 10 000 NOK deposit",
         "highAlt": "15 000 ft"
@@ -240,7 +281,8 @@
         "hours": "hours logged",
         "year": "built"
       },
-      "care": "We ask you to help take care of JMP. Treat The White Swan with care and love!"
+      "care": "We ask you to help take care of JMP. Treat The White Swan with care and love!",
+      "alt": "Twin Otter LN-JMP"
     },
     "insurance": {
       "badge": "Insurance",
@@ -252,6 +294,17 @@
       "foreignIntro": "You must have valid third-party liability insurance.",
       "foreignBuy": "If you cannot document this, you can buy NLF's insurance for 503 NOK (30 days) through the club.",
       "foreignWarning": "For jumpers from countries outside EU/EEA, we strongly recommend having travel insurance that covers medical treatment in Norway."
+    },
+    "reporting": {
+      "badge": "Safe Sport",
+      "title": "Reporting",
+      "intro": "We want Tønsberg Fallskjermklubb to be a safe sports arena for all our members, students and visitors. This includes safety during jumping activities and in social settings.",
+      "policy": "In Norwegian sports, everyone should be safe. There is zero tolerance for discrimination, bullying and harassment. By reporting, you give us the opportunity to handle critical conditions.",
+      "systemTitle": "MittVarsel",
+      "systemDesc": "We use MittVarsel, a digital portal for safe and secure reporting. You can report with your name or anonymously.",
+      "systemPath": "Select: \"Idrettslag & Idrettsråd\" → \"Vestfold og Telemark\" → \"Tønsberg Fallskjermklubb\"",
+      "button": "Go to reporting page",
+      "group": "Reporting group: Leader: Odd Pedersen. Members: Anna Fasting and Silje Søraas."
     },
     "reporting": {
       "badge": "Safe Sport",
@@ -278,6 +331,31 @@
         "title": "Grassroots Share",
         "desc": "Register Tønsberg Fallskjermklubb as recipient of the Grassroots Share when you play at Norsk Tipping. The club can receive up to 7% of what you play!",
         "button": "Register Grassroots Share"
+      }
+    },
+    "contact": {
+      "title": "Contact",
+      "titleHighlight": "us",
+      "linksTitle": "Useful",
+      "linksTitleHighlight": "links",
+      "address": "Address",
+      "addressValue": "Flyplassveien 6, 3170 Sem",
+      "orgNumber": "Org no: 991 021 698",
+      "phone": "Phone",
+      "email": "Email",
+      "openingHours": "Opening Hours",
+      "hours": {
+        "weekday": "Monday - Friday",
+        "saturday": "Saturday",
+        "sunday": "Sunday"
+      },
+      "links": {
+        "calendar": "Jump Calendar",
+        "burbleme": "BurbleMe",
+        "shop": "Web Shop",
+        "minIdrett": "Min Idrett",
+        "facebook": "Facebook",
+        "handbook": "JLS Operations Manual"
       }
     },
     "faq": {
@@ -357,7 +435,8 @@
       "titleHighlight": "freedom",
       "titleEnd": "in freefall",
       "description": "Jump tandem with professional instructors, or start your journey as an independent skydiver. Unforgettable experiences await.",
-      "bookTandem": "Book Tandem Jump",
+      "bookTandem": "Tandem Jump",
+      "bookCourse": "AFF Course",
       "watchVideo": "Watch video",
       "scrollDown": "Scroll down"
     },
@@ -403,6 +482,7 @@
       "prevButton": "Previous review",
       "nextButton": "Next review",
       "jumpToReview": "Go to review",
+      "readMore": "Read more on Google",
       "viewAllGoogle": "See all reviews on Google"
     },
     "faq": {
@@ -471,10 +551,31 @@
       "titleHighlight": "freedom in freefall",
       "description": "Take the step into the unknown. Jump tandem with our experienced instructors and experience the feeling of freedom 4000 meters above ground.",
       "bookNow": "Book tandem jump",
+      "bookNowCTA": "Book Tandem Jump Now",
       "learnMore": "Learn more",
       "altitude": "4000 meters",
       "freefall": "40 sec freefall",
       "canopy": "5 min canopy ride"
+    },
+    "pricingCards": {
+      "tandemTitle": "Tandem Jump Prices",
+      "weekdayLabel": "Monday–Friday",
+      "weekdayDesc": "Weekdays",
+      "weekendLabel": "Saturday & Sunday",
+      "weekendDesc": "Weekend",
+      "includedLabel": "Included:",
+      "includedDesc": "Complete equipment, training, and 40 seconds freefall from 4000m",
+      "videoTitle": "Video & Photo",
+      "videoLabel": "Video",
+      "videoPhotosLabel": "Video + Photos",
+      "fullPackageLabel": "Full Package",
+      "videoDesc": "Video and photos taken by dedicated photographer who jumps with you",
+      "callUs": "Or call us at",
+      "keyFacts": {
+        "altitudeLabel": "Exit altitude",
+        "freefallLabel": "Freefall",
+        "canopyLabel": "Canopy ride"
+      }
     },
     "highlights": {
       "badge": "Why jump with us?",
@@ -557,6 +658,14 @@
         "description": "The instructor lands you safely in the landing area."
       }
     },
+    "video": {
+      "title": "Experience Tandem Skydiving",
+      "description": "See what it's like to jump with us"
+    },
+    "gallery": {
+      "title": "Tandem Gallery",
+      "description": "See the amazing views and experience"
+    },
     "faq": {
       "title": "Frequently asked questions",
       "q1": {
@@ -600,10 +709,150 @@
       "titleHighlight": "skydiver",
       "description": "Start your journey to becoming an independent skydiver. The AFF course is the fastest and safest way to master freefall.",
       "price": "18,990 NOK",
-      "bookCourse": "Sign up for course",
+      "bookCourse": "Sign up for AFF course",
       "contactUs": "Contact us",
       "duration": "7-10 days",
-      "jumps": "7 jumps with instructors"
+      "jumps": "7 jumps with instructors",
+      "questionsEmail": "Questions? Send email to"
+    },
+    "pricing": {
+      "title": "Course Price",
+      "completeCourse": "Complete AFF course",
+      "included1": "10 min wind tunnel at Gardermoen",
+      "included2": "1.5 days ground school",
+      "included3": "7 jumps with instructors (Level 1-7)",
+      "included4": "All equipment included",
+      "included5": "Professional guidance and mentor program",
+      "paymentTitle": "Payment:",
+      "paymentDesc": "2,000 NOK deposit at booking, rest at course start"
+    },
+    "details": {
+      "title": "Course Details",
+      "durationTitle": "Duration",
+      "durationDesc": "1.5 days ground school + 2-4 days for jumps (weather dependent)",
+      "jumpsTitle": "Number of jumps",
+      "jumpsDesc": "7 jumps included (3 with 2 instructors, 4 with 1 instructor)",
+      "altitudeTitle": "Exit altitude",
+      "altitudeDesc": "12,500 ft (approx. 3800m) - 45-50 seconds freefall",
+      "ageTitle": "Age requirement",
+      "ageDesc": "Minimum 16 years (with consent from parents). Max weight: 100 kg"
+    },
+    "stats": {
+      "theoryDays": "Days theory",
+      "jumps": "Jumps",
+      "windTunnel": "Wind tunnel",
+      "minAge": "Min. age"
+    },
+    "schedule": {
+      "title": "Skydiving course, day by day",
+      "description": "Daily schedule and course execution varies between courses, depending on weekday, aircraft availability and weather.",
+      "structureTitle": "Course structure",
+      "structureDesc": "The course consists of 10 minutes in wind tunnel at Gardermoen, a ground school lasting 1.5 days, and 7 jumps with instructors (Level 1-7).",
+      "groundSchool": "10 hours distributed over first and second course day",
+      "windTunnel": "10 minutes at Gardermoen (Bodyflight)",
+      "day3": "3 jumps with 2 instructors (Level 1-3)",
+      "day4": "4 jumps with one instructor (Level 4-7)",
+      "importantTitle": "Important to know:",
+      "importantDesc": "Weather determines how quickly you complete Level 1-7. Often completed in two days, but we strongly recommend setting aside four days for this. Weather is unpredictable, there may be waiting. If weather is good you get good continuity."
+    },
+    "payment": {
+      "title": "Payment for course",
+      "priceTitle": "Course price",
+      "completeCourse": "Complete AFF course",
+      "bookingTitle": "At booking:",
+      "bookingDesc": "You pay 2,000 NOK deposit when you sign up.",
+      "startTitle": "At course start:",
+      "startDesc": "You pay the rest at reception at Jarlsberg Airport. We accept debit card or cash. NOTE: We do not accept credit cards.",
+      "vippsTitle": "Vipps:",
+      "vippsDesc": "You can also pay with VIPPS, but it costs 3% more.",
+      "rejumpTitle": "Rejumps & Additions",
+      "rejumpSubtitle": "Rejumps",
+      "rejumpDesc1": "The 7 jumps in the course each have their own skill requirements. If you fail a level, you must redo it.",
+      "rejumpDesc2": "Rejumps with instructors are paid in addition to the course price during progression. Prices can be found under",
+      "membershipTitle": "Membership required",
+      "membershipDesc": "In addition, you must pay club and federation membership, as well as insurance, before you can jump.",
+      "membershipLink": "Calculate membership",
+      "cancellationTitle": "Cancellation",
+      "cancellationDesc": "Deposit is non-refundable. You can move the course to another week, but we must be notified the same year you were enrolled in the original course."
+    },
+    "progression": {
+      "title": "AFF Progression – Level 1-8",
+      "description": "Here are the goals and detailed information about the individual jumps from Level 1 to Level 8",
+      "level1Title": "Level 1 – Body control",
+      "level1Instructors": "Instructors:",
+      "level1Altitude": "Exit altitude:",
+      "level1Deploy": "Deployment altitude:",
+      "level1Freefall": "Freefall:",
+      "level1Canopy": "Canopy time:",
+      "level1FreefallTime": "45 seconds",
+      "level1CanopyTime": "4-5 minutes",
+      "level47FreefallTime": "50 sec",
+      "level1Goal": "Three practice pulls, correct fall position, independent deployment",
+      "level1Desc": "Instructors hold onto student at exit, throughout freefall and until parachute opens.",
+      "level2Title": "Level 2 – Body control +",
+      "level2Goal": "Three practice pulls, 90° turns right and left, forward movement, independent deployment",
+      "level3Title": "Level 3 – Independence jump",
+      "level3Goal": "One practice pull, fly alone, correct heading, independent deployment",
+      "level3Desc": "Instructors hold onto student at exit and first part of freefall. Then only when needed.",
+      "level4Title": "90° turns & forward movement",
+      "level4Goal": "Fly alone, turns and forward movement as level 2, independent deployment",
+      "level5Title": "360° turns & forward movement",
+      "level5Goal": "360° turns right and left and forward movement",
+      "level6Title": "Solo exit (unassisted exit)",
+      "level6Goal": "Solo exit, regain stability, backward flip, track",
+      "level7Title": "Solo jump",
+      "level7Goal": "Solo dive exit, forward flip, track",
+      "level8Title": "Level 8 – Path to A-license",
+      "level8Desc": "After the course you are at Level 8. Students at this level perform solo freefall jumps alone. An instructor checks equipment after gearing up on the ground, and is always on the aircraft.",
+      "level8Requirements": "Requirements:",
+      "level8Req1": "13 solo jumps (11 solo + 2 checkouts)",
+      "level8Req2": "Exit from 12,500 ft",
+      "level8Req3": "50 seconds freefall",
+      "level8NextSection": "See next section for:",
+      "level8Next1": "Packing course & exam",
+      "level8Next2": "A-course & exam",
+      "level8Next3": "Clean Athlete course"
+    },
+    "aLicense": {
+      "title": "Path to A-license",
+      "description": "After the AFF course (Level 1-7) you continue with Level 8 and additional requirements to get an A-license",
+      "progressionTitle": "Level 8 progression",
+      "soloJumps": "11 solo jumps",
+      "soloJumpsDesc": "Jump alone without instructor in freefall",
+      "checkouts": "2 FS checkouts",
+      "checkoutsDesc": "Formation skydiving with instructor",
+      "lowJumps": "2 low jumps",
+      "lowJumpsDesc": "Jumps from lower altitude",
+      "tempoDesc": "You do these jumps when you have time and desire. You decide the pace!",
+      "beforeLicenseTitle": "Before you get A-license",
+      "packingCourse": "Packing course (3 hours)",
+      "packingCourseDesc": "Learn to pack your parachute",
+      "packingExam": "Packing exam",
+      "packingExamDesc": "Practical exam in packing",
+      "aCourse": "A-course (2 hours)",
+      "aCourseDesc": "Theory for A-certificate",
+      "aExam": "A-exam",
+      "aExamDesc": "Multiple choice exam in the Handbook (part 100, 200, 500)",
+      "renUtover": "Clean Athlete",
+      "renUtoverDesc": "Online course (15 min) without exam at",
+      "congratulations": "Congratulations!",
+      "congratsDesc": "When you have completed all this you are an independent skydiver with an A-license!",
+      "totalJumps": "Total minimum 20 jumps (7 from AFF + 13 from Level 8 + progression) required for A-license."
+    },
+    "declaration": {
+      "title": "Declaration you must sign:",
+      "text": "I declare that I am physically normal and that I do not suffer from or have been under treatment for heart defects or kidney disease, chronic illness that has left lasting injuries, diabetes, epilepsy, fainting spells or convulsions, nervous disorders, kidney disease, high or low blood pressure. I am aware of the risks associated with skydiving and I have made an independent assessment of and am aware of my own assessment responsibility in relation to the risk."
+    },
+    "support": {
+      "title": "You will receive good support!",
+      "facebook": "You will be invited to a dedicated Facebook group for students",
+      "mentor": "You will get a mentor who takes extra care of you",
+      "questions": "Questions? Send email to",
+      "orCall": "or call us at"
+    },
+    "video": {
+      "title": "AFF Course Overview",
+      "description": "See what you'll learn in our comprehensive AFF course"
     },
     "modules": {
       "title": "What the course includes",

@@ -1,12 +1,10 @@
 "use client";
-
 import { motion } from "framer-motion";
 import { useState } from "react";
 import Image from "next/image";
 import {
   Mail,
   MapPin,
-  Phone,
   Clock,
   Send,
   Instagram,
@@ -20,9 +18,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { useKontaktData } from "@/hooks/useKontaktData";
 import { sendContactEmail, type ContactFormData } from "@/lib/emailjs";
-
 const getContactInfoWithIcons = (t: (key: string) => string) => [
   {
     icon: Mail,
@@ -49,7 +45,6 @@ const getContactInfoWithIcons = (t: (key: string) => string) => [
     bgColor: "bg-sky/10",
   },
 ];
-
 const socialLinksWithIcons = [
   {
     name: "Instagram",
@@ -64,12 +59,9 @@ const socialLinksWithIcons = [
     handle: "Skydive Tønsberg",
   },
 ];
-
 export function KontaktContent() {
   const { t } = useLanguage();
-  const { contactInfo, socialLinks } = useKontaktData();
   const contactInfoWithIcons = getContactInfoWithIcons(t);
-  
   const [formState, setFormState] = useState<ContactFormData>({
     name: "",
     email: "",
@@ -80,23 +72,19 @@ export function KontaktContent() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
-
   const inquiryTypes = [
     { value: "tandem", label: t('kontakt.form.typeOptions.tandem') },
     { value: "kurs", label: t('kontakt.form.typeOptions.course') },
     { value: "gjest", label: t('kontakt.form.typeOptions.guest') },
     { value: "annet", label: t('kontakt.form.typeOptions.other') },
   ];
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     setError(null);
-    
     try {
       await sendContactEmail(formState);
       setIsSubmitted(true);
-      // Reset form
       setFormState({
         name: "",
         email: "",
@@ -115,7 +103,6 @@ export function KontaktContent() {
       setIsSubmitting(false);
     }
   };
-
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
@@ -124,16 +111,14 @@ export function KontaktContent() {
       [e.target.name]: e.target.value,
     }));
   };
-
   return (
     <>
-      {/* Hero Section */}
+      {}
       <section className="relative pt-32 pb-16 lg:pt-40 lg:pb-24 overflow-hidden bg-gradient-hero">
         <div className="absolute inset-0 z-0">
           <div className="absolute top-20 right-20 w-96 h-96 bg-sky/20 rounded-full blur-3xl" />
           <div className="absolute bottom-20 left-20 w-64 h-64 bg-leaf/20 rounded-full blur-3xl" />
         </div>
-
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -158,8 +143,7 @@ export function KontaktContent() {
           </motion.div>
         </div>
       </section>
-
-      {/* Contact Cards */}
+      {}
       <section className="py-12 -mt-8 relative z-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
@@ -192,12 +176,11 @@ export function KontaktContent() {
           </div>
         </div>
       </section>
-
-      {/* Main Content */}
+      {}
       <section className="py-16 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-start max-w-6xl mx-auto">
-            {/* Contact Form */}
+            {}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -207,7 +190,6 @@ export function KontaktContent() {
               <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-6">
                 {t('kontakt.form.title')}
               </h2>
-              
               {isSubmitted ? (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}
@@ -279,7 +261,6 @@ export function KontaktContent() {
                       />
                     </div>
                   </div>
-
                   <div className="grid sm:grid-cols-2 gap-6">
                     <div>
                       <label
@@ -322,7 +303,6 @@ export function KontaktContent() {
                       </select>
                     </div>
                   </div>
-
                   <div>
                     <label
                       htmlFor="message"
@@ -341,7 +321,6 @@ export function KontaktContent() {
                       className="resize-none"
                     />
                   </div>
-
                   <Button
                     type="submit"
                     disabled={isSubmitting}
@@ -363,8 +342,7 @@ export function KontaktContent() {
                 </form>
               )}
             </motion.div>
-
-            {/* Social Links & Info */}
+            {}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -372,7 +350,7 @@ export function KontaktContent() {
               transition={{ duration: 0.6 }}
               className="space-y-8"
             >
-              {/* Social Media */}
+              {}
               <div>
                 <h3 className="text-xl font-bold text-foreground mb-4">
                   {t('kontakt.social.title')}
@@ -398,8 +376,7 @@ export function KontaktContent() {
                   ))}
                 </div>
               </div>
-
-              {/* Image */}
+              {}
               <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-xl">
                 <Image
                   src="/contact-team.webp"
@@ -415,4 +392,3 @@ export function KontaktContent() {
     </>
   );
 }
-

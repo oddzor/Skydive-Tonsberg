@@ -1,9 +1,582 @@
 {
-  "reviews": [],
-  "lastFetched": 0,
-  "monthlyApiCalls": 0,
-  "lastCallReset": 0,
-  "source": "fallback"
+  "reviews": [
+    {
+      "author_name": "Paal Lien",
+      "rating": 5,
+      "text": "Utrolig morsomt og et fantastisk flott opplegg og fasiliteter.",
+      "time": 1758785314000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjVorWQ5IGmtH0r-KhR0vIMZH2hmOgX8Wv9BvocF8OyHXqmkzryI=s120-c-rp-mo-ba5-br100"
+    },
+    {
+      "author_name": "Tommen Robert Meborg",
+      "rating": 5,
+      "text": "En opplevelse og du får hyggelig svar når du spør om noe. Di deler erfaringer og det du lurer på med deg",
+      "time": 1755849600000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjWfHbyAMMbACejYBsYtdklMFEf9-Aq8hHIsMHxoKv6ZCFdsRPgr=s120-c-rp-mo-ba4-br100"
+    },
+    {
+      "author_name": "Anastasi Zannas",
+      "rating": 5,
+      "text": "Fantastisk sted med god atmosfære! Jeg var innom med min datter for å se på fallskjermhopping og miljøet, mest fordi jeg hadde snakket lenge om at jeg ville ta henne med dit og kikke litt.\nÅ hoppe er totalt uaktuelt for meg, men allikevel gøy å se på det sammensveisede miljøet av hoppere som pakket skjermene sine og gjorde seg klare til avreise.\nSelve klubbområdet har hangar, kafe, kjøkken, kursrom og toaletter.\nMange benker ute gjorde at man lett kunne sitte ned og se på mens gruppe etter gruppe ble hentet av flyet med det artigste callsign i historien, LN-JMP. Virkelig et flott sted å besøke selv om du ikke har tenkt til å hoppe 🤗",
+      "time": 1751129031000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjXya4AmAYpWZu7slRBJad_u8qw4tW9viRVl9PK0cPB-T54tCcVGdA=s120-c-rp-mo-ba6-br100"
+    },
+    {
+      "author_name": "shikilaki",
+      "rating": 5,
+      "text": "Tandem jump. Instructor named Martin. I am very happy. I was very nervous. Instructor told me this was his 100th jump this year, wich made me feel safe. I am coming back.",
+      "time": 1749757241000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a/ACg8ocKhAj0OYGyggO7y1hnuHJtPpdO9v_K2kej68knVIlZEDY6mQA=s120-c-rp-mo-br100"
+    },
+    {
+      "author_name": "Tine Floan",
+      "rating": 5,
+      "text": "Tantebarn var og hoppet for 1'te gang. Flott sted, med kafeteria. Og masse annet nyttige ting.",
+      "time": 1748772722000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a/ACg8ocLJwx2cHsWX3K2HUEEDKNtkMaM3INtEURiZTKUrZV9bm1Gu2A=s120-c-rp-mo-ba4-br100"
+    },
+    {
+      "author_name": "Andre Kvåvik",
+      "rating": 5,
+      "text": "Fra jeg ankom stedet følte jeg meg veldig ivaretatt, god service fra start til slutt. Det å oppleve dette har vært en drøm i alle år. Julian som jeg hoppet tandem med gjorde meg fort veldig trygg. Han forklarte hva jeg skulle gjøre til enhver til på en veldig god måte, og gjorde dette til en av de beste opplevelsene jeg noen gang har opplevd. Så Julian fortjener all takk som er mulig å gi. Jeg kommer tilbake. For dette er ikke siste gangen jeg hopper tandem",
+      "time": 1746698409000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjWPWWKBkI_BR-qB8kiLulWsuNcTcVEmoOIDEmT6x32zbVuTczU4=s120-c-rp-mo-ba2-br100"
+    },
+    {
+      "author_name": "Catalina Jensen",
+      "rating": 5,
+      "text": "We went skydiving a month ago and it was an amazing experience. We booked everything online, each got an instructor that made us feel safe and explained everything we needed to know about the jump.\n\nThe jump itself was exciting but scary at the same time. We felt safe the whole time and would definitely try it again.\n\nBefore we could jump we had to wait for our turn which ended up to be almost 2 hours after we arrived, and we couldn't pay contactless, only physical card or Vipps (which had an extra charge).",
+      "time": 1731659168000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjU2e4qHymiAGEuk2DNfZDTy2XnZCmPr0sw1OnJlif1OJ0FiKe0=s120-c-rp-mo-ba4-br100"
+    },
+    {
+      "author_name": "Eirik Larsen",
+      "rating": 5,
+      "text": "Fantastisk atmosfære, instruktører og sted! Takk for en helt RÅ opplevelse 👌🏼😎",
+      "time": 1725662013000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjWpqgvm0ijBWUKFfDAkOmqLAfuCpd3-ggaSRUkEjc1FrwMFbPKb=s120-c-rp-mo-br100"
+    },
+    {
+      "author_name": "Ottar Lindberg",
+      "rating": 5,
+      "text": "Hyggelig sted å være sammen med familien, slekta og venner. Hyggelige ansatte og god service. 🙂",
+      "time": 1725167936000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a/ACg8ocIjXqdZ_pbb14-Y_mcaDBYQNrxNNzudZwhIzKo1jXXT-jnt_3L1=s120-c-rp-mo-ba4-br100"
+    },
+    {
+      "author_name": "Tom-Erik Tjosås",
+      "rating": 5,
+      "text": "Flott plass for de som ønsker å hoppe fallskjerm!\nRikelig med benker ute og kafé inne hvis det er dårlig vær.",
+      "time": 1724256165000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a/ACg8ocJvZa2Res9P64LcGUHWz2pvb9fkvI17VaOvoqpDk8Wk1PjUFw=s120-c-rp-mo-ba3-br100"
+    },
+    {
+      "author_name": "Roza Hansen",
+      "rating": 5,
+      "text": "Herlig opplevelse! :)",
+      "time": 1723538162000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjXVQrCTygb2_XNohP3Heofyty3UfrdmZ1XyKDS06cWzBlkz4ner=s120-c-rp-mo-br100"
+    },
+    {
+      "author_name": "morten sch",
+      "rating": 5,
+      "text": "Helt fantastisk. Må oppleves.",
+      "time": 1722938638000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a/ACg8ocKWc3Jxq2_D5cp_IyoE4eW-CRQQt3apgs2ofJFwGdwYdmvy7A=s120-c-rp-mo-br100"
+    },
+    {
+      "author_name": "Nur Adibah",
+      "rating": 5,
+      "text": "Thrilling! Thank you to the team for the exciting experience ❤️",
+      "time": 1721942031000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjWy35PQ7CgI73ZRGHLFftOHBDuXrjhewvkaBObgmX13dliXSj4b3Q=s120-c-rp-mo-ba2-br100"
+    },
+    {
+      "author_name": "Sara Badiuszaman",
+      "rating": 5,
+      "text": "Super chuffed to finally try skydiving, especially for someone like me who enjoy heights. Big thanks to the team for one of the best experiences ever! 🤘",
+      "time": 1721629911000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjUIuniHjWAGpNqzlYumAY7iWy1GWqFgvHFugmRA82vhKdWe507L0w=s120-c-rp-mo-br100"
+    },
+    {
+      "author_name": "Dorin Bratu",
+      "rating": 5,
+      "text": "Just one word, AMAZING!!",
+      "time": 1720442548000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjUmZRVQ5M0UqQjmxUEkYHRmHhh4KUJx3BCICwqNY9qKGQImr0sb=s120-c-rp-mo-br100"
+    },
+    {
+      "author_name": "Kjell Fagerheim",
+      "rating": 5,
+      "text": "Fikk god og nyttig info...pluss god mat på kafeen deres ! Slå den  !",
+      "time": 1718539135000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjVybeXvauDTLuj9AfYx6GUOZhvIrBlTfRpSr7vXulyJ8ruf5Nzv=s120-c-rp-mo-ba3-br100"
+    },
+    {
+      "author_name": "Daniel Bogucki",
+      "rating": 5,
+      "text": "Super DZ, just come and hop",
+      "time": 1716193145000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjXLkKkAfq2Dh3Ns16zYfdEe_6SxXg0CdwmiyRgKw2czVpkYGxfg=s120-c-rp-mo-ba3-br100"
+    },
+    {
+      "author_name": "Mikkel Stigar",
+      "rating": 5,
+      "text": "Fantastisk opplevelse! Tok med samboeren som en overraskelse og det gikk over all forventning, Flinke folk og du blir veiledet fra A til Å.  Anbefales på det sterkeste!",
+      "time": 1715766797000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a/ACg8ocK1dWyy8rmAiBZvL11av5UF7gn5LPOnFwZQi5S9h99vq2WFXA=s120-c-rp-mo-ba2-br100"
+    },
+    {
+      "author_name": "Linda Cedell",
+      "rating": 5,
+      "text": "Super service og opplevelse!! Virkelig å anbefale🤩",
+      "time": 1692437468000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjXJxUBkgZriLTw_QFl5IY226UKZc9JfcQysY8uWzNEZhXJONxg_=s120-c-rp-mo-br100"
+    },
+    {
+      "author_name": "Magne Stovern",
+      "rating": 5,
+      "text": "Her kan du se fallskjermhopper lande (ofte 8+ av gangen), du kan se pakking av skjerm, det er en enkel kiosk, LN JMP (Hoppeflyet Twin Otter), du kan være med opp på tandemhopp, du kan ta kurs og være med. Folk fra hele Østlandet kommer hit og har det gøy. Anbefales. Og det er trygt. Og kjempemorsomt.",
+      "time": 1690950623000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjWKN24CyGVgT_ePc8_mR6t1wCnyli05cqpatNz_w0lV7TWl4LFe=s120-c-rp-mo-ba4-br100"
+    },
+    {
+      "author_name": "Silvia Wagner",
+      "rating": 5,
+      "text": "Nice place to enjoy your sport",
+      "time": 1690520668000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjW94FIc3dT8ah1e6LZMti3WZKGbDa-PeZBi8VDFIl0D8jPYPPVxkA=s120-c-rp-mo-ba4-br100"
+    },
+    {
+      "author_name": "Bison Telt",
+      "rating": 5,
+      "text": "Flott og sikkert sted å få prøve og hoppe fallskjerm",
+      "time": 1688317005000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a/ACg8ocKloUvKpnOjUPWZguD4j8EfY-GNF-y9dUbhWCN6Y8skUPxaqzc=s120-c-rp-mo-br100"
+    },
+    {
+      "author_name": "Kåre Bakken",
+      "rating": 5,
+      "text": "Ble godt mottatt, fikk en fin forklaring på hele prosessen, før vi gikk til flyet.\n\nTandemhopp hos Tønsberg fallskjermklubb, er absolutt en aktivitet  anbefale!",
+      "time": 1687785397000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjWlf3kD5GyWwAFc0pNm767zZebDkNCDoVCRasTsn8_DVynaA5Y=s120-c-rp-mo-ba3-br100"
+    },
+    {
+      "author_name": "Alexandru Kalman",
+      "rating": 5,
+      "text": "Bonito lugar",
+      "time": 1685371784000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjW7x9BJP7lncvwIjvLDl8ljUa-NqSzgea8U7e1SKDnds2bmR6xRQA=s120-c-rp-mo-ba2-br100"
+    },
+    {
+      "author_name": "Terje Halvorsen",
+      "rating": 5,
+      "text": "Flott sted for fallskjermhopping. Twin Otter som flymaskin. Tandemhopp kan også gjøres der.",
+      "time": 1682685094000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjWtYp5GH1M7nHalW3ehlyxx1hMrqWWy-4-3UBxMNj7uohOrHXQLWQ=s120-c-rp-mo-ba5-br100"
+    },
+    {
+      "author_name": "Reidar Hermansen",
+      "rating": 5,
+      "text": "Fantastisk moro og godfølelse. Godt ivaretatt for tandemhopp. 😊",
+      "time": 1662363683000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a/ACg8ocLSThQzkHogMtyhRQoI6DY9tFMo7J70huf3oKB7UuZuF9pQGw=s120-c-rp-mo-ba4-br100"
+    },
+    {
+      "author_name": "Daniel Holth",
+      "rating": 5,
+      "text": "Amazing on a sunny day. Very friendly community",
+      "time": 1660453868000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjWIMMjMiMoBvMUYeaRB8lPVhso8zUmWPvqrKSpzphOXyz57FuC8=s120-c-rp-mo-ba2-br100"
+    },
+    {
+      "author_name": "Marina Sjomoen",
+      "rating": 5,
+      "text": "For en fantastisk opplevelse! Eufori!🙃 Veldig god og vennlig atmosfære! Dyktige instruktører! Jeg så over hele Tønsberg som Google maps! For å få fine bilder ved tandem hopping, vil jeg anbefale en fotograf som jobber på Skydive Tønsberg. Jeg har fått urolig flotte bilder!",
+      "time": 1660443394000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjWR96KQVOiHWzBHj6D6rNlbRCTCWIOvYvTIvgdG4PcqsOeO5sgmhQ=s120-c-rp-mo-ba6-br100"
+    },
+    {
+      "author_name": "Åge Torkildsen",
+      "rating": 5,
+      "text": "Seriøs klubb,  tar sikkerhet på alvor",
+      "time": 1660241394000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a/ACg8ocJvY_dx9SJKfQK-rdV15N9A_tkaFCL9L1nyOjAJu0_lmm8fVA=s120-c-rp-mo-br100"
+    },
+    {
+      "author_name": "Hilde A Christiansen",
+      "rating": 5,
+      "text": "Flott opplevelse med mitt første tandem hopp!\nFøltes godt ivaretatt, og alt gikk på skinner. En fantastisk opplevelse som frister veldig til gjentagelse.",
+      "time": 1659935463000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjU4M0nHcpeVUMc3NF6E_T5-hw8X8mM8cwQnR6odtoRjwDPAYcu5=s120-c-rp-mo-br100"
+    },
+    {
+      "author_name": "Radosław Oleksy",
+      "rating": 5,
+      "text": "Co prawda byłem tam na modelarskich  MŚ F4, ale lotnisko fajne !",
+      "time": 1659347429000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a/ACg8ocLT6ZB2FTAdIgwYEYw6gsQ6YOG1Jnxi6vmnrF5N9p_Ci9tppg=s120-c-rp-mo-ba5-br100"
+    },
+    {
+      "author_name": "Henrik Ulvesæter",
+      "rating": 5,
+      "text": "Nytt klubbhus og egentlig alt nytt! Medlemmer bør ta litt ansvar og gjøre gratisarbeid i form av dugnad, eller rett og slett betale seg ut av dugnad.\nVoss er et sted å se opp til!",
+      "time": 1659315240000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjVdOKHPgxbVicfDjC3LoL1c3wJ2gouALEYrc2Vv7CMkQcPMpigweQ=s120-c-rp-mo-ba4-br100"
+    },
+    {
+      "author_name": "Joe Finocchiaro",
+      "rating": 4,
+      "text": "Beautiful place to visit and stay",
+      "time": 1658846278000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a/ACg8ocJAHhAQYB1IxKJxCDjfwiIJcrwAgpreUXfUky6235vYnnyArw=s120-c-rp-mo-ba2-br100"
+    },
+    {
+      "author_name": "Kristian Nymark",
+      "rating": 1,
+      "text": "Rett og slett dårlig opplevelse med Tønsberg Fallskjermklubb. Avlyst 3 ganger grunnet forsinkelser, defekte fly og været (skydekket var for tett, men det var blå himmel og noen skyer. Vi var på vei i bil da vi så dette). Jeg rater derfor med 1 stjerne. Jeg håper andre får ha bedre opplevelse enn dette.",
+      "time": 1655815654000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a/ACg8ocI_N5ocIjtdfxtFYenq9Cxu2bmF9YvTwVrAQDNriWrRRLJRiA=s120-c-rp-mo-br100"
+    },
+    {
+      "author_name": "petler",
+      "rating": 5,
+      "text": "Tønsberg fallskjermklubb er best",
+      "time": 1655455983000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjVvTmX32JYIi3bUMgKjdW4xRIiFJShqvjmLL66T3IOxOho7pfOY=s120-c-rp-mo-ba3-br100"
+    },
+    {
+      "author_name": "Paal Spiel",
+      "rating": 4,
+      "text": "Hopp i det👍",
+      "time": 1652602758000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a/ACg8ocLUpUeFw3J2YJtAHzkkVcy4PS9dr0HrLxBRD6weODshstqM8w=s120-c-rp-mo-ba4-br100"
+    },
+    {
+      "author_name": "Anne Gjerdingen",
+      "rating": 5,
+      "text": "Hadde mitt første tandemhopp i går og er veldig fornøyd med opplegget. Følte meg trygg og godt tatt vare på. Frister til gjentagelse.",
+      "time": 1651254345000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a/ACg8ocJlj3vFGYmZJ2WUjmP6wpCjoNSZzEtRDxDlSI0oF-xSLUFw_w=s120-c-rp-mo-br100"
+    },
+    {
+      "author_name": "Anders Brynildsen",
+      "rating": 5,
+      "text": "10/10 sykt kult, og flinke folk som jobber der 👌🙌",
+      "time": 1632562799000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a/ACg8ocKMzJJe-bIPP71tWCkhCmD7JtYOZeIuccUJuZZhjJR25t2mdA=s120-c-rp-mo-br100"
+    },
+    {
+      "author_name": "Thron Ivar Nergård",
+      "rating": 5,
+      "text": "Mitt 1. Tandemhopp ble gjennomført der i dag. Veldig fornøyd og veldig profesjonelt opplegg. 👍",
+      "time": 1631196296000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a/ACg8ocJ8NK03Wx5Ir7RYvoHm_KHqTAr7m-iqrVPuzw7SaWoUF0OtUg=s120-c-rp-mo-ba4-br100"
+    },
+    {
+      "author_name": "Elisabeth Røraas",
+      "rating": 5,
+      "text": "Hyggelig sted med god atmosfære. Veldig hyggelige folk og god stemning. En fantastisk opplevelse å hoppe!!👍👍😀😀 trygt og bra!",
+      "time": 1625423848000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjWg2gvUg3a8Yxn4oCbFRF1gcnWpbGKApdixyQpskCWhWs4lJpuGxA=s120-c-rp-mo-ba4-br100"
+    },
+    {
+      "author_name": "Mikael Skyflyer Kristiansen",
+      "rating": 5,
+      "text": "Awesome hoppfelt med herlig hoppfly",
+      "time": 1622891002000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjWIbj1XWdbzl-s3yOmQUr3_vZrHUWiAIVSytCvdze3xxIdT0Cey=s120-c-rp-mo-ba4-br100"
+    },
+    {
+      "author_name": "Rune Johansen",
+      "rating": 5,
+      "text": "Fantastic location, friendly people.",
+      "time": 1620061591000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjXKE9ia6xX_ijRUKF5MswWjKKBRkVHwmFNwcunEek6nzizpoaMp=s120-c-rp-mo-ba4-br100"
+    },
+    {
+      "author_name": "Øyvind Manin",
+      "rating": 5,
+      "text": "What a place to jump, what a place😎❤❤❤",
+      "time": 1617613711000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a/ACg8ocIJKYT4EppYyd5YVO2KR8oL3sKqh8Uxs2cVqviBmTjMYUITnQ=s120-c-rp-mo-ba2-br100"
+    },
+    {
+      "author_name": "Monika Pozderka",
+      "rating": 5,
+      "text": "Dere som liker extrém sport er dette noe å prøve Og de i Tønsberg Fallskjerm klubb passer på dere. Ta et kurs anbefales på det sterkeste. mvh Monika",
+      "time": 1608466149000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a/ACg8ocKdq-nWVGbocTiH3v67DB7DkFRgz56_tB365Sir2VIQZ8HX1w=s120-c-rp-mo-br100"
+    },
+    {
+      "author_name": "Tom Rosenblad",
+      "rating": 1,
+      "text": "For oss som bor i området er dette flyet en sann plage med den intense lyden fra turbopropmotorene. Det går opp, ned, opp, ned og slik hele dagen. Det er rett og slett plagsomt!",
+      "time": 1592920935000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjWN3Zmy1JqaaCwRJ-qHCBn_nhO14MKWkrMj0xFhKsiONPDVIfTmow=s120-c-rp-mo-ba4-br100"
+    },
+    {
+      "author_name": "Daniel Martinez (Dani)",
+      "rating": 5,
+      "text": "Fantastisk miljø, masse hyggelige folk :)",
+      "time": 1571289224000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjVxrPRsrKEG-cgYjLaAJwTSxFwY9yXhQa-tut6L-kwzyi-J1Xzq=s120-c-rp-mo-ba3-br100"
+    },
+    {
+      "author_name": "Kashinath Bochare",
+      "rating": 5,
+      "text": "This is amazing place to have jump with such a beautiful location.\nGuys are top class professional and make it very easy for you with a great control and ease when you have tandem jump together.\nI really enjoyed the jump and its worth doing it.\nThumps up guys!!",
+      "time": 1569060785000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjWs6ByTo6LjzP_xX-Z1ffOpPhiv6IZymGF9YS9rgHNNm01_C0LH=s120-c-rp-mo-ba4-br100"
+    },
+    {
+      "author_name": "frank Slevikmoen",
+      "rating": 5,
+      "text": "Fint opplegg med gode instruktører.",
+      "time": 1568468007000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjVGemxLn66VpNfdLBlOVQ2bjkMuMr3ddo0r-kifu2lQ6mRna5s=s120-c-rp-mo-ba3-br100"
+    },
+    {
+      "author_name": "Jake Marquez",
+      "rating": 5,
+      "text": "Greatest Dropzone ever! Had such a good time.",
+      "time": 1563867574000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjVmuDMVGrp5LQmbrWpOlRIaidHJGg7ntuREySURTEjxgczqeeSuHQ=s120-c-rp-mo-br100"
+    },
+    {
+      "author_name": "Marius Kittelsen",
+      "rating": 5,
+      "text": "Knallgod service! #Pierre n1 😁",
+      "time": 1562958189000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a/ACg8ocLLaavfDt3HT3k0ZxVrKy1vh8KLsXw7iw0yn6zfBpRkODse5g=s120-c-rp-mo-ba3-br100"
+    },
+    {
+      "author_name": "Maciej Rydz",
+      "rating": 5,
+      "text": "Cool place for a picnic :)",
+      "time": 1562443135000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjXiAbUfI-zF8-47XQArOU5wrQWrRBvTfX008Xv5yxOKGrU4sIE=s120-c-rp-mo-ba4-br100"
+    },
+    {
+      "author_name": "Kristoffer Thorstens",
+      "rating": 5,
+      "text": "Folk er glad i å kose masse :)",
+      "time": 1561139388000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a/ACg8ocJU9tnsOS9L7pucsW56UUVqmFoqQzFDoeemJfU1l3_bcAmJnw=s120-c-rp-mo-br100"
+    },
+    {
+      "author_name": "Mikael S. Kristiansen",
+      "rating": 5,
+      "text": "Awesome fallskjermklubb med awesome hoppefly (Twin otter)",
+      "time": 1560854500000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjVz0ob5_4A0lFPJFSZVmEp5Lv35rI15z-4-BFz-4ToH0uRcdmdn=s120-c-rp-mo-ba3-br100"
+    },
+    {
+      "author_name": "Arlindo Lima",
+      "rating": 5,
+      "text": "A great drop zone, with amazing people and  views 🙏🤘❤️",
+      "time": 1556319437000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjXHyyktzh9RTG4R5x5CdKBgSQOwAHFfevDcOUoUFdY_cHU7v5o=s120-c-rp-mo-br100"
+    },
+    {
+      "author_name": "John Sand",
+      "rating": 4,
+      "text": "Flott anlegg.",
+      "time": 1550924301000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a/ACg8ocLb0h_lWKSDFv7urVFPnsydm-vdHL_6zRxbg_f3p31kZjlS=s120-c-rp-mo-br100"
+    },
+    {
+      "author_name": "Anup Shanbhag",
+      "rating": 5,
+      "text": "On a sunny day, you'll have one of the bext skydiving experiences here. Strongly recommend!!",
+      "time": 1545825244000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjUv9QaIAA-SBsRYhc0mhcNquNd5_fueT21NZsUrGzY0BQoieUc1=s120-c-rp-mo-ba4-br100"
+    },
+    {
+      "author_name": "Rita Berg",
+      "rating": 5,
+      "text": "Seriøse. Mannen min fikk fly time i 50 års presang. Ble tatt godt i mot. Fikk være med å legge opp turen fra start til slutt. God gjennomgang av alt, før instruktøren tok han med inn i flyet. Han fikk fly hele tiden, utenom å lette og lande. Han var strålende fornøyd. Fikk også ta med en person i flyet, hvis det var innen for vekt og sikkerhet.  Anbefales.",
+      "time": 1543739276000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a/ACg8ocKFJSZ4Ns_b8HEVTugBLyza5lZKwnAauaV2WSy42zEPTZl3iQ=s120-c-rp-mo-ba3-br100"
+    },
+    {
+      "author_name": "Leif Rakfjord",
+      "rating": 5,
+      "text": "Super gjeng 🙂",
+      "time": 1541780470000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a/ACg8ocJ8uSU_CNxuwX1ZRAKbJRa4MGW7EyG9wlaKVegvZThfAPshaw=s120-c-rp-mo-br100"
+    },
+    {
+      "author_name": "Torodd Weydahl",
+      "rating": 5,
+      "text": "Superbra! Skikkelig bra opplegg!",
+      "time": 1540324323000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjV5nw0NC1a4y2ft2oQJXjs7PbT1I14bJCT81W0mCFM_UBiZ1Xg=s120-c-rp-mo-br100"
+    },
+    {
+      "author_name": "Faisal Baig",
+      "rating": 5,
+      "text": "Awesome place to try skydive. Very professional and helpful people.",
+      "time": 1538159258000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjVeFetPEfQQg1nqvmrOsIS8XlKQgWodPpxKhgurgGEfEYN7iHNCZw=s120-c-rp-mo-ba4-br100"
+    },
+    {
+      "author_name": "Jon Inge Havreberg",
+      "rating": 5,
+      "text": "Dyktige instruktører, god service!",
+      "time": 1538026156000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjUVzVxN5nflrbbHUwT1eE9WdTCuAPCJpaay1tcHa1h5oEs1OO0c=s120-c-rp-mo-ba4-br100"
+    },
+    {
+      "author_name": "Raymond Skarpaas",
+      "rating": 5,
+      "text": "Hoppet i tandem her med en mann som heter Brandon. Artig type som ga meg en av mitt livs sykeste opplevelser. Anbefales på det sterkeste!",
+      "time": 1535644431000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a/ACg8ocJCjYpIrKHDunjd3i_Ak5A2ZiFOFyEPCLrhGo2J6VhjPT5w7g=s120-c-rp-mo-ba3-br100"
+    },
+    {
+      "author_name": "T",
+      "rating": 5,
+      "text": "Amazing place filled with enthusiastic and professional skydivers having fun",
+      "time": 1535532344000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjWAsDDGpHRBNfq5kHt79jmzSNxULCBNhjXWVAtFGouxt8BIbZX2kg=s120-c-rp-mo-br100"
+    },
+    {
+      "author_name": "Ronny Andresen",
+      "rating": 5,
+      "text": "Her blir man godt ivaretatt, og folkene der er blide og hyggelige, og kunnskapsrike :)",
+      "time": 1534608758000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjVxl9QziYN6ZHZlINyMelZ7TaMzNRd2WUy0vq1sNWpnRkpJfi8RTw=s120-c-rp-mo-ba4-br100"
+    },
+    {
+      "author_name": "Rune Sundby",
+      "rating": 4,
+      "text": "Aktivt miljø for både fallskjerm, fly og modellfly på Jarlsberg flyplass",
+      "time": 1532156517000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjUW7ZYtMrdIBclhRlaDWy6bxKWoW0EICzdRZq8ca8iCUAgvQL102A=s120-c-rp-mo-ba4-br100"
+    },
+    {
+      "author_name": "Adithya Joshi",
+      "rating": 4,
+      "text": "Had a wonderful experience. Confident team always ready to give you a best skydiving experience..",
+      "time": 1532022565000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjVh0VoX_jAvwyhK0H8T95101r1T_idEDwiJUMUzj91LSc3yRbKJ=s120-c-rp-mo-ba3-br100"
+    },
+    {
+      "author_name": "Espen Thorvaldsen",
+      "rating": 5,
+      "text": "Professional!",
+      "time": 1531303000000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjWscgMv5Li0p4PjGjlVUop-sFSd-M4uzyzbtjaBywkY7Gwvkc7VGA=s120-c-rp-mo-ba3-br100"
+    },
+    {
+      "author_name": "Øyvind Sønderbye",
+      "rating": 4,
+      "text": "Her kan ta ta kurs, hoppe tandem eller hoppe som selvstendig hopper.",
+      "time": 1531033613000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjWG7YMezy_E6NChtoRtUXaHiGX9ZfrL2Hwkyh7qOQEQleX0KF8XvQ=s120-c-rp-mo-ba4-br100"
+    },
+    {
+      "author_name": "Raymond Larsen",
+      "rating": 5,
+      "text": "Fint sted med masse hyggelig mennesker. Fin servering av kaker.",
+      "time": 1530380087000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjW6vEHz5La6NhT3yeLiF_7m_WwnoAscYbO2-3UV34iIhW7TTxzXrA=s120-c-rp-mo-ba4-br100"
+    },
+    {
+      "author_name": "Olav Borge Bondal",
+      "rating": 5,
+      "text": "Awesome people very good service ♥️",
+      "time": 1530277552000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjU651OKE4M5dzT70CekOkpExa4qU-a5AJw9Z6mLTZtShH2n25vDZA=s120-c-rp-mo-ba3-br100"
+    },
+    {
+      "author_name": "Johan Johansen",
+      "rating": 5,
+      "text": "Veldig bra.God kontroll med alt",
+      "time": 1530105936000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a/ACg8ocLJgpL0M4nZUFdroTfsSEZsKu_9yryExYw78FE2_Vo1XeUz6Q=s120-c-rp-mo-ba2-br100"
+    },
+    {
+      "author_name": "Mathias Nilsen",
+      "rating": 5,
+      "text": "Awesome place!",
+      "time": 1528825234000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjU2c0zvoHYn7ZDM0eVUecjg99f3QQAnTtkhzVBaPiK2X31z74hv=s120-c-rp-mo-ba3-br100"
+    },
+    {
+      "author_name": "Милан Крстић",
+      "rating": 5,
+      "text": "Great peoples and great atmosphere!",
+      "time": 1528048975000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjUEHKdARb-lOdybmCOtfNhfQPUddta-zknYjiTIx7L_5odW4nLD=s120-c-rp-mo-br100"
+    },
+    {
+      "author_name": "Andreas Hertzberg",
+      "rating": 5,
+      "text": "Fantastisk opplevelse, trygt og hyggelig folk! Anbefales!",
+      "time": 1527874628000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a/ACg8ocJ5Xq5mjv8VY9VfrgOhttvC9xXRb6UvooxEQVa7T5GJ216TKw=s120-c-rp-mo-ba3-br100"
+    },
+    {
+      "author_name": "Knut Erik Lund",
+      "rating": 4,
+      "text": "Det var veldig koselig",
+      "time": 1527343867000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjX_0C9N3Rnss_4zFyWBLff41HatdbhYQ0ztXA3bWZKIx4yMDRW7=s120-c-rp-mo-ba4-br100"
+    },
+    {
+      "author_name": "Aleksander Nilsen",
+      "rating": 5,
+      "text": "Nice people, perfect conditions",
+      "time": 1527247460000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjXHwgrhDzBxVxBcnYJ4bjBJNMibL_zkuaDSkGrhfsmzBzVsEkbr=s120-c-rp-mo-ba4-br100"
+    },
+    {
+      "author_name": "Bjørn Ove Bøe (BOB)",
+      "rating": 4,
+      "text": "Kongeplass for fallskjermhopping.",
+      "time": 1501922102000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjVRX9o2EuTrqhgylHsgKyJ6H_f7KXbzNzWawQuEEp-cRbB3ApmteQ=s120-c-rp-mo-ba3-br100"
+    },
+    {
+      "author_name": "Oscar Pessey",
+      "rating": 5,
+      "text": "Awesome ace to get some air!",
+      "time": 1499858700000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjXAWtAW2kfbsxX1pG10o4xSfSg4XX0WTb5kRUt7CNh3LqqtCgU=s120-c-rp-mo-ba4-br100"
+    },
+    {
+      "author_name": "Geir Atle K",
+      "rating": 4,
+      "text": "Fantastisk opplevelse. Bra opplegg.",
+      "time": 1499594298000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a/ACg8ocJ2YWR7fRIpXXts1VCe0rqAKxMFSa4I96V-WG1jjvk9O5FnCA=s120-c-rp-mo-ba3-br100"
+    },
+    {
+      "author_name": "Anders Borgen",
+      "rating": 5,
+      "text": "Tønsberg fallskjermklubb",
+      "time": 1471939279000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjUi_VXaG7UouTYJGnBauXSROCGd-TNF18FxsMqGoILAqDMDgZ8=s120-c-rp-mo-ba5-br100"
+    },
+    {
+      "author_name": "Feelgood Nic",
+      "rating": 5,
+      "text": "Amazing club and jumping people!! Did AFF here and it was lovely!!!",
+      "time": 1465397966000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjXBP90di2Fm88tPOl2dTMvEzxhGE1SE8RR0Mo38WlhnB6KwV2w=s120-c-rp-mo-ba4-br100"
+    },
+    {
+      "author_name": "Tove Melgård",
+      "rating": 5,
+      "text": "Et fantastisk sted for å oppleve den sykeste og fantastiske opplevelsen jeg har gjort. Hyggelige folk og flinke intruktøerer som guidet meg gjennom et tandemhopp. :)",
+      "time": 1405190514000,
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjUCR2H5fcCF_q1QqvPbxLanlFcVfGJZOaVtBWytrgVwvG_jeXM=s120-c-rp-mo-ba2-br100"
+    }
+  ],
+  "lastFetched": 1767544859517,
+  "monthlyApiCalls": 1,
+  "lastCallReset": 1767544847024,
+  "source": "outscraper"
 }
-
-

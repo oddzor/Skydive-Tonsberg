@@ -1,5 +1,4 @@
 "use client";
-
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import {
@@ -10,17 +9,15 @@ import {
 } from "@/components/ui/accordion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useHomeData } from "@/hooks/useHomeData";
-
 export function FAQ() {
   const { t } = useLanguage();
   const { faqData } = useHomeData();
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-
   return (
     <section className="py-24 lg:py-32 bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
+        {}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -38,8 +35,7 @@ export function FAQ() {
             {t('home.faq.description')}
           </p>
         </motion.div>
-
-        {/* FAQ Accordion */}
+        {}
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 30 }}
@@ -48,7 +44,7 @@ export function FAQ() {
           className="max-w-3xl mx-auto"
         >
           <Accordion type="single" collapsible className="space-y-4">
-            {faqData.map((faq, index) => (
+            {faqData.map((faq: { question: string; answer: string }, index: number) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
@@ -74,6 +70,3 @@ export function FAQ() {
     </section>
   );
 }
-
-
-

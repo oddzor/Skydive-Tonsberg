@@ -1,5 +1,4 @@
 "use client";
-
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -8,8 +7,6 @@ import { Separator } from "@/components/ui/separator";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useLanguage } from "@/contexts/LanguageContext";
-
-
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -19,17 +16,14 @@ const containerVariants = {
     },
   },
 };
-
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0 },
 };
-
 export function Footer() {
   const [showKeyhole, setShowKeyhole] = useState(false);
   const router = useRouter();
   const { t } = useLanguage();
-
   const footerLinks = {
     navigation: [
       { name: t('nav.home'), href: "/" },
@@ -47,7 +41,6 @@ export function Footer() {
       { name: "YouTube", href: "https://www.youtube.com/@skydivetnsberg9501", icon: Youtube },
     ],
   };
-
   return (
     <footer className="bg-foreground text-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -58,7 +51,7 @@ export function Footer() {
           viewport={{ once: true, margin: "-100px" }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12"
         >
-          {/* Brand Column */}
+          {}
           <motion.div variants={itemVariants} className="lg:col-span-1">
             <Link href="/" className="inline-block mb-6">
               <Image
@@ -88,8 +81,7 @@ export function Footer() {
               ))}
             </div>
           </motion.div>
-
-          {/* Navigation Links */}
+          {}
           <motion.div variants={itemVariants}>
             <h3 className="text-lg font-semibold mb-6">{t('footer.pages')}</h3>
             <ul className="space-y-3">
@@ -105,8 +97,7 @@ export function Footer() {
               ))}
             </ul>
           </motion.div>
-
-          {/* External Links */}
+          {}
           <motion.div variants={itemVariants}>
             <h3 className="text-lg font-semibold mb-6">{t('footer.services')}</h3>
             <ul className="space-y-3">
@@ -125,8 +116,7 @@ export function Footer() {
               ))}
             </ul>
           </motion.div>
-
-          {/* Contact Info */}
+          {}
           <motion.div variants={itemVariants}>
             <h3 className="text-lg font-semibold mb-6">{t('footer.contact')}</h3>
             <ul className="space-y-4">
@@ -149,9 +139,7 @@ export function Footer() {
             </ul>
           </motion.div>
         </motion.div>
-
         <Separator className="my-12 bg-background/10" />
-
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -159,12 +147,11 @@ export function Footer() {
           className="flex flex-col sm:flex-row justify-between items-center gap-4 text-background/50 text-sm"
         >
           <div className="flex items-center gap-3">
-            {/* Hidden keyhole button - click 3 times on the copyright text */}
+            {}
             <button
               onClick={() => {
                 const clicks = parseInt(sessionStorage.getItem("keyholeClicks") || "0") + 1;
                 sessionStorage.setItem("keyholeClicks", clicks.toString());
-                
                 if (clicks >= 3) {
                   sessionStorage.removeItem("keyholeClicks");
                   router.push("/cms");
@@ -202,4 +189,3 @@ export function Footer() {
     </footer>
   );
 }
-

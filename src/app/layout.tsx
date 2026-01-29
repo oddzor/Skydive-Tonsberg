@@ -3,13 +3,11 @@ import { Outfit } from "next/font/google";
 import { Header, Footer } from "@/components/layout";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import "./globals.css";
-
 const outfit = Outfit({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-outfit",
 });
-
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
@@ -18,7 +16,6 @@ export const viewport: Viewport = {
     { media: "(prefers-color-scheme: dark)", color: "#0A1628" },
   ],
 };
-
 export const metadata: Metadata = {
   metadataBase: new URL("https://skydivetonsberg.no"),
   title: {
@@ -89,7 +86,6 @@ export const metadata: Metadata = {
     google: "YOUR_GOOGLE_VERIFICATION_CODE",
   },
 };
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -104,7 +100,7 @@ export default function RootLayout({
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
-        {/* Preload logo font for instant rendering */}
+        {}
         <link
           rel="preload"
           as="font"
@@ -112,7 +108,7 @@ export default function RootLayout({
           type="font/woff2"
           crossOrigin="anonymous"
         />
-        {/* Preload hero video for better LCP */}
+        {}
         <link
           rel="preload"
           as="video"
