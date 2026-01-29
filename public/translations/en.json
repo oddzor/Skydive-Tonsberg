@@ -986,5 +986,65 @@
     "copyright": "Skydive Tønsberg. All rights reserved.",
     "privacy": "Privacy",
     "terms": "Terms"
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "subtitle": "How we collect, use and protect your personal information",
+    "lastUpdated": "Last updated",
+    "introduction": "Tønsberg Fallskjermklubb (org. no. 991 021 698) is the data controller for personal information you provide to us. We take your privacy seriously and are committed to protecting your personal data in accordance with the Personal Data Act and GDPR.",
+    "dataCollection": {
+      "title": "What information do we collect?",
+      "content": "We only collect personal information you voluntarily provide to us:",
+      "list": {
+        "0": "Name, email address, phone number and message from the contact form",
+        "1": "Language preference (stored locally in your browser, not on our servers)",
+        "2": "IP address and browser information (automatically logged by our hosting service Vercel)",
+        "3": "Publicly available Google reviews displayed on the website"
+      }
+    },
+    "thirdParty": {
+      "title": "Third-Party Services",
+      "content": "We use the following third-party services that may process your personal data:",
+      "list": {
+        "0": "EmailJS - Sends contact form data to our email (info@hoppfallskjerm.no)",
+        "1": "Vercel - Website hosting (processes IP addresses and access logs)",
+        "2": "Google Fonts - Delivers fonts (may log IP addresses)",
+        "3": "Outscraper API - Fetches public Google reviews for display on website",
+        "4": "Vercel Blob Storage - Stores CMS content (prices, images) for admin panel"
+      }
+    },
+    "dataRetention": {
+      "title": "How long do we store the information?",
+      "content": "Contact form data is sent directly to our email inbox and stored there according to our regular email practices. Your language preference is stored permanently in your browser until you delete it. IP logs from Vercel are retained for up to 30 days.\n\nWe delete personal data when it is no longer necessary for the purpose for which it was collected, or when you request us to delete it."
+    },
+    "yourRights": {
+      "title": "Your Rights",
+      "content": "Under GDPR, you have the following rights:",
+      "list": {
+        "0": "Right to access - You can request a copy of the personal data we hold about you",
+        "1": "Right to rectification - You can ask us to correct incorrect or outdated information",
+        "2": "Right to erasure - You can request us to delete your personal data",
+        "3": "Right to restrict processing - You can ask us to temporarily stop processing",
+        "4": "Right to data portability - You can request your data in machine-readable format",
+        "5": "Right to object - You can object to our processing of your information",
+        "6": "Right to complain - You can file a complaint with the Data Protection Authority if you believe we violate privacy regulations"
+      }
+    },
+    "dataSecurity": {
+      "title": "How do we protect your information?",
+      "content": "We use industry-standard security measures:\n\n• SSL/TLS encryption for all data transmission\n• Secure hosting with Vercel with automatic security updates\n• Limited access to personal data (authorized personnel only)\n• Regular security reviews of our systems\n\nWe never share your personal information with third parties for marketing purposes."
+    },
+    "contact": {
+      "title": "Exercise Your Rights",
+      "content": "To exercise any of your rights or if you have questions about privacy, contact us at info@hoppfallskjerm.no or send a letter to our address.\n\nWe will respond to your request within 30 days."
+    },
+    "changes": {
+      "title": "Changes to Privacy Policy",
+      "content": "We may update this privacy policy from time to time. Significant changes will be communicated on our website. We encourage you to review this page regularly to stay informed."
+    },
+    "questions": {
+      "title": "Questions?",
+      "content": "If you have questions about how we handle your personal information, please contact us:"
+    }
   }
 }

@@ -997,5 +997,65 @@
     "copyright": "Skydive Tønsberg. Alle rettigheter reservert.",
     "privacy": "Personvern",
     "terms": "Vilkår"
+  },
+  "privacy": {
+    "title": "Personvernerklæring",
+    "subtitle": "Hvordan vi samler inn, bruker og beskytter dine personopplysninger",
+    "lastUpdated": "Sist oppdatert",
+    "introduction": "Tønsberg Fallskjermklubb (org. nr. 991 021 698) er behandlingsansvarlig for personopplysninger du oppgir til oss. Vi tar ditt personvern på alvor og er forpliktet til å beskytte dine personopplysninger i henhold til personopplysningsloven og GDPR.",
+    "dataCollection": {
+      "title": "Hvilke opplysninger samler vi inn?",
+      "content": "Vi samler kun inn personopplysninger du oppgir frivillig til oss:",
+      "list": {
+        "0": "Navn, e-postadresse, telefonnummer og melding fra kontaktskjemaet",
+        "1": "Språkpreferanse (lagres lokalt i nettleseren din, ikke på våre servere)",
+        "2": "IP-adresse og nettleserinfo (automatisk lagret av vår hosting-tjeneste Vercel)",
+        "3": "Offentlig tilgjengelige anmeldelser fra Google som vises på nettsiden"
+      }
+    },
+    "thirdParty": {
+      "title": "Tredjepartstjenester",
+      "content": "Vi bruker følgende tredjepartstjenester som kan behandle dine personopplysninger:",
+      "list": {
+        "0": "EmailJS - Sender kontaktskjemadata til vår e-post (info@hoppfallskjerm.no)",
+        "1": "Vercel - Hosting av nettsiden (behandler IP-adresser og tilgangslogger)",
+        "2": "Google Fonts - Leverer skrifttyper (kan logge IP-adresser)",
+        "3": "Outscraper API - Henter offentlige Google-anmeldelser for visning på nettsiden",
+        "4": "Vercel Blob Storage - Lagrer CMS-innhold (priser, bilder) for admin-panelet"
+      }
+    },
+    "dataRetention": {
+      "title": "Hvor lenge lagrer vi opplysningene?",
+      "content": "Kontaktskjemadata sendes direkte til vår e-postkasse og lagres der i henhold til vår vanlige e-postpraksis. Språkpreferansen din lagres permanent i nettleseren din til du sletter den. IP-logger fra Vercel beholdes i inntil 30 dager.\n\nVi sletter personopplysninger når de ikke lenger er nødvendige for formålet de ble samlet inn for, eller når du ber oss om å slette dem."
+    },
+    "yourRights": {
+      "title": "Dine rettigheter",
+      "content": "I henhold til GDPR har du følgende rettigheter:",
+      "list": {
+        "0": "Rett til innsyn - Du kan be om kopi av personopplysningene vi har om deg",
+        "1": "Rett til retting - Du kan be oss rette feil eller utdaterte opplysninger",
+        "2": "Rett til sletting - Du kan be oss slette dine personopplysninger",
+        "3": "Rett til å begrense behandling - Du kan be oss midlertidig stoppe behandling",
+        "4": "Rett til dataportabilitet - Du kan be om å få dine data i maskinlesbart format",
+        "5": "Rett til å protestere - Du kan protestere mot vår behandling av dine opplysninger",
+        "6": "Rett til å klage - Du kan klage til Datatilsynet hvis du mener vi bryter personvernreglene"
+      }
+    },
+    "dataSecurity": {
+      "title": "Hvordan beskytter vi dine opplysninger?",
+      "content": "Vi bruker industristandarder for sikkerhet:\n\n• SSL/TLS-kryptering for all datatransmisjon\n• Sikker hosting hos Vercel med automatiske sikkerhetsoppdateringer\n• Begrenset tilgang til personopplysninger (kun autorisert personell)\n• Regelmessige sikkerhetsgjennomganger av våre systemer\n\nVi deler aldri dine personopplysninger med tredjeparter for markedsføringsformål."
+    },
+    "contact": {
+      "title": "Utøve dine rettigheter",
+      "content": "For å utøve noen av dine rettigheter eller hvis du har spørsmål om personvern, kontakt oss på info@hoppfallskjerm.no eller send brev til vår adresse.\n\nVi vil svare på din henvendelse innen 30 dager."
+    },
+    "changes": {
+      "title": "Endringer i personvernerklæringen",
+      "content": "Vi kan oppdatere denne personvernerklæringen fra tid til annen. Vesentlige endringer vil bli kommunisert på nettsiden vår. Vi oppfordrer deg til å se gjennom denne siden regelmessig for å holde deg oppdatert."
+    },
+    "questions": {
+      "title": "Har du spørsmål?",
+      "content": "Hvis du har spørsmål om hvordan vi håndterer dine personopplysninger, ta gjerne kontakt med oss:"
+    }
   }
 }
