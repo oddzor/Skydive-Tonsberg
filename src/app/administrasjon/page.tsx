@@ -188,7 +188,7 @@ export default function AdministrasjonPage() {
     );
   }
   return (
-    <div className="min-h-screen bg-background py-12">
+    <div className="min-h-screen bg-background pt-28 pb-12">
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="mb-8">
           <h1 className="text-4xl font-bold mb-2">Content Management System</h1>

@@ -29,7 +29,7 @@ export function Hero() {
         <HeroVideo
           desktopSrc="/tandemhopp-optimized.webm"
           mobileSrc="/tandemhopp-mobile.webm"
-          poster="/tandemhopp-landing.webp"
+          poster="/tandemhopp-poster.webp"
           className="w-full h-full object-cover"
           priority={true}
         />
