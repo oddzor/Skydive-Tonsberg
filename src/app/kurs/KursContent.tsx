@@ -25,14 +25,22 @@ import {
   KursFAQ,
 } from '@/components/kurs';
 function localImageSrc(cmsPath: string | undefined, fallback: string): string {
-  return cmsPath && typeof cmsPath === 'string' && cmsPath.startsWith('/') ? cmsPath : fallback;
+  const path = cmsPath && typeof cmsPath === 'string' && cmsPath.startsWith('/') ? cmsPath : fallback;
+  return path;
+}
+function instructorCoachingSrc(cmsPath: string | undefined): string {
+  const path = localImageSrc(cmsPath, '/happy-aff-student.webp');
+  return path === '/aff-instructor-coaching.webp' ? '/happy-aff-student.webp' : path;
 }
 
 export function KursContent() {
   const { t } = useLanguage();
   const { content } = useCMSContent();
   const progressionSoloSrc = localImageSrc(content?.course?.images?.soloStudent, '/aff-solo-student.webp');
-  const progressionCoachingSrc = localImageSrc(content?.course?.images?.instructorCoaching, '/happy-aff-student.webp');
+  const progressionCoachingSrc = instructorCoachingSrc(content?.course?.images?.instructorCoaching);
+  const groupPhoto1Src = localImageSrc(content?.course?.images?.groupPhoto1, '/course-group-1.webp');
+  const groupPhoto2Src = localImageSrc(content?.course?.images?.groupPhoto2, '/course-group-2.webp');
+  const groupPhoto3Src = localImageSrc(content?.course?.images?.groupPhoto3, '/course-group-3.webp');
   return (
     <>
 
@@ -52,7 +60,7 @@ export function KursContent() {
           >
             <div className="relative h-[300px] rounded-2xl overflow-hidden shadow-xl bg-muted">
               <Image
-                src={content?.course?.images?.groupPhoto1 || '/students-in-airplane.webp'}
+                src={groupPhoto1Src}
                 alt="AFF Students in Airplane"
                 fill
                 className="object-cover object-top"
@@ -61,7 +69,7 @@ export function KursContent() {
             </div>
             <div className="relative h-[300px] rounded-2xl overflow-hidden shadow-xl bg-muted">
               <Image
-                src={content?.course?.images?.groupPhoto2 || '/student-after-jump.webp'}
+                src={groupPhoto2Src}
                 alt="Student After Successful Jump"
                 fill
                 className="object-cover object-top"
@@ -70,7 +78,7 @@ export function KursContent() {
             </div>
             <div className="relative h-[300px] rounded-2xl overflow-hidden shadow-xl bg-muted">
               <Image
-                src={content?.course?.images?.groupPhoto3 || '/aff-trening.webp'}
+                src={groupPhoto3Src}
                 alt="AFF Training Session"
                 fill
                 className="object-cover object-top"

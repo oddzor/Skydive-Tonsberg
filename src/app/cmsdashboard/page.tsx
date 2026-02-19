@@ -1008,7 +1008,7 @@ export default function CMSDashboard() {
                           <ImageUpload
                             label="Section Square Photo 2"
                             currentImage={content?.course?.images?.instructorCoaching || "/happy-aff-student.webp"}
-                            imageName="aff-instructor-coaching"
+                            imageName="happy-aff-student"
                             onImageUpdate={(path) => updateValue(['course', 'images', 'instructorCoaching'], path)}
                             helperText="Square aspect ratio"
                           />
