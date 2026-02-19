@@ -24,9 +24,15 @@ import {
   KursRequirements,
   KursFAQ,
 } from '@/components/kurs';
+function localImageSrc(cmsPath: string | undefined, fallback: string): string {
+  return cmsPath && typeof cmsPath === 'string' && cmsPath.startsWith('/') ? cmsPath : fallback;
+}
+
 export function KursContent() {
   const { t } = useLanguage();
   const { content } = useCMSContent();
+  const progressionSoloSrc = localImageSrc(content?.course?.images?.soloStudent, '/aff-solo-student.webp');
+  const progressionCoachingSrc = localImageSrc(content?.course?.images?.instructorCoaching, '/happy-aff-student.webp');
   return (
     <>
 
@@ -309,7 +315,7 @@ export function KursContent() {
             >
               <div className="relative h-[350px] rounded-2xl overflow-hidden shadow-xl">
                 <Image
-                  src={content?.course?.images?.soloStudent || "/aff-solo-student.webp"}
+                  src={progressionSoloSrc}
                   alt="Solo AFF Student Flying"
                   fill
                   className="object-cover"
@@ -318,12 +324,11 @@ export function KursContent() {
               </div>
               <div className="relative h-[350px] rounded-2xl overflow-hidden shadow-xl">
                 <Image
-                  src={content?.course?.images?.instructorCoaching || "/happy-aff-student.webp"}
+                  src={progressionCoachingSrc}
                   alt="Instructor Coaching Student in Freefall"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"
-                  unoptimized
                 />
               </div>
             </motion.div>
