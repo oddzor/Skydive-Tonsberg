@@ -14,7 +14,7 @@ export function KursFeaturedImage() {
           className="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl"
         >
           <Image
-            src={content?.course?.images?.heroPhoto || '/aff-course-hero-photo.webp'}
+            src={content?.course?.images?.classroom || '/course-classroom.webp'}
             alt="AFF Course Training"
             fill
             className="object-cover"

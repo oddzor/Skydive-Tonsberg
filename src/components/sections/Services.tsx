@@ -14,6 +14,13 @@ interface CMSContent {
     course?: { total?: number };
     kurs?: { affCourse?: number };
   };
+  home?: {
+    images?: {
+      serviceTandem?: string;
+      serviceAff?: string;
+      serviceExperienced?: string;
+    };
+  };
 }
 
 const getServices = (
@@ -25,7 +32,7 @@ const getServices = (
       title: t('home.services.tandem.title'),
       description: t('home.services.tandem.description'),
       price: `${cmsContent?.pricing?.tandem?.weekday || 4690} kr`,
-      image: "/service-tandem.webp",
+      image: cmsContent?.home?.images?.serviceTandem || "/service-tandem.webp",
       icon: Users,
       href: "/tandem",
       cta: t('home.services.tandem.cta'),
@@ -37,7 +44,7 @@ const getServices = (
       title: t('home.services.aff.title'),
       description: t('home.services.aff.description'),
       price: `${cmsContent?.pricing?.kurs?.affCourse || 18990} kr`,
-      image: "/service-aff.webp",
+      image: cmsContent?.home?.images?.serviceAff || "/service-aff.webp",
       icon: GraduationCap,
       href: "/kurs",
       cta: t('home.services.aff.cta'),
@@ -48,7 +55,7 @@ const getServices = (
     {
       title: t('home.services.experienced.title'),
       description: t('home.services.experienced.description'),
-      image: "/service-experienced.webp",
+      image: cmsContent?.home?.images?.serviceExperienced || "/service-experienced.webp",
       icon: Plane,
       href: "/for-hoppere",
       cta: t('home.services.experienced.cta'),
@@ -83,7 +90,7 @@ export function Services() {
   return (
     <section className="py-24 lg:py-32 bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {}
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -98,7 +105,7 @@ export function Services() {
             {t('home.services.title')} <span className="text-gradient">{t('home.services.titleHighlight')}</span>
           </h2>
         </motion.div>
-        {}
+
         <motion.div
           ref={ref}
           variants={containerVariants}

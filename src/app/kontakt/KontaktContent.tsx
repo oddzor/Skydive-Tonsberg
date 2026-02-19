@@ -5,7 +5,7 @@ import Image from "next/image";
 import {
   Mail,
   MapPin,
-  Clock,
+  Phone,
   Send,
   Instagram,
   Youtube,
@@ -37,10 +37,10 @@ const getContactInfoWithIcons = (t: (key: string) => string) => [
     bgColor: "bg-leaf/10",
   },
   {
-    icon: Clock,
-    label: t('kontakt.info.hours.label'),
-    value: t('kontakt.info.hours.value'),
-    href: "https://www.skydivetonsberg.no/hoppkalender-1",
+    icon: Phone,
+    label: t('kontakt.info.phone.label'),
+    value: t('kontakt.info.phone.value'),
+    href: `tel:${t('kontakt.info.phone.value')}`,
     color: "text-sky",
     bgColor: "bg-sky/10",
   },
@@ -113,7 +113,7 @@ export function KontaktContent() {
   };
   return (
     <>
-      {}
+
       <section className="relative pt-32 pb-16 lg:pt-40 lg:pb-24 overflow-hidden bg-gradient-hero">
         <div className="absolute inset-0 z-0">
           <div className="absolute top-20 right-20 w-96 h-96 bg-sky/20 rounded-full blur-3xl" />
@@ -143,7 +143,7 @@ export function KontaktContent() {
           </motion.div>
         </div>
       </section>
-      {}
+
       <section className="py-12 -mt-8 relative z-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
@@ -176,11 +176,11 @@ export function KontaktContent() {
           </div>
         </div>
       </section>
-      {}
+
       <section className="py-16 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-start max-w-6xl mx-auto">
-            {}
+
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -317,7 +317,7 @@ export function KontaktContent() {
                       value={formState.message}
                       onChange={handleChange}
                       placeholder={t('kontakt.form.messagePlaceholder')}
-                      rows={6}
+                      rows={14}
                       className="resize-none"
                     />
                   </div>
@@ -342,7 +342,7 @@ export function KontaktContent() {
                 </form>
               )}
             </motion.div>
-            {}
+
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -350,7 +350,7 @@ export function KontaktContent() {
               transition={{ duration: 0.6 }}
               className="space-y-8"
             >
-              {}
+
               <div>
                 <h3 className="text-xl font-bold text-foreground mb-4">
                   {t('kontakt.social.title')}
@@ -376,11 +376,11 @@ export function KontaktContent() {
                   ))}
                 </div>
               </div>
-              {}
+
               <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-xl">
                 <Image
-                  src="/contact-team.webp"
-                  alt="Skydive Tønsberg Team"
+                  src="/skydive-tonsberg-northernlights-1.webp"
+                  alt="Skydive Tønsberg Northern Lights"
                   fill
                   className="object-cover"
                 />

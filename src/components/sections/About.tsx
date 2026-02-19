@@ -4,6 +4,7 @@ import { useRef, useMemo } from "react";
 import Image from "next/image";
 import { Users, Award, Shield, Heart } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useCMSContent } from "@/hooks/useCMSContent";
 const FOUNDING_YEAR = 1981;
 const FOUNDING_MONTH = 9; 
 function calculateYearsOfExperience(): number {
@@ -40,6 +41,7 @@ const itemVariants = {
 };
 export function About() {
   const { t } = useLanguage();
+  const { content } = useCMSContent();
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const stats = useMemo(() => getStats(t), [t]);
@@ -53,7 +55,7 @@ export function About() {
           animate={isInView ? "visible" : "hidden"}
           className="grid lg:grid-cols-2 gap-16 items-center"
         >
-          {}
+
           <motion.div variants={itemVariants} className="order-1 lg:order-1">
             <span className="inline-block px-3 py-1 text-sm font-medium text-sky bg-sky/10 rounded-full mb-4">
               {t('home.about.badge')}
@@ -68,7 +70,7 @@ export function About() {
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
               {t('home.about.description2')}
             </p>
-            {}
+
             <div className="grid grid-cols-2 gap-6">
               {stats.map((stat) => (
                 <motion.div
@@ -91,7 +93,7 @@ export function About() {
               ))}
             </div>
           </motion.div>
-          {}
+
           <motion.div
             variants={itemVariants}
             className="order-2 lg:order-2 relative"
@@ -103,8 +105,8 @@ export function About() {
                   className="relative aspect-4/5 rounded-2xl overflow-hidden shadow-2xl"
                 >
                   <Image
-                    src="/about-1.webp"
-                    alt="Fallskjermhopper i fritt fall"
+                    src={content?.home?.images?.aboutGrid1 || "/wingsuit-trio.webp"}
+                    alt="Wingsuit trio i formasjon"
                     fill
                     className="object-cover"
                   />
@@ -114,8 +116,8 @@ export function About() {
                   className="relative aspect-square rounded-2xl overflow-hidden shadow-xl"
                 >
                   <Image
-                    src="/about-2.webp"
-                    alt="Tandemhopp over Vestfold"
+                    src={content?.home?.images?.aboutGrid2 || "/tandem-landing.webp"}
+                    alt="Tandemhopp landing"
                     fill
                     className="object-cover"
                   />
@@ -127,8 +129,8 @@ export function About() {
                   className="relative aspect-square rounded-2xl overflow-hidden shadow-xl"
                 >
                   <Image
-                    src="/about-3.webp"
-                    alt="Fallskjerm under åpen himmel"
+                    src={content?.home?.images?.aboutGrid3 || "/AFF-student-exit.webp"}
+                    alt="AFF elev uthopp"
                     fill
                     className="object-cover"
                   />
@@ -138,15 +140,15 @@ export function About() {
                   className="relative aspect-4/5 rounded-2xl overflow-hidden shadow-2xl"
                 >
                   <Image
-                    src="/about-4.webp"
-                    alt="Klubbmedlemmer på bakken"
+                    src={content?.home?.images?.aboutGrid4 || "/tandem-smiles.webp"}
+                    alt="Glade tandemhoppere"
                     fill
                     className="object-cover"
                   />
                 </motion.div>
               </div>
             </div>
-            {}
+
             <div className="absolute -z-10 -top-8 -right-8 w-64 h-64 bg-sky/20 rounded-full blur-3xl" />
             <div className="absolute -z-10 -bottom-8 -left-8 w-48 h-48 bg-leaf/20 rounded-full blur-3xl" />
           </motion.div>

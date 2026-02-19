@@ -1,7 +1,18 @@
 'use client';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { CheckCircle2 } from 'lucide-react';
+import { 
+  CheckCircle2, 
+  FileText, 
+  CreditCard, 
+  Smartphone, 
+  RefreshCw, 
+  AlertTriangle, 
+  X, 
+  ClipboardList, 
+  GraduationCap, 
+  PartyPopper 
+} from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useCMSContent } from '@/hooks/useCMSContent';
@@ -19,17 +30,54 @@ export function KursContent() {
   const { content } = useCMSContent();
   return (
     <>
-      {}
+
       <KursHero />
-      {}
+
       <KursFeaturedImage />
-      {}
+
       <KursModules />
-      {}
+
       <KursSchedule />
-      {}
-      <KursIncluded />
-      {}
+
+      <KursIncluded /><section className="py-16 lg:py-24">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto"
+          >
+            <div className="relative h-[300px] rounded-2xl overflow-hidden shadow-xl bg-muted">
+              <Image
+                src={content?.course?.images?.groupPhoto1 || '/students-in-airplane.webp'}
+                alt="AFF Students in Airplane"
+                fill
+                className="object-cover object-top"
+                priority
+              />
+            </div>
+            <div className="relative h-[300px] rounded-2xl overflow-hidden shadow-xl bg-muted">
+              <Image
+                src={content?.course?.images?.groupPhoto2 || '/student-after-jump.webp'}
+                alt="Student After Successful Jump"
+                fill
+                className="object-cover object-top"
+                priority
+              />
+            </div>
+            <div className="relative h-[300px] rounded-2xl overflow-hidden shadow-xl bg-muted">
+              <Image
+                src={content?.course?.images?.groupPhoto3 || '/aff-trening.webp'}
+                alt="AFF Training Session"
+                fill
+                className="object-cover object-top"
+                priority
+              />
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       <section className="py-24 lg:py-32 bg-muted/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -42,20 +90,7 @@ export function KursContent() {
               {t('kurs.payment.title')}
             </h2>
           </motion.div>
-          {}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="relative w-full max-w-md h-[400px] mx-auto rounded-2xl overflow-hidden shadow-2xl mb-12"
-          >
-            <Image
-              src={content?.course?.images?.registration || "/course-registration.webp"}
-              alt="Course Registration and Payment"
-              fill
-              className="object-cover"
-            />
-          </motion.div>
+          
           <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
             <Card className="border-0 shadow-lg">
               <CardContent className="p-8">
@@ -66,19 +101,28 @@ export function KursContent() {
                 <p className="text-muted-foreground mb-6">{t('kurs.payment.completeCourse')}</p>
                 <div className="space-y-4">
                   <div className="p-4 bg-muted rounded-lg">
-                    <p className="font-semibold mb-2">📝 {t('kurs.payment.bookingTitle')}</p>
+                    <p className="font-semibold mb-2 flex items-center gap-2">
+                      <FileText className="w-4 h-4 text-sky" />
+                      {t('kurs.payment.bookingTitle')}
+                    </p>
                     <p className="text-sm text-muted-foreground">
                       {t('kurs.payment.bookingDesc')}
                     </p>
                   </div>
                   <div className="p-4 bg-muted rounded-lg">
-                    <p className="font-semibold mb-2">💳 {t('kurs.payment.startTitle')}</p>
+                    <p className="font-semibold mb-2 flex items-center gap-2">
+                      <CreditCard className="w-4 h-4 text-sky" />
+                      {t('kurs.payment.startTitle')}
+                    </p>
                     <p className="text-sm text-muted-foreground">
                       {t('kurs.payment.startDesc')}
                     </p>
                   </div>
                   <div className="p-4 bg-muted rounded-lg">
-                    <p className="font-semibold mb-2">📱 {t('kurs.payment.vippsTitle')}</p>
+                    <p className="font-semibold mb-2 flex items-center gap-2">
+                      <Smartphone className="w-4 h-4 text-sky" />
+                      {t('kurs.payment.vippsTitle')}
+                    </p>
                     <p className="text-sm text-muted-foreground">
                       {t('kurs.payment.vippsDesc')}
                     </p>
@@ -91,7 +135,10 @@ export function KursContent() {
                 <h3 className="text-xl font-bold mb-4">{t('kurs.payment.rejumpTitle')}</h3>
                 <div className="space-y-4">
                   <div>
-                    <p className="font-semibold mb-2">🔄 {t('kurs.payment.rejumpSubtitle')}</p>
+                    <p className="font-semibold mb-2 flex items-center gap-2">
+                      <RefreshCw className="w-4 h-4 text-sky" />
+                      {t('kurs.payment.rejumpSubtitle')}
+                    </p>
                     <p className="text-sm text-muted-foreground mb-2">
                       {t('kurs.payment.rejumpDesc1')}
                     </p>
@@ -100,7 +147,10 @@ export function KursContent() {
                     </p>
                   </div>
                   <div className="p-4 bg-amber-50 dark:bg-amber-950/20 rounded-lg border border-amber-200 dark:border-amber-800">
-                    <p className="font-semibold mb-2 text-amber-900 dark:text-amber-100">⚠️ {t('kurs.payment.membershipTitle')}</p>
+                    <p className="font-semibold mb-2 text-amber-900 dark:text-amber-100 flex items-center gap-2">
+                      <AlertTriangle className="w-4 h-4" />
+                      {t('kurs.payment.membershipTitle')}
+                    </p>
                     <p className="text-sm text-amber-800 dark:text-amber-200">
                       {t('kurs.payment.membershipDesc')}
                     </p>
@@ -114,7 +164,10 @@ export function KursContent() {
                     </a>
                   </div>
                   <div className="p-4 bg-muted rounded-lg">
-                    <p className="font-semibold mb-2">❌ {t('kurs.payment.cancellationTitle')}</p>
+                    <p className="font-semibold mb-2 flex items-center gap-2">
+                      <X className="w-4 h-4 text-destructive" />
+                      {t('kurs.payment.cancellationTitle')}
+                    </p>
                     <p className="text-sm text-muted-foreground">
                       {t('kurs.payment.cancellationDesc')}
                     </p>
@@ -125,7 +178,7 @@ export function KursContent() {
           </div>
         </div>
       </section>
-      {}
+
       <section className="py-24 lg:py-32 bg-gradient-hero">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -141,22 +194,9 @@ export function KursContent() {
               {t('kurs.progression.description')}
             </p>
           </motion.div>
-          {}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl mb-16"
-          >
-            <Image
-              src={content?.course?.images?.freefallProgression || "/aff-freefall-progression.webp"}
-              alt="AFF Students with Instructors in Freefall"
-              fill
-              className="object-cover"
-            />
-          </motion.div>
+
           <div className="max-w-6xl mx-auto space-y-6">
-            {}
+
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -192,7 +232,7 @@ export function KursContent() {
                 </CardContent>
               </Card>
             </motion.div>
-            {}
+
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -226,7 +266,7 @@ export function KursContent() {
                 </CardContent>
               </Card>
             </motion.div>
-            {}
+
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -263,7 +303,7 @@ export function KursContent() {
                 </CardContent>
               </Card>
             </motion.div>
-            {}
+
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -280,16 +320,16 @@ export function KursContent() {
               </div>
               <div className="relative h-[350px] rounded-2xl overflow-hidden shadow-xl">
                 <Image
-                  src={content?.course?.images?.instructorCoaching || "/aff-instructor-coaching.webp"}
+                  src={content?.course?.images?.instructorCoaching || "/happy-aff-student.webp"}
                   alt="Instructor Coaching Student in Freefall"
                   fill
                   className="object-cover"
                 />
               </div>
             </motion.div>
-            {}
+
             <div className="grid md:grid-cols-2 gap-6">
-              {}
+
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -312,7 +352,7 @@ export function KursContent() {
                   </CardContent>
                 </Card>
               </motion.div>
-              {}
+
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -336,7 +376,7 @@ export function KursContent() {
                   </CardContent>
                 </Card>
               </motion.div>
-              {}
+
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -360,7 +400,7 @@ export function KursContent() {
                   </CardContent>
                 </Card>
               </motion.div>
-              {}
+
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -385,7 +425,7 @@ export function KursContent() {
                 </Card>
               </motion.div>
             </div>
-            {}
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -404,7 +444,10 @@ export function KursContent() {
                       </p>
                       <div className="grid md:grid-cols-2 gap-4">
                         <div className="p-4 bg-background rounded-lg">
-                          <p className="font-semibold mb-2">📋 {t('kurs.progression.level8Requirements')}</p>
+                          <p className="font-semibold mb-2 flex items-center gap-2">
+                            <ClipboardList className="w-4 h-4 text-sky" />
+                            {t('kurs.progression.level8Requirements')}
+                          </p>
                           <ul className="text-sm text-muted-foreground space-y-1">
                             <li>• {t('kurs.progression.level8Req1')}</li>
                             <li>• {t('kurs.progression.level8Req2')}</li>
@@ -412,7 +455,10 @@ export function KursContent() {
                           </ul>
                         </div>
                         <div className="p-4 bg-background rounded-lg">
-                          <p className="font-semibold mb-2">🎓 {t('kurs.progression.level8NextSection')}</p>
+                          <p className="font-semibold mb-2 flex items-center gap-2">
+                            <GraduationCap className="w-4 h-4 text-sky" />
+                            {t('kurs.progression.level8NextSection')}
+                          </p>
                           <ul className="text-sm text-muted-foreground space-y-1">
                             <li>• {t('kurs.progression.level8Next1')}</li>
                             <li>• {t('kurs.progression.level8Next2')}</li>
@@ -428,7 +474,7 @@ export function KursContent() {
           </div>
         </div>
       </section>
-      {}
+
       <section className="py-24 lg:py-32 bg-muted/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -444,7 +490,7 @@ export function KursContent() {
               {t('kurs.aLicense.description')}
             </p>
           </motion.div>
-          {}
+
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -536,7 +582,10 @@ export function KursContent() {
             </div>
             <Card className="border-2 border-leaf shadow-xl bg-linear-to-br from-leaf/5 to-transparent">
               <CardContent className="p-8 text-center">
-                <h3 className="text-2xl font-bold mb-4">🎉 {t('kurs.aLicense.congratulations')}</h3>
+                <h3 className="text-2xl font-bold mb-4 flex items-center justify-center gap-2">
+                  <PartyPopper className="w-6 h-6 text-leaf" />
+                  {t('kurs.aLicense.congratulations')}
+                </h3>
                 <p className="text-lg text-muted-foreground mb-4">
                   {t('kurs.aLicense.congratsDesc')}
                 </p>
@@ -545,7 +594,7 @@ export function KursContent() {
                 </p>
               </CardContent>
             </Card>
-            {}
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -562,9 +611,9 @@ export function KursContent() {
           </div>
         </div>
       </section>
-      {}
+
       <KursRequirements />
-      {}
+
       <KursFAQ />
     </>
   );

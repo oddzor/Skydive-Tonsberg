@@ -1,6 +1,5 @@
 'use client';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import {
   Accordion,
   AccordionContent,
@@ -11,14 +10,11 @@ import { Button } from '@/components/ui/button';
 import { ExternalLink } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useKursData } from '@/hooks/useKursData';
-import { useCMSContent } from '@/hooks/useCMSContent';
 export function KursFAQ() {
   const { t } = useLanguage();
-  const { content } = useCMSContent();
   const { faqData } = useKursData();
   return (
     <>
-      {}
       <section className="py-24 lg:py-32">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -31,39 +27,7 @@ export function KursFAQ() {
               {t('kurs.faq.title')}
             </h2>
           </motion.div>
-          {}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="grid md:grid-cols-3 gap-6 mb-16 max-w-6xl mx-auto"
-          >
-            <div className="relative h-[300px] rounded-2xl overflow-hidden shadow-xl">
-              <Image
-                src={content?.course?.images?.groupPhoto1 || '/course-group-1.webp'}
-                alt="AFF Course Group Photo"
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div className="relative h-[300px] rounded-2xl overflow-hidden shadow-xl">
-              <Image
-                src={content?.course?.images?.groupPhoto2 || '/course-group-2.webp'}
-                alt="Students Preparing for Jump"
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div className="relative h-[300px] rounded-2xl overflow-hidden shadow-xl">
-              <Image
-                src={content?.course?.images?.groupPhoto3 || '/course-group-3.webp'}
-                alt="Instructor with Student"
-                fill
-                className="object-cover"
-              />
-            </div>
-          </motion.div>
-          {}
+          
           <div className="max-w-3xl mx-auto">
             <Accordion type="single" collapsible className="space-y-4">
               {faqData.map((faq: { question: string; answer: string }, index: number) => (
@@ -91,7 +55,6 @@ export function KursFAQ() {
           </div>
         </div>
       </section>
-      {}
       <section className="py-24 lg:py-32 bg-linear-to-b from-leaf to-sky text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div

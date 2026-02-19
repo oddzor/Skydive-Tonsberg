@@ -56,11 +56,12 @@ export async function POST(request: Request) {
         console.log('Successfully saved to Blob storage:', blob.url);
         return NextResponse.json({ success: true, storage: 'blob', url: blob.url });
       } catch (blobError) {
-        console.error('Blob storage error:', blobError);
-        return NextResponse.json({ 
-          error: 'Failed to save to Blob Storage',
-          details: blobError instanceof Error ? blobError.message : 'Unknown error'
-        }, { status: 500 });
+        console.error('Blob storage error, falling back to local file:', blobError);
+        // Fall back to local file storage
+        const { writeFile } = await import('fs/promises');
+        await writeFile(LOCAL_CONTENT_FILE, jsonString);
+        console.log('Successfully saved to local file (blob fallback)');
+        return NextResponse.json({ success: true, storage: 'local-fallback' });
       }
     } else {
       const { writeFile } = await import('fs/promises');

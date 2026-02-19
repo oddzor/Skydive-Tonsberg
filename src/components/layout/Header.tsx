@@ -11,7 +11,6 @@ import { useLanguage } from "@/contexts/LanguageContext";
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [showMobileLogo, setShowMobileLogo] = useState(true);
   const [showHeader, setShowHeader] = useState(true);
   const { language, setLanguage, t } = useLanguage();
   const navigation = [
@@ -22,6 +21,7 @@ export function Header() {
   ];
   const rightNavigation = [
     { name: t('nav.forJumpers'), href: "/for-hoppere", external: false },
+    { name: t('nav.faq'), href: "/faq", external: false },
     { name: t('nav.jumpCalendar'), href: "https://www.skydivetonsberg.no/hoppkalender-1", external: true },
   ];
   useEffect(() => {
@@ -32,11 +32,9 @@ export function Header() {
         const heroThreshold = window.innerHeight * 0.9;
         setShowHeader(window.scrollY > heroThreshold);
         setScrolled(window.scrollY > heroThreshold + 50);
-        setShowMobileLogo(window.scrollY > 600);
       } else {
         setShowHeader(true);
         setScrolled(true);
-        setShowMobileLogo(true);
       }
     };
     handleScroll(); 
@@ -49,23 +47,18 @@ export function Header() {
       animate={{ y: showHeader ? 0 : -100 }}
       transition={{ duration: 0.5, ease: "easeOut" as const }}
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        scrolled
-          ? "bg-background/95 backdrop-blur-md shadow-lg border-b border-border/50"
-          : "bg-transparent"
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent",
+        scrolled && "lg:bg-background/95 lg:backdrop-blur-md lg:shadow-lg lg:border-b lg:border-border/50"
       )}
     >
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          {}
+        <div className="hidden lg:flex items-center justify-between h-20">
+
           <Link href="/" className="flex items-center gap-3 group">
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className={cn(
-                "relative transition-opacity duration-300",
-                !showMobileLogo && "md:opacity-100 opacity-0"
-              )}
+              className="relative"
             >
               <Image
                 src="/Skydive_Tonsberg_hero_header.png"
@@ -78,8 +71,8 @@ export function Header() {
               />
             </motion.div>
           </Link>
-          {}
-          <div className="hidden lg:flex items-center gap-1">
+
+          <div className="flex items-center gap-1">
             {navigation.map((item) => (
               <Link
                 key={item.name}
@@ -114,8 +107,8 @@ export function Header() {
               )
             ))}
           </div>
-          {}
-          <div className="hidden lg:flex items-center gap-4">
+
+          <div className="flex items-center gap-4">
             <Button
               variant="ghost"
               size="sm"
@@ -138,14 +131,19 @@ export function Header() {
               </a>
             </Button>
           </div>
-          {}
-          <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
-            <SheetTrigger asChild className="lg:hidden">
-              <Button variant="ghost" size="icon" className="relative">
-                <Menu className="h-6 w-6" />
-                <span className="sr-only">{t('nav.openMenu')}</span>
-              </Button>
-            </SheetTrigger>
+        </div>
+
+        <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
+          <SheetTrigger asChild className="lg:hidden">
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              className="fixed top-4 right-4 lg:relative lg:top-0 lg:right-0 z-50 bg-background/80 backdrop-blur-sm lg:bg-transparent"
+            >
+              <Menu className="h-6 w-6" />
+              <span className="sr-only">{t('nav.openMenu')}</span>
+            </Button>
+          </SheetTrigger>
             <SheetContent side="right" className="w-full sm:w-80 p-0">
               <SheetTitle className="sr-only">{t('nav.navigationMenu')}</SheetTitle>
               <div className="flex flex-col h-full">
@@ -240,7 +238,6 @@ export function Header() {
               </div>
             </SheetContent>
           </Sheet>
-        </div>
       </nav>
     </motion.header>
   );

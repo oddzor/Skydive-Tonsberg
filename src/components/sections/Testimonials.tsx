@@ -97,7 +97,7 @@ export function Testimonials() {
   return (
     <section className="py-24 lg:py-32 bg-linear-to-b from-background to-muted/30 overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {}
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -115,7 +115,7 @@ export function Testimonials() {
             {t('home.testimonials.description')}
           </p>
         </motion.div>
-        {}
+
         <motion.div
           ref={ref}
           initial={{ opacity: 0 }}
@@ -123,7 +123,7 @@ export function Testimonials() {
           transition={{ duration: 0.6 }}
           className="relative"
         >
-          {}
+
           <div className="hidden lg:grid lg:grid-cols-3 gap-8">
             {visibleReviews.map((review, index) => (
               <motion.div
@@ -136,7 +136,7 @@ export function Testimonials() {
               </motion.div>
             ))}
           </div>
-          {}
+
           <div className="lg:hidden">
             <motion.div
               key={currentIndex}
@@ -148,7 +148,7 @@ export function Testimonials() {
               <ReviewCard review={reviews[currentIndex]} />
             </motion.div>
           </div>
-          {}
+
           <div className="flex justify-center items-center gap-4 mt-10">
             <Button
               variant="outline"
@@ -184,7 +184,7 @@ export function Testimonials() {
             </Button>
           </div>
         </motion.div>
-        {}
+
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -230,9 +230,9 @@ function ReviewCard({ review }: { review: Review }) {
   return (
     <Card className="h-full border-0 shadow-lg bg-card flex flex-col">
       <CardContent className="p-6 flex flex-col flex-1">
-        {}
+
         <Quote className="w-10 h-10 text-sky/20 mb-4 shrink-0" />
-        {}
+
         <div className="flex gap-1 mb-4 shrink-0">
           {[...Array(5)].map((_, i) => (
             <Star
@@ -245,7 +245,7 @@ function ReviewCard({ review }: { review: Review }) {
             />
           ))}
         </div>
-        {}
+
         <div className="mb-6 flex-1 min-h-0">
           <p className="text-foreground/80 leading-relaxed">
             &ldquo;{displayText}&rdquo;
@@ -264,7 +264,7 @@ function ReviewCard({ review }: { review: Review }) {
             </a>
           )}
         </div>
-        {}
+
         <div className="flex items-center gap-3 pt-4 border-t border-border shrink-0">
           <div className="w-10 h-10 rounded-full bg-gradient-brand flex items-center justify-center text-white font-semibold">
             {review.author_name.charAt(0)}

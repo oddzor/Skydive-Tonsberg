@@ -1,7 +1,6 @@
 'use client';
 import {
   TandemHero,
-  TandemFeaturedImage,
   TandemGallery,
   TandemHighlights,
   TandemPricing,
@@ -14,7 +13,6 @@ export function TandemContent() {
   return (
     <>
       <TandemHero />
-      <TandemFeaturedImage />
       <TandemGallery />
       <TandemHighlights />
       <TandemPricing />

@@ -79,6 +79,17 @@ export interface CMSContent {
     kurs: FAQ[];
     forHoppere: FAQ[];
   };
+  home?: {
+    images?: {
+      aboutGrid1?: string;
+      aboutGrid2?: string;
+      aboutGrid3?: string;
+      aboutGrid4?: string;
+      serviceTandem?: string;
+      serviceAff?: string;
+      serviceExperienced?: string;
+    };
+  };
   course: {
     modules: {
       groundSchool: CourseModule;
@@ -90,11 +101,8 @@ export interface CMSContent {
     requirements: string[];
     videoUrl?: string;
     images?: {
-      heroPhoto: string;
       classroom: string;
       studentInAction: string;
-      registration: string;
-      freefallProgression: string;
       soloStudent: string;
       instructorCoaching: string;
       packingCourse: string;
@@ -108,7 +116,6 @@ export interface CMSContent {
     requirements: string[];
     videoUrl?: string;
     images?: {
-      heroPhoto: string;
       galleryWide1: string;
       galleryRect1: string;
       galleryRect2: string;

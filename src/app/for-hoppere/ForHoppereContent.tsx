@@ -84,7 +84,7 @@ export function ForHoppereContent() {
   const hoppfeltbriefImages = getHoppfeltbriefImages(t);
   return (
     <>
-      {}
+
       <AnimatePresence>
         {selectedImage && (
           <motion.div
@@ -121,7 +121,7 @@ export function ForHoppereContent() {
           </motion.div>
         )}
       </AnimatePresence>
-      {}
+
       <section className="pt-32 pb-16 lg:pt-40 lg:pb-20 bg-gradient-hero">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -145,7 +145,7 @@ export function ForHoppereContent() {
                 {t("forHoppere.hero.subDescription")}
               </p>
             </div>
-            {}
+
             <div className="grid md:grid-cols-3 gap-4">
               <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
                 <CardContent className="p-6">
@@ -215,7 +215,7 @@ export function ForHoppereContent() {
           </motion.div>
         </div>
       </section>
-      {}
+
       <section className="py-10 bg-sky text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -238,7 +238,7 @@ export function ForHoppereContent() {
           </div>
         </div>
       </section>
-      {}
+
       <section className="py-8 bg-muted/50 border-b">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap justify-center gap-3">
@@ -254,7 +254,7 @@ export function ForHoppereContent() {
           </div>
         </div>
       </section>
-      {}
+
       <section id="fornye" className="py-16 bg-gradient-hero">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -290,7 +290,7 @@ export function ForHoppereContent() {
           </motion.div>
         </div>
       </section>
-      {}
+
       <section id="bunkhouse" className="py-24 lg:py-32 bg-muted/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -314,7 +314,7 @@ export function ForHoppereContent() {
               className="bg-gradient-brand hover:opacity-90 text-white font-semibold"
             >
               <a
-                href="https://calendly.com/skydive-tonsberg-bunkhouse"
+                href="https://www.supersaas.com/schedule/SkydiveTonsberg/Bunkhouse"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -390,7 +390,7 @@ export function ForHoppereContent() {
           </div>
         </div>
       </section>
-      {}
+
       <section id="burbleme" className="py-24 lg:py-32 bg-gradient-hero">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -423,7 +423,7 @@ export function ForHoppereContent() {
             </Button>
           </motion.div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {}
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -455,7 +455,7 @@ export function ForHoppereContent() {
                 </CardContent>
               </Card>
             </motion.div>
-            {}
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -493,7 +493,7 @@ export function ForHoppereContent() {
                 </CardContent>
               </Card>
             </motion.div>
-            {}
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -532,7 +532,7 @@ export function ForHoppereContent() {
           </div>
         </div>
       </section>
-      {}
+
       <section id="hoppfeltbrief" className="py-24 lg:py-32 bg-muted/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -551,7 +551,7 @@ export function ForHoppereContent() {
               {t("forHoppere.hoppfeltbrief.description")}
             </p>
           </motion.div>
-          {}
+
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12 max-w-4xl mx-auto">
             {hoppfeltbriefImages.map((image, index) => (
               <motion.button
@@ -571,13 +571,13 @@ export function ForHoppereContent() {
                   fill
                   className="object-cover transition-transform group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                   <div className="bg-white/20 backdrop-blur-sm rounded-full p-3">
                     <ZoomIn className="w-6 h-6 text-white" />
                   </div>
                 </div>
-                <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/80 to-transparent">
+                <div className="absolute bottom-0 left-0 right-0 p-3 bg-linear-to-t from-black/80 to-transparent">
                   <p className="text-white text-sm font-medium text-center">
                     {image.title}
                   </p>
@@ -589,7 +589,7 @@ export function ForHoppereContent() {
             {t("forHoppere.hoppfeltbrief.clickToZoom")}
           </p>
           <div className="grid lg:grid-cols-2 gap-12">
-            {}
+
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -614,7 +614,7 @@ export function ForHoppereContent() {
                 </CardContent>
               </Card>
             </motion.div>
-            {}
+
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -666,7 +666,7 @@ export function ForHoppereContent() {
           </div>
         </div>
       </section>
-      {}
+
       <section id="priser" className="py-24 lg:py-32 bg-gradient-hero">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -683,15 +683,15 @@ export function ForHoppereContent() {
             </h2>
           </motion.div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-            {}
-            <Card className="border-0 shadow-lg">
-              <CardHeader className="bg-sky text-white rounded-t-xl">
+
+            <Card className="border-0 shadow-lg overflow-hidden p-0">
+              <CardHeader className="bg-sky text-white">
                 <CardTitle className="flex items-center gap-2">
                   <Plane className="w-5 h-5" />
                   {t("forHoppere.pricing.jumpPrices")}
                 </CardTitle>
               </CardHeader>
-              <CardContent className="pt-6">
+              <CardContent className="pt-6 px-6 pb-6">
                 <ul className="space-y-3">
                   {pricing.map((item) => (
                     <li key={item.name} className="flex justify-between items-center">
@@ -707,7 +707,7 @@ export function ForHoppereContent() {
                 </ul>
               </CardContent>
             </Card>
-            {}
+
               <Card className="border-0 shadow-lg">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-lg">
@@ -726,7 +726,7 @@ export function ForHoppereContent() {
                 </ul>
               </CardContent>
             </Card>
-            {}
+
             <Card className="border-0 shadow-lg">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-lg">
@@ -745,7 +745,7 @@ export function ForHoppereContent() {
                 </ul>
               </CardContent>
             </Card>
-            {}
+
             <Card className="border-0 shadow-lg">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-lg">
@@ -764,7 +764,7 @@ export function ForHoppereContent() {
                 </ul>
               </CardContent>
             </Card>
-            {}
+
             <Card className="border-0 shadow-lg">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-lg">
@@ -783,7 +783,7 @@ export function ForHoppereContent() {
                 </ul>
               </CardContent>
             </Card>
-            {}
+
             <Card className="border-0 shadow-lg">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-lg">
@@ -817,7 +817,7 @@ export function ForHoppereContent() {
               </CardContent>
             </Card>
           </div>
-          {}
+
           <motion.div
             ref={ref}
             initial={{ opacity: 0, y: 30 }}
@@ -856,8 +856,129 @@ export function ForHoppereContent() {
           </motion.div>
         </div>
       </section>
-      {}
-      <section id="flyet" className="py-24 lg:py-32 bg-muted/30">
+
+      <section id="rental" className="py-24 lg:py-32 bg-muted/30">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center max-w-3xl mx-auto mb-16"
+          >
+            <span className="inline-block px-3 py-1 text-sm font-medium text-sky bg-sky/10 rounded-full mb-4">
+              {t("forHoppere.rental.badge")}
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
+              {t("forHoppere.rental.title")} <span className="text-gradient">{t("forHoppere.rental.titleHighlight")}</span>
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              {t("forHoppere.rental.description")}
+            </p>
+          </motion.div>
+          <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <Card className="h-full border-0 shadow-lg">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Briefcase className="w-5 h-5 text-sky" />
+                    {t("forHoppere.rental.included")}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <p className="text-muted-foreground">
+                    {t("forHoppere.rental.available")}
+                  </p>
+                  <ul className="space-y-3">
+                    <li className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-leaf shrink-0 mt-0.5" />
+                      <span>{t("forHoppere.rental.features.complete")}</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-leaf shrink-0 mt-0.5" />
+                      <span>{t("forHoppere.rental.features.maintained")}</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-leaf shrink-0 mt-0.5" />
+                      <span>{t("forHoppere.rental.features.aad")}</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-leaf shrink-0 mt-0.5" />
+                      <span>{t("forHoppere.rental.features.sizes")}</span>
+                    </li>
+                  </ul>
+                  <div className="pt-4 border-t">
+                    <h4 className="font-semibold text-foreground mb-3">{t("forHoppere.rental.requirements")}</h4>
+                    <ul className="space-y-2 text-sm text-muted-foreground">
+                      <li>• {t("forHoppere.rental.requirementsList.license")}</li>
+                      <li>• {t("forHoppere.rental.requirementsList.insurance")}</li>
+                      <li>• {t("forHoppere.rental.requirementsList.currency")}</li>
+                    </ul>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <Card className="h-full border-0 shadow-lg">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <CreditCard className="w-5 h-5 text-sky" />
+                    {t("forHoppere.pricing.equipment")}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-6">
+                  <div className="space-y-4">
+                    <div className="p-4 bg-muted rounded-xl">
+                      <div className="flex justify-between items-center mb-1">
+                        <span className="font-semibold text-foreground">{t("forHoppere.rental.pricing.rental")}</span>
+                        <span className="text-2xl font-bold text-sky">{content?.pricing?.forHoppere?.equipment?.rentalRig || 215} kr</span>
+                      </div>
+                      <p className="text-xs text-muted-foreground">{t("forHoppere.rental.pricing.perJump")}</p>
+                    </div>
+                    <div className="p-4 bg-muted rounded-xl">
+                      <div className="flex justify-between items-center mb-1">
+                        <span className="font-semibold text-foreground">{t("forHoppere.rental.pricing.student")}</span>
+                        <span className="text-2xl font-bold text-sky">{content?.pricing?.forHoppere?.equipment?.studentRig || 125} kr</span>
+                      </div>
+                      <p className="text-xs text-muted-foreground">{t("forHoppere.rental.pricing.perJump")}</p>
+                    </div>
+                  </div>
+                  <div className="p-4 bg-sky/10 rounded-xl border border-sky/20">
+                    <p className="text-sm text-foreground">
+                      <Info className="w-4 h-4 inline mr-2" />
+                      {t("forHoppere.rental.contactText")}
+                    </p>
+                  </div>
+                  <Button
+                    asChild
+                    size="lg"
+                    className="w-full bg-gradient-brand hover:opacity-90 text-white font-semibold"
+                  >
+                    <a
+                      href="https://www.supersaas.com/schedule/SkydiveTonsberg/Rental_Rigs"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Briefcase className="mr-2 w-5 h-5" />
+                      {t("forHoppere.rental.bookButton")}
+                      <ExternalLink className="ml-2 w-4 h-4" />
+                    </a>
+                  </Button>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      <section id="flyet" className="py-24 lg:py-32 bg-gradient-hero">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -925,7 +1046,7 @@ export function ForHoppereContent() {
           </div>
         </div>
       </section>
-      {}
+
       <section id="forsikring" className="py-24 lg:py-32 bg-gradient-hero">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -993,7 +1114,7 @@ export function ForHoppereContent() {
           </div>
         </div>
       </section>
-      {}
+
       <section id="varsling" className="py-24 lg:py-32 bg-muted/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -1045,7 +1166,7 @@ export function ForHoppereContent() {
           </motion.div>
         </div>
       </section>
-      {}
+
       <section id="vaer" className="py-24 lg:py-32 bg-gradient-hero">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -1106,7 +1227,7 @@ export function ForHoppereContent() {
               </Card>
             </motion.div>
           </div>
-          {}
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -1131,7 +1252,7 @@ export function ForHoppereContent() {
           </motion.div>
         </div>
       </section>
-      {}
+
       <section className="py-24 lg:py-32 bg-muted/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -1172,11 +1293,11 @@ export function ForHoppereContent() {
           </motion.div>
         </div>
       </section>
-      {}
+
       <section className="py-24 lg:py-32 bg-gradient-hero">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12">
-            {}
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -1200,7 +1321,7 @@ export function ForHoppereContent() {
                     <div>
                       <p className="font-semibold text-foreground">{t("forHoppere.contact.phone")}</p>
                       <a href="tel:+4733380670" className="text-muted-foreground hover:text-sky">
-                        333 80 670
+                        33 38 06 70
                       </a>
                     </div>
                   </div>
@@ -1227,7 +1348,7 @@ export function ForHoppereContent() {
                 </CardContent>
               </Card>
             </motion.div>
-            {}
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -1279,7 +1400,7 @@ export function ForHoppereContent() {
           </div>
         </div>
       </section>
-      {}
+
       <section className="py-24 lg:py-32 bg-gradient-brand">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div

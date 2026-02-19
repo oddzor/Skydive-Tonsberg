@@ -66,19 +66,19 @@ export function HeroVideo({
     >
       {shouldLoad && (
         <>
-          {}
+
           <source
             src={mobileSrc}
             type="video/webm"
             media="(max-width: 768px)"
           />
-          {}
+
           <source
             src={desktopSrc}
             type="video/webm"
             media="(min-width: 769px)"
           />
-          {}
+
           <source src={desktopSrc} type="video/webm" />
         </>
       )}

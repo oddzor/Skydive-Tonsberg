@@ -5,6 +5,7 @@
     "forJumpers": "For Jumpers",
     "tandem": "Tandem",
     "contact": "Contact",
+    "faq": "FAQ",
     "jumpCalendar": "Jump Calendar",
     "bookTandem": "Book Tandem Jump",
     "openMenu": "Open menu",
@@ -39,6 +40,7 @@
       "burbleme": "BurbleMe",
       "dropzoneBrief": "Dropzone Brief",
       "pricing": "Pricing",
+      "rental": "Equipment Rental",
       "aircraft": "Aircraft",
       "insurance": "Insurance",
       "reporting": "Reporting",
@@ -266,6 +268,33 @@
         "bigDealPrice": "285 NOK/jump",
         "bigDealDesc": "Deposit 10 000 NOK → 100 NOK discount per jump. Break even at 100 jumps. Pays off at 150+ jumps.",
         "warning": "NOTE! You buy jumper deals at your own risk! Deals do not apply at events with higher slot prices. If you get a medical certificate stating you cannot jump anymore this season, we will convert to normal price."
+      }
+    },
+    "rental": {
+      "badge": "Equipment Rental",
+      "title": "Parachute rig",
+      "titleHighlight": "rental",
+      "description": "The club has several rigs available for rent for visiting jumpers and members who need extra equipment.",
+      "available": "We have several complete parachute systems available for rent, both for experienced jumpers and students.",
+      "included": "What's included:",
+      "features": {
+        "complete": "Complete parachute rig with main and reserve canopy",
+        "maintained": "Regularly maintained and serviced equipment",
+        "aad": "Automatic Activation Device (AAD) on all rigs",
+        "sizes": "Different sizes available"
+      },
+      "pricing": {
+        "rental": "Rig rental (experienced jumper)",
+        "student": "Student rig rental",
+        "perJump": "per jump"
+      },
+      "bookButton": "Book rig",
+      "contactText": "Contact us in advance to ensure we have suitable equipment available for your jump day.",
+      "requirements": "Requirements:",
+      "requirementsList": {
+        "license": "Valid parachute license or competency certificate",
+        "insurance": "Valid insurance",
+        "currency": "Current on maintenance requirements for your level"
       }
     },
     "aircraft": {
@@ -666,6 +695,22 @@
       "title": "Tandem Gallery",
       "description": "See the amazing views and experience"
     },
+    "giftCard": {
+      "badge": "Perfect Gift",
+      "title": "Gift Cards",
+      "description": "Give the gift of a lifetime! Our gift cards are valid for 3 years and can be used for tandem jumps with or without video.",
+      "weekday": "Gift Card Tandem Weekday",
+      "weekend": "Gift Card Tandem Weekend",
+      "weekdayFull": "Gift Card Tandem + Full Video (Weekday)",
+      "weekendFull": "Gift Card Tandem + Full Video (Weekend)",
+      "fullPackageDesc": "Includes tandem jump + full video package",
+      "shopButton": "Buy gift card"
+    },
+    "cta": {
+      "title": "Ready to jump?",
+      "description": "Book your tandem jump today or give an unforgettable experience!",
+      "giftCard": "Buy gift card"
+    },
     "faq": {
       "title": "Frequently asked questions",
       "q1": {
@@ -892,7 +937,7 @@
       "accommodation": "Free accommodation during course week (bunk bed)"
     },
     "requirements": {
-      "title": "Requirements to participate",
+      "title": "Requirements to pass",
       "age": "18 years old (or 16 with written consent from both parents)",
       "medical": "Approved medical certificate (must be presented upon arrival)",
       "weight": "Maximum weight 100 kg",
@@ -944,9 +989,9 @@
         "label": "Address",
         "value": "Tønsberg Airport, Jarlsberg"
       },
-      "hours": {
-        "label": "Open",
-        "value": "Jump weekends Sat-Sun in season"
+      "phone": {
+        "label": "Phone",
+        "value": "33 38 06 70"
       }
     },
     "social": {

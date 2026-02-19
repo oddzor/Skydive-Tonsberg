@@ -10,12 +10,10 @@ export function TandemGallery() {
   return (
     <section className="py-24 lg:py-32 bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {}
         <SectionHeader
           title={t('tandem.gallery.title') || 'Tandem Gallery'}
           description={t('tandem.gallery.description') || 'See the amazing views and experience'}
         />
-        {}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -27,9 +25,11 @@ export function TandemGallery() {
             alt="Tandem Skydiving View"
             fill
             className="object-cover"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
+            quality={90}
+            priority
           />
         </motion.div>
-        {}
         <div className="grid md:grid-cols-2 gap-8 mb-8">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -42,6 +42,8 @@ export function TandemGallery() {
               alt="Tandem Jump Preparation"
               fill
               className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              quality={90}
             />
           </motion.div>
           <motion.div
@@ -55,10 +57,11 @@ export function TandemGallery() {
               alt="In Freefall"
               fill
               className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              quality={90}
             />
           </motion.div>
         </div>
-        {}
         <div className="grid md:grid-cols-3 gap-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -71,6 +74,8 @@ export function TandemGallery() {
               alt="Happy Tandem Student"
               fill
               className="object-cover"
+              sizes="(max-width: 768px) 100vw, 33vw"
+              quality={90}
             />
           </motion.div>
           <motion.div
@@ -85,6 +90,8 @@ export function TandemGallery() {
               alt="Canopy Flight"
               fill
               className="object-cover"
+              sizes="(max-width: 768px) 100vw, 33vw"
+              quality={90}
             />
           </motion.div>
           <motion.div
@@ -99,6 +106,8 @@ export function TandemGallery() {
               alt="Landing"
               fill
               className="object-cover"
+              sizes="(max-width: 768px) 100vw, 33vw"
+              quality={90}
             />
           </motion.div>
         </div>

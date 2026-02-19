@@ -1,5 +1,4 @@
 export { TandemHero } from './TandemHero';
-export { TandemFeaturedImage } from './TandemFeaturedImage';
 export { TandemGallery } from './TandemGallery';
 export { TandemHighlights } from './TandemHighlights';
 export { TandemPricing } from './TandemPricing';

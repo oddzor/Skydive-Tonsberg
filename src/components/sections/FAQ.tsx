@@ -17,7 +17,7 @@ export function FAQ() {
   return (
     <section className="py-24 lg:py-32 bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {}
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -35,7 +35,7 @@ export function FAQ() {
             {t('home.faq.description')}
           </p>
         </motion.div>
-        {}
+
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 30 }}

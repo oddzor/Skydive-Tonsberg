@@ -12,7 +12,7 @@ export function CTA() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   return (
     <section ref={ref} className="py-24 lg:py-32 relative overflow-hidden">
-      {}
+
       <div className="absolute inset-0 z-0">
         <Image
           src="/cta-background.webp"
@@ -23,7 +23,7 @@ export function CTA() {
         <div className="absolute inset-0 bg-gradient-to-r from-sky/90 to-leaf/90" />
         <div className="absolute inset-0 bg-black/20" />
       </div>
-      {}
+
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         animate={isInView ? { opacity: 0.3, scale: 1 } : {}}
@@ -97,7 +97,7 @@ export function CTA() {
               </Link>
             </Button>
           </motion.div>
-          {}
+
           <motion.div
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}

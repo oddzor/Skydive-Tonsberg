@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { Shield, Mail, Database, Clock, UserCheck, FileText } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import type { Metadata } from "next";
 
 export default function PersonvernPage() {
   const { t } = useLanguage();
@@ -84,7 +83,7 @@ export default function PersonvernPage() {
                   className="bg-card rounded-xl p-8 border"
                 >
                   <div className="flex items-start gap-4 mb-4">
-                    <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-gradient-brand flex items-center justify-center">
+                    <div className="shrink-0 w-12 h-12 rounded-lg bg-gradient-brand flex items-center justify-center">
                       <section.icon className="w-6 h-6 text-white" />
                     </div>
                     <div className="flex-1">

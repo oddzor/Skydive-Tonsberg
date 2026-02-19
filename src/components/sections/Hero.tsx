@@ -21,23 +21,23 @@ export function Hero() {
       ref={ref}
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {}
+
       <motion.div
         style={{ scale }}
         className="absolute inset-0 z-0"
       >
         <HeroVideo
-          desktopSrc="/tandemhopp-optimized.webm"
-          mobileSrc="/tandemhopp-mobile.webm"
-          poster="/tandemhopp-poster.webp"
+          desktopSrc="/herovideo-optimized.webm"
+          mobileSrc="/herovideo-mobile.webm"
+          poster="/hero-poster.webp"
           className="w-full h-full object-cover"
           priority={true}
         />
-        {}
-        <div className="absolute inset-0 bg-linear-to-b from-black/40 via-black/20 to-black/60" />
-        <div className="absolute inset-0 bg-linear-to-r from-sky/10 to-leaf/10 mix-blend-overlay" />
+
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
+        <div className="absolute inset-0 bg-gradient-to-r from-sky/10 to-leaf/10 mix-blend-overlay" />
       </motion.div>
-      {}
+
       <motion.div
         style={{ y, opacity }}
         className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center"
@@ -110,7 +110,7 @@ export function Hero() {
           </motion.div>
         </motion.div>
       </motion.div>
-      {}
+
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

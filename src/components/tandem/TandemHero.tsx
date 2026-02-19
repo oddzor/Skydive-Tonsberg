@@ -1,6 +1,6 @@
 'use client';
 import { motion } from 'framer-motion';
-import { Camera, Calendar } from 'lucide-react';
+import { Camera, Calendar, Gift } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -32,7 +32,6 @@ export function TandemHero() {
           transition={{ duration: 0.6 }}
           className="max-w-6xl mx-auto"
         >
-          {}
           <div className="mb-8 text-center">
             <span className="inline-block px-4 py-2 mb-4 text-sm font-medium bg-sky/10 rounded-full text-sky border border-sky/30">
               {t('tandem.hero.badge')}
@@ -45,16 +44,12 @@ export function TandemHero() {
               {t('tandem.hero.description')}
             </p>
           </div>
-          {}
           <VideoEmbed
             videoId={content?.tandem?.videoUrl}
             title="Tandem Skydiving at Skydive Tønsberg"
-            noVideoMessage="No video configured. Add a video ID in the CMS to display a video here."
             className="mb-12"
           />
-          {}
           <div className="grid md:grid-cols-2 gap-6 mb-8">
-            {}
             <Card className="border-2 border-sky/30 shadow-xl">
               <CardContent className="p-6">
                 <h3 className="text-2xl font-bold mb-4 text-sky">
@@ -92,7 +87,6 @@ export function TandemHero() {
                 </div>
               </CardContent>
             </Card>
-            {}
             <Card className="border-2 border-sky/30 shadow-xl">
               <CardContent className="p-6">
                 <h3 className="text-2xl font-bold mb-4 text-sky">
@@ -137,29 +131,45 @@ export function TandemHero() {
               </CardContent>
             </Card>
           </div>
-          {}
           <StatsGrid stats={keyStats} columns={3} className="mb-8" />
-          {}
           <div className="text-center">
-            <Button
-              asChild
-              size="lg"
-              className="bg-gradient-brand hover:opacity-90 text-white font-semibold px-12 py-6 text-lg shadow-xl"
-            >
-              <a
-                href="https://bookings.burblesoft.eu/551/18"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2"
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-4">
+              <Button
+                asChild
+                size="lg"
+                className="bg-gradient-brand hover:opacity-90 text-white font-semibold px-12 py-6 text-lg shadow-xl"
               >
-                <Calendar className="w-5 h-5" />
-                {t('tandem.hero.bookNowCTA')}
-              </a>
-            </Button>
+                <a
+                  href="https://bookings.burblesoft.eu/551/18"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2"
+                >
+                  <Calendar className="w-5 h-5" />
+                  {t('tandem.hero.bookNowCTA')}
+                </a>
+              </Button>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="border-2 hover:bg-muted/50 font-semibold px-12 py-6 text-lg"
+              >
+                <a
+                  href="https://store.burblesoft.com/?dz_id=551"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2"
+                >
+                  <Gift className="w-5 h-5" />
+                  {t('tandem.cta.giftCard')}
+                </a>
+              </Button>
+            </div>
             <p className="text-sm text-muted-foreground mt-4">
               {t('tandem.pricingCards.callUs')}{' '}
               <a href="tel:+4733380670" className="text-sky hover:underline font-semibold">
-                333 80 670
+              33 38 06 70
               </a>
             </p>
           </div>

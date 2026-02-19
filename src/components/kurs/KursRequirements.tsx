@@ -1,6 +1,6 @@
 'use client';
 import { motion } from 'framer-motion';
-import { CheckCircle2 } from 'lucide-react';
+import { CheckCircle2, FileText, Heart } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useKursData } from '@/hooks/useKursData';
@@ -29,7 +29,6 @@ export function KursRequirements() {
               </motion.div>
             ))}
           </div>
-          {}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -37,14 +36,16 @@ export function KursRequirements() {
           >
             <Card className="border-l-4 border-l-sky bg-card">
               <CardContent className="p-6">
-                <h3 className="font-bold text-lg mb-3">📝 {t('kurs.declaration.title')}</h3>
+                <h3 className="font-bold text-lg mb-3 flex items-center gap-2">
+                  <FileText className="w-5 h-5 text-sky" />
+                  {t('kurs.declaration.title')}
+                </h3>
                 <p className="text-sm text-muted-foreground italic leading-relaxed">
                   &ldquo;{t('kurs.declaration.text')}&rdquo;
                 </p>
               </CardContent>
             </Card>
           </motion.div>
-          {}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -53,7 +54,10 @@ export function KursRequirements() {
           >
             <Card className="border-0 shadow-lg bg-linear-to-br from-leaf/5 to-transparent">
               <CardContent className="p-6">
-                <h3 className="font-bold text-lg mb-3">💚 {t('kurs.support.title')}</h3>
+                <h3 className="font-bold text-lg mb-3 flex items-center gap-2">
+                  <Heart className="w-5 h-5 text-leaf" />
+                  {t('kurs.support.title')}
+                </h3>
                 <div className="space-y-3 text-sm text-muted-foreground">
                   <p>• {t('kurs.support.facebook')}</p>
                   <p>• {t('kurs.support.mentor')}</p>
@@ -64,7 +68,7 @@ export function KursRequirements() {
                     </a>
                     {' '}{t('kurs.support.orCall')}{' '}
                     <a href="tel:+4733380670" className="text-sky hover:underline">
-                      333 80 670
+                    33 38 06 70
                     </a>
                   </p>
                 </div>

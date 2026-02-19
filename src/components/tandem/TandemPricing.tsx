@@ -48,7 +48,6 @@ export function TandemPricing() {
           badge={t('tandem.pricing.badge')}
           title={t('tandem.pricing.title')}
         />
-        {}
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12">
           {pricing.map((plan) => (
             <motion.div
@@ -79,7 +78,6 @@ export function TandemPricing() {
             </motion.div>
           ))}
         </div>
-        {}
         <div className="max-w-3xl mx-auto">
           <h3 className="text-2xl font-bold text-center mb-8">
             {t('tandem.pricing.media.title')}

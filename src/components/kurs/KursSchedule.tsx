@@ -16,7 +16,6 @@ export function KursSchedule() {
           title={t('kurs.schedule.title')}
           description={t('kurs.schedule.description')}
         />
-        {}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

@@ -51,7 +51,7 @@ export function Footer() {
           viewport={{ once: true, margin: "-100px" }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12"
         >
-          {}
+
           <motion.div variants={itemVariants} className="lg:col-span-1">
             <Link href="/" className="inline-block mb-6">
               <Image
@@ -81,7 +81,7 @@ export function Footer() {
               ))}
             </div>
           </motion.div>
-          {}
+
           <motion.div variants={itemVariants}>
             <h3 className="text-lg font-semibold mb-6">{t('footer.pages')}</h3>
             <ul className="space-y-3">
@@ -97,7 +97,7 @@ export function Footer() {
               ))}
             </ul>
           </motion.div>
-          {}
+
           <motion.div variants={itemVariants}>
             <h3 className="text-lg font-semibold mb-6">{t('footer.services')}</h3>
             <ul className="space-y-3">
@@ -116,7 +116,7 @@ export function Footer() {
               ))}
             </ul>
           </motion.div>
-          {}
+
           <motion.div variants={itemVariants}>
             <h3 className="text-lg font-semibold mb-6">{t('footer.contact')}</h3>
             <ul className="space-y-4">
@@ -147,7 +147,7 @@ export function Footer() {
           className="flex flex-col sm:flex-row justify-between items-center gap-4 text-background/50 text-sm"
         >
           <div className="flex items-center gap-3">
-            {}
+
             <button
               onClick={() => {
                 const clicks = parseInt(sessionStorage.getItem("keyholeClicks") || "0") + 1;

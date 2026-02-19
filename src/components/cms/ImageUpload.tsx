@@ -5,75 +5,107 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Upload, X, Image as ImageIcon } from 'lucide-react';
+
 interface ImageUploadProps {
   label: string;
   currentImage: string;
   imageName: string;
-  onImageUpdate: (newPath: string) => void;
+  onImageUpdate: (newPath: string, altText?: string) => void;
   helperText?: string;
+  currentAltText?: string;
 }
+
 export function ImageUpload({ 
   label, 
   currentImage, 
   imageName, 
   onImageUpdate,
-  helperText 
+  helperText,
+  currentAltText = ''
 }: ImageUploadProps) {
   const [uploading, setUploading] = useState(false);
   const [preview, setPreview] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [altText, setAltText] = useState(currentAltText);
+  const [pendingFile, setPendingFile] = useState<File | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
+
     const validTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp'];
     if (!validTypes.includes(file.type)) {
       setError('Please upload a JPEG, PNG, or WebP image');
       return;
     }
+
     if (file.size > 10 * 1024 * 1024) {
       setError('File size must be less than 10MB');
       return;
     }
+
     setError(null);
+    setPendingFile(file);
+
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setPreview(reader.result as string);
+    };
+    reader.readAsDataURL(file);
+  };
+
+  const handleUpload = async () => {
+    if (!pendingFile) return;
+    
+    if (!altText.trim()) {
+      setError('Alt text is required for accessibility');
+      return;
+    }
+
     setUploading(true);
+    setError(null);
+
     try {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setPreview(reader.result as string);
-      };
-      reader.readAsDataURL(file);
       const formData = new FormData();
-      formData.append('file', file);
+      formData.append('file', pendingFile);
       formData.append('imageName', imageName);
+
       const response = await fetch('/api/upload-image', {
         method: 'POST',
         body: formData,
       });
+
       const data = await response.json();
+
       if (!response.ok) {
         throw new Error(data.error || 'Failed to upload image');
       }
-      onImageUpdate(data.url);
+
+      onImageUpdate(data.url, altText);
+      setPendingFile(null);
+      setPreview(null);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to upload image');
-      setPreview(null);
     } finally {
       setUploading(false);
     }
   };
+
   const handleRemovePreview = () => {
     setPreview(null);
+    setPendingFile(null);
+    setAltText(currentAltText);
     if (fileInputRef.current) {
       fileInputRef.current.value = '';
     }
   };
+
   const currentImageToShow = preview || currentImage;
+
   return (
     <div className="space-y-3">
-      <Label>{label}</Label>
-      {}
-      {currentImageToShow && (
+      <Label>{label}</Label>{currentImageToShow && (
         <div className="relative w-full h-48 rounded-lg overflow-hidden border-2 border-border bg-muted">
           <Image
             src={currentImageToShow}
@@ -91,9 +123,7 @@ export function ImageUpload({
             </button>
           )}
         </div>
-      )}
-      {}
-      {!currentImageToShow && (
+      )}{!currentImageToShow && (
         <div className="w-full h-48 rounded-lg border-2 border-dashed border-border bg-muted flex items-center justify-center">
           <div className="text-center text-muted-foreground">
             <ImageIcon className="w-12 h-12 mx-auto mb-2 opacity-50" />
@@ -101,8 +131,26 @@ export function ImageUpload({
           </div>
         </div>
       )}
-      {}
-      <div className="flex gap-2">
+
+      {/* Alt text input - only show when preview exists */}
+      {preview && (
+        <div className="space-y-2">
+          <Label htmlFor={`alt-${imageName}`} className="text-sm font-medium">
+            Alt Text (Required) *
+          </Label>
+          <Input
+            id={`alt-${imageName}`}
+            type="text"
+            value={altText}
+            onChange={(e) => setAltText(e.target.value)}
+            placeholder="Describe the image (e.g., 'Tandem skydiver in freefall over fjord')"
+            className="w-full"
+          />
+          <p className="text-xs text-muted-foreground">
+            Describe what's in the image for screen readers and SEO
+          </p>
+        </div>
+      )}<div className="flex gap-2">
         <Input
           ref={fileInputRef}
           type="file"
@@ -111,29 +159,53 @@ export function ImageUpload({
           className="hidden"
           id={`file-${imageName}`}
         />
-        <Button
-          type="button"
-          variant="outline"
-          onClick={() => fileInputRef.current?.click()}
-          disabled={uploading}
-          className="w-full"
-        >
-          <Upload className="w-4 h-4 mr-2" />
-          {uploading ? 'Uploading...' : preview ? 'Change Image' : 'Upload New Image'}
-        </Button>
-      </div>
-      {}
-      {helperText && (
+        {!preview ? (
+          <Button
+            type="button"
+            variant="outline"
+            onClick={() => fileInputRef.current?.click()}
+            disabled={uploading}
+            className="w-full"
+          >
+            <Upload className="w-4 h-4 mr-2" />
+            Select Image
+          </Button>
+        ) : (
+          <>
+            <Button
+              type="button"
+              variant="default"
+              onClick={handleUpload}
+              disabled={uploading || !altText.trim()}
+              className="flex-1"
+            >
+              <Upload className="w-4 h-4 mr-2" />
+              {uploading ? 'Uploading...' : 'Confirm Upload'}
+            </Button>
+            <Button
+              type="button"
+              variant="outline"
+              onClick={handleRemovePreview}
+              disabled={uploading}
+            >
+              Cancel
+            </Button>
+          </>
+        )}
+      </div>{helperText && (
         <p className="text-xs text-muted-foreground">{helperText}</p>
-      )}
-      {}
-      {error && (
+      )}{error && (
         <p className="text-xs text-destructive">{error}</p>
-      )}
-      {}
-      <p className="text-xs text-muted-foreground">
-        Current: <code className="bg-muted px-1 py-0.5 rounded">{currentImage || 'Not set'}</code>
-      </p>
+      )}<div className="text-xs text-muted-foreground space-y-1">
+        <p>
+          Current: <code className="bg-muted px-1 py-0.5 rounded">{currentImage || 'Not set'}</code>
+        </p>
+        {currentAltText && (
+          <p>
+            Alt: <code className="bg-muted px-1 py-0.5 rounded">{currentAltText}</code>
+          </p>
+        )}
+      </div>
     </div>
   );
 }

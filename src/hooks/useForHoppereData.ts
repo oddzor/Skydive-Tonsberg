@@ -16,6 +16,7 @@ export function useForHoppereData() {
     { label: t("forHoppere.quickLinks.burbleme"), href: "#burbleme" },
     { label: t("forHoppere.quickLinks.dropzoneBrief"), href: "#hoppfeltbrief" },
     { label: t("forHoppere.quickLinks.pricing"), href: "#priser" },
+    { label: t("forHoppere.quickLinks.rental"), href: "#rental" },
     { label: t("forHoppere.quickLinks.aircraft"), href: "#flyet" },
     { label: t("forHoppere.quickLinks.insurance"), href: "#forsikring" },
     { label: t("forHoppere.quickLinks.reporting"), href: "#varsling" },
