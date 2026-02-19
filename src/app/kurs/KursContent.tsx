@@ -313,6 +313,7 @@ export function KursContent() {
                   alt="Solo AFF Student Flying"
                   fill
                   className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
               <div className="relative h-[350px] rounded-2xl overflow-hidden shadow-xl">
@@ -321,6 +322,7 @@ export function KursContent() {
                   alt="Instructor Coaching Student in Freefall"
                   fill
                   className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   unoptimized
                 />
               </div>
