@@ -845,8 +845,8 @@ export default function CMSDashboard() {
                         />
                         <ImageUpload
                           label="Grid Square Top Right"
-                          currentImage={content?.home?.images?.aboutGrid3 || "/AFF-student-exit.webp"}
-                          imageName="AFF-student-exit"
+                          currentImage={content?.home?.images?.aboutGrid3 || "/aff-student-exit.webp"}
+                          imageName="aff-student-exit"
                           onImageUpdate={(path) => updateValue(['home', 'images', 'aboutGrid3'], path)}
                           helperText="Square aspect ratio"
                         />

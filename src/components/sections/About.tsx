@@ -129,7 +129,7 @@ export function About() {
                   className="relative aspect-square rounded-2xl overflow-hidden shadow-xl"
                 >
                   <Image
-                    src={content?.home?.images?.aboutGrid3 || "/AFF-student-exit.webp"}
+                    src={content?.home?.images?.aboutGrid3 || "/aff-student-exit.webp"}
                     alt="AFF elev uthopp"
                     fill
                     className="object-cover"

@@ -18,7 +18,6 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { useCMSContent } from '@/hooks/useCMSContent';
 import {
   KursHero,
-  KursFeaturedImage,
   KursModules,
   KursSchedule,
   KursIncluded,
@@ -32,8 +31,6 @@ export function KursContent() {
     <>
 
       <KursHero />
-
-      <KursFeaturedImage />
 
       <KursModules />
 
