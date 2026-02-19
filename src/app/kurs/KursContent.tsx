@@ -321,6 +321,7 @@ export function KursContent() {
                   alt="Instructor Coaching Student in Freefall"
                   fill
                   className="object-cover"
+                  unoptimized
                 />
               </div>
             </motion.div>
