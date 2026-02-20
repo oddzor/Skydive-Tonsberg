@@ -16,7 +16,9 @@ export function HeroVideo({
 }: HeroVideoProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [shouldLoad, setShouldLoad] = useState(priority);
-  const [src, setSrc] = useState(desktopSrc);
+
+  const [src, setSrc] = useState<string | null>(null);
+  const movSrc = src ? src.replace(".webm", ".mov") : null;
   useEffect(() => {
     const pick = () => {
       setSrc(window.matchMedia("(max-width: 768px)").matches ? mobileSrc : desktopSrc);
@@ -27,42 +29,25 @@ export function HeroVideo({
     return () => mq.removeEventListener("change", pick);
   }, [mobileSrc, desktopSrc]);
 
+  // When the chosen src changes, force the video element to reload.
   useEffect(() => {
-    if (priority) {
-      return;
-    }
+    const video = videoRef.current;
+    if (!video || !src || !shouldLoad) return;
+    video.load();
+    video.play().catch(() => {});
+  }, [src, shouldLoad]);
+
+  useEffect(() => {
+    if (priority) return;
     const observer = new IntersectionObserver(
       (entries) => {
-        if (entries[0].isIntersecting) {
-          setShouldLoad(true);
-        }
+        if (entries[0].isIntersecting) setShouldLoad(true);
       },
       { threshold: 0.1, rootMargin: "100px" }
     );
-    if (videoRef.current) {
-      observer.observe(videoRef.current);
-    }
+    if (videoRef.current) observer.observe(videoRef.current);
     return () => observer.disconnect();
   }, [priority]);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video || !shouldLoad) return;
-    const handleCanPlayThrough = () => {
-      video.play().catch((error) => {
-        console.log("Video autoplay prevented:", error);
-      });
-    };
-    video.addEventListener("canplaythrough", handleCanPlayThrough);
-    video.addEventListener("loadeddata", handleCanPlayThrough);
-    if (video.readyState >= 3) {
-      handleCanPlayThrough();
-    }
-    return () => {
-      video.removeEventListener("canplaythrough", handleCanPlayThrough);
-      video.removeEventListener("loadeddata", handleCanPlayThrough);
-    };
-  }, [shouldLoad]);
 
   return (
     <video
@@ -70,12 +55,20 @@ export function HeroVideo({
       muted
       loop
       playsInline
+      autoPlay
       poster={poster}
       className={className}
       preload={priority ? "auto" : "metadata"}
       style={{ backgroundColor: "transparent" }}
     >
-      {shouldLoad && <source src={src} type="video/webm" />}
+      {shouldLoad && src && (
+        <>
+          {/* WebM for Chrome / Firefox / Android */}
+          <source src={src} type="video/webm" />
+          {/* MOV/H.264 fallback for iOS Safari, which does not support WebM */}
+          {movSrc && <source src={movSrc} type="video/mp4" />}
+        </>
+      )}
     </video>
   );
 }
