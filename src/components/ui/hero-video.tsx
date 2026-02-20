@@ -16,6 +16,17 @@ export function HeroVideo({
 }: HeroVideoProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [shouldLoad, setShouldLoad] = useState(priority);
+  const [src, setSrc] = useState(desktopSrc);
+  useEffect(() => {
+    const pick = () => {
+      setSrc(window.matchMedia("(max-width: 768px)").matches ? mobileSrc : desktopSrc);
+    };
+    pick();
+    const mq = window.matchMedia("(max-width: 768px)");
+    mq.addEventListener("change", pick);
+    return () => mq.removeEventListener("change", pick);
+  }, [mobileSrc, desktopSrc]);
+
   useEffect(() => {
     if (priority) {
       return;
@@ -33,6 +44,7 @@ export function HeroVideo({
     }
     return () => observer.disconnect();
   }, [priority]);
+
   useEffect(() => {
     const video = videoRef.current;
     if (!video || !shouldLoad) return;
@@ -51,6 +63,7 @@ export function HeroVideo({
       video.removeEventListener("loadeddata", handleCanPlayThrough);
     };
   }, [shouldLoad]);
+
   return (
     <video
       ref={videoRef}
@@ -60,28 +73,9 @@ export function HeroVideo({
       poster={poster}
       className={className}
       preload={priority ? "auto" : "metadata"}
-      style={{
-        backgroundColor: "transparent",
-      }}
+      style={{ backgroundColor: "transparent" }}
     >
-      {shouldLoad && (
-        <>
-
-          <source
-            src={mobileSrc}
-            type="video/webm"
-            media="(max-width: 768px)"
-          />
-
-          <source
-            src={desktopSrc}
-            type="video/webm"
-            media="(min-width: 769px)"
-          />
-
-          <source src={desktopSrc} type="video/webm" />
-        </>
-      )}
+      {shouldLoad && <source src={src} type="video/webm" />}
     </video>
   );
 }
