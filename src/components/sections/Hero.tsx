@@ -34,8 +34,8 @@ export function Hero() {
           priority={true}
         />
 
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
-        <div className="absolute inset-0 bg-gradient-to-r from-sky/10 to-leaf/10 mix-blend-overlay" />
+        <div className="absolute inset-0 bg-linear-to-b from-black/40 via-black/20 to-black/60" />
+        <div className="absolute inset-0 bg-linear-to-r from-sky/10 to-leaf/10 mix-blend-overlay" />
       </motion.div>
 
       <motion.div

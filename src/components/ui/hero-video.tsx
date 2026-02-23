@@ -28,8 +28,6 @@ export function HeroVideo({
     mq.addEventListener("change", pick);
     return () => mq.removeEventListener("change", pick);
   }, [mobileSrc, desktopSrc]);
-
-  // When the chosen src changes, force the video element to reload.
   useEffect(() => {
     const video = videoRef.current;
     if (!video || !src || !shouldLoad) return;
@@ -63,9 +61,7 @@ export function HeroVideo({
     >
       {shouldLoad && src && (
         <>
-          {/* WebM for Chrome / Firefox / Android */}
           <source src={src} type="video/webm" />
-          {/* MOV/H.264 fallback for iOS Safari, which does not support WebM */}
           {movSrc && <source src={movSrc} type="video/mp4" />}
         </>
       )}

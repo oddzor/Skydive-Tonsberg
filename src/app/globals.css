@@ -205,3 +205,15 @@
 html {
   scroll-padding-top: 80px;
 }
+
+/*
+ * Prevent Radix UI / shadcn Sheet from adding padding-right to the body on
+ * mobile when scroll is locked (there is no visible scrollbar on mobile, so
+ * the compensation padding just shifts page content left).
+ */
+@media (max-width: 1023px) {
+  body[data-scroll-locked] {
+    padding-right: 0 !important;
+    margin-right: 0 !important;
+  }
+}

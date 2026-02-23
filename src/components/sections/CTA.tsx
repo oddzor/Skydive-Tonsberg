@@ -1,7 +1,6 @@
 "use client";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Calendar, Phone } from "lucide-react";
 import Link from "next/link";
@@ -12,17 +11,6 @@ export function CTA() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   return (
     <section ref={ref} className="py-24 lg:py-32 relative overflow-hidden">
-
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="/cta-background.webp"
-          alt="Bakgrunn"
-          fill
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-sky/90 to-leaf/90" />
-        <div className="absolute inset-0 bg-black/20" />
-      </div>
 
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
