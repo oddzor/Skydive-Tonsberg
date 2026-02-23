@@ -79,7 +79,7 @@
       "questions": {
         "q1": {
           "question": "Hva er aldersgrensen for tandemhopp?",
-          "answer": "Du må ha fylt 18 år for å hoppe tandem. Er du mellom 16 og 18 år må du ha med skriftlig aksept fra begge foresatte. Er du over 80 år må du ha med godkjent legeerklæring."
+          "answer": "Du må ha fylt 18 år for å hoppe tandem. Er du mellom 15 og 18 år må du ha med skriftlig aksept fra begge foresatte. Er du over 80 år må du ha med godkjent legeerklæring."
         },
         "q2": {
           "question": "Hvor høyt hopper vi fra?",
@@ -212,7 +212,7 @@
     },
     "requirements": {
       "title": "Krav",
-      "age": "Fylt 18 år – eller fra 16 år med skriftlig aksept fra begge foresatte",
+      "age": "Fylt 18 år – eller fra 15 år med skriftlig aksept fra begge foresatte",
       "medical": "Godkjent legeerklæring hvis du er over 80 år",
       "weight": "Maksimal vekt 110 kg",
       "sober": "Ikke påvirket av rusmidler"
@@ -494,7 +494,7 @@
       "accommodation": "Gratis overnatting kursuka (køyeseng)"
     },
     "requirements": {
-      "title": "Krav for å bestå",
+      "title": "Krav for å delta",
       "age": "Fylt 18 år (eller 16 år med skriftlig aksept fra begge foresatte)",
       "medical": "Godkjent legeerklæring (må fremvises ved fremmøte)",
       "weight": "Maksimal vekt 100 kg",

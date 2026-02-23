@@ -1,4 +1,5 @@
 'use client';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { CheckCircle2 } from 'lucide-react';
@@ -9,6 +10,21 @@ import { SectionHeader } from '@/components/shared';
 export function KursSchedule() {
   const { t } = useLanguage();
   const { content } = useCMSContent();
+
+  // Pick the mobile-optimised crop on narrow viewports; only one image is loaded.
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 767px)');
+    setIsMobile(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
+
+  const classroomSrc = isMobile
+    ? '/course-classroom-mobile.webp'
+    : (content?.course?.images?.classroom || '/course-classroom.webp');
+
   return (
     <section className="py-24 lg:py-32 bg-gradient-hero">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -23,10 +39,12 @@ export function KursSchedule() {
           className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl mb-16 max-w-6xl mx-auto"
         >
           <Image
-            src={content?.course?.images?.classroom || '/course-classroom.webp'}
+            src={classroomSrc}
             alt="AFF Ground School Classroom"
             fill
             className="object-cover"
+            sizes="(max-width: 767px) 100vw, 72rem"
+            quality={90}
           />
         </motion.div>
         <div className="max-w-4xl mx-auto">

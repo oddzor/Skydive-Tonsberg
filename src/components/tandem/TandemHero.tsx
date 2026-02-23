@@ -19,7 +19,7 @@ export function TandemHero() {
       label: t('tandem.pricingCards.keyFacts.freefallLabel'),
     },
     {
-      value: '16 år',
+      value: '15 år',
       label: t('kurs.stats.minAge'),
     },
   ];
