@@ -15,6 +15,9 @@
     "switchToNorwegian": "Bytt til Norsk",
     "shop": "Gavekort"
   },
+  "hoppkalender": {
+    "description": "Oversikt over planlagte hoppdager og arrangementer ved Skydive Tønsberg."
+  },
   "home": {
     "hero": {
       "title": "Opplev",

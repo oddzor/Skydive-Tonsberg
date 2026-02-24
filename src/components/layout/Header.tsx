@@ -36,11 +36,7 @@ export function Header() {
   const rightNavigation = [
     { name: t("nav.forJumpers"), href: "/for-hoppere", external: false },
     { name: t("nav.faq"), href: "/faq", external: false },
-    {
-      name: t("nav.jumpCalendar"),
-      href: "https://www.skydivetonsberg.no/hoppkalender-1",
-      external: true,
-    },
+    { name: t("nav.jumpCalendar"), href: "/hoppkalender", external: false },
   ];
   useEffect(() => {
     const update = () => {
@@ -83,7 +79,7 @@ export function Header() {
         <div className="space-y-1">
           {navigation.map((item, index) => (
             <motion.div
-              key={item.name}
+              key={item.href}
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: index * 0.08 }}
@@ -105,7 +101,7 @@ export function Header() {
           <div className="space-y-1">
             {rightNavigation.map((item, index) => (
               <motion.div
-                key={item.name}
+                key={item.href}
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: (navigation.length + index) * 0.08 }}
@@ -218,7 +214,7 @@ export function Header() {
             <div className="flex items-center gap-1">
               {navigation.map((item) => (
                 <Link
-                  key={item.name}
+                  key={item.href}
                   href={item.href}
                   className="relative px-4 py-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors group"
                 >
@@ -230,7 +226,7 @@ export function Header() {
               {rightNavigation.map((item) =>
                 item.external ? (
                   <a
-                    key={item.name}
+                    key={item.href}
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -240,7 +236,7 @@ export function Header() {
                   </a>
                 ) : (
                   <Link
-                    key={item.name}
+                    key={item.href}
                     href={item.href}
                     className="relative px-4 py-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors group"
                   >

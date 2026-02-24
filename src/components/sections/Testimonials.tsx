@@ -59,10 +59,9 @@ export function Testimonials() {
           }
         }
       } catch {
-        // fallback reviews already set as default state
       }
     };
-    fetchReviews();
+    fetchReviews(); 
   }, []);
   const nextReview = () => {
     setCurrentIndex((prev) => (prev + 3) % reviews.length);
@@ -228,8 +227,8 @@ function ReviewCard({ review }: { review: Review }) {
   };
   const googleMapsUrl = "https://www.google.com/maps/search/?api=1&query=Skydive+Tønsberg";
   return (
-    <Card className="h-full border-0 shadow-lg bg-card flex flex-col">
-      <CardContent className="p-6 flex flex-col flex-1">
+    <Card className="h-[400px] border-0 shadow-lg bg-card flex flex-col">
+      <CardContent className="p-6 flex flex-col h-full">
 
         <Quote className="w-10 h-10 text-sky/20 mb-4 shrink-0" />
 
@@ -246,8 +245,8 @@ function ReviewCard({ review }: { review: Review }) {
           ))}
         </div>
 
-        <div className="mb-6 flex-1 min-h-0">
-          <p className="text-foreground/80 leading-relaxed">
+        <div className="mb-6 flex-1 min-h-0 flex flex-col">
+          <p className="text-foreground/80 leading-relaxed overflow-hidden flex-1">
             &ldquo;{displayText}&rdquo;
           </p>
           {needsTruncation && (
@@ -255,7 +254,7 @@ function ReviewCard({ review }: { review: Review }) {
               href={googleMapsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sky hover:text-sky/80 text-sm font-medium inline-flex items-center gap-1 mt-2 transition-colors"
+              className="text-sky hover:text-sky/80 text-sm font-medium inline-flex items-center gap-1 mt-2 shrink-0 transition-colors"
             >
               {t('home.testimonials.readMore')}
               <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -15,6 +15,9 @@
     "switchToNorwegian": "Bytt til Norsk",
     "shop": "Web Shop"
   },
+  "hoppkalender": {
+    "description": "Overview of planned jump days and events at Skydive Tønsberg."
+  },
   "forHoppere": {
     "hero": {
       "badge": "For experienced jumpers",

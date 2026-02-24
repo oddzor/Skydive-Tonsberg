@@ -71,7 +71,7 @@ export function Footer() {
             <div className="flex gap-4">
               {footerLinks.social.map((item) => (
                 <a
-                  key={item.name}
+                  key={item.href}
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -88,7 +88,7 @@ export function Footer() {
             <h3 className="text-lg font-semibold mb-6">{t('footer.pages')}</h3>
             <ul className="space-y-3">
               {footerLinks.navigation.map((link) => (
-                <li key={link.name}>
+                <li key={link.href}>
                   <Link
                     href={link.href}
                     className="text-background/70 hover:text-background transition-colors text-sm"
@@ -104,7 +104,7 @@ export function Footer() {
             <h3 className="text-lg font-semibold mb-6">{t('footer.services')}</h3>
             <ul className="space-y-3">
               {footerLinks.external.map((link) => (
-                <li key={link.name}>
+                <li key={link.href}>
                   <a
                     href={link.href}
                     target="_blank"

@@ -18,14 +18,17 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     return "no";
   });
   const [translations, setTranslations] = useState<Record<string, unknown>>({});
+  const [translationsLoaded, setTranslationsLoaded] = useState(false);
   useEffect(() => {
+    setTranslationsLoaded(false);
     const loadTranslations = async () => {
       try {
         const response = await fetch(`/translations/${language}.json`);
         const data = await response.json();
         setTranslations(data);
+        setTranslationsLoaded(true);
       } catch {
-        // translations failed to load, keys will be returned as-is
+        setTranslationsLoaded(true);
       }
     };
     loadTranslations();
@@ -35,6 +38,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     localStorage.setItem("language", lang);
   };
   const t = (key: string): string => {
+    if (!translationsLoaded) return "";
     const keys = key.split(".");
     let value: unknown = translations;
     for (const k of keys) {
