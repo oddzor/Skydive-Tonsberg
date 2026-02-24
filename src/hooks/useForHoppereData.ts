@@ -89,40 +89,10 @@ export function useForHoppereData() {
     { day: t("forHoppere.contact.hours.saturday"), hours: "10:00 - 18:00" },
     { day: t("forHoppere.contact.hours.sunday"), hours: "13:00 - 18:00" },
   ];
-  const faqs = content?.faqs?.forHoppere || [
-    {
-      question: t("forHoppere.faq.questions.q1.question"),
-      answer: t("forHoppere.faq.questions.q1.answer"),
-    },
-    {
-      question: t("forHoppere.faq.questions.q2.question"),
-      answer: t("forHoppere.faq.questions.q2.answer"),
-    },
-    {
-      question: t("forHoppere.faq.questions.q3.question"),
-      answer: t("forHoppere.faq.questions.q3.answer"),
-    },
-    {
-      question: t("forHoppere.faq.questions.q4.question"),
-      answer: t("forHoppere.faq.questions.q4.answer"),
-    },
-    {
-      question: t("forHoppere.faq.questions.q5.question"),
-      answer: t("forHoppere.faq.questions.q5.answer"),
-    },
-    {
-      question: t("forHoppere.faq.questions.q6.question"),
-      answer: t("forHoppere.faq.questions.q6.answer"),
-    },
-    {
-      question: t("forHoppere.faq.questions.q7.question"),
-      answer: t("forHoppere.faq.questions.q7.answer"),
-    },
-    {
-      question: t("forHoppere.faq.questions.q8.question"),
-      answer: t("forHoppere.faq.questions.q8.answer"),
-    },
-  ];
+  const faqs = Array.from({ length: 8 }, (_, i) => ({
+    question: t(`forHoppere.faq.questions.q${i + 1}.question`),
+    answer: t(`forHoppere.faq.questions.q${i + 1}.answer`),
+  }));
   return {
     seasonInfo,
     quickLinks,

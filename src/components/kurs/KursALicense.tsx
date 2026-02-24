@@ -43,7 +43,6 @@ export function KursALicense() {
 
         <div className="max-w-5xl mx-auto">
           <div className="grid md:grid-cols-2 gap-8 mb-8">
-            {/* Progression requirements */}
             <Card className="border-0 shadow-lg">
               <CardContent className="p-8">
                 <h3 className="text-2xl font-bold mb-6">{t('kurs.aLicense.progressionTitle')}</h3>
@@ -76,7 +75,6 @@ export function KursALicense() {
               </CardContent>
             </Card>
 
-            {/* Before-license requirements */}
             <Card className="border-0 shadow-lg">
               <CardContent className="p-8">
                 <h3 className="text-2xl font-bold mb-6">{t('kurs.aLicense.beforeLicenseTitle')}</h3>
@@ -131,7 +129,6 @@ export function KursALicense() {
             </Card>
           </div>
 
-          {/* Image left, Congratulations card right */}
           <div className="grid md:grid-cols-2 md:gap-8 md:items-stretch mt-8 space-y-6 md:space-y-0">
             <motion.div
               initial={{ opacity: 0, y: 20 }}

@@ -8,12 +8,16 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { useCMSContent } from "@/hooks/useCMSContent";
 import { HelpCircle, Plane, GraduationCap, Users } from "lucide-react";
 
 export default function FAQPage() {
   const { t } = useLanguage();
-  const { content } = useCMSContent();
+
+  const buildFaqs = (prefix: string, count: number) =>
+    Array.from({ length: count }, (_, i) => ({
+      question: t(`${prefix}.q${i + 1}.question`),
+      answer: t(`${prefix}.q${i + 1}.answer`),
+    }));
 
   const faqCategories = [
     {
@@ -23,7 +27,7 @@ export default function FAQPage() {
       badge: "Tandem",
       color: "text-sky",
       bgColor: "bg-sky/10",
-      faqs: content?.faqs?.tandem || []
+      faqs: buildFaqs('tandem.faq', 8),
     },
     {
       id: "course",
@@ -32,7 +36,7 @@ export default function FAQPage() {
       badge: "AFF Kurs",
       color: "text-leaf",
       bgColor: "bg-leaf/10",
-      faqs: content?.faqs?.kurs || []
+      faqs: buildFaqs('kurs.faq', 6),
     },
     {
       id: "experienced",
@@ -41,8 +45,8 @@ export default function FAQPage() {
       badge: "For Hoppere",
       color: "text-purple-600",
       bgColor: "bg-purple-600/10",
-      faqs: content?.faqs?.forHoppere || []
-    }
+      faqs: buildFaqs('forHoppere.faq.questions', 8),
+    },
   ];
 
   return (

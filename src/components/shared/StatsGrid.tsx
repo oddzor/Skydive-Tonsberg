@@ -15,8 +15,6 @@ export function StatsGrid({
   columns = 3,
   className = '' 
 }: StatsGridProps) {
-  // On the smallest screens use 2 columns so cards aren't squished; expand to
-  // the requested column count from the sm breakpoint upward.
   const gridColsClass = {
     2: 'grid-cols-2',
     3: 'grid-cols-2 sm:grid-cols-3',

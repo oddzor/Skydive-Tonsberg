@@ -84,7 +84,6 @@ export async function POST(request: Request) {
         return NextResponse.json({ success: true, storage: 'blob', url: blob.url });
       } catch (blobError) {
         console.error('Blob storage error, falling back to local file:', blobError);
-        // Fall back to local file storage
         const { writeFile } = await import('fs/promises');
         await writeFile(LOCAL_CONTENT_FILE, jsonString);
         console.log('Successfully saved to local file (blob fallback)');

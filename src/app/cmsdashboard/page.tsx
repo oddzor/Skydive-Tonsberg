@@ -91,8 +91,7 @@ export default function CMSDashboard() {
       } else {
         setAuthError("Invalid password");
       }
-    } catch (error) {
-      console.error('Auth error:', error);
+    } catch {
       setAuthError("Authentication failed");
     } finally {
       setAuthLoading(false);
@@ -117,8 +116,7 @@ export default function CMSDashboard() {
         setMessage('Content reloaded successfully!');
         setTimeout(() => setMessage(""), 3000);
       }
-    } catch (error) {
-      console.error('Error fetching content:', error);
+    } catch {
       setMessage('Failed to load content');
     } finally {
       setLoading(false);
@@ -148,10 +146,8 @@ export default function CMSDashboard() {
         const errorMsg = data.error || 'Failed to save content';
         const details = data.details ? `\n\nDetails: ${data.details}` : '';
         setMessage(`❌ ${errorMsg}${details}`);
-        console.error('Save error:', data);
       }
-    } catch (error) {
-      console.error('Error saving content:', error);
+    } catch {
       setMessage('❌ Network error: Could not connect to API');
     } finally {
       setSaving(false);
@@ -162,8 +158,6 @@ export default function CMSDashboard() {
       if (!prev) return prev;
       const newContent = JSON.parse(JSON.stringify(prev));
       let current = newContent;
-      
-      // Create nested objects if they don't exist
       for (let i = 0; i < path.length - 1; i++) {
         if (!current[path[i]]) {
           current[path[i]] = {};

@@ -6,7 +6,6 @@ import Image from 'next/image';
 export interface Photo {
   src: string;
   alt: string;
-  /** CSS object-position value, e.g. "top", "center", "50% 30%". Defaults to "top". */
   objectPosition?: string;
 }
 
@@ -38,20 +37,12 @@ const ANIMATION_VARIANTS: Record<
 
 export interface PhotoCarouselProps {
   photos: Photo[];
-  /** Height of each image slot in px (default 300). */
   height?: number;
-  /** Number of columns on md+ screens (default 3). */
   columns?: 2 | 3;
-  /** Transition style for the mobile carousel (default "slide"). */
   animation?: CarouselAnimation;
-  /** Extra Tailwind classes applied to the outermost wrapper. */
   className?: string;
 }
 
-/**
- * Mobile (< md): auto-advancing carousel with dot indicators.
- * Desktop (md+): a `columns`-column image grid.
- */
 export function PhotoCarousel({
   photos,
   height = 300,
@@ -69,14 +60,13 @@ export function PhotoCarousel({
     return () => clearInterval(timer);
   }, [photos.length]);
 
-  const heightClass = `h-[${height}px]`;
+  const heightStyle = { height: `${height}px` };
   const desktopCols = columns === 2 ? 'md:grid-cols-2' : 'md:grid-cols-3';
 
   return (
     <div className={className}>
-      {/* ── Mobile: auto-advancing carousel ──────────────────────────── */}
       <div className="md:hidden">
-        <div className={`relative ${heightClass} rounded-2xl overflow-hidden shadow-xl bg-muted`}>
+        <div className="relative rounded-2xl overflow-hidden shadow-xl bg-muted" style={heightStyle}>
           <AnimatePresence mode="wait">
             <motion.div
               key={index}
@@ -111,7 +101,6 @@ export function PhotoCarousel({
         </div>
       </div>
 
-      {/* ── Desktop: grid ────────────────────────────────────────────── */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -121,7 +110,8 @@ export function PhotoCarousel({
         {photos.map((photo, i) => (
           <div
             key={i}
-            className={`relative ${heightClass} rounded-2xl overflow-hidden shadow-xl bg-muted`}
+            className="relative rounded-2xl overflow-hidden shadow-xl bg-muted"
+            style={heightStyle}
           >
             <Image
               src={photo.src}

@@ -10,7 +10,7 @@ export function CTA() {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   return (
-    <section ref={ref} className="py-24 lg:py-32 relative overflow-hidden">
+    <section ref={ref} className="py-24 lg:py-32 relative overflow-hidden bg-linear-to-b from-sky to-leaf text-white">
 
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}

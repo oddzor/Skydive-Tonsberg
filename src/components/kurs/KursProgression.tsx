@@ -142,8 +142,6 @@ export function KursProgression() {
               </CardContent>
             </Card>
           </motion.div>
-
-          {/* Progression images carousel */}
           <PhotoCarousel
             photos={[
               { src: progressionSoloSrc,     alt: 'Solo AFF Student Flying' },

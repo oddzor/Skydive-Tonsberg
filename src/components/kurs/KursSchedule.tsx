@@ -10,12 +10,11 @@ import { SectionHeader } from '@/components/shared';
 export function KursSchedule() {
   const { t } = useLanguage();
   const { content } = useCMSContent();
-
-  // Pick the mobile-optimised crop on narrow viewports; only one image is loaded.
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(() =>
+    typeof window !== 'undefined' && window.matchMedia('(max-width: 767px)').matches
+  );
   useEffect(() => {
     const mq = window.matchMedia('(max-width: 767px)');
-    setIsMobile(mq.matches);
     const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
     mq.addEventListener('change', handler);
     return () => mq.removeEventListener('change', handler);

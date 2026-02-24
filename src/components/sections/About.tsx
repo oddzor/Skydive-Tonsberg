@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Users, Award, Shield, Heart } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useCMSContent } from "@/hooks/useCMSContent";
+import { PhotoCarousel } from "@/components/kurs/PhotoCarousel";
 const FOUNDING_YEAR = 1981;
 const FOUNDING_MONTH = 9; 
 function calculateYearsOfExperience(): number {
@@ -98,7 +99,19 @@ export function About() {
             variants={itemVariants}
             className="order-2 lg:order-2 relative"
           >
-            <div className="grid grid-cols-2 gap-4">
+            <PhotoCarousel
+              className="md:hidden"
+              animation="zoom"
+              height={360}
+              photos={[
+                { src: content?.home?.images?.aboutGrid1 || "/wingsuit-trio.webp", alt: "Wingsuit trio i formasjon" },
+                { src: content?.home?.images?.aboutGrid2 || "/tandem-landing.webp", alt: "Tandemhopp landing" },
+                { src: content?.home?.images?.aboutGrid3 || "/aff-student-exit.webp", alt: "AFF elev uthopp" },
+                { src: content?.home?.images?.aboutGrid4 || "/tandem-smiles.webp", alt: "Glade tandemhoppere" },
+              ]}
+            />
+
+            <div className="hidden md:grid grid-cols-2 gap-4">
               <div className="space-y-4">
                 <motion.div
                   whileHover={{ scale: 1.02 }}

@@ -9,6 +9,7 @@ import {
   Send,
   Instagram,
   Youtube,
+  Facebook,
   ExternalLink,
   CheckCircle2,
   AlertCircle,
@@ -58,6 +59,12 @@ const socialLinksWithIcons = [
     icon: Youtube,
     handle: "Skydive Tønsberg",
   },
+  {
+    name: "Facebook",
+    href: "https://www.facebook.com/skydivetonsberg/",
+    icon: Facebook,
+    handle: "Skydive Tønsberg",
+  },
 ];
 export function KontaktContent() {
   const { t } = useLanguage();
@@ -93,7 +100,6 @@ export function KontaktContent() {
         message: "",
       });
     } catch (err) {
-      console.error('Form submission error:', err);
       setError(
         err instanceof Error 
           ? err.message 
@@ -355,7 +361,7 @@ export function KontaktContent() {
                 <h3 className="text-xl font-bold text-foreground mb-4">
                   {t('kontakt.social.title')}
                 </h3>
-                <div className="space-y-4">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   {socialLinksWithIcons.map((social) => (
                     <a
                       key={social.name}
@@ -364,7 +370,7 @@ export function KontaktContent() {
                       rel="noopener noreferrer"
                       className="flex items-center gap-4 p-4 rounded-xl bg-card hover:bg-muted/50 transition-colors group"
                     >
-                      <div className="w-12 h-12 rounded-xl bg-gradient-brand flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <div className="w-12 h-12 rounded-xl bg-gradient-brand flex items-center justify-center group-hover:scale-110 transition-transform shrink-0">
                         <social.icon className="w-6 h-6 text-white" />
                       </div>
                       <div>

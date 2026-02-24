@@ -132,7 +132,6 @@ export function ImageUpload({
         </div>
       )}
 
-      {/* Alt text input - only show when preview exists */}
       {preview && (
         <div className="space-y-2">
           <Label htmlFor={`alt-${imageName}`} className="text-sm font-medium">
@@ -147,7 +146,7 @@ export function ImageUpload({
             className="w-full"
           />
           <p className="text-xs text-muted-foreground">
-            Describe what's in the image for screen readers and SEO
+            Describe whats in the image for screen readers and SEO
           </p>
         </div>
       )}<div className="flex gap-2">

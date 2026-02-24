@@ -59,7 +59,7 @@ export function Testimonials() {
           }
         }
       } catch {
-        console.log("Using fallback reviews");
+        // fallback reviews already set as default state
       }
     };
     fetchReviews();

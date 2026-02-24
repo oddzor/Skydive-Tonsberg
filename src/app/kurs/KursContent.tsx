@@ -44,8 +44,6 @@ export function KursContent() {
       <KursSchedule />
 
       <KursIncluded />
-
-      {/* Desktop group photos — rendered before the payment section */}
       <section className="hidden md:block py-16 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
           <PhotoCarousel photos={groupPhotos} height={300} columns={3} animation="zoom" />
@@ -53,8 +51,6 @@ export function KursContent() {
       </section>
 
       <KursPayment />
-
-      {/* Mobile group photos — rendered after the payment section */}
       <div className="md:hidden py-8 px-4">
         <PhotoCarousel photos={groupPhotos} height={300} columns={3} animation="zoom" />
       </div>

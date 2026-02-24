@@ -135,8 +135,7 @@ export const useCMSContent = () => {
         const response = await fetch(`/api/cms-content?t=${Date.now()}`);
         const data = await response.json();
         setContent(data);
-      } catch (error) {
-        console.error('Failed to load CMS content:', error);
+      } catch {
       } finally {
         setLoading(false);
       }

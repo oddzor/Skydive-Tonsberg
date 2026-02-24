@@ -8,8 +8,6 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/contexts/LanguageContext";
-
-/** Reliable flag image that works on every browser / OS (no emoji rendering needed). */
 function FlagImg({ code, alt }: { code: string; alt: string }) {
   return (
     <Image
@@ -44,8 +42,6 @@ export function Header() {
       external: true,
     },
   ];
-
-  // Desktop-only: hide header on homepage until user scrolls past the hero.
   useEffect(() => {
     const update = () => {
       const isHome = window.location.pathname === "/";
@@ -67,8 +63,6 @@ export function Header() {
       window.removeEventListener("resize", update);
     };
   }, []);
-
-  // Which flag to show (flag of the language we'll switch TO).
   const targetFlagCode = language === "no" ? "gb" : "no";
   const targetFlagAlt = language === "no" ? "English" : "Norsk";
 
@@ -171,20 +165,18 @@ export function Header() {
 
   return (
     <>
-      {/*
-       * ── MOBILE HAMBURGER ───────────────────────────────────────────────────
-       * A standalone fixed element (no Framer Motion transform parent) so the
-       * button is always anchored to the viewport top-right corner regardless
-       * of scroll position. No background bar — the button floats transparently
-       * over the page; the white slide-out panel only appears when opened.
-       */}
-      <div className="fixed top-3 right-3 z-50 lg:hidden">
+      <div className={cn("fixed top-3 right-3 z-100 lg:hidden", mobileOpen && "hidden")}>
         <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
           <SheetTrigger asChild>
             <Button
               variant="ghost"
               size="icon"
-              className="bg-black/30 backdrop-blur-sm text-white hover:bg-black/50 hover:text-white"
+              className={cn(
+                "backdrop-blur-sm transition-colors",
+                scrolled
+                  ? "bg-background/90 text-foreground hover:bg-background border border-border shadow-sm"
+                  : "bg-black/30 text-white hover:bg-black/50 hover:text-white"
+              )}
             >
               <Menu className="h-6 w-6" />
               <span className="sr-only">{t("nav.openMenu")}</span>
@@ -197,11 +189,6 @@ export function Header() {
         </Sheet>
       </div>
 
-      {/*
-       * ── DESKTOP HEADER ─────────────────────────────────────────────────────
-       * Slides in after the user scrolls past the hero on the homepage; always
-       * visible on every other page.
-       */}
       <motion.header
         initial={{ y: -100 }}
         animate={{ y: showDesktopHeader ? 0 : -100 }}
@@ -214,7 +201,6 @@ export function Header() {
       >
         <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
-            {/* Logo */}
             <Link href="/" className="flex items-center gap-3 group">
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Image
@@ -229,7 +215,6 @@ export function Header() {
               </motion.div>
             </Link>
 
-            {/* Centre nav links */}
             <div className="flex items-center gap-1">
               {navigation.map((item) => (
                 <Link
@@ -266,7 +251,6 @@ export function Header() {
               )}
             </div>
 
-            {/* Right actions */}
             <div className="flex items-center gap-4">
               <Button
                 variant="ghost"

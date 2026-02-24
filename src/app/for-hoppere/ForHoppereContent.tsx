@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useForHoppereData } from "@/hooks/useForHoppereData";
 import { useCMSContent } from "@/hooks/useCMSContent";
+import { ForHoppereNav } from "@/components/for-hoppere/ForHoppereNav";
 import {
   Plane,
   Calendar,
@@ -84,6 +85,7 @@ export function ForHoppereContent() {
   const hoppfeltbriefImages = getHoppfeltbriefImages(t);
   return (
     <>
+      <ForHoppereNav />
 
       <AnimatePresence>
         {selectedImage && (
@@ -1196,7 +1198,7 @@ export function ForHoppereContent() {
                     {t("forHoppere.weather.webcamDesc")}
                   </p>
                   <Button asChild variant="outline">
-                    <a href="https://www.skydivetonsberg.no" target="_blank" rel="noopener noreferrer">
+                    <a href="http://79.161.215.227/Cam2/ENJB01.htm" target="_blank" rel="noopener noreferrer">
                       {t("forHoppere.weather.webcamButton")}
                       <ExternalLink className="ml-2 w-4 h-4" />
                     </a>

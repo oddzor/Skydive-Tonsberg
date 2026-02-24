@@ -2,7 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Instagram, Youtube, Mail, MapPin, ExternalLink, KeyRound } from "lucide-react";
+import { Instagram, Youtube, Facebook, Mail, MapPin, ExternalLink, KeyRound } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -29,6 +29,7 @@ export function Footer() {
       { name: t('nav.home'), href: "/" },
       { name: t('nav.courses'), href: "/kurs" },
       { name: t('nav.forJumpers'), href: "/for-hoppere" },
+      { name: t('nav.faq'), href: "/faq" },
       { name: t('nav.contact'), href: "/kontakt" },
     ],
     external: [
@@ -39,6 +40,7 @@ export function Footer() {
     social: [
       { name: "Instagram", href: "https://instagram.com/skydivetonsberg", icon: Instagram },
       { name: "YouTube", href: "https://www.youtube.com/@skydivetnsberg9501", icon: Youtube },
+      { name: "Facebook", href: "https://www.facebook.com/skydivetonsberg/", icon: Facebook },
     ],
   };
   return (

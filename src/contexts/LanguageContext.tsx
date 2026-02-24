@@ -24,8 +24,8 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
         const response = await fetch(`/translations/${language}.json`);
         const data = await response.json();
         setTranslations(data);
-      } catch (error) {
-        console.error("Failed to load translations:", error);
+      } catch {
+        // translations failed to load, keys will be returned as-is
       }
     };
     loadTranslations();
