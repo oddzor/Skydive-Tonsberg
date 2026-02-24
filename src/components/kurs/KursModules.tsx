@@ -22,7 +22,7 @@ export function KursModules() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {modules.map((module, index) => (
             <motion.div
-              key={module.title}
+              key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

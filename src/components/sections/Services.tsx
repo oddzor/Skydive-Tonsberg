@@ -114,7 +114,7 @@ export function Services() {
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {services.map((service) => (
-            <motion.div key={service.title} variants={cardVariants}>
+            <motion.div key={service.href} variants={cardVariants}>
               <Card className="group h-full overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-shadow duration-300">
                 <div className="relative aspect-4/3 overflow-hidden">
                   <Image

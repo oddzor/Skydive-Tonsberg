@@ -51,7 +51,7 @@ export function TandemPricing() {
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12">
           {pricing.map((plan) => (
             <motion.div
-              key={plan.name}
+              key={plan.price}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -84,7 +84,7 @@ export function TandemPricing() {
           </h3>
           <div className="grid gap-4">
             {mediaPackages.map((pkg) => (
-              <Card key={pkg.name}>
+              <Card key={pkg.price}>
                 <CardContent className="flex justify-between items-center p-6">
                   <div className="flex items-center gap-4">
                     <Camera className="w-8 h-8 text-sky" />

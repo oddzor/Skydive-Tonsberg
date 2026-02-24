@@ -22,7 +22,7 @@ export function TandemHighlights() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {highlights.map((highlight, index) => (
             <motion.div
-              key={highlight.title}
+              key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

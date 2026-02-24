@@ -155,7 +155,7 @@ export function KontaktContent() {
           <div className="grid sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {contactInfoWithIcons.map((item, index) => (
               <motion.a
-                key={item.label}
+                key={item.href}
                 href={item.href}
                 target={item.href.startsWith("http") ? "_blank" : undefined}
                 rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
@@ -364,7 +364,7 @@ export function KontaktContent() {
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   {socialLinksWithIcons.map((social) => (
                     <a
-                      key={social.name}
+                      key={social.href}
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"

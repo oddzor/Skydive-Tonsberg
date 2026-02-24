@@ -75,7 +75,7 @@ export function About() {
             <div className="grid grid-cols-2 gap-6">
               {stats.map((stat) => (
                 <motion.div
-                  key={stat.label}
+                  key={stat.value}
                   variants={itemVariants}
                   className="flex items-start gap-3"
                 >

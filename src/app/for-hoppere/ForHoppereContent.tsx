@@ -223,7 +223,7 @@ export function ForHoppereContent() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {seasonInfo.map((info, index) => (
               <motion.div
-                key={info.label}
+                key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -373,8 +373,8 @@ export function ForHoppereContent() {
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-3">
-                    {bunkhousingPricing.map((item) => (
-                      <li key={item.name} className="flex justify-between items-center">
+                    {bunkhousingPricing.map((item, index) => (
+                      <li key={index} className="flex justify-between items-center">
                         <span className="text-foreground">{item.name}</span>
                         <span className="font-semibold text-sky">{item.price}</span>
                       </li>
@@ -695,8 +695,8 @@ export function ForHoppereContent() {
               </CardHeader>
               <CardContent className="pt-6 px-6 pb-6">
                 <ul className="space-y-3">
-                  {pricing.map((item) => (
-                    <li key={item.name} className="flex justify-between items-center">
+                  {pricing.map((item, index) => (
+                    <li key={index} className="flex justify-between items-center">
                       <div>
                         <span className="text-foreground">{item.name}</span>
                         {item.note && (
@@ -719,8 +719,8 @@ export function ForHoppereContent() {
               </CardHeader>
               <CardContent>
                 <ul className="space-y-3">
-                  {registrationFees.map((item) => (
-                    <li key={item.name} className="flex justify-between items-center">
+                  {registrationFees.map((item, index) => (
+                    <li key={index} className="flex justify-between items-center">
                       <span className="text-foreground text-sm">{item.name}</span>
                       <span className="font-semibold text-sky">{item.price}</span>
                     </li>
@@ -738,8 +738,8 @@ export function ForHoppereContent() {
               </CardHeader>
               <CardContent>
                 <ul className="space-y-3">
-                  {equipmentPricing.map((item) => (
-                    <li key={item.name} className="flex justify-between items-center">
+                  {equipmentPricing.map((item, index) => (
+                    <li key={index} className="flex justify-between items-center">
                       <span className="text-foreground text-sm">{item.name}</span>
                       <span className="font-semibold text-sky">{item.price}</span>
                     </li>
@@ -757,8 +757,8 @@ export function ForHoppereContent() {
               </CardHeader>
               <CardContent>
                 <ul className="space-y-3">
-                  {tandemPricing.map((item) => (
-                    <li key={item.name} className="flex justify-between items-center">
+                  {tandemPricing.map((item, index) => (
+                    <li key={index} className="flex justify-between items-center">
                       <span className="text-foreground text-sm">{item.name}</span>
                       <span className="font-semibold text-sky">{item.price}</span>
                     </li>
@@ -776,8 +776,8 @@ export function ForHoppereContent() {
               </CardHeader>
               <CardContent>
                 <ul className="space-y-3">
-                  {coursePricing.map((item) => (
-                    <li key={item.name} className="flex justify-between items-center">
+                  {coursePricing.map((item, index) => (
+                    <li key={index} className="flex justify-between items-center">
                       <span className="text-foreground text-sm">{item.name}</span>
                       <span className="font-semibold text-sky">{item.price}</span>
                     </li>
@@ -1340,7 +1340,7 @@ export function ForHoppereContent() {
                     <Clock className="w-5 h-5 text-sky shrink-0 mt-1" />
                     <div>
                       <p className="font-semibold text-foreground">{t("forHoppere.contact.openingHours")}</p>
-                      {openingHours.map((item) => (
+                      {openingHours.map((item, index) => (
                         <p key={item.day} className="text-muted-foreground text-sm">
                           {item.day}: {item.hours}
                         </p>
