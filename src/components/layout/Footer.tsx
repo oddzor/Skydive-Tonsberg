@@ -31,9 +31,9 @@ export function Footer() {
       { name: t('nav.forJumpers'), href: "/for-hoppere" },
       { name: t('nav.faq'), href: "/faq" },
       { name: t('nav.contact'), href: "/kontakt" },
+      { name: t('nav.jumpCalendar'), href: "/hoppkalender" },
     ],
     external: [
-      { name: t('nav.jumpCalendar'), href: "https://www.skydivetonsberg.no/hoppkalender-1" },
       { name: t('nav.bookTandem'), href: "https://bookings.burblesoft.eu/551/18" },
       { name: t('nav.shop'), href: "https://store.burblesoft.com/?dz_id=551" },
     ],
