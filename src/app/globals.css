@@ -3,7 +3,6 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* Custom fonts */
 @font-face {
   font-family: 'Outfit';
   font-style: normal;
@@ -12,7 +11,7 @@
   src: url('https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4G-EiAou6Y.woff2') format('woff2');
 }
 
-/* Masque font for logo */
+
 @font-face {
   font-family: 'Masque';
   font-style: normal;
@@ -61,8 +60,7 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  
-  /* Brand colors */
+
   --color-sky: var(--sky);
   --color-sky-light: var(--sky-light);
   --color-sky-dark: var(--sky-dark);
@@ -74,17 +72,16 @@
 :root {
   --radius: 0.75rem;
   
-  /* Logo Blue - Primary brand color */
+
   --sky: oklch(0.65 0.18 220);
   --sky-light: oklch(0.75 0.15 220);
   --sky-dark: oklch(0.50 0.20 220);
   
-  /* Secondary - Slate/Charcoal for contrast */
   --leaf: oklch(0.30 0.02 250);
   --leaf-light: oklch(0.45 0.015 250);
   --leaf-dark: oklch(0.20 0.025 250);
   
-  /* Base theme - Light mode */
+
   --background: oklch(0.985 0.002 250);
   --foreground: oklch(0.18 0.02 250);
   --card: oklch(1 0 0);
@@ -92,11 +89,11 @@
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.18 0.02 250);
   
-  /* Primary uses logo blue */
+
   --primary: var(--sky);
   --primary-foreground: oklch(0.99 0 0);
   
-  /* Secondary uses slate */
+
   --secondary: var(--leaf);
   --secondary-foreground: oklch(0.99 0 0);
   
@@ -176,7 +173,6 @@
   }
 }
 
-/* Custom utility classes */
 @layer utilities {
   .text-gradient {
     background: var(--sky);
@@ -201,19 +197,12 @@
   }
 }
 
-/* Smooth scrolling for anchor links */
 html {
   scroll-padding-top: 80px;
+  scrollbar-gutter: stable;
 }
 
-/*
- * Prevent Radix UI / shadcn Sheet from adding padding-right to the body on
- * mobile when scroll is locked (there is no visible scrollbar on mobile, so
- * the compensation padding just shifts page content left).
- */
-@media (max-width: 1023px) {
-  body[data-scroll-locked] {
-    padding-right: 0 !important;
-    margin-right: 0 !important;
-  }
+html body[data-scroll-locked] {
+  padding-right: 0 !important;
+  margin-right: 0 !important;
 }

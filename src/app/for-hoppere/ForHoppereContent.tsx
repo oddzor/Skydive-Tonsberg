@@ -1340,7 +1340,7 @@ export function ForHoppereContent() {
                     <Clock className="w-5 h-5 text-sky shrink-0 mt-1" />
                     <div>
                       <p className="font-semibold text-foreground">{t("forHoppere.contact.openingHours")}</p>
-                      {openingHours.map((item, index) => (
+                      {openingHours.map((item) => (
                         <p key={item.day} className="text-muted-foreground text-sm">
                           {item.day}: {item.hours}
                         </p>

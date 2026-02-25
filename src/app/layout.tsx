@@ -1,14 +1,17 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import { Outfit } from "next/font/google";
 import { Header, Footer } from "@/components/layout";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import "./globals.css";
+
 const outfit = Outfit({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-outfit",
 });
+
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
@@ -17,6 +20,7 @@ export const viewport: Viewport = {
     { media: "(prefers-color-scheme: dark)", color: "#0A1628" },
   ],
 };
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://skydivetonsberg.no"),
   title: {
@@ -36,6 +40,9 @@ export const metadata: Metadata = {
     "tandem",
     "hopping",
     "Norge",
+    "hoppkalender",
+    "gjesthopping",
+    "Jarlsberg flyplass",
   ],
   authors: [{ name: "Skydive Tønsberg" }],
   creator: "Skydive Tønsberg",
@@ -83,15 +90,62 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://skydivetonsberg.no",
   },
-  verification: {
-    google: "YOUR_GOOGLE_VERIFICATION_CODE",
-  },
+  ...(process.env.GOOGLE_SITE_VERIFICATION && {
+    verification: { google: process.env.GOOGLE_SITE_VERIFICATION },
+  }),
 };
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "SportsActivityLocation",
+  "@id": "https://skydivetonsberg.no",
+  name: "Skydive Tønsberg",
+  description:
+    "Norges mest tilgjengelige fallskjermklubb. Tandemhopp, AFF-kurs og gjesthopping ved Jarlsberg flyplass i Tønsberg.",
+  url: "https://skydivetonsberg.no",
+  telephone: "+47 99 59 43 59",
+  email: "info@hoppfallskjerm.no",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Jarlsberg Flyplass",
+    addressLocality: "Tønsberg",
+    addressRegion: "Vestfold",
+    postalCode: "3145",
+    addressCountry: "NO",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 59.1855,
+    longitude: 10.2557,
+  },
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Saturday", "Sunday"],
+      description: "Hoppdager i sesongen (mai–oktober)",
+    },
+  ],
+  priceRange: "kr4690–kr18990",
+  currenciesAccepted: "NOK",
+  paymentAccepted: "Cash, Credit Card",
+  image: "https://skydivetonsberg.no/og-image.jpg",
+  sameAs: [
+    "https://www.facebook.com/skydivetonsberg/",
+    "https://instagram.com/skydivetonsberg",
+    "https://www.youtube.com/@skydivetnsberg9501",
+  ],
+  hasMap: "https://www.google.com/maps/place/Skydive+Tønsberg",
+  sport: "Fallskjermhopping",
+  knowsAbout: ["Tandemhopp", "AFF-kurs", "Fallskjerm", "Skydiving"],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const gaId = process.env.NEXT_PUBLIC_GA_ID;
+
   return (
     <html lang="nb" className={outfit.variable}>
       <head>
@@ -109,7 +163,6 @@ export default function RootLayout({
           type="font/woff2"
           crossOrigin="anonymous"
         />
-
         <link
           rel="preload"
           as="video"
@@ -124,6 +177,11 @@ export default function RootLayout({
           type="video/webm"
           media="(min-width: 769px)"
         />
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        />
       </head>
       <body className="font-sans antialiased min-h-screen flex flex-col">
         <LanguageProvider>
@@ -132,6 +190,27 @@ export default function RootLayout({
           <main className="flex-1">{children}</main>
           <Footer />
         </LanguageProvider>
+
+        {gaId && (
+          <>
+            <Script
+              strategy="afterInteractive"
+              src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+            />
+            <Script
+              id="gtag-init"
+              strategy="afterInteractive"
+              dangerouslySetInnerHTML={{
+                __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', '${gaId}', { page_path: window.location.pathname });
+                `,
+              }}
+            />
+          </>
+        )}
       </body>
     </html>
   );
