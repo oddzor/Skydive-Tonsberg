@@ -68,8 +68,8 @@ export function Header() {
         <Image
           src="/Skydive_Tonsberg_hero_header.png"
           alt="Skydive Tønsberg"
-          width={600}
-          height={148}
+          width={2048}
+          height={510}
           className="h-8 w-auto"
           priority
           quality={100}
@@ -202,8 +202,8 @@ export function Header() {
                 <Image
                   src="/Skydive_Tonsberg_hero_header.png"
                   alt="Skydive Tønsberg"
-                  width={1000}
-                  height={246}
+                  width={2048}
+                  height={510}
                   className="h-11 w-auto"
                   priority
                   quality={100}

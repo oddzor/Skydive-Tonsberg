@@ -12,13 +12,11 @@ export function useForHoppereData() {
   const pick = (no: string | undefined, en: string | undefined) =>
     language === 'en' ? (en ?? no ?? '') : (no ?? '');
 
-  // Hero text
   const heroDescription = pick(info?.heroDescriptionNo, info?.heroDescriptionEn)
     || t("forHoppere.hero.description");
   const heroSubDescription = pick(info?.heroSubDescriptionNo, info?.heroSubDescriptionEn)
     || t("forHoppere.hero.subDescription");
 
-  // Season info
   const seasonInfo = [
     {
       label: t("forHoppere.seasonInfo.seasonStart"),
@@ -134,15 +132,12 @@ export function useForHoppereData() {
   const aircraftRenovation = pick(info?.aircraftRenovationNo, info?.aircraftRenovationEn)
     || t("forHoppere.aircraft.renovation");
 
-  // Renewal
   const renewalDescription = pick(info?.renewalDescriptionNo, info?.renewalDescriptionEn)
     || t("forHoppere.renewal.description");
 
-  // Bunkhouse
   const bunkhouseDescription = pick(info?.bunkhouseDescriptionNo, info?.bunkhouseDescriptionEn)
     || t("forHoppere.bunkhouse.description");
 
-  // BurbleMe
   const burbleMeDescription = pick(info?.burbleMeDescriptionNo, info?.burbleMeDescriptionEn)
     || t("forHoppere.burbleMe.description");
   const burbleMePersonalDetailsDesc = pick(info?.burbleMePersonalDetailsDescNo, info?.burbleMePersonalDetailsDescEn)
@@ -167,7 +162,6 @@ export function useForHoppereData() {
   const burbleMeLocationDesc = pick(info?.burbleMeLocationDescNo, info?.burbleMeLocationDescEn)
     || t("forHoppere.burbleMe.notifications.locationDesc");
 
-  // Rental
   const rentalDescription = pick(info?.rentalDescriptionNo, info?.rentalDescriptionEn)
     || t("forHoppere.rental.description");
   const rentalAvailable = pick(info?.rentalAvailableNo, info?.rentalAvailableEn)
@@ -190,7 +184,6 @@ export function useForHoppereData() {
         t("forHoppere.rental.requirementsList.currency"),
       ];
 
-  // Insurance
   const insuranceNorwegianText = pick(info?.insuranceNorwegianTextNo, info?.insuranceNorwegianTextEn)
     || t("forHoppere.insurance.norwegianText");
   const insuranceForeignIntro = pick(info?.insuranceForeignIntroNo, info?.insuranceForeignIntroEn)
@@ -200,7 +193,6 @@ export function useForHoppereData() {
   const insuranceForeignWarning = pick(info?.insuranceForeignWarningNo, info?.insuranceForeignWarningEn)
     || t("forHoppere.insurance.foreignWarning");
 
-  // Reporting
   const reportingIntro = pick(info?.reportingIntroNo, info?.reportingIntroEn)
     || t("forHoppere.reporting.intro");
   const reportingPolicy = pick(info?.reportingPolicyNo, info?.reportingPolicyEn)

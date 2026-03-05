@@ -149,6 +149,7 @@ export function About() {
                     src={content?.home?.images?.aboutGrid1 || "/wingsuit-trio.webp"}
                     alt={pickAlt(content?.home?.images?.aboutGrid1AltNo, content?.home?.images?.aboutGrid1AltEn, "Wingsuit trio i formasjon", language)}
                     fill
+                    sizes="(max-width: 1024px) 100vw, calc(50vw - 2rem)"
                     className="object-cover"
                   />
                 </motion.div>
@@ -160,6 +161,7 @@ export function About() {
                     src={content?.home?.images?.aboutGrid2 || "/tandem-landing.webp"}
                     alt={pickAlt(content?.home?.images?.aboutGrid2AltNo, content?.home?.images?.aboutGrid2AltEn, "Tandemhopp landing", language)}
                     fill
+                    sizes="(max-width: 1024px) 100vw, calc(50vw - 2rem)"
                     className="object-cover"
                   />
                 </motion.div>
@@ -173,6 +175,7 @@ export function About() {
                     src={content?.home?.images?.aboutGrid3 || "/aff-student-exit.webp"}
                     alt={pickAlt(content?.home?.images?.aboutGrid3AltNo, content?.home?.images?.aboutGrid3AltEn, "AFF elev uthopp", language)}
                     fill
+                    sizes="(max-width: 1024px) 100vw, calc(50vw - 2rem)"
                     className="object-cover"
                   />
                 </motion.div>
@@ -184,6 +187,7 @@ export function About() {
                     src={content?.home?.images?.aboutGrid4 || "/tandem-smiles.webp"}
                     alt={pickAlt(content?.home?.images?.aboutGrid4AltNo, content?.home?.images?.aboutGrid4AltEn, "Glade tandemhoppere", language)}
                     fill
+                    sizes="(max-width: 1024px) 100vw, calc(50vw - 2rem)"
                     className="object-cover"
                   />
                 </motion.div>

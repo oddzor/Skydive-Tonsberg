@@ -4,15 +4,6 @@
 @custom-variant dark (&:is(.dark *));
 
 @font-face {
-  font-family: 'Outfit';
-  font-style: normal;
-  font-weight: 300 900;
-  font-display: swap;
-  src: url('https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1C4G-EiAou6Y.woff2') format('woff2');
-}
-
-
-@font-face {
   font-family: 'Masque';
   font-style: normal;
   font-weight: normal;
@@ -75,7 +66,7 @@
 
   --sky: oklch(0.65 0.18 220);
   --sky-light: oklch(0.75 0.15 220);
-  --sky-dark: oklch(0.50 0.20 220);
+  --sky-dark: oklch(0.45 0.18 220);
   
   --leaf: oklch(0.30 0.02 250);
   --leaf-light: oklch(0.45 0.015 250);
@@ -182,7 +173,7 @@
   }
   
   .bg-gradient-brand {
-    background: var(--sky);
+    background: var(--sky-dark);
   }
   
   .bg-gradient-hero {

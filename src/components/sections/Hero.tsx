@@ -57,9 +57,9 @@ export function Hero() {
             <Image
               src="/Skydive_Tonsberg_hero_header.png"
               alt="Skydive Tønsberg"
-              width={1000}
-              height={246}
-              className="max-w-[85vw] h-auto mx-auto drop-shadow-2xl"
+              width={2048}
+              height={510}
+              className="max-w-[min(1000px,85vw)] h-auto mx-auto drop-shadow-2xl"
               priority
               quality={100}
             />
