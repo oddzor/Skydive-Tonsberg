@@ -5,8 +5,12 @@ import { CheckCircle2 } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useKursData } from '@/hooks/useKursData';
 import { useCMSContent } from '@/hooks/useCMSContent';
+function pickAlt(no: string | null | undefined, en: string | null | undefined, fallback: string, language: string): string {
+  return (language === 'en' ? (en || no) : (no || en)) || fallback;
+}
+
 export function KursIncluded() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const { content } = useCMSContent();
   const { included } = useKursData();
   return (
@@ -45,7 +49,7 @@ export function KursIncluded() {
           >
             <Image
               src={content?.course?.images?.studentInAction || '/aff-student.webp'}
-              alt="AFF Student"
+              alt={pickAlt(content?.course?.images?.studentInActionAltNo, content?.course?.images?.studentInActionAltEn, 'AFF Student', language)}
               fill
               className="object-cover"
             />

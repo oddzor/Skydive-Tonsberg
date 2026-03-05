@@ -7,22 +7,16 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useCMSContent } from "@/hooks/useCMSContent";
 import { PhotoCarousel } from "@/components/kurs/PhotoCarousel";
 const FOUNDING_YEAR = 1981;
-const FOUNDING_MONTH = 9; 
+const FOUNDING_MONTH = 9;
 function calculateYearsOfExperience(): number {
   const now = new Date();
   const currentYear = now.getFullYear();
-  const currentMonth = now.getMonth() + 1; 
+  const currentMonth = now.getMonth() + 1;
   if (currentMonth < FOUNDING_MONTH) {
     return currentYear - FOUNDING_YEAR - 1;
   }
   return currentYear - FOUNDING_YEAR;
 }
-const getStats = (t: (key: string) => string) => [
-  { label: t('home.about.stats.members'), value: "400+", icon: Users },
-  { label: t('home.about.stats.experience'), value: `${calculateYearsOfExperience()}+`, icon: Award },
-  { label: t('home.about.stats.jumps'), value: "20 000+", icon: Shield },
-  { label: t('home.about.stats.satisfaction'), value: "100%", icon: Heart },
-];
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -40,12 +34,46 @@ const itemVariants = {
     transition: { duration: 0.6, ease: "easeOut" as const },
   },
 };
+function pickAlt(no: string | null | undefined, en: string | null | undefined, fallback: string, language: string): string {
+  return (language === 'en' ? (en || no) : (no || en)) || fallback;
+}
+
 export function About() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const { content } = useCMSContent();
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const stats = useMemo(() => getStats(t), [t]);
+
+  const stats = useMemo(() => [
+    {
+      id: 'members',
+      label: t('home.about.stats.members') || 'Aktive medlemmer',
+      value: content?.home?.statsMembersCount || "400+",
+      icon: Users,
+    },
+    {
+      id: 'experience',
+      label: t('home.about.stats.experience') || 'År med erfaring',
+      value: `${calculateYearsOfExperience()}+`,
+      icon: Award,
+    },
+    {
+      id: 'jumps',
+      label: t('home.about.stats.jumps') || 'Sikre hopp årlig',
+      value: content?.home?.statsJumpsCount || "20 000+",
+      icon: Shield,
+    },
+    {
+      id: 'satisfaction',
+      label: t('home.about.stats.satisfaction') || 'Fornøyde hoppere',
+      value: "100%",
+      icon: Heart,
+    },
+  ], [t, content?.home]);
+
+  const description1 = content?.home?.aboutDescription1 || t('home.about.description1');
+  const description2 = content?.home?.aboutDescription2 || t('home.about.description2');
+
   return (
     <section id="about" className="py-24 lg:py-32 bg-gradient-hero">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -66,16 +94,16 @@ export function About() {
               <span className="text-gradient">{t('home.about.titleHighlight')}</span>
             </h2>
             <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-              {t('home.about.description1')}
+              {description1}
             </p>
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              {t('home.about.description2')}
+              {description2}
             </p>
 
             <div className="grid grid-cols-2 gap-6">
               {stats.map((stat) => (
                 <motion.div
-                  key={stat.value}
+                  key={stat.id}
                   variants={itemVariants}
                   className="flex items-start gap-3"
                 >
@@ -104,10 +132,10 @@ export function About() {
               animation="zoom"
               height={360}
               photos={[
-                { src: content?.home?.images?.aboutGrid1 || "/wingsuit-trio.webp", alt: "Wingsuit trio i formasjon" },
-                { src: content?.home?.images?.aboutGrid2 || "/tandem-landing.webp", alt: "Tandemhopp landing" },
-                { src: content?.home?.images?.aboutGrid3 || "/aff-student-exit.webp", alt: "AFF elev uthopp" },
-                { src: content?.home?.images?.aboutGrid4 || "/tandem-smiles.webp", alt: "Glade tandemhoppere" },
+                { src: content?.home?.images?.aboutGrid1 || "/wingsuit-trio.webp", alt: pickAlt(content?.home?.images?.aboutGrid1AltNo, content?.home?.images?.aboutGrid1AltEn, "Wingsuit trio i formasjon", language) },
+                { src: content?.home?.images?.aboutGrid2 || "/tandem-landing.webp", alt: pickAlt(content?.home?.images?.aboutGrid2AltNo, content?.home?.images?.aboutGrid2AltEn, "Tandemhopp landing", language) },
+                { src: content?.home?.images?.aboutGrid3 || "/aff-student-exit.webp", alt: pickAlt(content?.home?.images?.aboutGrid3AltNo, content?.home?.images?.aboutGrid3AltEn, "AFF elev uthopp", language) },
+                { src: content?.home?.images?.aboutGrid4 || "/tandem-smiles.webp", alt: pickAlt(content?.home?.images?.aboutGrid4AltNo, content?.home?.images?.aboutGrid4AltEn, "Glade tandemhoppere", language) },
               ]}
             />
 
@@ -119,7 +147,7 @@ export function About() {
                 >
                   <Image
                     src={content?.home?.images?.aboutGrid1 || "/wingsuit-trio.webp"}
-                    alt="Wingsuit trio i formasjon"
+                    alt={pickAlt(content?.home?.images?.aboutGrid1AltNo, content?.home?.images?.aboutGrid1AltEn, "Wingsuit trio i formasjon", language)}
                     fill
                     className="object-cover"
                   />
@@ -130,7 +158,7 @@ export function About() {
                 >
                   <Image
                     src={content?.home?.images?.aboutGrid2 || "/tandem-landing.webp"}
-                    alt="Tandemhopp landing"
+                    alt={pickAlt(content?.home?.images?.aboutGrid2AltNo, content?.home?.images?.aboutGrid2AltEn, "Tandemhopp landing", language)}
                     fill
                     className="object-cover"
                   />
@@ -143,7 +171,7 @@ export function About() {
                 >
                   <Image
                     src={content?.home?.images?.aboutGrid3 || "/aff-student-exit.webp"}
-                    alt="AFF elev uthopp"
+                    alt={pickAlt(content?.home?.images?.aboutGrid3AltNo, content?.home?.images?.aboutGrid3AltEn, "AFF elev uthopp", language)}
                     fill
                     className="object-cover"
                   />
@@ -154,7 +182,7 @@ export function About() {
                 >
                   <Image
                     src={content?.home?.images?.aboutGrid4 || "/tandem-smiles.webp"}
-                    alt="Glade tandemhoppere"
+                    alt={pickAlt(content?.home?.images?.aboutGrid4AltNo, content?.home?.images?.aboutGrid4AltEn, "Glade tandemhoppere", language)}
                     fill
                     className="object-cover"
                   />

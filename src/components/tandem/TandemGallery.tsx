@@ -5,8 +5,12 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { useCMSContent } from '@/hooks/useCMSContent';
 import { SectionHeader } from '@/components/shared';
 import { PhotoCarousel } from '@/components/kurs/PhotoCarousel';
+function pickAlt(no: string | null | undefined, en: string | null | undefined, fallback: string, language: string): string {
+  return (language === 'en' ? (en || no) : (no || en)) || fallback;
+}
+
 export function TandemGallery() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const { content } = useCMSContent();
   return (
     <section className="py-24 lg:py-32 bg-muted/30">
@@ -20,12 +24,12 @@ export function TandemGallery() {
           animation="zoom"
           height={400}
           photos={[
-            { src: content?.tandem?.images?.galleryWide1 || '/tandem-gallery-wide-1.webp', alt: 'Tandem Skydiving View' },
-            { src: content?.tandem?.images?.galleryRect1 || '/tandem-gallery-rect-1.webp', alt: 'Tandem Jump Preparation' },
-            { src: content?.tandem?.images?.galleryRect2 || '/tandem-gallery-rect-2.webp', alt: 'In Freefall' },
-            { src: content?.tandem?.images?.gallerySquare1 || '/tandem-gallery-square-1.webp', alt: 'Happy Tandem Student' },
-            { src: content?.tandem?.images?.gallerySquare2 || '/tandem-gallery-square-2.webp', alt: 'Canopy Flight' },
-            { src: content?.tandem?.images?.gallerySquare3 || '/tandem-gallery-square-3.webp', alt: 'Landing' },
+            { src: content?.tandem?.images?.galleryWide1 || '/tandem-gallery-wide-1.webp', alt: pickAlt(content?.tandem?.images?.galleryWide1AltNo, content?.tandem?.images?.galleryWide1AltEn, 'Tandem Skydiving View', language) },
+            { src: content?.tandem?.images?.galleryRect1 || '/tandem-gallery-rect-1.webp', alt: pickAlt(content?.tandem?.images?.galleryRect1AltNo, content?.tandem?.images?.galleryRect1AltEn, 'Tandem Jump Preparation', language) },
+            { src: content?.tandem?.images?.galleryRect2 || '/tandem-gallery-rect-2.webp', alt: pickAlt(content?.tandem?.images?.galleryRect2AltNo, content?.tandem?.images?.galleryRect2AltEn, 'In Freefall', language) },
+            { src: content?.tandem?.images?.gallerySquare1 || '/tandem-gallery-square-1.webp', alt: pickAlt(content?.tandem?.images?.gallerySquare1AltNo, content?.tandem?.images?.gallerySquare1AltEn, 'Happy Tandem Student', language) },
+            { src: content?.tandem?.images?.gallerySquare2 || '/tandem-gallery-square-2.webp', alt: pickAlt(content?.tandem?.images?.gallerySquare2AltNo, content?.tandem?.images?.gallerySquare2AltEn, 'Canopy Flight', language) },
+            { src: content?.tandem?.images?.gallerySquare3 || '/tandem-gallery-square-3.webp', alt: pickAlt(content?.tandem?.images?.gallerySquare3AltNo, content?.tandem?.images?.gallerySquare3AltEn, 'Landing', language) },
           ]}
         />
 
@@ -38,7 +42,7 @@ export function TandemGallery() {
           >
             <Image
               src={content?.tandem?.images?.galleryWide1 || '/tandem-gallery-wide-1.webp'}
-              alt="Tandem Skydiving View"
+              alt={pickAlt(content?.tandem?.images?.galleryWide1AltNo, content?.tandem?.images?.galleryWide1AltEn, 'Tandem Skydiving View', language)}
               fill
               className="object-cover"
               sizes="(max-width: 1200px) 90vw, 1200px"
@@ -55,7 +59,7 @@ export function TandemGallery() {
             >
               <Image
                 src={content?.tandem?.images?.galleryRect1 || '/tandem-gallery-rect-1.webp'}
-                alt="Tandem Jump Preparation"
+                alt={pickAlt(content?.tandem?.images?.galleryRect1AltNo, content?.tandem?.images?.galleryRect1AltEn, 'Tandem Jump Preparation', language)}
                 fill
                 className="object-cover"
                 sizes="50vw"
@@ -70,7 +74,7 @@ export function TandemGallery() {
             >
               <Image
                 src={content?.tandem?.images?.galleryRect2 || '/tandem-gallery-rect-2.webp'}
-                alt="In Freefall"
+                alt={pickAlt(content?.tandem?.images?.galleryRect2AltNo, content?.tandem?.images?.galleryRect2AltEn, 'In Freefall', language)}
                 fill
                 className="object-cover"
                 sizes="50vw"
@@ -87,7 +91,7 @@ export function TandemGallery() {
             >
               <Image
                 src={content?.tandem?.images?.gallerySquare1 || '/tandem-gallery-square-1.webp'}
-                alt="Happy Tandem Student"
+                alt={pickAlt(content?.tandem?.images?.gallerySquare1AltNo, content?.tandem?.images?.gallerySquare1AltEn, 'Happy Tandem Student', language)}
                 fill
                 className="object-cover"
                 sizes="33vw"
@@ -103,7 +107,7 @@ export function TandemGallery() {
             >
               <Image
                 src={content?.tandem?.images?.gallerySquare2 || '/tandem-gallery-square-2.webp'}
-                alt="Canopy Flight"
+                alt={pickAlt(content?.tandem?.images?.gallerySquare2AltNo, content?.tandem?.images?.gallerySquare2AltEn, 'Canopy Flight', language)}
                 fill
                 className="object-cover"
                 sizes="33vw"
@@ -119,7 +123,7 @@ export function TandemGallery() {
             >
               <Image
                 src={content?.tandem?.images?.gallerySquare3 || '/tandem-gallery-square-3.webp'}
-                alt="Landing"
+                alt={pickAlt(content?.tandem?.images?.gallerySquare3AltNo, content?.tandem?.images?.gallerySquare3AltEn, 'Landing', language)}
                 fill
                 className="object-cover"
                 sizes="33vw"

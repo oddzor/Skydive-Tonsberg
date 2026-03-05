@@ -5,27 +5,20 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useCMSContent } from '@/hooks/useCMSContent';
+import { useKursData } from '@/hooks/useKursData';
+import { useGeneralContent } from '@/contexts/SanityDataContext';
 import { VideoEmbed, StatsGrid } from '@/components/shared';
 export function KursHero() {
   const { t } = useLanguage();
   const { content } = useCMSContent();
+  const { heroStats, courseDetails, pricingIncluded } = useKursData();
+  const generalContent = useGeneralContent();
+  const bookingUrl = generalContent?.bookingUrl || 'https://bookings.burblesoft.eu/551/154';
   const keyStats = [
-    {
-      value: '1,5',
-      label: t('kurs.stats.theoryDays'),
-    },
-    {
-      value: '7',
-      label: t('kurs.stats.jumps'),
-    },
-    {
-      value: '10 min',
-      label: t('kurs.stats.windTunnel'),
-    },
-    {
-      value: '16 år',
-      label: t('kurs.stats.minAge'),
-    },
+    { value: heroStats.theoryDays, label: t('kurs.stats.theoryDays') },
+    { value: heroStats.jumpsCount, label: t('kurs.stats.jumps') },
+    { value: heroStats.windTunnelValue, label: t('kurs.stats.windTunnel') },
+    { value: heroStats.minAge, label: t('kurs.stats.minAge') },
   ];
   return (
     <section className="pt-32 pb-16 lg:pt-40 lg:pb-20 bg-gradient-hero">
@@ -66,10 +59,10 @@ export function KursHero() {
                   <p className="text-muted-foreground">{t('kurs.pricing.completeCourse')}</p>
                 </div>
                 <div className="space-y-3">
-                  {[1, 2, 3, 4, 5].map((num) => (
-                    <div key={num} className="flex items-start gap-2">
+                  {pricingIncluded.map((item, i) => (
+                    <div key={i} className="flex items-start gap-2">
                       <CheckCircle2 className="w-5 h-5 text-leaf shrink-0 mt-0.5" />
-                      <p className="text-sm">{t(`kurs.pricing.included${num}`)}</p>
+                      <p className="text-sm">{item}</p>
                     </div>
                   ))}
                 </div>
@@ -96,7 +89,7 @@ export function KursHero() {
                       {t('kurs.details.durationTitle')}
                     </p>
                     <p className="text-sm text-muted-foreground">
-                      {t('kurs.details.durationDesc')}
+                      {courseDetails.durationDesc}
                     </p>
                   </div>
                   <div className="p-4 bg-muted rounded-lg">
@@ -105,7 +98,7 @@ export function KursHero() {
                       {t('kurs.details.jumpsTitle')}
                     </p>
                     <p className="text-sm text-muted-foreground">
-                      {t('kurs.details.jumpsDesc')}
+                      {courseDetails.jumpsDesc}
                     </p>
                   </div>
                   <div className="p-4 bg-muted rounded-lg">
@@ -114,7 +107,7 @@ export function KursHero() {
                       {t('kurs.details.altitudeTitle')}
                     </p>
                     <p className="text-sm text-muted-foreground">
-                      {t('kurs.details.altitudeDesc')}
+                      {courseDetails.altitudeDesc}
                     </p>
                   </div>
                   <div className="p-4 bg-muted rounded-lg">
@@ -123,7 +116,7 @@ export function KursHero() {
                       {t('kurs.details.ageTitle')}
                     </p>
                     <p className="text-sm text-muted-foreground">
-                      {t('kurs.details.ageDesc')}
+                      {courseDetails.ageDesc}
                     </p>
                   </div>
                 </div>
@@ -138,7 +131,7 @@ export function KursHero() {
               className="bg-gradient-brand hover:opacity-90 text-white font-semibold px-12 py-6 text-lg shadow-xl"
             >
               <a
-                href="https://bookings.burblesoft.eu/551/154"
+                href={bookingUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2"

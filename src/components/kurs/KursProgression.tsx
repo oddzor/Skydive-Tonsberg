@@ -4,15 +4,30 @@ import { ClipboardList, GraduationCap } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useCMSContent } from '@/hooks/useCMSContent';
+import { useKursData } from '@/hooks/useKursData';
 import { PhotoCarousel } from './PhotoCarousel';
-import { localImageSrc, instructorCoachingSrc } from './imageHelpers';
+import { localImageSrc } from './imageHelpers';
+
+function pickAlt(no: string | null | undefined, en: string | null | undefined, fallback: string, language: string): string {
+  return (language === 'en' ? (en || no) : (no || en)) || fallback;
+}
 
 export function KursProgression() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const { content } = useCMSContent();
+  const { progressionLevels } = useKursData();
 
   const progressionSoloSrc = localImageSrc(content?.course?.images?.soloStudent, '/aff-solo-student.webp');
-  const progressionCoachingSrc = instructorCoachingSrc(content?.course?.images?.instructorCoaching);
+  const progressionStudentSrc = localImageSrc(content?.course?.images?.studentInAction, '/aff-student.webp');
+
+  const level = (n: number) => progressionLevels.find((l) => l.levelNumber === n) ?? {
+    levelNumber: n,
+    title: t(`kurs.progression.level${n}Title`),
+    goal: t(`kurs.progression.level${n}Goal`),
+    desc: undefined,
+    requirements: undefined,
+    nextSteps: undefined,
+  };
 
   return (
     <section className="py-24 lg:py-32 bg-gradient-hero">
@@ -46,7 +61,7 @@ export function KursProgression() {
                     1
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-bold mb-3">{t('kurs.progression.level1Title')}</h3>
+                    <h3 className="text-xl font-bold mb-3">{level(1).title}</h3>
                     <div className="grid md:grid-cols-2 gap-4 text-sm">
                       <div>
                         <p className="text-muted-foreground mb-1"><strong>{t('kurs.progression.level1Instructors')}</strong> 2</p>
@@ -59,11 +74,11 @@ export function KursProgression() {
                       </div>
                     </div>
                     <p className="text-muted-foreground mt-3">
-                      <strong>{t('kurs.requirements.title')}:</strong> {t('kurs.progression.level1Goal')}
+                      <strong>{t('kurs.requirements.title')}:</strong> {level(1).goal}
                     </p>
-                    <p className="text-sm text-muted-foreground mt-2">
-                      {t('kurs.progression.level1Desc')}
-                    </p>
+                    {level(1).desc && (
+                      <p className="text-sm text-muted-foreground mt-2">{level(1).desc}</p>
+                    )}
                   </div>
                 </div>
               </CardContent>
@@ -84,7 +99,7 @@ export function KursProgression() {
                     2
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-bold mb-3">{t('kurs.progression.level2Title')}</h3>
+                    <h3 className="text-xl font-bold mb-3">{level(2).title}</h3>
                     <div className="grid md:grid-cols-2 gap-4 text-sm">
                       <div>
                         <p className="text-muted-foreground mb-1"><strong>{t('kurs.progression.level1Instructors')}</strong> 2</p>
@@ -97,7 +112,7 @@ export function KursProgression() {
                       </div>
                     </div>
                     <p className="text-muted-foreground mt-3">
-                      <strong>{t('kurs.requirements.title')}:</strong> {t('kurs.progression.level2Goal')}
+                      <strong>{t('kurs.requirements.title')}:</strong> {level(2).goal}
                     </p>
                   </div>
                 </div>
@@ -119,7 +134,7 @@ export function KursProgression() {
                     3
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-bold mb-3">{t('kurs.progression.level3Title')}</h3>
+                    <h3 className="text-xl font-bold mb-3">{level(3).title}</h3>
                     <div className="grid md:grid-cols-2 gap-4 text-sm">
                       <div>
                         <p className="text-muted-foreground mb-1"><strong>{t('kurs.progression.level1Instructors')}</strong> 2</p>
@@ -132,20 +147,21 @@ export function KursProgression() {
                       </div>
                     </div>
                     <p className="text-muted-foreground mt-3">
-                      <strong>{t('kurs.requirements.title')}:</strong> {t('kurs.progression.level3Goal')}
+                      <strong>{t('kurs.requirements.title')}:</strong> {level(3).goal}
                     </p>
-                    <p className="text-sm text-muted-foreground mt-2">
-                      {t('kurs.progression.level3Desc')}
-                    </p>
+                    {level(3).desc && (
+                      <p className="text-sm text-muted-foreground mt-2">{level(3).desc}</p>
+                    )}
                   </div>
                 </div>
               </CardContent>
             </Card>
           </motion.div>
+
           <PhotoCarousel
             photos={[
-              { src: progressionSoloSrc,     alt: 'Solo AFF Student Flying' },
-              { src: progressionCoachingSrc,  alt: 'Instructor Coaching Student in Freefall' },
+              { src: progressionSoloSrc,    alt: pickAlt(content?.course?.images?.soloStudentAltNo, content?.course?.images?.soloStudentAltEn, 'Solo AFF Student Flying', language), objectPosition: 'center' },
+              { src: progressionStudentSrc, alt: pickAlt(content?.course?.images?.studentInActionAltNo, content?.course?.images?.studentInActionAltEn, 'AFF Student in Freefall', language), objectPosition: 'center' },
             ]}
             height={350}
             columns={2}
@@ -155,100 +171,35 @@ export function KursProgression() {
 
           {/* Levels 4–7 */}
           <div className="grid md:grid-cols-2 gap-6">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <Card className="border-0 shadow-lg h-full">
-                <CardContent className="p-6">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-12 h-12 rounded-full bg-gradient-brand flex items-center justify-center text-white text-lg font-bold">
-                      4
+            {[4, 5, 6, 7].map((n, i) => (
+              <motion.div
+                key={n}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+              >
+                <Card className="border-0 shadow-lg h-full">
+                  <CardContent className="p-6">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-12 h-12 rounded-full bg-gradient-brand flex items-center justify-center text-white text-lg font-bold">
+                        {n}
+                      </div>
+                      <h3 className="text-lg font-bold">{level(n).title}</h3>
                     </div>
-                    <h3 className="text-lg font-bold">{t('kurs.progression.level4Title')}</h3>
-                  </div>
-                  <p className="text-sm text-muted-foreground mb-2">
-                    <strong>1 {t('kurs.progression.level1Instructors').toLowerCase()}</strong> | 12 500 fot | {t('kurs.progression.level47FreefallTime')} {t('kurs.progression.level1Freefall').toLowerCase()}
-                  </p>
-                  <p className="text-sm text-muted-foreground">
-                    <strong>{t('kurs.requirements.title')}:</strong> {t('kurs.progression.level4Goal')}
-                  </p>
-                </CardContent>
-              </Card>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-            >
-              <Card className="border-0 shadow-lg h-full">
-                <CardContent className="p-6">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-12 h-12 rounded-full bg-gradient-brand flex items-center justify-center text-white text-lg font-bold">
-                      5
-                    </div>
-                    <h3 className="text-lg font-bold">{t('kurs.progression.level5Title')}</h3>
-                  </div>
-                  <p className="text-sm text-muted-foreground mb-2">
-                    <strong>1 {t('kurs.progression.level1Instructors').toLowerCase()}</strong> | 12 500 fot | {t('kurs.progression.level47FreefallTime')} {t('kurs.progression.level1Freefall').toLowerCase()}
-                  </p>
-                  <p className="text-sm text-muted-foreground">
-                    <strong>{t('kurs.requirements.title')}:</strong> {t('kurs.progression.level5Goal')}
-                  </p>
-                </CardContent>
-              </Card>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-            >
-              <Card className="border-0 shadow-lg h-full">
-                <CardContent className="p-6">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-12 h-12 rounded-full bg-gradient-brand flex items-center justify-center text-white text-lg font-bold">
-                      6
-                    </div>
-                    <h3 className="text-lg font-bold">{t('kurs.progression.level6Title')}</h3>
-                  </div>
-                  <p className="text-sm text-muted-foreground mb-2">
-                    <strong>1 {t('kurs.progression.level1Instructors').toLowerCase()}</strong> | 12 500 fot | {t('kurs.progression.level47FreefallTime')} {t('kurs.progression.level1Freefall').toLowerCase()}
-                  </p>
-                  <p className="text-sm text-muted-foreground">
-                    <strong>{t('kurs.requirements.title')}:</strong> {t('kurs.progression.level6Goal')}
-                  </p>
-                </CardContent>
-              </Card>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
-            >
-              <Card className="border-0 shadow-lg h-full">
-                <CardContent className="p-6">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-12 h-12 rounded-full bg-gradient-brand flex items-center justify-center text-white text-lg font-bold">
-                      7
-                    </div>
-                    <h3 className="text-lg font-bold">{t('kurs.progression.level7Title')}</h3>
-                  </div>
-                  <p className="text-sm text-muted-foreground mb-2">
-                    <strong>1 {t('kurs.progression.level1Instructors').toLowerCase()}</strong> | 12 500 fot | {t('kurs.progression.level1Deploy')}: 4 000 fot
-                  </p>
-                  <p className="text-sm text-muted-foreground">
-                    <strong>{t('kurs.requirements.title')}:</strong> {t('kurs.progression.level7Goal')}
-                  </p>
-                </CardContent>
-              </Card>
-            </motion.div>
+                    <p className="text-sm text-muted-foreground mb-2">
+                      <strong>1 {t('kurs.progression.level1Instructors').toLowerCase()}</strong> | 12 500 fot
+                      {n < 7
+                        ? ` | ${t('kurs.progression.level47FreefallTime')} ${t('kurs.progression.level1Freefall').toLowerCase()}`
+                        : ` | ${t('kurs.progression.level1Deploy')}: 4 000 fot`}
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      <strong>{t('kurs.requirements.title')}:</strong> {level(n).goal}
+                    </p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
           </div>
 
           {/* Level 8 */}
@@ -264,33 +215,37 @@ export function KursProgression() {
                     8
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-2xl font-bold mb-3">{t('kurs.progression.level8Title')}</h3>
-                    <p className="text-muted-foreground mb-4">
-                      {t('kurs.progression.level8Desc')}
-                    </p>
+                    <h3 className="text-2xl font-bold mb-3">{level(8).title}</h3>
+                    {level(8).desc && (
+                      <p className="text-muted-foreground mb-4">{level(8).desc}</p>
+                    )}
                     <div className="grid md:grid-cols-2 gap-4">
-                      <div className="p-4 bg-background rounded-lg">
-                        <p className="font-semibold mb-2 flex items-center gap-2">
-                          <ClipboardList className="w-4 h-4 text-sky" />
-                          {t('kurs.progression.level8Requirements')}
-                        </p>
-                        <ul className="text-sm text-muted-foreground space-y-1">
-                          <li>• {t('kurs.progression.level8Req1')}</li>
-                          <li>• {t('kurs.progression.level8Req2')}</li>
-                          <li>• {t('kurs.progression.level8Req3')}</li>
-                        </ul>
-                      </div>
-                      <div className="p-4 bg-background rounded-lg">
-                        <p className="font-semibold mb-2 flex items-center gap-2">
-                          <GraduationCap className="w-4 h-4 text-sky" />
-                          {t('kurs.progression.level8NextSection')}
-                        </p>
-                        <ul className="text-sm text-muted-foreground space-y-1">
-                          <li>• {t('kurs.progression.level8Next1')}</li>
-                          <li>• {t('kurs.progression.level8Next2')}</li>
-                          <li>• {t('kurs.progression.level8Next3')}</li>
-                        </ul>
-                      </div>
+                      {level(8).requirements?.length ? (
+                        <div className="p-4 bg-background rounded-lg">
+                          <p className="font-semibold mb-2 flex items-center gap-2">
+                            <ClipboardList className="w-4 h-4 text-sky" />
+                            {t('kurs.progression.level8Requirements')}
+                          </p>
+                          <ul className="text-sm text-muted-foreground space-y-1">
+                            {level(8).requirements!.map((req, i) => (
+                              <li key={i}>• {req}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      ) : null}
+                      {level(8).nextSteps?.length ? (
+                        <div className="p-4 bg-background rounded-lg">
+                          <p className="font-semibold mb-2 flex items-center gap-2">
+                            <GraduationCap className="w-4 h-4 text-sky" />
+                            {t('kurs.progression.level8NextSection')}
+                          </p>
+                          <ul className="text-sm text-muted-foreground space-y-1">
+                            {level(8).nextSteps!.map((step, i) => (
+                              <li key={i}>• {step}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      ) : null}
                     </div>
                   </div>
                 </div>

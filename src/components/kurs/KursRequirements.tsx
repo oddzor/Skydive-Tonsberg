@@ -6,7 +6,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { useKursData } from '@/hooks/useKursData';
 export function KursRequirements() {
   const { t } = useLanguage();
-  const { requirements } = useKursData();
+  const { requirements, declaration, support } = useKursData();
   return (
     <section className="py-24 lg:py-32">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -41,7 +41,7 @@ export function KursRequirements() {
                   {t('kurs.declaration.title')}
                 </h3>
                 <p className="text-sm text-muted-foreground italic leading-relaxed">
-                  &ldquo;{t('kurs.declaration.text')}&rdquo;
+                  &ldquo;{declaration}&rdquo;
                 </p>
               </CardContent>
             </Card>
@@ -59,8 +59,8 @@ export function KursRequirements() {
                   {t('kurs.support.title')}
                 </h3>
                 <div className="space-y-3 text-sm text-muted-foreground">
-                  <p>• {t('kurs.support.facebook')}</p>
-                  <p>• {t('kurs.support.mentor')}</p>
+                  <p>• {support.facebook}</p>
+                  <p>• {support.mentor}</p>
                   <p className="mt-4 pt-4 border-t border-border">
                     <strong>{t('kurs.support.questions')}</strong>{' '}
                     <a href="mailto:kurs@hoppfallskjerm.no" className="text-sky hover:underline">

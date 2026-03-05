@@ -1,5 +1,10 @@
 import type { Metadata } from "next";
-import { allFAQSchema } from "@/lib/faqSchema";
+import { safeFetch } from "@/sanity/client";
+import { ALL_FAQS_QUERY } from "@/sanity/queries";
+import { buildFAQSchema, sanityFaqToSchema } from "@/lib/faqSchema";
+import type { SanityFAQ } from "@/sanity/types";
+
+export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: "FAQ | Vanlige spørsmål om fallskjermhopping",
@@ -17,13 +22,20 @@ export const metadata: Metadata = {
   },
 };
 
-export default function FAQLayout({ children }: { children: React.ReactNode }) {
+export default async function FAQLayout({ children }: { children: React.ReactNode }) {
+  const allFAQs = await safeFetch<SanityFAQ[]>(ALL_FAQS_QUERY);
+  const allFAQSchema = allFAQs?.length
+    ? buildFAQSchema(allFAQs.map(sanityFaqToSchema))
+    : null;
+
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(allFAQSchema) }}
-      />
+      {allFAQSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(allFAQSchema) }}
+        />
+      )}
       {children}
     </>
   );

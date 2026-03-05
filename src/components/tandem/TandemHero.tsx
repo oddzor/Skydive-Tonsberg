@@ -5,21 +5,23 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useCMSContent } from '@/hooks/useCMSContent';
+import { useTandemData } from '@/hooks/useTandemData';
 import { VideoEmbed, StatsGrid } from '@/components/shared';
 export function TandemHero() {
   const { t } = useLanguage();
   const { content } = useCMSContent();
+  const { exitAltitude, freefallDuration, ageRestriction } = useTandemData();
   const keyStats = [
     {
-      value: '4000m',
+      value: exitAltitude,
       label: t('tandem.pricingCards.keyFacts.altitudeLabel'),
     },
     {
-      value: '40 sek',
+      value: freefallDuration,
       label: t('tandem.pricingCards.keyFacts.freefallLabel'),
     },
     {
-      value: '15 år',
+      value: ageRestriction,
       label: t('kurs.stats.minAge'),
     },
   ];

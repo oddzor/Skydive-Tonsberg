@@ -5,10 +5,22 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Calendar, Phone } from "lucide-react";
 import Link from "next/link";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useGeneralContent } from "@/contexts/SanityDataContext";
+
+const FALLBACK_BOOKING_URL = "https://bookings.burblesoft.eu/551/18";
+const FALLBACK_SHOP_URL = "https://store.burblesoft.com/?dz_id=551";
+const FALLBACK_CALENDAR_URL = "https://www.skydivetonsberg.no/hoppkalender-1";
+
 export function CTA() {
   const { t } = useLanguage();
+  const generalContent = useGeneralContent();
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  const bookingUrl = generalContent?.bookingUrl || FALLBACK_BOOKING_URL;
+  const shopUrl = generalContent?.shopUrl || FALLBACK_SHOP_URL;
+  const calendarUrl = generalContent?.jumpCalendarUrl || FALLBACK_CALENDAR_URL;
+
   return (
     <section ref={ref} className="py-24 lg:py-32 relative overflow-hidden bg-linear-to-b from-sky to-leaf text-white">
 
@@ -63,7 +75,7 @@ export function CTA() {
               className="bg-white text-foreground hover:bg-white/90 font-semibold px-8 py-6 text-lg shadow-xl"
             >
               <a
-                href="https://bookings.burblesoft.eu/551/18"
+                href={bookingUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2"
@@ -93,7 +105,7 @@ export function CTA() {
             className="mt-12 flex flex-wrap justify-center gap-6 text-white/70"
           >
             <a
-              href="https://www.skydivetonsberg.no/hoppkalender-1"
+              href={calendarUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-white transition-colors text-sm flex items-center gap-1"
@@ -103,7 +115,7 @@ export function CTA() {
             </a>
             <span className="text-white/30">•</span>
             <a
-              href="https://store.burblesoft.com/?dz_id=551"
+              href={shopUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-white transition-colors text-sm"

@@ -69,11 +69,45 @@ export function ForHoppereContent() {
   const { t } = useLanguage();
   const { content } = useCMSContent();
   const {
+    heroDescription,
+    heroSubDescription,
     seasonInfo,
     quickLinks,
+    renewalDescription,
+    bunkhouseDescription,
     bunkhousingPricing,
     bunkhouseRules,
+    burbleMeDescription,
+    burbleMePersonalDetailsDesc,
+    burbleMeProfileNote,
+    burbleMeCheckInDropzoneDesc,
+    burbleMeCheckInFormationDesc,
+    burbleMeCheckInRules,
+    burbleMeLoadTimeDesc,
+    burbleMeOutlandingDesc,
+    burbleMeLocationDesc,
+    rentalDescription,
+    rentalAvailable,
+    rentalContactText,
+    rentalFeatures,
+    rentalRequirements,
+    insuranceNorwegianText,
+    insuranceForeignIntro,
+    insuranceForeignBuy,
+    insuranceForeignWarning,
+    reportingIntro,
+    reportingPolicy,
+    reportingSystemDesc,
+    reportingSystemPath,
+    reportingGroup,
     exitOrder,
+    boardingRules,
+    inAircraftRules,
+    landingPatternRules,
+    outlandingRules,
+    aircraftIntro,
+    aircraftHistory,
+    aircraftRenovation,
     pricing,
     registrationFees,
     equipmentPricing,
@@ -141,10 +175,10 @@ export function ForHoppereContent() {
                 <span className="text-gradient">{t("forHoppere.hero.titleHighlight")}</span>
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed max-w-3xl">
-                {t("forHoppere.hero.description")}
+                {heroDescription}
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl mt-4">
-                {t("forHoppere.hero.subDescription")}
+                {heroSubDescription}
               </p>
             </div>
 
@@ -272,7 +306,7 @@ export function ForHoppereContent() {
               {t("forHoppere.renewal.title")} <span className="text-gradient">{t("forHoppere.renewal.titleHighlight")}</span>
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
-              {t("forHoppere.renewal.description")}
+              {renewalDescription}
             </p>
             <Button
               asChild
@@ -308,7 +342,7 @@ export function ForHoppereContent() {
               {t("forHoppere.bunkhouse.title")} <span className="text-gradient">{t("forHoppere.bunkhouse.titleHighlight")}</span>
             </h2>
             <p className="text-lg text-muted-foreground mb-6">
-              {t("forHoppere.bunkhouse.description")}
+              {bunkhouseDescription}
             </p>
             <Button
               asChild
@@ -408,7 +442,7 @@ export function ForHoppereContent() {
               {t("forHoppere.burbleMe.title")} <span className="text-gradient">{t("forHoppere.burbleMe.titleHighlight")}</span>
             </h2>
             <p className="text-lg text-muted-foreground mb-4">
-              {t("forHoppere.burbleMe.description")}
+              {burbleMeDescription}
             </p>
             <Button
               asChild
@@ -441,7 +475,7 @@ export function ForHoppereContent() {
                 <CardContent className="space-y-4">
                   <div>
                     <h4 className="font-semibold text-foreground mb-2">{t("forHoppere.burbleMe.profileSetup.personalDetails")}</h4>
-                    <p className="text-sm text-muted-foreground">{t("forHoppere.burbleMe.profileSetup.personalDetailsDesc")}</p>
+                    <p className="text-sm text-muted-foreground">{burbleMePersonalDetailsDesc}</p>
                   </div>
                   <div>
                     <h4 className="font-semibold text-foreground mb-2">{t("forHoppere.burbleMe.profileSetup.editCredentials")}</h4>
@@ -452,7 +486,7 @@ export function ForHoppereContent() {
                     </ul>
                   </div>
                   <p className="text-xs text-muted-foreground bg-muted p-3 rounded-lg">
-                    {t("forHoppere.burbleMe.profileSetup.note")}
+                    {burbleMeProfileNote}
                   </p>
                 </CardContent>
               </Card>
@@ -475,21 +509,21 @@ export function ForHoppereContent() {
                   <div>
                     <h4 className="font-semibold text-foreground mb-2">{t("forHoppere.burbleMe.checkIn.dropzone")}</h4>
                     <p className="text-sm text-muted-foreground">
-                      {t("forHoppere.burbleMe.checkIn.dropzoneDesc")}
+                      {burbleMeCheckInDropzoneDesc}
                     </p>
                   </div>
                   <div>
                     <h4 className="font-semibold text-foreground mb-2">{t("forHoppere.burbleMe.checkIn.formation")}</h4>
                     <p className="text-sm text-muted-foreground">
-                      {t("forHoppere.burbleMe.checkIn.formationDesc")}
+                      {burbleMeCheckInFormationDesc}
                     </p>
                   </div>
                   <div className="p-3 bg-muted rounded-lg">
                     <h4 className="font-semibold text-foreground mb-1">{t("forHoppere.burbleMe.checkIn.trackingRules")}</h4>
                     <ul className="text-xs text-muted-foreground space-y-1">
-                      <li>• {t("forHoppere.burbleMe.checkIn.trackingRule1")}</li>
-                      <li>• {t("forHoppere.burbleMe.checkIn.trackingRule2")}</li>
-                      <li>• {t("forHoppere.burbleMe.checkIn.trackingRule3")}</li>
+                      {burbleMeCheckInRules.map((rule, i) => (
+                        <li key={i}>• {rule}</li>
+                      ))}
                     </ul>
                   </div>
                 </CardContent>
@@ -513,19 +547,19 @@ export function ForHoppereContent() {
                   <div>
                     <h4 className="font-semibold text-foreground mb-2">{t("forHoppere.burbleMe.notifications.loadTime")}</h4>
                     <p className="text-sm text-muted-foreground">
-                      {t("forHoppere.burbleMe.notifications.loadTimeDesc")}
+                      {burbleMeLoadTimeDesc}
                     </p>
                   </div>
                   <div>
                     <h4 className="font-semibold text-foreground mb-2">{t("forHoppere.burbleMe.notifications.outlanding")}</h4>
                     <p className="text-sm text-muted-foreground">
-                      {t("forHoppere.burbleMe.notifications.outlandingDesc")}
+                      {burbleMeOutlandingDesc}
                     </p>
                   </div>
                   <div>
                     <h4 className="font-semibold text-foreground mb-2">{t("forHoppere.burbleMe.notifications.location")}</h4>
                     <p className="text-sm text-muted-foreground">
-                      {t("forHoppere.burbleMe.notifications.locationDesc")}
+                      {burbleMeLocationDesc}
                     </p>
                   </div>
                 </CardContent>
@@ -630,36 +664,33 @@ export function ForHoppereContent() {
                   <div>
                     <h4 className="font-semibold text-foreground mb-2">{t("forHoppere.hoppfeltbrief.boarding.title")}</h4>
                     <ul className="text-sm text-muted-foreground space-y-1">
-                      <li>• {t("forHoppere.hoppfeltbrief.boarding.rule1")}</li>
-                      <li>• {t("forHoppere.hoppfeltbrief.boarding.rule2")}</li>
-                      <li>• {t("forHoppere.hoppfeltbrief.boarding.rule3")}</li>
+                      {boardingRules.map((rule, i) => (
+                        <li key={i}>• {rule}</li>
+                      ))}
                     </ul>
                   </div>
                   <div>
                     <h4 className="font-semibold text-foreground mb-2">{t("forHoppere.hoppfeltbrief.inAircraft.title")}</h4>
                     <ul className="text-sm text-muted-foreground space-y-1">
-                      <li>• {t("forHoppere.hoppfeltbrief.inAircraft.rule1")}</li>
-                      <li>• {t("forHoppere.hoppfeltbrief.inAircraft.rule2")}</li>
-                      <li>• {t("forHoppere.hoppfeltbrief.inAircraft.rule3")}</li>
-                      <li>• {t("forHoppere.hoppfeltbrief.inAircraft.rule4")}</li>
+                      {inAircraftRules.map((rule, i) => (
+                        <li key={i}>• {rule}</li>
+                      ))}
                     </ul>
                   </div>
                   <div>
                     <h4 className="font-semibold text-foreground mb-2">{t("forHoppere.hoppfeltbrief.landingPattern.title")}</h4>
                     <ul className="text-sm text-muted-foreground space-y-1">
-                      <li>• {t("forHoppere.hoppfeltbrief.landingPattern.rule1")}</li>
-                      <li>• {t("forHoppere.hoppfeltbrief.landingPattern.rule2")}</li>
-                      <li>• {t("forHoppere.hoppfeltbrief.landingPattern.rule3")}</li>
-                      <li>• {t("forHoppere.hoppfeltbrief.landingPattern.rule4")}</li>
+                      {landingPatternRules.map((rule, i) => (
+                        <li key={i}>• {rule}</li>
+                      ))}
                     </ul>
                   </div>
                   <div>
                     <h4 className="font-semibold text-foreground mb-2">{t("forHoppere.hoppfeltbrief.outlanding.title")}</h4>
                     <ul className="text-sm text-muted-foreground space-y-1">
-                      <li>• {t("forHoppere.hoppfeltbrief.outlanding.rule1")}</li>
-                      <li>• {t("forHoppere.hoppfeltbrief.outlanding.rule2")}</li>
-                      <li>• {t("forHoppere.hoppfeltbrief.outlanding.rule3")}</li>
-                      <li>• {t("forHoppere.hoppfeltbrief.outlanding.rule4")}</li>
+                      {outlandingRules.map((rule, i) => (
+                        <li key={i}>• {rule}</li>
+                      ))}
                     </ul>
                   </div>
                 </CardContent>
@@ -874,7 +905,7 @@ export function ForHoppereContent() {
               {t("forHoppere.rental.title")} <span className="text-gradient">{t("forHoppere.rental.titleHighlight")}</span>
             </h2>
             <p className="text-lg text-muted-foreground">
-              {t("forHoppere.rental.description")}
+              {rentalDescription}
             </p>
           </motion.div>
           <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
@@ -892,32 +923,22 @@ export function ForHoppereContent() {
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <p className="text-muted-foreground">
-                    {t("forHoppere.rental.available")}
+                    {rentalAvailable}
                   </p>
                   <ul className="space-y-3">
-                    <li className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-leaf shrink-0 mt-0.5" />
-                      <span>{t("forHoppere.rental.features.complete")}</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-leaf shrink-0 mt-0.5" />
-                      <span>{t("forHoppere.rental.features.maintained")}</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-leaf shrink-0 mt-0.5" />
-                      <span>{t("forHoppere.rental.features.aad")}</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-leaf shrink-0 mt-0.5" />
-                      <span>{t("forHoppere.rental.features.sizes")}</span>
-                    </li>
+                    {rentalFeatures.map((feature, i) => (
+                      <li key={i} className="flex items-start gap-3">
+                        <CheckCircle2 className="w-5 h-5 text-leaf shrink-0 mt-0.5" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
                   </ul>
                   <div className="pt-4 border-t">
                     <h4 className="font-semibold text-foreground mb-3">{t("forHoppere.rental.requirements")}</h4>
                     <ul className="space-y-2 text-sm text-muted-foreground">
-                      <li>• {t("forHoppere.rental.requirementsList.license")}</li>
-                      <li>• {t("forHoppere.rental.requirementsList.insurance")}</li>
-                      <li>• {t("forHoppere.rental.requirementsList.currency")}</li>
+                      {rentalRequirements.map((req, i) => (
+                        <li key={i}>• {req}</li>
+                      ))}
                     </ul>
                   </div>
                 </CardContent>
@@ -955,7 +976,7 @@ export function ForHoppereContent() {
                   <div className="p-4 bg-sky/10 rounded-xl border border-sky/20">
                     <p className="text-sm text-foreground">
                       <Info className="w-4 h-4 inline mr-2" />
-                      {t("forHoppere.rental.contactText")}
+                      {rentalContactText}
                     </p>
                   </div>
                   <Button
@@ -1002,13 +1023,13 @@ export function ForHoppereContent() {
               viewport={{ once: true }}
             >
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                {t("forHoppere.aircraft.intro")}
+                {aircraftIntro}
               </p>
               <p className="text-muted-foreground mb-6">
-                {t("forHoppere.aircraft.history")}
+                {aircraftHistory}
               </p>
               <p className="text-muted-foreground mb-6">
-                {t("forHoppere.aircraft.renovation")}
+                {aircraftRenovation}
               </p>
               <div className="grid grid-cols-2 gap-4 mb-6">
                 <div className="p-4 bg-card rounded-xl border border-border text-center">
@@ -1079,7 +1100,7 @@ export function ForHoppereContent() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground">
-                    {t("forHoppere.insurance.norwegianText")}
+                    {insuranceNorwegianText}
                   </p>
                 </CardContent>
               </Card>
@@ -1099,15 +1120,15 @@ export function ForHoppereContent() {
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <p className="text-muted-foreground">
-                    {t("forHoppere.insurance.foreignIntro")}
+                    {insuranceForeignIntro}
                   </p>
                   <p className="text-muted-foreground">
-                    {t("forHoppere.insurance.foreignBuy")}
+                    {insuranceForeignBuy}
                   </p>
                   <div className="p-4 bg-muted rounded-lg">
                     <p className="text-sm text-foreground">
                       <AlertCircle className="w-4 h-4 inline mr-1" />
-                      {t("forHoppere.insurance.foreignWarning")}
+                      {insuranceForeignWarning}
                     </p>
                   </div>
                 </CardContent>
@@ -1136,18 +1157,18 @@ export function ForHoppereContent() {
             <Card className="border-0 shadow-lg">
               <CardContent className="p-8">
                 <p className="text-lg text-muted-foreground mb-6">
-                  {t("forHoppere.reporting.intro")}
+                  {reportingIntro}
                 </p>
                 <p className="text-muted-foreground mb-6">
-                  {t("forHoppere.reporting.policy")}
+                  {reportingPolicy}
                 </p>
                 <div className="p-6 bg-muted rounded-xl mb-6">
                   <h4 className="font-semibold text-foreground mb-3">{t("forHoppere.reporting.systemTitle")}</h4>
                   <p className="text-sm text-muted-foreground mb-4">
-                    {t("forHoppere.reporting.systemDesc")}
+                    {reportingSystemDesc}
                   </p>
                   <p className="text-sm text-muted-foreground mb-4">
-                    {t("forHoppere.reporting.systemPath")}
+                    {reportingSystemPath}
                   </p>
                   <Button asChild variant="outline">
                     <a
@@ -1161,7 +1182,7 @@ export function ForHoppereContent() {
                   </Button>
                 </div>
                 <p className="text-sm text-muted-foreground">
-                  {t("forHoppere.reporting.group")}
+                  {reportingGroup}
                 </p>
               </CardContent>
             </Card>

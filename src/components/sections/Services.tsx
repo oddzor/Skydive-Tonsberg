@@ -8,31 +8,24 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useCMSContent } from "@/hooks/useCMSContent";
-interface CMSContent {
-  pricing?: {
-    tandem?: { weekday?: number };
-    course?: { total?: number };
-    kurs?: { affCourse?: number };
-  };
-  home?: {
-    images?: {
-      serviceTandem?: string;
-      serviceAff?: string;
-      serviceExperienced?: string;
-    };
-  };
+import { CMSContent } from "@/hooks/useCMSContent.types";
+function pickAlt(no: string | null | undefined, en: string | null | undefined, fallback: string, language: string): string {
+  return (language === 'en' ? (en || no) : (no || en)) || fallback;
 }
-
 const getServices = (
   t: (key: string) => string,
-  cmsContent: CMSContent | null
+  cmsContent: CMSContent | null,
+  language: string,
 ) => {
+  const cards = cmsContent?.home?.serviceCards;
+  const imgs = cmsContent?.home?.images;
   const services = [
     {
-      title: t('home.services.tandem.title'),
-      description: t('home.services.tandem.description'),
+      title: cards?.tandemTitle || t('home.services.tandem.title'),
+      description: cards?.tandemDesc || t('home.services.tandem.description'),
       price: `${cmsContent?.pricing?.tandem?.weekday || 4690} kr`,
-      image: cmsContent?.home?.images?.serviceTandem || "/service-tandem.webp",
+      image: imgs?.serviceTandem || "/service-tandem.webp",
+      alt: pickAlt(imgs?.serviceTandemAltNo, imgs?.serviceTandemAltEn, t('home.services.tandem.title'), language),
       icon: Users,
       href: "/tandem",
       cta: t('home.services.tandem.cta'),
@@ -41,10 +34,11 @@ const getServices = (
       showPrice: true,
     },
     {
-      title: t('home.services.aff.title'),
-      description: t('home.services.aff.description'),
+      title: cards?.affTitle || t('home.services.aff.title'),
+      description: cards?.affDesc || t('home.services.aff.description'),
       price: `${cmsContent?.pricing?.kurs?.affCourse || 18990} kr`,
-      image: cmsContent?.home?.images?.serviceAff || "/service-aff.webp",
+      image: imgs?.serviceAff || "/service-aff.webp",
+      alt: pickAlt(imgs?.serviceAffAltNo, imgs?.serviceAffAltEn, t('home.services.aff.title'), language),
       icon: GraduationCap,
       href: "/kurs",
       cta: t('home.services.aff.cta'),
@@ -53,9 +47,10 @@ const getServices = (
       showPrice: true,
     },
     {
-      title: t('home.services.experienced.title'),
-      description: t('home.services.experienced.description'),
-      image: cmsContent?.home?.images?.serviceExperienced || "/service-experienced.webp",
+      title: cards?.experiencedTitle || t('home.services.experienced.title'),
+      description: cards?.experiencedDesc || t('home.services.experienced.description'),
+      image: imgs?.serviceExperienced || "/service-experienced.webp",
+      alt: pickAlt(imgs?.serviceExperiencedAltNo, imgs?.serviceExperiencedAltEn, t('home.services.experienced.title'), language),
       icon: Plane,
       href: "/for-hoppere",
       cta: t('home.services.experienced.cta'),
@@ -82,11 +77,11 @@ const cardVariants = {
   },
 };
 export function Services() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const { content } = useCMSContent();
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const services = getServices(t, content);
+  const services = getServices(t, content, language);
   return (
     <section className="py-24 lg:py-32 bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -119,7 +114,7 @@ export function Services() {
                 <div className="relative aspect-4/3 overflow-hidden">
                   <Image
                     src={service.image}
-                    alt={service.title}
+                    alt={service.alt}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
                   />

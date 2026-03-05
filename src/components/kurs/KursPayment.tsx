@@ -10,9 +10,13 @@ import {
 } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useCMSContent } from '@/hooks/useCMSContent';
+import { useKursData } from '@/hooks/useKursData';
 
 export function KursPayment() {
   const { t } = useLanguage();
+  const { content } = useCMSContent();
+  const { payment } = useKursData();
 
   return (
     <section className="py-24 lg:py-32 bg-muted/30">
@@ -33,7 +37,7 @@ export function KursPayment() {
             <CardContent className="p-8">
               <h3 className="text-xl font-bold mb-4">{t('kurs.payment.priceTitle')}</h3>
               <div className="text-4xl font-bold text-sky mb-2">
-                18 990 kr
+                {content?.pricing?.kurs?.affCourse || 18990} kr
               </div>
               <p className="text-muted-foreground mb-6">{t('kurs.payment.completeCourse')}</p>
               <div className="space-y-4">
@@ -43,7 +47,7 @@ export function KursPayment() {
                     {t('kurs.payment.bookingTitle')}
                   </p>
                   <p className="text-sm text-muted-foreground">
-                    {t('kurs.payment.bookingDesc')}
+                    {payment.bookingDesc}
                   </p>
                 </div>
                 <div className="p-4 bg-muted rounded-lg">
@@ -52,7 +56,7 @@ export function KursPayment() {
                     {t('kurs.payment.startTitle')}
                   </p>
                   <p className="text-sm text-muted-foreground">
-                    {t('kurs.payment.startDesc')}
+                    {payment.startDesc}
                   </p>
                 </div>
                 <div className="p-4 bg-muted rounded-lg">
@@ -61,7 +65,7 @@ export function KursPayment() {
                     {t('kurs.payment.vippsTitle')}
                   </p>
                   <p className="text-sm text-muted-foreground">
-                    {t('kurs.payment.vippsDesc')}
+                    {payment.vippsDesc}
                   </p>
                 </div>
               </div>
@@ -78,10 +82,10 @@ export function KursPayment() {
                     {t('kurs.payment.rejumpSubtitle')}
                   </p>
                   <p className="text-sm text-muted-foreground mb-2">
-                    {t('kurs.payment.rejumpDesc1')}
+                    {payment.rejumpDesc1}
                   </p>
                   <p className="text-sm text-muted-foreground">
-                    {t('kurs.payment.rejumpDesc2')}{' '}
+                    {payment.rejumpDesc2}{' '}
                     <a href="/for-hoppere#priser" className="text-sky hover:underline">
                       {t('nav.forJumpers')}
                     </a>
@@ -94,7 +98,7 @@ export function KursPayment() {
                     {t('kurs.payment.membershipTitle')}
                   </p>
                   <p className="text-sm text-amber-800 dark:text-amber-200">
-                    {t('kurs.payment.membershipDesc')}
+                    {payment.membershipDesc}
                   </p>
                   <a
                     href="https://nlf.no/medlemsservice/kontingentkalkulator/"
@@ -111,7 +115,7 @@ export function KursPayment() {
                     {t('kurs.payment.cancellationTitle')}
                   </p>
                   <p className="text-sm text-muted-foreground">
-                    {t('kurs.payment.cancellationDesc')}
+                    {payment.cancellationDesc}
                   </p>
                 </div>
               </div>

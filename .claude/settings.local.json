@@ -5,7 +5,11 @@
       "Bash(head:*)",
       "Bash(python3:*)",
       "Bash(ls:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(wc:*)",
+      "Bash(tail:*)",
+      "Bash(cd:*)",
+      "Bash(cd C:/repositories/Skydive-T-nsberg/Skydive-Tonsberg && npx tsc --noEmit 2>&1)"
     ]
   }
 }

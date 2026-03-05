@@ -5,10 +5,16 @@ import { CheckCircle2, PartyPopper } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useCMSContent } from '@/hooks/useCMSContent';
+import { useKursData } from '@/hooks/useKursData';
+
+function pickAlt(no: string | null | undefined, en: string | null | undefined, fallback: string, language: string): string {
+  return (language === 'en' ? (en || no) : (no || en)) || fallback;
+}
 
 export function KursALicense() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const { content } = useCMSContent();
+  const { aLicense } = useKursData();
 
   return (
     <section className="py-24 lg:py-32 bg-muted/30">
@@ -35,7 +41,7 @@ export function KursALicense() {
         >
           <Image
             src={content?.course?.images?.packingCourse || '/packing-course.webp'}
-            alt="Student Learning to Pack Parachute"
+            alt={pickAlt(content?.course?.images?.packingCourseAltNo, content?.course?.images?.packingCourseAltEn, 'Student Learning to Pack Parachute', language)}
             fill
             className="object-cover"
           />
@@ -47,30 +53,18 @@ export function KursALicense() {
               <CardContent className="p-8">
                 <h3 className="text-2xl font-bold mb-6">{t('kurs.aLicense.progressionTitle')}</h3>
                 <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <CheckCircle2 className="w-6 h-6 text-leaf shrink-0 mt-1" />
-                    <div>
-                      <p className="font-semibold">{t('kurs.aLicense.soloJumps')}</p>
-                      <p className="text-sm text-muted-foreground">{t('kurs.aLicense.soloJumpsDesc')}</p>
+                  {aLicense.progressionItems.map((item, i) => (
+                    <div key={i} className="flex items-start gap-3">
+                      <CheckCircle2 className="w-6 h-6 text-leaf shrink-0 mt-1" />
+                      <div>
+                        <p className="font-semibold">{item.title}</p>
+                        <p className="text-sm text-muted-foreground">{item.description}</p>
+                      </div>
                     </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle2 className="w-6 h-6 text-leaf shrink-0 mt-1" />
-                    <div>
-                      <p className="font-semibold">{t('kurs.aLicense.checkouts')}</p>
-                      <p className="text-sm text-muted-foreground">{t('kurs.aLicense.checkoutsDesc')}</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle2 className="w-6 h-6 text-leaf shrink-0 mt-1" />
-                    <div>
-                      <p className="font-semibold">{t('kurs.aLicense.lowJumps')}</p>
-                      <p className="text-sm text-muted-foreground">{t('kurs.aLicense.lowJumpsDesc')}</p>
-                    </div>
-                  </div>
+                  ))}
                 </div>
                 <p className="text-sm text-muted-foreground mt-6 p-4 bg-muted rounded-lg">
-                  {t('kurs.aLicense.tempoDesc')}
+                  {aLicense.tempoDesc}
                 </p>
               </CardContent>
             </Card>
@@ -79,51 +73,15 @@ export function KursALicense() {
               <CardContent className="p-8">
                 <h3 className="text-2xl font-bold mb-6">{t('kurs.aLicense.beforeLicenseTitle')}</h3>
                 <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <CheckCircle2 className="w-6 h-6 text-leaf shrink-0 mt-1" />
-                    <div>
-                      <p className="font-semibold">{t('kurs.aLicense.packingCourse')}</p>
-                      <p className="text-sm text-muted-foreground">{t('kurs.aLicense.packingCourseDesc')}</p>
+                  {aLicense.beforeItems.map((item, i) => (
+                    <div key={i} className="flex items-start gap-3">
+                      <CheckCircle2 className="w-6 h-6 text-leaf shrink-0 mt-1" />
+                      <div>
+                        <p className="font-semibold">{item.title}</p>
+                        <p className="text-sm text-muted-foreground">{item.description}</p>
+                      </div>
                     </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle2 className="w-6 h-6 text-leaf shrink-0 mt-1" />
-                    <div>
-                      <p className="font-semibold">{t('kurs.aLicense.packingExam')}</p>
-                      <p className="text-sm text-muted-foreground">{t('kurs.aLicense.packingExamDesc')}</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle2 className="w-6 h-6 text-leaf shrink-0 mt-1" />
-                    <div>
-                      <p className="font-semibold">{t('kurs.aLicense.aCourse')}</p>
-                      <p className="text-sm text-muted-foreground">{t('kurs.aLicense.aCourseDesc')}</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle2 className="w-6 h-6 text-leaf shrink-0 mt-1" />
-                    <div>
-                      <p className="font-semibold">{t('kurs.aLicense.aExam')}</p>
-                      <p className="text-sm text-muted-foreground">{t('kurs.aLicense.aExamDesc')}</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle2 className="w-6 h-6 text-leaf shrink-0 mt-1" />
-                    <div>
-                      <p className="font-semibold">{t('kurs.aLicense.renUtover')}</p>
-                      <p className="text-sm text-muted-foreground">
-                        {t('kurs.aLicense.renUtoverDesc')}{' '}
-                        <a
-                          href="https://renutover.no"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-sky hover:underline"
-                        >
-                          renutover.no
-                        </a>
-                      </p>
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </CardContent>
             </Card>
@@ -138,7 +96,7 @@ export function KursALicense() {
             >
               <Image
                 src={content?.course?.images?.licenseCelebration || '/a-license-celebration.webp'}
-                alt="New A-License Graduate Celebrating"
+                alt={pickAlt(content?.course?.images?.licenseCelebrationAltNo, content?.course?.images?.licenseCelebrationAltEn, 'New A-License Graduate Celebrating', language)}
                 width={0}
                 height={0}
                 sizes="(max-width: 767px) 100vw, 50vw"
@@ -154,10 +112,10 @@ export function KursALicense() {
                   {t('kurs.aLicense.congratulations')}
                 </h3>
                 <p className="text-lg text-muted-foreground mb-4">
-                  {t('kurs.aLicense.congratsDesc')}
+                  {aLicense.congratsDesc}
                 </p>
                 <p className="text-muted-foreground">
-                  {t('kurs.aLicense.totalJumps')}
+                  {aLicense.totalJumps}
                 </p>
               </CardContent>
             </Card>
