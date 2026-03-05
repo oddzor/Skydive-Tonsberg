@@ -166,20 +166,6 @@ export default function RootLayout({
           href="/hero-poster.webp"
           fetchPriority="high"
         />
-        <link
-          rel="preload"
-          as="video"
-          href="/herovideo-mobile.webm"
-          type="video/webm"
-          media="(max-width: 768px)"
-        />
-        <link
-          rel="preload"
-          as="video"
-          href="/herovideo-optimized.webm"
-          type="video/webm"
-          media="(min-width: 769px)"
-        />
 
         <script
           type="application/ld+json"
