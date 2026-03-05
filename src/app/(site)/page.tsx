@@ -1,4 +1,5 @@
-import { Hero, About, Services, Testimonials, CTA, FAQ } from "@/components/sections";
+import dynamic from "next/dynamic";
+import { Hero } from "@/components/sections/Hero";
 import { SanityDataProvider } from "@/contexts/SanityDataContext";
 import { safeFetch } from "@/sanity/client";
 import {
@@ -16,6 +17,24 @@ import type {
   SanityLandingPage,
   SanityGeneralContent,
 } from "@/sanity/types";
+
+// Below-fold sections: SSR output unchanged, but client JS defers to a lazy
+// chunk so the browser parses less JavaScript before the LCP paint.
+const Services = dynamic(() =>
+  import("@/components/sections/Services").then((m) => ({ default: m.Services }))
+);
+const About = dynamic(() =>
+  import("@/components/sections/About").then((m) => ({ default: m.About }))
+);
+const Testimonials = dynamic(() =>
+  import("@/components/sections/Testimonials").then((m) => ({ default: m.Testimonials }))
+);
+const FAQ = dynamic(() =>
+  import("@/components/sections/FAQ").then((m) => ({ default: m.FAQ }))
+);
+const CTA = dynamic(() =>
+  import("@/components/sections/CTA").then((m) => ({ default: m.CTA }))
+);
 
 export const revalidate = 3600;
 

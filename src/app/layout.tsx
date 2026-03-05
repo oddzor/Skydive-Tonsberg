@@ -153,12 +153,23 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
 
+        {/* Preconnect to Sanity CDN so image requests skip the TLS handshake */}
+        <link rel="preconnect" href="https://cdn.sanity.io" crossOrigin="anonymous" />
+
         <link
           rel="preload"
           as="font"
           href="/fonts/masque__.woff2"
           type="font/woff2"
           crossOrigin="anonymous"
+        />
+        {/* Preload hero poster so the LCP image is discovered immediately from <head>,
+            not after the browser parses deep into the body to find the <video> element */}
+        <link
+          rel="preload"
+          as="image"
+          href="/hero-poster.webp"
+          fetchPriority="high"
         />
         <link
           rel="preload"
