@@ -51,19 +51,17 @@ const socialLinksWithIcons = [
     name: "Instagram",
     href: "https://instagram.com/skydivetonsberg",
     icon: Instagram,
-    handle: "@skydivetonsberg",
+
   },
   {
     name: "YouTube",
     href: "https://www.youtube.com/@skydivetnsberg9501",
     icon: Youtube,
-    handle: "Skydive Tønsberg",
   },
   {
     name: "Facebook",
     href: "https://www.facebook.com/skydivetonsberg/",
     icon: Facebook,
-    handle: "Skydive Tønsberg",
   },
 ];
 export function KontaktContent() {
@@ -375,7 +373,6 @@ export function KontaktContent() {
                       </div>
                       <div>
                         <p className="font-semibold text-foreground">{social.name}</p>
-                        <p className="text-sm text-muted-foreground">{social.handle}</p>
                       </div>
                       <ExternalLink className="w-5 h-5 text-muted-foreground ml-auto opacity-0 group-hover:opacity-100 transition-opacity" />
                     </a>
