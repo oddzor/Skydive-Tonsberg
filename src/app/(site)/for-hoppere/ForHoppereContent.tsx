@@ -624,15 +624,16 @@ export function ForHoppereContent() {
           <p className="text-sm text-muted-foreground text-center mb-12">
             {t("forHoppere.hoppfeltbrief.clickToZoom")}
           </p>
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid lg:grid-cols-2 gap-12 items-stretch">
 
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
+              className="flex flex-col"
             >
               <h3 className="text-2xl font-bold text-foreground mb-6">{t("forHoppere.hoppfeltbrief.exitOrderTitle")}</h3>
-              <Card className="border-0 shadow-lg">
+              <Card className="border-0 shadow-lg flex-1">
                 <CardContent className="p-6">
                   <ol className="space-y-2">
                     {exitOrder.map((item, index) => (
@@ -656,10 +657,10 @@ export function ForHoppereContent() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="space-y-6"
+              className="flex flex-col"
             >
               <h3 className="text-2xl font-bold text-foreground mb-6">{t("forHoppere.hoppfeltbrief.proceduresTitle")}</h3>
-              <Card className="border-0 shadow-lg">
+              <Card className="border-0 shadow-lg flex-1">
                 <CardContent className="p-6 space-y-4">
                   <div>
                     <h4 className="font-semibold text-foreground mb-2">{t("forHoppere.hoppfeltbrief.boarding.title")}</h4>
