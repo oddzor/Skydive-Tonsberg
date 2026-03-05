@@ -43,14 +43,14 @@ export function Hero() {
         className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center"
       >
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ y: 30 }}
+          animate={{ y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           className="max-w-4xl mx-auto"
         >
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ y: 20 }}
+            animate={{ y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
             className="mb-4 -mt-12 sm:-mt-16 md:-mt-20"
           >
@@ -61,6 +61,7 @@ export function Hero() {
               height={510}
               className="max-w-[min(1000px,85vw)] h-auto mx-auto drop-shadow-2xl"
               priority
+              fetchPriority="high"
               quality={100}
             />
           </motion.div>

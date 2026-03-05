@@ -18,8 +18,6 @@ import type {
   SanityGeneralContent,
 } from "@/sanity/types";
 
-// Below-fold sections: SSR output unchanged, but client JS defers to a lazy
-// chunk so the browser parses less JavaScript before the LCP paint.
 const Services = dynamic(() =>
   import("@/components/sections/Services").then((m) => ({ default: m.Services }))
 );
