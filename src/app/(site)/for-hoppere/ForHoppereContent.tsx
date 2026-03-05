@@ -360,13 +360,14 @@ export function ForHoppereContent() {
               </a>
             </Button>
           </motion.div>
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
+          <div className="grid lg:grid-cols-2 gap-12 items-stretch">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
+              className="flex flex-col"
             >
-              <Card className="border-0 shadow-lg">
+              <Card className="border-0 shadow-lg flex-1">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <Home className="w-5 h-5 text-sky" />
@@ -397,8 +398,9 @@ export function ForHoppereContent() {
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
+              className="flex flex-col"
             >
-              <Card className="border-0 shadow-lg">
+              <Card className="border-0 shadow-lg flex-1">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <CreditCard className="w-5 h-5 text-sky" />
