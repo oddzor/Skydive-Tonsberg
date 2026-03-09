@@ -33,12 +33,42 @@ const nextConfig: NextConfig = {
       },
     ],
     formats: ["image/avif", "image/webp"],
-    qualities: [75, 90],
+    qualities: [75, 90, 100],
+  },
+  async rewrites() {
+    return [
+      { source: '/en/home',        destination: '/en/hjem' },
+      { source: '/en/course',      destination: '/en/kurs' },
+      { source: '/en/for-jumpers', destination: '/en/for-hoppere' },
+      { source: '/en/contact',     destination: '/en/kontakt' },
+      { source: '/en/jumpcalendar',destination: '/en/hoppkalender' },
+      { source: '/en/privacy',     destination: '/en/personvern' },
+    ];
+  },
+  async redirects() {
+    const oldRoutes = [
+      { src: 'tandem',       dest: 'tandem' },
+      { src: 'kurs',         dest: 'kurs' },
+      { src: 'for-hoppere',  dest: 'for-hoppere' },
+      { src: 'kontakt',      dest: 'kontakt' },
+      { src: 'faq',          dest: 'faq' },
+      { src: 'hoppkalender', dest: 'hoppkalender' },
+      { src: 'personvern',   dest: 'personvern' },
+    ];
+    return [
+      { source: '/', destination: '/no/hjem', permanent: true },
+      { source: '/no', destination: '/no/hjem', permanent: true },
+      { source: '/en', destination: '/en/home', permanent: true },
+      ...oldRoutes.map(({ src, dest }) => ({
+        source: `/${src}`,
+        destination: `/no/${dest}`,
+        permanent: true,
+      })),
+    ];
   },
   async headers() {
     return [
       {
-        // Sanity Studio needs relaxed headers to function
         source: "/admin/:path*",
         headers: [
           { key: "X-Frame-Options", value: "SAMEORIGIN" },

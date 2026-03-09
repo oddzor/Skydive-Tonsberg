@@ -8,17 +8,35 @@ import type { SanityFAQ, SanityTandemInfo } from "@/sanity/types";
 
 export const revalidate = 3600;
 
-export const metadata: Metadata = {
-  title: "Tandemhopp | Opplev fritt fall | Skydive Tønsberg",
+const tandemSchema = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  name: "Tandemhopp",
   description:
-    "Book tandemhopp hos Skydive Tønsberg - desidert nærmest Oslo! Hopp fra 4000 meter med ca. 40 sekunder fritt fall. Fra kun 4690 kr inkl. alt.",
+    "Opplev fritt fall fra 4000 meter med vakker utsikt over Oslofjorden. Ca. 40 sekunder fritt fall med profesjonell instruktør. Nærmest Oslo.",
+  brand: { "@type": "Brand", name: "Skydive Tønsberg" },
+  url: "https://skydivetonsberg.no/tandem",
+  offers: {
+    "@type": "Offer",
+    price: 4690,
+    priceCurrency: "NOK",
+    availability: "https://schema.org/InStock",
+    url: "https://skydivetonsberg.no/tandem",
+    seller: { "@type": "Organization", name: "Skydive Tønsberg" },
+  },
+};
+
+export const metadata: Metadata = {
+  title: "Tandemhopp nær Oslo | Fra 4690 kr | Skydive Tønsberg",
+  description:
+    "Book tandemhopp hos Skydive Tønsberg – desidert nærmest Oslo! Hopp fra 4000 meter med ca. 40 sekunder fritt fall. Fra kun 4690 kr inkl. alt.",
   alternates: { canonical: "https://skydivetonsberg.no/tandem" },
   openGraph: {
-    title: "Tandemhopp | Skydive Tønsberg",
+    title: "Tandemhopp nær Oslo | Skydive Tønsberg",
     description:
       "Opplev fritt fall fra 4000 meter med vakker utsikt over Oslofjorden. Book ditt tandemhopp i dag!",
     url: "https://skydivetonsberg.no/tandem",
-    images: [{ url: "/og-tandem.jpg", width: 1200, height: 630, alt: "Tandemhopp hos Skydive Tønsberg" }],
+    images: [{ url: "/tandem-gallery-wide-1.webp", alt: "Tandemhopp hos Skydive Tønsberg" }],
   },
 };
 
@@ -46,6 +64,10 @@ export default async function TandemPage() {
         forHoppereInfo: null,
       }}
     >
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(tandemSchema) }}
+      />
       {faqSchema && (
         <script
           type="application/ld+json"

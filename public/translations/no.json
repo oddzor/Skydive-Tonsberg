@@ -997,7 +997,8 @@
         "0": "Navn, e-postadresse, telefonnummer og melding fra kontaktskjemaet",
         "1": "Språkpreferanse (lagres lokalt i nettleseren din, ikke på våre servere)",
         "2": "IP-adresse og nettleserinfo (automatisk lagret av vår hosting-tjeneste Vercel)",
-        "3": "Offentlig tilgjengelige anmeldelser fra Google som vises på nettsiden"
+        "3": "Besøksdata (sidevisninger, tid på siden, trafikkkilder) samlet av Google Analytics",
+        "4": "Offentlig tilgjengelige anmeldelser fra Google som vises på nettsiden"
       }
     },
     "thirdParty": {
@@ -1006,9 +1007,9 @@
       "list": {
         "0": "EmailJS - Sender kontaktskjemadata til vår e-post (info@hoppfallskjerm.no)",
         "1": "Vercel - Hosting av nettsiden (behandler IP-adresser og tilgangslogger)",
-        "2": "Google Fonts - Leverer skrifttyper (kan logge IP-adresser)",
+        "2": "Sanity CMS - Lagrer og leverer CMS-innhold (tekst, priser, bilder) for administrasjon av nettstedets innhold",
         "3": "Outscraper API - Henter offentlige Google-anmeldelser for visning på nettsiden",
-        "4": "Vercel Blob Storage - Lagrer CMS-innhold (priser, bilder) for admin-panelet"
+        "4": "Google Analytics - Brukes til besøksstatistikk og trafikkanalyse. Samler inn sidevisninger, tid på siden og trafikkkilder. IP-adresser anonymiseres."
       }
     },
     "dataRetention": {

@@ -170,7 +170,6 @@
         "wingsuit": "Wingsuit/tracksuit, east",
         "wingsuitTL1": "Wingsuit with TL1, east"
       },
-      "proceduresTitle": "Procedures",
       "boarding": {
         "title": "Boarding (10 min call)",
         "rule1": "Meet Jump Master at loading area, fully geared up",
@@ -261,16 +260,6 @@
         "referTandem": "Refer tandem",
         "referAFF": "Refer AFF student",
         "familyDiscount": "Family discount tandem"
-      },
-      "deals": {
-        "title": "Jumper deals – save money!",
-        "dealTitle": "Jumper deal",
-        "dealPrice": "335 NOK/jump",
-        "dealDesc": "Deposit 2 500 NOK → 50 NOK discount per jump. Break even at 50 jumps.",
-        "bigDealTitle": "Big jumper deal",
-        "bigDealPrice": "285 NOK/jump",
-        "bigDealDesc": "Deposit 10 000 NOK → 100 NOK discount per jump. Break even at 100 jumps. Pays off at 150+ jumps.",
-        "warning": "NOTE! You buy jumper deals at your own risk! Deals do not apply at events with higher slot prices. If you get a medical certificate stating you cannot jump anymore this season, we will convert to normal price."
       }
     },
     "rental": {
@@ -326,17 +315,6 @@
       "foreignIntro": "You must have valid third-party liability insurance.",
       "foreignBuy": "If you cannot document this, you can buy NLF's insurance for 503 NOK (30 days) through the club.",
       "foreignWarning": "For jumpers from countries outside EU/EEA, we strongly recommend having travel insurance that covers medical treatment in Norway."
-    },
-    "reporting": {
-      "badge": "Safe Sport",
-      "title": "Reporting",
-      "intro": "We want Tønsberg Fallskjermklubb to be a safe sports arena for all our members, students and visitors. This includes safety during jumping activities and in social settings.",
-      "policy": "In Norwegian sports, everyone should be safe. There is zero tolerance for discrimination, bullying and harassment. By reporting, you give us the opportunity to handle critical conditions.",
-      "systemTitle": "MittVarsel",
-      "systemDesc": "We use MittVarsel, a digital portal for safe and secure reporting. You can report with your name or anonymously.",
-      "systemPath": "Select: \"Idrettslag & Idrettsråd\" → \"Vestfold og Telemark\" → \"Tønsberg Fallskjermklubb\"",
-      "button": "Go to reporting page",
-      "group": "Reporting group: Leader: Odd Pedersen. Members: Anna Fasting and Silje Søraas."
     },
     "reporting": {
       "badge": "Safe Sport",
@@ -427,31 +405,6 @@
           "question": "Where can I find the JLS Operations Manual?",
           "answer": "The Operations Manual can be found at jarlsbergluftsportssenter.no. When you register at Skydive Tønsberg, you must sign that you have familiarized yourself with it."
         }
-      }
-    },
-    "contact": {
-      "title": "Contact",
-      "titleHighlight": "us",
-      "linksTitle": "Useful",
-      "linksTitleHighlight": "links",
-      "address": "Address",
-      "addressValue": "Flyplassveien 6, 3170 Sem",
-      "orgNumber": "Org no: 991 021 698",
-      "phone": "Phone",
-      "email": "Email",
-      "openingHours": "Opening Hours",
-      "hours": {
-        "weekday": "Monday - Friday",
-        "saturday": "Saturday",
-        "sunday": "Sunday"
-      },
-      "links": {
-        "calendar": "Jump Calendar",
-        "burbleme": "BurbleMe",
-        "shop": "Web Shop",
-        "minIdrett": "Min Idrett",
-        "facebook": "Facebook",
-        "handbook": "JLS Operations Manual"
       }
     },
     "cta": {
@@ -1047,7 +1000,8 @@
         "0": "Name, email address, phone number and message from the contact form",
         "1": "Language preference (stored locally in your browser, not on our servers)",
         "2": "IP address and browser information (automatically logged by our hosting service Vercel)",
-        "3": "Publicly available Google reviews displayed on the website"
+        "3": "Visit data (page views, time on site, traffic sources) collected by Google Analytics",
+        "4": "Publicly available Google reviews displayed on the website"
       }
     },
     "thirdParty": {
@@ -1056,9 +1010,9 @@
       "list": {
         "0": "EmailJS - Sends contact form data to our email (info@hoppfallskjerm.no)",
         "1": "Vercel - Website hosting (processes IP addresses and access logs)",
-        "2": "Google Fonts - Delivers fonts (may log IP addresses)",
+        "2": "Sanity CMS - Stores and delivers CMS content (text, pricing, images) for website content management",
         "3": "Outscraper API - Fetches public Google reviews for display on website",
-        "4": "Vercel Blob Storage - Stores CMS content (prices, images) for admin panel"
+        "4": "Google Analytics - Used for visitor statistics and traffic analysis. Collects page views, time on site and traffic sources. IP addresses are anonymised."
       }
     },
     "dataRetention": {

@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     description:
       "Gjesthopping, utstyrsleie og et aktivt hoppmiljø for sertifiserte fallskjermhoppere.",
     url: "https://skydivetonsberg.no/for-hoppere",
-    images: [{ url: "/og-for-hoppere.jpg", width: 1200, height: 630, alt: "Fallskjermhoppere i formasjon over Vestfold" }],
+    images: [{ url: "/wingsuit-trio.webp", alt: "Fallskjermhoppere i formasjon over Vestfold" }],
   },
 };
 

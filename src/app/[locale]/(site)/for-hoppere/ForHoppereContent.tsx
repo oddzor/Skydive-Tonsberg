@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { localePath } from "@/lib/locale-href";
 import { useForHoppereData } from "@/hooks/useForHoppereData";
 import { useCMSContent } from "@/hooks/useCMSContent";
 import { ForHoppereNav } from "@/components/for-hoppere/ForHoppereNav";
@@ -66,7 +67,7 @@ export function ForHoppereContent() {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const { content } = useCMSContent();
   const {
     heroDescription,
@@ -195,14 +196,10 @@ export function ForHoppereContent() {
                     variant="outline"
                     className="w-full"
                   >
-                    <a
-                      href="https://www.skydivetonsberg.no/hoppkalender-1"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
+                    <Link href={localePath(language, 'hoppkalender')}>
                       <ExternalLink className="mr-2 w-4 h-4" />
                       {t('forHoppere.cards.calendar.button')}
-                    </a>
+                    </Link>
                   </Button>
                 </CardContent>
               </Card>
@@ -1386,10 +1383,10 @@ export function ForHoppereContent() {
               </h2>
               <div className="grid grid-cols-2 gap-4">
                 <Button asChild variant="outline" className="h-auto py-4 flex-col gap-2">
-                  <a href="https://www.skydivetonsberg.no/hoppkalender-1" target="_blank" rel="noopener noreferrer">
+                  <Link href={localePath(language, 'hoppkalender')}>
                     <Calendar className="w-6 h-6 text-sky" />
                     <span>{t("forHoppere.contact.links.calendar")}</span>
-                  </a>
+                  </Link>
                 </Button>
                 <Button asChild variant="outline" className="h-auto py-4 flex-col gap-2">
                   <a href="https://dzm.burblesoft.eu/jmp?dz_id=551" target="_blank" rel="noopener noreferrer">
@@ -1448,14 +1445,10 @@ export function ForHoppereContent() {
                 size="lg"
                 className="bg-white text-foreground hover:bg-white/90 font-semibold px-8"
               >
-                <a
-                  href="https://www.skydivetonsberg.no/hoppkalender-1"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <Link href={localePath(language, 'hoppkalender')}>
                   <Calendar className="mr-2 w-5 h-5" />
                   {t("forHoppere.cta.calendarButton")}
-                </a>
+                </Link>
               </Button>
               <Button
                 asChild
@@ -1463,7 +1456,7 @@ export function ForHoppereContent() {
                 variant="outline"
                 className="border-white/30 bg-white/10 text-white hover:bg-white/20"
               >
-                <Link href="/kontakt">
+                <Link href={localePath(language, 'kontakt')}>
                   {t("forHoppere.cta.contactButton")}
                 </Link>
               </Button>

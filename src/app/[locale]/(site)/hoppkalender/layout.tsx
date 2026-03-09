@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     description:
       "Planlagte hoppdager og arrangementer hos Skydive Tønsberg ved Jarlsberg flyplass.",
     url: "https://skydivetonsberg.no/hoppkalender",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
+    images: [{ url: "/hero-poster.webp", alt: "Hoppkalender – Skydive Tønsberg" }],
   },
 };
 

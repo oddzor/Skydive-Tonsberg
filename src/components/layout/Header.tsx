@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -8,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { localePath } from "@/lib/locale-href";
 function FlagImg({ code, alt }: { code: string; alt: string }) {
   return (
     <Image
@@ -26,21 +28,23 @@ export function Header() {
   const [showDesktopHeader, setShowDesktopHeader] = useState(true);
   const [mobileOpen, setMobileOpen] = useState(false);
   const { language, setLanguage, t } = useLanguage();
+  const pathname = usePathname();
 
   const navigation = [
-    { name: t("nav.home"), href: "/" },
-    { name: t("nav.tandem"), href: "/tandem" },
-    { name: t("nav.courses"), href: "/kurs" },
-    { name: t("nav.contact"), href: "/kontakt" },
+    { name: t("nav.home"), href: localePath(language, 'hjem') },
+    { name: t("nav.tandem"), href: localePath(language, 'tandem') },
+    { name: t("nav.courses"), href: localePath(language, 'kurs') },
+    { name: t("nav.contact"), href: localePath(language, 'kontakt') },
   ];
   const rightNavigation = [
-    { name: t("nav.forJumpers"), href: "/for-hoppere", external: false },
-    { name: t("nav.faq"), href: "/faq", external: false },
-    { name: t("nav.jumpCalendar"), href: "/hoppkalender", external: false },
+    { name: t("nav.forJumpers"), href: localePath(language, 'for-hoppere'), external: false },
+    { name: t("nav.faq"), href: localePath(language, 'faq'), external: false },
+    { name: t("nav.jumpCalendar"), href: localePath(language, 'hoppkalender'), external: false },
   ];
   useEffect(() => {
     const update = () => {
-      const isHome = window.location.pathname === "/";
+      const p = window.location.pathname;
+      const isHome = p === '/no/hjem' || p === '/en/home' || p === '/en/hjem';
       const isDesktop = window.innerWidth >= 1024;
       if (isHome && isDesktop) {
         const threshold = window.innerHeight * 0.9;
@@ -197,7 +201,7 @@ export function Header() {
       >
         <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
-            <Link href="/" className="flex items-center gap-3 group">
+            <Link href={localePath(language, 'hjem')} className="flex items-center gap-3 group">
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Image
                   src="/Skydive_Tonsberg_hero_header.png"
@@ -212,19 +216,29 @@ export function Header() {
             </Link>
 
             <div className="flex items-center gap-1">
-              {navigation.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="relative px-4 py-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors group"
-                >
-                  {item.name}
-                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-brand group-hover:w-3/4 transition-all duration-300" />
-                </Link>
-              ))}
+              {navigation.map((item) => {
+                const active = pathname === item.href;
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={cn(
+                      "relative px-4 py-2 text-sm font-medium transition-colors group",
+                      active ? "text-foreground" : "text-foreground/80 hover:text-foreground"
+                    )}
+                  >
+                    {item.name}
+                    <span className={cn(
+                      "absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 bg-gradient-brand transition-all duration-300",
+                      active ? "w-3/4" : "w-0 group-hover:w-3/4"
+                    )} />
+                  </Link>
+                );
+              })}
               <div className="w-px h-6 bg-border mx-2" />
-              {rightNavigation.map((item) =>
-                item.external ? (
+              {rightNavigation.map((item) => {
+                const active = pathname === item.href;
+                return item.external ? (
                   <a
                     key={item.href}
                     href={item.href}
@@ -238,13 +252,19 @@ export function Header() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="relative px-4 py-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors group"
+                    className={cn(
+                      "relative px-4 py-2 text-sm font-medium transition-colors group",
+                      active ? "text-foreground" : "text-foreground/80 hover:text-foreground"
+                    )}
                   >
                     {item.name}
-                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-brand group-hover:w-3/4 transition-all duration-300" />
+                    <span className={cn(
+                      "absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 bg-gradient-brand transition-all duration-300",
+                      active ? "w-3/4" : "w-0 group-hover:w-3/4"
+                    )} />
                   </Link>
-                )
-              )}
+                );
+              })}
             </div>
 
             <div className="flex items-center gap-4">

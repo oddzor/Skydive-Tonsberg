@@ -26,21 +26,26 @@ export const metadata: Metadata = {
     template: "%s | Skydive Tønsberg",
   },
   description:
-    "Opplev fallskjermhopping med Skydive Tønsberg. Tandemhopp, AFF-kurs og hoppmuligheter for erfarne hoppere. Norges mest tilgjengelige fallskjermklubb ved Tønsberg Flyplass.",
+    "Opplev fallskjermhopping ved Tønsberg Flyplass – nærmest Oslo! Tandemhopp fra 4690 kr, AFF grunnkurs og gjesthopping for erfarne hoppere. Norges mest tilgjengelige fallskjermklubb.",
   keywords: [
     "fallskjermhopping",
+    "fallskjerm",
     "tandemhopp",
+    "tandemhopp nær Oslo",
+    "tandemhopp Oslo",
     "skydiving",
+    "skydiving Norway",
     "Tønsberg",
     "Vestfold",
     "AFF kurs",
+    "AFF grunnkurs",
+    "fallskjermkurs",
     "fallskjermklubb",
     "tandem",
-    "hopping",
-    "Norge",
-    "hoppkalender",
     "gjesthopping",
+    "gjesthopping Vestfold",
     "Jarlsberg flyplass",
+    "hoppkalender",
   ],
   authors: [{ name: "Skydive Tønsberg" }],
   creator: "Skydive Tønsberg",
@@ -60,9 +65,7 @@ export const metadata: Metadata = {
       "Opplev fallskjermhopping med Skydive Tønsberg. Tandemhopp, AFF-kurs og hoppmuligheter for erfarne hoppere.",
     images: [
       {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
+        url: "/hero-poster.webp",
         alt: "Skydive Tønsberg - Fallskjermhopping over Vestfold",
       },
     ],
@@ -72,7 +75,7 @@ export const metadata: Metadata = {
     title: "Skydive Tønsberg | Fallskjermhopping i Vestfold",
     description:
       "Opplev fallskjermhopping med Skydive Tønsberg. Tandemhopp, AFF-kurs og hoppmuligheter for erfarne hoppere.",
-    images: ["/og-image.jpg"],
+    images: ["/hero-poster.webp"],
   },
   robots: {
     index: true,
@@ -86,7 +89,11 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://skydivetonsberg.no",
+    canonical: "https://skydivetonsberg.no/no/",
+    languages: {
+      "nb-NO": "https://skydivetonsberg.no/no/",
+      "en": "https://skydivetonsberg.no/en/",
+    },
   },
   ...(process.env.GOOGLE_SITE_VERIFICATION && {
     verification: { google: process.env.GOOGLE_SITE_VERIFICATION },

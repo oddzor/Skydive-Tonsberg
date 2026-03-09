@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Calendar, Phone } from "lucide-react";
 import Link from "next/link";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { localePath } from "@/lib/locale-href";
 import { useGeneralContent } from "@/contexts/SanityDataContext";
 
 const FALLBACK_BOOKING_URL = "https://bookings.burblesoft.eu/551/18";
@@ -12,7 +13,7 @@ const FALLBACK_SHOP_URL = "https://store.burblesoft.com/?dz_id=551";
 const FALLBACK_CALENDAR_URL = "https://www.skydivetonsberg.no/hoppkalender-1";
 
 export function CTA() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const generalContent = useGeneralContent();
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -91,7 +92,7 @@ export function CTA() {
               variant="outline"
               className="border-white/30 bg-white/10 text-white hover:bg-white/20 hover:text-white font-semibold px-8 py-6 text-lg backdrop-blur-sm"
             >
-              <Link href="/kontakt" className="flex items-center gap-2">
+              <Link href={localePath(language, 'kontakt')} className="flex items-center gap-2">
                 <Phone className="w-5 h-5" />
                 {t('home.cta.contactUs')}
               </Link>

@@ -74,6 +74,7 @@ export function KontaktContent() {
     type: "",
     message: "",
   });
+  const [honeypot, setHoneypot] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -85,6 +86,7 @@ export function KontaktContent() {
   ];
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (honeypot !== '') return;
     setIsSubmitting(true);
     setError(null);
     try {
@@ -217,6 +219,16 @@ export function KontaktContent() {
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
+                  <input
+                    type="text"
+                    name="website"
+                    value={honeypot}
+                    onChange={(e) => setHoneypot(e.target.value)}
+                    tabIndex={-1}
+                    autoComplete="off"
+                    aria-hidden="true"
+                    style={{ display: 'none' }}
+                  />
                   {error && (
                     <motion.div
                       initial={{ opacity: 0, y: -10 }}

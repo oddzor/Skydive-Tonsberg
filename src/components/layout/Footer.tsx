@@ -7,6 +7,7 @@ import { Separator } from "@/components/ui/separator";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { localePath } from "@/lib/locale-href";
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -23,15 +24,15 @@ const itemVariants = {
 export function Footer() {
   const [showKeyhole, setShowKeyhole] = useState(false);
   const router = useRouter();
-  const { t } = useLanguage();
+  const { language, t } = useLanguage();
   const footerLinks = {
     navigation: [
-      { name: t('nav.home'), href: "/" },
-      { name: t('nav.courses'), href: "/kurs" },
-      { name: t('nav.forJumpers'), href: "/for-hoppere" },
-      { name: t('nav.faq'), href: "/faq" },
-      { name: t('nav.contact'), href: "/kontakt" },
-      { name: t('nav.jumpCalendar'), href: "/hoppkalender" },
+      { name: t('nav.home'), href: localePath(language, 'hjem') },
+      { name: t('nav.courses'), href: localePath(language, 'kurs') },
+      { name: t('nav.forJumpers'), href: localePath(language, 'for-hoppere') },
+      { name: t('nav.faq'), href: localePath(language, 'faq') },
+      { name: t('nav.contact'), href: localePath(language, 'kontakt') },
+      { name: t('nav.jumpCalendar'), href: localePath(language, 'hoppkalender') },
     ],
     external: [
       { name: t('nav.bookTandem'), href: "https://bookings.burblesoft.eu/551/18" },
@@ -55,7 +56,7 @@ export function Footer() {
         >
 
           <motion.div variants={itemVariants} className="lg:col-span-1">
-            <Link href="/" className="inline-block mb-6">
+            <Link href={localePath(language, 'hjem')} className="inline-block mb-6">
               <Image
                 src="/skydive-tonsberg-footer.png"
                 alt="Skydive Tønsberg"
@@ -149,41 +150,34 @@ export function Footer() {
           className="flex flex-col sm:flex-row justify-between items-center gap-4 text-background/50 text-sm"
         >
           <div className="flex items-center gap-3">
-
             <button
               onClick={() => {
-                const clicks = parseInt(sessionStorage.getItem("keyholeClicks") || "0") + 1;
-                sessionStorage.setItem("keyholeClicks", clicks.toString());
-                if (clicks >= 3) {
-                  sessionStorage.removeItem("keyholeClicks");
-                  router.push("/cms");
-                } else if (clicks === 1) {
+                if (!showKeyhole) {
                   setShowKeyhole(true);
-                  setTimeout(() => setShowKeyhole(false), 2000);
+                  setTimeout(() => setShowKeyhole(false), 5000);
                 }
               }}
-              className="text-background/50 hover:text-background/70 transition-colors cursor-pointer relative"
-              aria-label="CMS Access"
+              className="text-background/50 hover:text-background/70 transition-colors cursor-pointer"
+              aria-label="Show admin access"
             >
               <span>© {new Date().getFullYear()} {t('footer.copyright')}</span>
-              {showKeyhole && (
-                <motion.div
-                  initial={{ scale: 0, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  exit={{ scale: 0, opacity: 0 }}
-                  className="absolute -right-6 top-1/2 -translate-y-1/2"
-                >
-                  <KeyRound className="w-4 h-4 text-leaf" />
-                </motion.div>
-              )}
             </button>
           </div>
-          <div className="flex gap-6">
-            <Link href="/personvern" className="hover:text-background transition-colors">
+          <div className="flex items-center gap-6">
+            {showKeyhole && (
+              <motion.button
+                onClick={() => router.push("/admin")}
+                initial={{ scale: 0, opacity: 0 }}
+                animate={{ scale: 1, opacity: [1, 0.4, 1] }}
+                transition={{ opacity: { repeat: Infinity, duration: 0.9 } }}
+                className="cursor-pointer"
+                aria-label="Admin access"
+              >
+                <KeyRound className="w-4 h-4 text-leaf" />
+              </motion.button>
+            )}
+            <Link href={localePath(language, 'personvern')} className="hover:text-background transition-colors">
               {t('footer.privacy')}
-            </Link>
-            <Link href="/vilkar" className="hover:text-background transition-colors">
-              {t('footer.terms')}
             </Link>
           </div>
         </motion.div>
