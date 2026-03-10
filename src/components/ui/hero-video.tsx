@@ -15,7 +15,7 @@ export function HeroVideo({
   priority = false,
 }: HeroVideoProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [shouldLoad, setShouldLoad] = useState(priority);
+  const [shouldLoad, setShouldLoad] = useState(false);
 
   const [src, setSrc] = useState<string | null>(null);
   const movSrc = src ? src.replace(".webm", ".mov") : null;
@@ -34,6 +34,17 @@ export function HeroVideo({
     video.load();
     video.play().catch(() => {});
   }, [src, shouldLoad]);
+
+  useEffect(() => {
+    if (!priority) return;
+    if (document.readyState === "complete") {
+      setShouldLoad(true);
+    } else {
+      const onLoad = () => setShouldLoad(true);
+      window.addEventListener("load", onLoad, { once: true });
+      return () => window.removeEventListener("load", onLoad);
+    }
+  }, [priority]);
 
   useEffect(() => {
     if (priority) return;

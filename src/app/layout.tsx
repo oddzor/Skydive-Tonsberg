@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from "next";
-import Script from "next/script";
 import { Outfit } from "next/font/google";
 import "./globals.css";
 
@@ -7,7 +6,6 @@ const outfit = Outfit({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-outfit",
-  preload: false,
 });
 
 export const viewport: Viewport = {
@@ -151,8 +149,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const gaId = process.env.NEXT_PUBLIC_GA_ID;
-
   return (
     <html lang="nb" className={outfit.variable}>
       <head>
@@ -177,27 +173,6 @@ export default function RootLayout({
       </head>
       <body className="font-sans antialiased min-h-screen flex flex-col">
         {children}
-
-        {gaId && (
-          <>
-            <Script
-              strategy="afterInteractive"
-              src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
-            />
-            <Script
-              id="gtag-init"
-              strategy="afterInteractive"
-              dangerouslySetInnerHTML={{
-                __html: `
-                  window.dataLayer = window.dataLayer || [];
-                  function gtag(){dataLayer.push(arguments);}
-                  gtag('js', new Date());
-                  gtag('config', '${gaId}', { page_path: window.location.pathname });
-                `,
-              }}
-            />
-          </>
-        )}
       </body>
     </html>
   );
