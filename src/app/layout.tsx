@@ -20,7 +20,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://skydivetonsberg.no"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://skydivetonsberg.no"),
   title: {
     default: "Skydive Tønsberg | Fallskjermhopping i Vestfold",
     template: "%s | Skydive Tønsberg",
