@@ -8,6 +8,7 @@ import { localePath } from "@/lib/locale-href";
 import { useForHoppereData } from "@/hooks/useForHoppereData";
 import { useCMSContent } from "@/hooks/useCMSContent";
 import { ForHoppereNav } from "@/components/for-hoppere/ForHoppereNav";
+import { VideoEmbed } from "@/components/shared";
 import {
   Plane,
   Calendar,
@@ -70,6 +71,7 @@ export function ForHoppereContent() {
   const { t, language } = useLanguage();
   const { content } = useCMSContent();
   const {
+    videoUrl,
     heroDescription,
     heroSubDescription,
     seasonInfo,
@@ -182,6 +184,12 @@ export function ForHoppereContent() {
                 {heroSubDescription}
               </p>
             </div>
+
+            <VideoEmbed
+              videoId={videoUrl}
+              title={t("forHoppere.hero.title")}
+              className="mb-8"
+            />
 
             <div className="grid md:grid-cols-3 gap-4">
               <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
@@ -1361,8 +1369,8 @@ export function ForHoppereContent() {
                     <Clock className="w-5 h-5 text-sky shrink-0 mt-1" />
                     <div>
                       <p className="font-semibold text-foreground">{t("forHoppere.contact.openingHours")}</p>
-                      {openingHours.map((item) => (
-                        <p key={item.day} className="text-muted-foreground text-sm">
+                      {openingHours.map((item, i) => (
+                        <p key={i} className="text-muted-foreground text-sm">
                           {item.day}: {item.hours}
                         </p>
                       ))}

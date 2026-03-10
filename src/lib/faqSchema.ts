@@ -15,7 +15,6 @@ export const buildFAQSchema = (faqs: FAQ[]) => ({
   })),
 })
 
-/** Convert a Sanity FAQ document to a plain FAQ object for JSON-LD (Norwegian). */
 export const sanityFaqToSchema = (faq: SanityFAQ): FAQ => ({
   question: faq.questionNo,
   answer: faq.answerNo,

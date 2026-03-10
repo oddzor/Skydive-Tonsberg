@@ -16,6 +16,15 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  experimental: {
+    optimizePackageImports: [
+      "lucide-react",
+      "@radix-ui/react-accordion",
+      "@radix-ui/react-dialog",
+      "@radix-ui/react-navigation-menu",
+      "@radix-ui/react-tabs",
+    ],
+  },
   images: {
     remotePatterns: [
       {

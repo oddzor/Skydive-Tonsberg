@@ -12,6 +12,8 @@ export function useForHoppereData() {
   const pick = (no: string | undefined, en: string | undefined) =>
     language === 'en' ? (en ?? no ?? '') : (no ?? '');
 
+  const videoUrl = info?.videoUrl;
+
   const heroDescription = pick(info?.heroDescriptionNo, info?.heroDescriptionEn)
     || t("forHoppere.hero.description");
   const heroSubDescription = pick(info?.heroSubDescriptionNo, info?.heroSubDescriptionEn)
@@ -250,6 +252,7 @@ export function useForHoppereData() {
       }));
 
   return {
+    videoUrl,
     heroDescription,
     heroSubDescription,
     seasonInfo,

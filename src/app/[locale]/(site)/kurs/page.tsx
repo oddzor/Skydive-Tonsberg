@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     description:
       "Bli selvstendig fallskjermhopper med AFF grunnkurs. Profesjonelle instruktører og moderne utstyr nær Oslo.",
     url: "https://skydivetonsberg.no/kurs",
-    images: [{ url: "/course-group-1.webp", alt: "AFF Grunnkurs hos Skydive Tønsberg" }],
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "AFF Grunnkurs hos Skydive Tønsberg" }],
   },
 };
 

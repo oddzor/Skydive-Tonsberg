@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     description:
       "Har du spørsmål om fallskjermhopping? Vi hjelper deg gjerne med informasjon om tandemhopp, kurs eller gjesthopping.",
     url: "https://skydivetonsberg.no/kontakt",
-    images: [{ url: "/hero-poster.webp", alt: "Kontakt Skydive Tønsberg" }],
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Kontakt Skydive Tønsberg" }],
   },
 };
 

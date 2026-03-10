@@ -341,6 +341,7 @@ export interface SanityTandemInfo {
 export interface SanityForHoppereInfo {
   _id: string
   _type: 'forHoppereInfo'
+  videoUrl?: string
   heroDescriptionNo?: string
   heroDescriptionEn?: string
   heroSubDescriptionNo?: string

@@ -17,6 +17,7 @@ export function VideoEmbed({
 }: VideoEmbedProps) {
   const [showVideo, setShowVideo] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [thumbError, setThumbError] = useState(false);
 
   const localThumb = videoId ? `/thumbnails/${videoId}.jpg` : null;
   const ytThumb    = videoId ? `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg` : null;
@@ -43,16 +44,23 @@ export function VideoEmbed({
                 className="absolute inset-0 z-10"
                 onClick={() => setShowVideo(true)}
               >
-                <Image
-                  src={localThumb!}
-                  alt={title}
-                  fill
-                  className="object-cover"
-                  priority
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).src = ytThumb!;
-                  }}
-                />
+                {!thumbError ? (
+                  <Image
+                    src={localThumb!}
+                    alt={title}
+                    fill
+                    className="object-cover"
+                    priority
+                    onError={() => setThumbError(true)}
+                  />
+                ) : (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={ytThumb!}
+                    alt={title}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                )}
                 <div className="absolute inset-0 flex items-center justify-center bg-black/20 group hover:bg-black/30 transition-colors cursor-pointer">
                   {showVideo ? (
                     <div className="w-16 h-16 rounded-full bg-black/50 flex items-center justify-center">

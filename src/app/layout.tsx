@@ -65,7 +65,9 @@ export const metadata: Metadata = {
       "Opplev fallskjermhopping med Skydive Tønsberg. Tandemhopp, AFF-kurs og hoppmuligheter for erfarne hoppere.",
     images: [
       {
-        url: "/hero-poster.webp",
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
         alt: "Skydive Tønsberg - Fallskjermhopping over Vestfold",
       },
     ],
@@ -75,7 +77,7 @@ export const metadata: Metadata = {
     title: "Skydive Tønsberg | Fallskjermhopping i Vestfold",
     description:
       "Opplev fallskjermhopping med Skydive Tønsberg. Tandemhopp, AFF-kurs og hoppmuligheter for erfarne hoppere.",
-    images: ["/hero-poster.webp"],
+    images: ["/og-image.jpg"],
   },
   robots: {
     index: true,

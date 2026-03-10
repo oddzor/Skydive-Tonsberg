@@ -35,6 +35,7 @@ export const forHoppereInfoSchema = defineType({
   type: 'document',
   groups: [
     { name: 'content', title: 'Content', default: true },
+    { name: 'video', title: 'Video' },
     { name: 'season', title: 'Season' },
     { name: 'renewal', title: 'Renewal' },
     { name: 'bunkhouse', title: 'Bunkhouse' },
@@ -46,6 +47,14 @@ export const forHoppereInfoSchema = defineType({
     { name: 'aircraft', title: 'Aircraft' },
   ],
   fields: [
+    defineField({
+      name: 'videoUrl',
+      title: 'YouTube Video ID',
+      type: 'string',
+      group: 'video',
+      description: 'YouTube video ID only (e.g. dQw4w9WgXcQ, not the full URL)',
+    }),
+
     textField('heroDescriptionNo', 'Hero Description (Norwegian)', 'content', 4, true),
     textField('heroDescriptionEn', 'Hero Description (English)', 'content', 4, true),
     textField('heroSubDescriptionNo', 'Hero Sub-Description (Norwegian)', 'content', 3),

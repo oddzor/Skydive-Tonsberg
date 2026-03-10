@@ -48,7 +48,6 @@ export function KursProgression() {
 
         <div className="max-w-6xl mx-auto space-y-6">
 
-          {/* Level 1 */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -85,7 +84,6 @@ export function KursProgression() {
             </Card>
           </motion.div>
 
-          {/* Level 2 */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -120,7 +118,6 @@ export function KursProgression() {
             </Card>
           </motion.div>
 
-          {/* Level 3 */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -169,7 +166,6 @@ export function KursProgression() {
             className="my-12"
           />
 
-          {/* Levels 4–7 */}
           <div className="grid md:grid-cols-2 gap-6">
             {[4, 5, 6, 7].map((n, i) => (
               <motion.div
@@ -202,7 +198,6 @@ export function KursProgression() {
             ))}
           </div>
 
-          {/* Level 8 */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     description:
       "Opplev fritt fall fra 4000 meter med vakker utsikt over Oslofjorden. Book ditt tandemhopp i dag!",
     url: "https://skydivetonsberg.no/tandem",
-    images: [{ url: "/tandem-gallery-wide-1.webp", alt: "Tandemhopp hos Skydive Tønsberg" }],
+    images: [{ url: "/og-tandem.jpg", width: 1200, height: 630, alt: "Tandemhopp hos Skydive Tønsberg" }],
   },
 };
 
