@@ -51,10 +51,26 @@ export const useTandemData = () => {
         answer: t(`tandem.faq.q${i + 1}.answer`),
       }));
 
-  const jumpStats = content?.tandem?.jumpStats;
-  const exitAltitude = jumpStats?.exitAltitude || '4000m';
-  const freefallDuration = jumpStats?.freefallDuration || '40 sek';
-  const ageRestriction = jumpStats?.ageRestriction || '15 år';
+  const pricingIncluded: string[] = content?.tandem?.pricingIncluded?.length
+    ? content.tandem.pricingIncluded
+    : [
+        t('tandem.pricing.included1'),
+        t('tandem.pricing.included2'),
+        t('tandem.pricing.included3'),
+        t('tandem.pricing.included4'),
+      ];
 
-  return { highlights, requirements, jumpDaySteps, faqData, exitAltitude, freefallDuration, ageRestriction };
+  const sanityHeroCard = content?.tandem?.heroCard;
+  const heroCard = {
+    title: sanityHeroCard?.title || t('tandem.hero.experienceTitle'),
+    infoItems: sanityHeroCard?.infoItems?.length
+      ? sanityHeroCard.infoItems
+      : [
+          t('tandem.hero.aboutItem1'),
+          t('tandem.hero.aboutItem2'),
+        ],
+    closingText: sanityHeroCard?.closingText || t('tandem.hero.aboutClosing'),
+  };
+
+  return { highlights, requirements, jumpDaySteps, faqData, pricingIncluded, heroCard };
 };

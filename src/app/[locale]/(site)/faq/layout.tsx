@@ -9,14 +9,14 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: "FAQ | Vanlige spørsmål om fallskjermhopping",
   description:
-    "Svar på de vanligste spørsmålene om tandemhopp, AFF-kurs og gjesthopping hos Skydive Tønsberg. Alt du trenger å vite før du hopper.",
+    "Svar på de vanligste spørsmålene om tandemhopp, AFF-kurs og funjumping hos Skydive Tønsberg. Alt du trenger å vite før du hopper.",
   alternates: {
     canonical: "https://skydivetonsberg.no/faq",
   },
   openGraph: {
     title: "FAQ | Skydive Tønsberg",
     description:
-      "Svar på de vanligste spørsmålene om tandemhopp, AFF-kurs og gjesthopping hos Skydive Tønsberg.",
+      "Svar på de vanligste spørsmålene om tandemhopp, AFF-kurs og funjumping hos Skydive Tønsberg.",
     url: "https://skydivetonsberg.no/faq",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
   },

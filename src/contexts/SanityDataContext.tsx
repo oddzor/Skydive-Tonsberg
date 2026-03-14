@@ -188,20 +188,11 @@ export function useCMSDataFromSanity() {
             nextSteps: l.nextSteps?.map((n) => pick(n.no, n.en)),
           })),
           images: courseInfo.images ?? null,
-          heroStats: courseInfo.heroStats
+          heroCard: courseInfo.heroCard
             ? {
-                theoryDays: pick(courseInfo.heroStats.theoryDaysNo, courseInfo.heroStats.theoryDaysEn) || undefined,
-                jumpsCount: courseInfo.heroStats.jumpsCount || undefined,
-                windTunnelValue: courseInfo.heroStats.windTunnelValue || undefined,
-                minAge: pick(courseInfo.heroStats.minAgeNo, courseInfo.heroStats.minAgeEn) || undefined,
-              }
-            : undefined,
-          courseDetails: courseInfo.courseDetails
-            ? {
-                durationDesc: pick(courseInfo.courseDetails.durationDescNo, courseInfo.courseDetails.durationDescEn) || undefined,
-                jumpsDesc: pick(courseInfo.courseDetails.jumpsDescNo, courseInfo.courseDetails.jumpsDescEn) || undefined,
-                altitudeDesc: pick(courseInfo.courseDetails.altitudeDescNo, courseInfo.courseDetails.altitudeDescEn) || undefined,
-                ageDesc: pick(courseInfo.courseDetails.ageDescNo, courseInfo.courseDetails.ageDescEn) || undefined,
+                title: pick(courseInfo.heroCard.titleNo, courseInfo.heroCard.titleEn) || undefined,
+                infoItems: courseInfo.heroCard.infoItems?.map((i) => pick(i.no, i.en)),
+                closingText: pick(courseInfo.heroCard.closingTextNo, courseInfo.heroCard.closingTextEn) || undefined,
               }
             : undefined,
           pricingIncluded: courseInfo.pricingIncluded?.length
@@ -245,6 +236,16 @@ export function useCMSDataFromSanity() {
     tandem: tandemInfo
       ? {
           videoUrl: tandemInfo.videoUrl,
+          pricingIncluded: tandemInfo.pricingIncluded?.length
+            ? tandemInfo.pricingIncluded.map((i) => pick(i.no, i.en))
+            : undefined,
+          heroCard: tandemInfo.heroCard
+            ? {
+                title: pick(tandemInfo.heroCard.titleNo, tandemInfo.heroCard.titleEn) || undefined,
+                infoItems: tandemInfo.heroCard.infoItems?.map((i) => pick(i.no, i.en)),
+                closingText: pick(tandemInfo.heroCard.closingTextNo, tandemInfo.heroCard.closingTextEn) || undefined,
+              }
+            : undefined,
           requirements: tandemInfo.requirements?.map((r) => pick(r.no, r.en)) ?? [],
           highlights: tandemInfo.highlights?.map((h) => ({
             title: pick(h.titleNo, h.titleEn),
@@ -254,13 +255,6 @@ export function useCMSDataFromSanity() {
             title: pick(s.titleNo, s.titleEn),
             description: pick(s.descriptionNo, s.descriptionEn),
           })),
-          jumpStats: tandemInfo.jumpStats
-            ? {
-                exitAltitude: pick(tandemInfo.jumpStats.exitAltitudeNo, tandemInfo.jumpStats.exitAltitudeEn) || undefined,
-                freefallDuration: pick(tandemInfo.jumpStats.freefallDurationNo, tandemInfo.jumpStats.freefallDurationEn) || undefined,
-                ageRestriction: pick(tandemInfo.jumpStats.ageRestrictionNo, tandemInfo.jumpStats.ageRestrictionEn) || undefined,
-              }
-            : undefined,
           images: tandemInfo.images ?? null,
         }
       : null,

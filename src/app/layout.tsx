@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     template: "%s | Skydive Tønsberg",
   },
   description:
-    "Opplev fallskjermhopping ved Tønsberg Flyplass – nærmest Oslo! Tandemhopp fra 4690 kr, AFF grunnkurs og gjesthopping for erfarne hoppere. Norges mest tilgjengelige fallskjermklubb.",
+    "Opplev fallskjermhopping ved Tønsberg Flyplass – nærmest Oslo! Tandemhopp fra 4690 kr, AFF grunnkurs og funjumping for erfarne hoppere. Norges mest tilgjengelige fallskjermklubb.",
   keywords: [
     "fallskjermhopping",
     "fallskjerm",
@@ -40,8 +40,8 @@ export const metadata: Metadata = {
     "fallskjermkurs",
     "fallskjermklubb",
     "tandem",
-    "gjesthopping",
-    "gjesthopping Vestfold",
+    "funjumping",
+    "funjumping Vestfold",
     "Jarlsberg flyplass",
     "hoppkalender",
   ],
@@ -106,7 +106,7 @@ const localBusinessSchema = {
   "@id": "https://skydivetonsberg.no",
   name: "Skydive Tønsberg",
   description:
-    "Norges mest tilgjengelige fallskjermklubb. Tandemhopp, AFF-kurs og gjesthopping ved Jarlsberg flyplass i Tønsberg.",
+    "Norges mest tilgjengelige fallskjermklubb. Tandemhopp, AFF-kurs og funjumping ved Jarlsberg flyplass i Tønsberg.",
   url: "https://skydivetonsberg.no",
   telephone: "+47 99 59 43 59",
   email: "info@hoppfallskjerm.no",

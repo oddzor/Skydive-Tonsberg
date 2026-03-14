@@ -71,8 +71,7 @@ export function Hero() {
             <Button
               asChild
               size="lg"
-              variant="outline"
-              className="bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20 hover:text-white px-8 py-6 text-lg"
+              className="bg-gradient-brand hover:opacity-90 text-white font-semibold px-8 py-6 text-lg shadow-2xl shadow-sky/30"
             >
               <a href={localePath(language, "kurs")}>
                 {t("home.hero.bookCourse")}

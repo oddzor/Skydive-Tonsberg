@@ -191,7 +191,7 @@ export function ForHoppereContent() {
               className="mb-8"
             />
 
-            <div className="grid md:grid-cols-3 gap-4">
+            <div className="grid md:grid-cols-2 gap-4">
               <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
                 <CardContent className="p-6">
                   <Calendar className="w-10 h-10 text-sky mb-3" />
@@ -208,29 +208,6 @@ export function ForHoppereContent() {
                       <ExternalLink className="mr-2 w-4 h-4" />
                       {t('forHoppere.cards.calendar.button')}
                     </Link>
-                  </Button>
-                </CardContent>
-              </Card>
-              <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
-                <CardContent className="p-6">
-                  <Smartphone className="w-10 h-10 text-sky mb-3" />
-                  <h3 className="font-bold text-lg mb-2">{t('forHoppere.cards.burbleme.title')}</h3>
-                  <p className="text-sm text-muted-foreground mb-4">
-                    {t('forHoppere.cards.burbleme.desc')}
-                  </p>
-                  <Button
-                    asChild
-                    variant="outline"
-                    className="w-full"
-                  >
-                    <a
-                      href="https://dzm.burblesoft.eu/jmp?dz_id=551"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <ExternalLink className="mr-2 w-4 h-4" />
-                      {t('forHoppere.cards.burbleme.button')}
-                    </a>
                   </Button>
                 </CardContent>
               </Card>

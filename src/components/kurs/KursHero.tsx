@@ -1,25 +1,20 @@
 'use client';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { CheckCircle2, Calendar, FileText, Target, Users } from 'lucide-react';
+import { CheckCircle2, Calendar, FileText } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useCMSContent } from '@/hooks/useCMSContent';
 import { useKursData } from '@/hooks/useKursData';
 import { useGeneralContent } from '@/contexts/SanityDataContext';
-import { VideoEmbed, StatsGrid } from '@/components/shared';
+import { VideoEmbed } from '@/components/shared';
 export function KursHero() {
   const { t } = useLanguage();
   const { content } = useCMSContent();
-  const { heroStats, courseDetails, pricingIncluded } = useKursData();
+  const { pricingIncluded, heroCard } = useKursData();
   const generalContent = useGeneralContent();
   const bookingUrl = generalContent?.bookingUrl || 'https://bookings.burblesoft.eu/551/154';
-  const keyStats = [
-    { value: heroStats.theoryDays, label: t('kurs.stats.theoryDays') },
-    { value: heroStats.jumpsCount, label: t('kurs.stats.jumps') },
-    { value: heroStats.windTunnelValue, label: t('kurs.stats.windTunnel') },
-    { value: heroStats.minAge, label: t('kurs.stats.minAge') },
-  ];
   return (
     <section className="pt-32 pb-16 lg:pt-40 lg:pb-20 bg-gradient-hero">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -46,14 +41,14 @@ export function KursHero() {
             title="AFF Course at Skydive Tønsberg"
             className="mb-12"
           />
-          <div className="grid md:grid-cols-2 gap-6 mb-8">
+          <div className="grid md:grid-cols-2 gap-6 mb-10">
             <Card className="border-2 border-leaf/30 shadow-xl">
               <CardContent className="p-8">
                 <h3 className="text-2xl font-bold mb-4 text-leaf">
                   {t('kurs.pricing.title')}
                 </h3>
                 <div className="text-center mb-6">
-                  <p className="text-5xl font-bold text-leaf mb-2">
+                  <p className="text-5xl font-bold text-sky mb-2">
                     {content?.pricing?.kurs?.affCourse || 18990} kr
                   </p>
                   <p className="text-muted-foreground">{t('kurs.pricing.completeCourse')}</p>
@@ -66,7 +61,7 @@ export function KursHero() {
                     </div>
                   ))}
                 </div>
-                <div className="mt-6 p-4 bg-leaf/10 rounded-lg">
+                <div className="mt-6 p-4 bg-sky/10 rounded-lg">
                   <p className="text-sm font-semibold mb-1 flex items-center gap-2">
                     <FileText className="w-4 h-4 text-leaf" />
                     {t('kurs.pricing.paymentTitle')}
@@ -77,53 +72,21 @@ export function KursHero() {
                 </div>
               </CardContent>
             </Card>
-            <Card className="border-2 border-leaf/30 shadow-xl">
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-bold mb-4 text-leaf">
-                  {t('kurs.details.title')}
-                </h3>
-                <div className="space-y-4">
-                  <div className="p-4 bg-muted rounded-lg">
-                    <p className="font-semibold mb-1 flex items-center gap-2">
-                      <Calendar className="w-4 h-4 text-leaf" />
-                      {t('kurs.details.durationTitle')}
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      {courseDetails.durationDesc}
-                    </p>
-                  </div>
-                  <div className="p-4 bg-muted rounded-lg">
-                    <p className="font-semibold mb-1 flex items-center gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-leaf" />
-                      {t('kurs.details.jumpsTitle')}
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      {courseDetails.jumpsDesc}
-                    </p>
-                  </div>
-                  <div className="p-4 bg-muted rounded-lg">
-                    <p className="font-semibold mb-1 flex items-center gap-2">
-                      <Target className="w-4 h-4 text-leaf" />
-                      {t('kurs.details.altitudeTitle')}
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      {courseDetails.altitudeDesc}
-                    </p>
-                  </div>
-                  <div className="p-4 bg-muted rounded-lg">
-                    <p className="font-semibold mb-1 flex items-center gap-2">
-                      <Users className="w-4 h-4 text-leaf" />
-                      {t('kurs.details.ageTitle')}
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      {courseDetails.ageDesc}
-                    </p>
-                  </div>
+            <Card className="border-2 border-leaf/20 shadow-xl">
+              <CardContent className="p-8 flex flex-col h-full">
+                <h3 className="text-2xl font-bold mb-6 text-leaf">{heroCard.title}</h3>
+                <div className="space-y-4 flex-1">
+                  {heroCard.infoItems.map((item, i) => (
+                    <p key={i} className="text-sm leading-relaxed">{item}</p>
+                  ))}
+                </div>
+                <div className="mt-6 flex items-start gap-3">
+                  <Image src="/favicon.svg" alt="" aria-hidden width={20} height={20} className="h-5 w-auto shrink-0 mt-0.5" />
+                  <p className="text-sm text-muted-foreground leading-relaxed">{heroCard.closingText}</p>
                 </div>
               </CardContent>
             </Card>
           </div>
-          <StatsGrid stats={keyStats} columns={4} className="mb-8" />
           <div className="text-center">
             <Button
               asChild

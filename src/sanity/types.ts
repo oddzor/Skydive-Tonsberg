@@ -202,23 +202,12 @@ export interface SanityCourseInfo {
     requirements?: BilingualItem[]
     nextSteps?: BilingualItem[]
   }>
-  heroStats?: {
-    theoryDaysNo?: string
-    theoryDaysEn?: string
-    jumpsCount?: string
-    windTunnelValue?: string
-    minAgeNo?: string
-    minAgeEn?: string
-  }
-  courseDetails?: {
-    durationDescNo?: string
-    durationDescEn?: string
-    jumpsDescNo?: string
-    jumpsDescEn?: string
-    altitudeDescNo?: string
-    altitudeDescEn?: string
-    ageDescNo?: string
-    ageDescEn?: string
+  heroCard?: {
+    titleNo?: string
+    titleEn?: string
+    infoItems?: BilingualItem[]
+    closingTextNo?: string
+    closingTextEn?: string
   }
   pricingIncluded?: BilingualItem[]
   aLicenseProgressionItems?: Array<{
@@ -296,6 +285,7 @@ export interface SanityTandemInfo {
   _type: 'tandemInfo'
   videoUrl: string
   requirements: BilingualItem[]
+  pricingIncluded?: BilingualItem[]
   highlights?: Array<{
     titleNo: string
     titleEn: string
@@ -308,13 +298,12 @@ export interface SanityTandemInfo {
     descriptionNo: string
     descriptionEn: string
   }>
-  jumpStats?: {
-    exitAltitudeNo?: string
-    exitAltitudeEn?: string
-    freefallDurationNo?: string
-    freefallDurationEn?: string
-    ageRestrictionNo?: string
-    ageRestrictionEn?: string
+  heroCard?: {
+    titleNo?: string
+    titleEn?: string
+    infoItems?: BilingualItem[]
+    closingTextNo?: string
+    closingTextEn?: string
   }
   images: {
     galleryWide1: string | null

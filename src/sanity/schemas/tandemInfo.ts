@@ -78,18 +78,48 @@ export const tandemInfoSchema = defineType({
       ],
     }),
     defineField({
-      name: 'jumpStats',
-      title: 'Key Jump Stats',
-      description: 'Shown as the three stat boxes below the pricing cards (exit altitude, freefall duration, age restriction)',
+      name: 'pricingIncluded',
+      title: 'Price Card — Included Items',
+      description: 'Checklist items shown in the pricing card in the hero section',
+      type: 'array',
+      group: 'content',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            defineField({ name: 'no', title: 'Norwegian', type: 'string' }),
+            defineField({ name: 'en', title: 'English', type: 'string' }),
+          ],
+          preview: { select: { title: 'no' } },
+        },
+      ],
+    }),
+    defineField({
+      name: 'heroCard',
+      title: 'Hero Card — About Section',
+      description: 'The info card shown on the right side of the hero pricing section',
       type: 'object',
       group: 'content',
       fields: [
-        defineField({ name: 'exitAltitudeNo', title: 'Exit Altitude (Norwegian)', type: 'string', description: 'e.g. 4000m' }),
-        defineField({ name: 'exitAltitudeEn', title: 'Exit Altitude (English)', type: 'string', description: 'e.g. 4000m' }),
-        defineField({ name: 'freefallDurationNo', title: 'Freefall Duration (Norwegian)', type: 'string', description: 'e.g. 40 sek' }),
-        defineField({ name: 'freefallDurationEn', title: 'Freefall Duration (English)', type: 'string', description: 'e.g. 40 sec' }),
-        defineField({ name: 'ageRestrictionNo', title: 'Age Restriction (Norwegian)', type: 'string', description: 'e.g. 15 år' }),
-        defineField({ name: 'ageRestrictionEn', title: 'Age Restriction (English)', type: 'string', description: 'e.g. 15 years' }),
+        defineField({ name: 'titleNo', title: 'Title (Norwegian)', type: 'string' }),
+        defineField({ name: 'titleEn', title: 'Title (English)', type: 'string' }),
+        defineField({
+          name: 'infoItems',
+          title: 'Info Items',
+          type: 'array',
+          of: [
+            {
+              type: 'object',
+              fields: [
+                defineField({ name: 'no', title: 'Norwegian', type: 'string' }),
+                defineField({ name: 'en', title: 'English', type: 'string' }),
+              ],
+              preview: { select: { title: 'no' } },
+            },
+          ],
+        }),
+        defineField({ name: 'closingTextNo', title: 'Closing Text (Norwegian)', type: 'text', rows: 2 }),
+        defineField({ name: 'closingTextEn', title: 'Closing Text (English)', type: 'text', rows: 2 }),
       ],
     }),
     defineField({ name: 'galleryWide1', title: 'Gallery — Top Wide', type: 'image', group: 'images', options: { hotspot: true }, fields: [defineField({ name: 'altNo', title: 'Alt Text (Norwegian)', type: 'string' }), defineField({ name: 'altEn', title: 'Alt Text (English)', type: 'string' })] }),

@@ -25,7 +25,7 @@
       "titleEnd": "i fritt fall",
       "description": "Hopp tandem med profesjonelle instruktører, eller start din reise som selvstendig fallskjermhopper. Uforglemmelige opplevelser venter.",
       "bookTandem": "Tandemhopp",
-      "bookCourse": "AFF Kurs",
+      "bookCourse": "Bli fallskjermhopper",
       "watchVideo": "Se video",
       "scrollDown": "Les Mer"
     },
@@ -58,7 +58,7 @@
       },
       "experienced": {
         "title": "For Erfarne Hoppere",
-        "description": "Allerede sertifisert hopper? Vi tilbyr gjesthopping, utstyrsleie og et aktivt hoppmiljø. Vi opererer Norges største og beste fly for fallskjermhopping!",
+        "description": "Allerede sertifisert hopper? Vi tilbyr funjumping, utstyrsleie og et aktivt hoppmiljø. Vi opererer Norges største og beste fly for fallskjermhopping!",
         "cta": "Les mer"
       }
     },
@@ -144,7 +144,17 @@
       "learnMore": "Les mer",
       "altitude": "4000 meter",
       "freefall": "40 sek fritt fall",
-      "canopy": "5 min skjermtur"
+      "canopy": "5 min skjermtur",
+      "priceFrom": "fra",
+      "experienceTitle": "Hvorfor tandemhopp?",
+      "experienceDesc": "Tandemhopping er den raskeste veien til fritt fall, her trenger du bare å komme med motivasjon (og sikkert litt nerver) så tar vi oss av resten. Du får instruksjoner for alle steg av hoppet og trenger ikke tenke på noe annet enn den unike blandingen av følelser som bare et fallskjermhopp kan fremkalle. Vi ønsker deg hjertelig velkommen til oss og garanterer deg en opplevelse for livet.",
+      "aboutItem1": "Et tandemhopp er den enkleste og tryggeste måten å oppleve fallskjermhopping på for første gang. Du er trygt festet til en profesjonell instruktør som håndterer hoppet fra flyet, fritt fall, utløsning av fallskjerm og landingen.",
+      "aboutItem2": "Dette er den perfekte introduksjonen til følelsen av å fly kroppen din gjennom luften. Du opplever adrenalin i fritt fall i rundt 200 km/t før kontrasten av den rolige skjermturen tar over. Mange velger et tandemhopp for å utfordre seg selv, feire en spesiell anledning eller rett og slett bare oppleve noe som ikke kan sammenlignes.",
+      "aboutClosing": "Vi ønsker deg hjertelig velkommen til vår fantastiske klubb og garanterer deg en en opplevelse du aldri glemmer.",
+      "pricingTitle": "Tandemhopp",
+      "priceSubtitle": "Per hopp på ukedager",
+      "videoPricingTitle": "Video & bilder",
+      "videoPricingDesc": "Video og bildepakker koster ekstra og bestilles separat. Se prisseksjonen nedenfor for full oversikt."
     },
     "pricingCards": {
       "tandemTitle": "Tandemhopp Priser",
@@ -153,7 +163,7 @@
       "weekendLabel": "Lørdag & Søndag",
       "weekendDesc": "Helg",
       "includedLabel": "Inkludert:",
-      "includedDesc": "Komplett utstyr, trening, og 40 sekunder fritt fall fra 4000m",
+      "includedDesc": "Komplett utstyr, trening og veiledning fra svært erfarne instruktører",
       "videoTitle": "Video & Foto",
       "videoLabel": "Video",
       "videoPhotosLabel": "Video + Bilder",
@@ -186,6 +196,10 @@
       }
     },
     "pricing": {
+      "included1": "Alt utstyr, trening og veiledning fra svært erfarne instruktører",
+      "included2": "Fallskjermhopp fra 4000m med ca. 40 sek fritt fall",
+      "included3": "5 minutter skjermtur over vakre Tønsberg",
+      "included4": "Upåklagelig stemning og sikkerhet",
       "badge": "Priser",
       "title": "Prisguide",
       "weekday": {
@@ -200,16 +214,16 @@
       "media": {
         "title": "Videopakker",
         "video": {
-          "name": "Video",
-          "description": "Profesjonell video av hoppet ditt"
+          "name": "Håndkamera",
+          "description": "Video filmet av instruktøren din fra håndkamera under fritt fall"
         },
         "videoPhotos": {
-          "name": "Video og bilder",
-          "description": "Video + stillbilder fra fritt fall og landing"
+          "name": "Videofallskjermhopper",
+          "description": "En egen videofallskjermhopper filmer og fotograferer hoppet ditt fra utsiden"
         },
         "fullPackage": {
-          "name": "Full videopakke",
-          "description": "Egen kameraperson + video fra instruktørens arm + bilder"
+          "name": "Full pakke",
+          "description": "Videofallskjermhopper kombinert med håndkamera – best mulig dekning av hoppet ditt"
         }
       }
     },
@@ -318,10 +332,14 @@
       "contactUs": "Kontakt oss",
       "duration": "7-10 dager",
       "jumps": "7 hopp med instruktører",
-      "questionsEmail": "Spørsmål? Send e-post til"
+      "questionsEmail": "Spørsmål? Send e-post til",
+      "aboutTitle": "Hvorfor velge AFF?",
+      "aboutItem1": "Akselerert frittfall-kurset (AFF) er den vanligste måten å lære fallskjermhopping som idrett. I stedet for å være festet til en instruktør lærer du å hoppe selvstendig fra starten, med instruktører som veileder deg i fritt fall mens du øver på kroppskontroll, stabilitet og fallskjermrutiner.",
+      "aboutItem2": "I motsetning til statisk line-trening, der fallskjermen løses ut automatisk når du forlater flyet, fokuserer AFF på frifallsferdigheter fra første hopp. Dette gjør at elever kan få raskere fremgang og utvikling av de kroppsflyferdighetene som kreves for å bli en lisensiert, selvstendig hopper.",
+      "aboutClosing": "Vi ønsker deg hjertelig velkommen til Skydive Tønsberg og håper du blir en del av vårt fellesskap."
     },
     "pricing": {
-      "title": "Kurspris",
+      "title": "AFF Kurs",
       "completeCourse": "Komplett AFF-kurs",
       "included1": "10 min vindtunell på Gardermoen",
       "included2": "1,5 dagers bakkekurs",
@@ -385,6 +403,7 @@
       "description": "Her er målene og detaljert informasjon om de enkelte hoppene fra Nivå 1 til Nivå 8",
       "level1Title": "Nivå 1 – Kroppskontroll",
       "level1Instructors": "Instruktører:",
+      "level1Instructor": "Instruktør:",
       "level1Altitude": "Utsprangshøyde:",
       "level1Deploy": "Trekkhøyde:",
       "level1Freefall": "Fritt fall:",
@@ -572,7 +591,7 @@
       "typeOptions": {
         "tandem": "Tandemhopp",
         "course": "AFF Grunnkurs",
-        "guest": "Gjesthopping",
+        "guest": "Funjumping",
         "other": "Annet"
       },
       "message": "Melding",
@@ -589,7 +608,7 @@
       "title": "Kom og få sol, sommer og",
       "titleHighlight": "fallskjermhopp!",
       "description": "Velkommen til Skydive Tønsberg på Jarlsberg flyplass – med Norges største og beste hoppfly, Twin Otter LN-JMP!",
-      "subDescription": "Praktisk informasjon for gjestehoppere og klubbmedlemmer. Sjekk priser, regler, og booking nedenfor.",
+      "subDescription": "Praktisk informasjon for funjumpers og klubbmedlemmer. Sjekk priser, regler, og booking nedenfor.",
       "jumpCalendar": "Hoppkalender",
       "burbleMe": "BurbleMe"
     },
@@ -671,7 +690,7 @@
       "title": "BurbleMe –",
       "titleHighlight": "manifester deg selv!",
       "description": "Du trenger BurbleMe for å hoppe på Skydive Tønsberg. Last ned fra AppStore eller Google Play.",
-      "openButton": "Åpne BurbleMe Web",
+      "openButton": "Sjekk manifest",
       "profileSetup": {
         "title": "Sett opp profilen",
         "personalDetails": "Personal Details",
@@ -811,10 +830,10 @@
       },
       "courseItems": {
         "affCourse": "AFF-kurs inkl. vindtunnel",
-        "rejump13": "Rejump Nivå 1-3",
-        "rejump47": "Rejump Nivå 4-7",
+        "rejump13": "Omhopp Nivå 1-3",
+        "rejump47": "Omhopp Nivå 4-7",
         "level8": "Nivå 8 (inkl. riggleie)",
-        "checkoutJump": "Checkout-hopp Nivå 8"
+        "checkoutJump": "Utsjekkshopp Nivå 8"
       },
       "miscItems": {
         "membership": "Medlemsavgift TøFSK",

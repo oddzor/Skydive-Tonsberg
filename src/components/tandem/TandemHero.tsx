@@ -1,30 +1,17 @@
 'use client';
 import { motion } from 'framer-motion';
-import { Camera, Calendar, Gift } from 'lucide-react';
+import Image from 'next/image';
+import { Calendar, Gift, CheckCircle2, FileText } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useCMSContent } from '@/hooks/useCMSContent';
 import { useTandemData } from '@/hooks/useTandemData';
-import { VideoEmbed, StatsGrid } from '@/components/shared';
+import { VideoEmbed } from '@/components/shared';
 export function TandemHero() {
   const { t } = useLanguage();
   const { content } = useCMSContent();
-  const { exitAltitude, freefallDuration, ageRestriction } = useTandemData();
-  const keyStats = [
-    {
-      value: exitAltitude,
-      label: t('tandem.pricingCards.keyFacts.altitudeLabel'),
-    },
-    {
-      value: freefallDuration,
-      label: t('tandem.pricingCards.keyFacts.freefallLabel'),
-    },
-    {
-      value: ageRestriction,
-      label: t('kurs.stats.minAge'),
-    },
-  ];
+  const { pricingIncluded, heroCard } = useTandemData();
   return (
     <section className="pt-32 pb-16 lg:pt-40 lg:pb-20 bg-gradient-hero">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -51,89 +38,53 @@ export function TandemHero() {
             title="Tandem Skydiving at Skydive Tønsberg"
             className="mb-12"
           />
-          <div className="grid md:grid-cols-2 gap-6 mb-8">
+          <div className="grid md:grid-cols-2 gap-6 mb-10">
             <Card className="border-2 border-sky/30 shadow-xl">
-              <CardContent className="p-6">
-                <h3 className="text-2xl font-bold mb-4 text-sky">
-                  {t('tandem.pricingCards.tandemTitle')}
+              <CardContent className="p-8">
+                <h3 className="text-2xl font-bold mb-4 text-black">
+                  {t('tandem.hero.pricingTitle')}
                 </h3>
-                <div className="space-y-4">
-                  <div className="flex justify-between items-center pb-3 border-b border-border">
-                    <div>
-                      <p className="font-semibold">{t('tandem.pricingCards.weekdayLabel')}</p>
-                      <p className="text-sm text-muted-foreground">
-                        {t('tandem.pricingCards.weekdayDesc')}
-                      </p>
-                    </div>
-                    <p className="text-3xl font-bold text-sky">
-                      {content?.pricing?.tandem?.weekday || 4690} kr
-                    </p>
-                  </div>
-                  <div className="flex justify-between items-center pb-3 border-b border-border">
-                    <div>
-                      <p className="font-semibold">{t('tandem.pricingCards.weekendLabel')}</p>
-                      <p className="text-sm text-muted-foreground">
-                        {t('tandem.pricingCards.weekendDesc')}
-                      </p>
-                    </div>
-                    <p className="text-3xl font-bold text-sky">
-                      {content?.pricing?.tandem?.weekend || 5190} kr
-                    </p>
-                  </div>
-                  <div className="pt-2">
-                    <p className="text-sm text-muted-foreground mb-2">
-                      <strong>{t('tandem.pricingCards.includedLabel')}</strong>{' '}
-                      {t('tandem.pricingCards.includedDesc')}
-                    </p>
-                  </div>
+                <div className="text-center mb-6">
+                  <p className="text-sm text-muted-foreground mb-1">{t('tandem.hero.priceFrom')}</p>
+                  <p className="text-5xl font-bold text-sky mb-2">
+                    {content?.pricing?.tandem?.weekday || 4690} kr
+                  </p>
+                  <p className="text-muted-foreground">{t('tandem.hero.priceSubtitle')}</p>
                 </div>
-              </CardContent>
-            </Card>
-            <Card className="border-2 border-sky/30 shadow-xl">
-              <CardContent className="p-6">
-                <h3 className="text-2xl font-bold mb-4 text-sky">
-                  {t('tandem.pricingCards.videoTitle')}
-                </h3>
                 <div className="space-y-3">
-                  <div className="flex justify-between items-center p-3 bg-muted rounded-lg">
-                    <div className="flex items-center gap-2">
-                      <Camera className="w-5 h-5 text-sky" />
-                      <span className="font-semibold">{t('tandem.pricingCards.videoLabel')}</span>
+                  {pricingIncluded.map((item, i) => (
+                    <div key={i} className="flex items-start gap-2">
+                      <CheckCircle2 className="w-5 h-5 text-leaf shrink-0 mt-0.5" />
+                      <p className="text-sm">{item}</p>
                     </div>
-                    <p className="text-xl font-bold">
-                      {content?.pricing?.tandem?.video || 800} kr
-                    </p>
-                  </div>
-                  <div className="flex justify-between items-center p-3 bg-muted rounded-lg">
-                    <div className="flex items-center gap-2">
-                      <Camera className="w-5 h-5 text-sky" />
-                      <span className="font-semibold">
-                        {t('tandem.pricingCards.videoPhotosLabel')}
-                      </span>
-                    </div>
-                    <p className="text-xl font-bold">
-                      {content?.pricing?.tandem?.videoPhotos || 1290} kr
-                    </p>
-                  </div>
-                  <div className="flex justify-between items-center p-3 bg-sky/10 rounded-lg border-2 border-sky">
-                    <div className="flex items-center gap-2">
-                      <Camera className="w-5 h-5 text-sky" />
-                      <span className="font-semibold">
-                        {t('tandem.pricingCards.fullPackageLabel')}
-                      </span>
-                    </div>
-                    <p className="text-xl font-bold text-sky">
-                      {content?.pricing?.tandem?.fullPackage || 1780} kr
-                    </p>
-                  </div>
-                  <p className="text-sm text-muted-foreground pt-2">
-                    {t('tandem.pricingCards.videoDesc')}
+                  ))}
+                </div>
+                <div className="mt-6 p-4 bg-sky/10 rounded-lg">
+                  <p className="text-sm font-semibold mb-1 flex items-center gap-2">
+                    <FileText className="w-4 h-4 text-sky" />
+                    {t('tandem.hero.videoPricingTitle')}
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    {t('tandem.hero.videoPricingDesc')}
                   </p>
                 </div>
               </CardContent>
             </Card>
+            <Card className="border-2 border-sky/20 shadow-xl">
+              <CardContent className="p-8 flex flex-col h-full">
+                <h3 className="text-2xl font-bold mb-6 text-black">{heroCard.title}</h3>
+                <div className="space-y-4 flex-1">
+                  {heroCard.infoItems.map((item, i) => (
+                    <p key={i} className="text-sm leading-relaxed">{item}</p>
+                  ))}
+                </div>
+                <div className="mt-6 flex items-start gap-3">
+                  <Image src="/favicon.svg" alt="" aria-hidden width={20} height={20} className="h-5 w-auto shrink-0 mt-0.5" />
+                  <p className="text-sm text-muted-foreground leading-relaxed">{heroCard.closingText}</p>
+                </div>
+              </CardContent>
+            </Card>
           </div>
-          <StatsGrid stats={keyStats} columns={3} className="mb-8" />
           <div className="text-center">
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-4">
               <Button

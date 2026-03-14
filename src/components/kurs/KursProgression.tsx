@@ -184,7 +184,7 @@ export function KursProgression() {
                       <h3 className="text-lg font-bold">{level(n).title}</h3>
                     </div>
                     <p className="text-sm text-muted-foreground mb-2">
-                      <strong>1 {t('kurs.progression.level1Instructors').toLowerCase()}</strong> | 12 500 fot
+                      <strong>1 {t('kurs.progression.level1Instructor').toLowerCase()}</strong> | 12 500 fot
                       {n < 7
                         ? ` | ${t('kurs.progression.level47FreefallTime')} ${t('kurs.progression.level1Freefall').toLowerCase()}`
                         : ` | ${t('kurs.progression.level1Deploy')}: 4 000 fot`}

@@ -106,7 +106,7 @@
       "title": "BurbleMe –",
       "titleHighlight": "manifest yourself!",
       "description": "You need BurbleMe to jump at Skydive Tønsberg. Download from AppStore or Google Play.",
-      "openButton": "Open BurbleMe Web",
+      "openButton": "See manifest",
       "profileSetup": {
         "title": "Set up your profile",
         "personalDetails": "Personal Details",
@@ -540,7 +540,17 @@
       "learnMore": "Learn more",
       "altitude": "4000 meters",
       "freefall": "40 sec freefall",
-      "canopy": "5 min canopy ride"
+      "canopy": "5 min canopy ride",
+      "priceFrom": "from",
+      "experienceTitle": "What is a tandem jump?",
+      "experienceDesc": "Tandem skydiving is the fastest way to experience freefall. All you need to bring is motivation (and probably a few nerves) – we take care of everything else. You'll receive instructions for every step of the jump and don't need to think about anything other than the unique mix of emotions that only a skydive can give you. We warmly welcome you and guarantee you an experience of a lifetime.",
+      "aboutItem1": "A tandem skydive is the easiest and safest way to experience skydiving for the first time. You are securely harnessed to a professional instructor who handles the aircraft exit, freefall, parachute deployment, and landing.",
+      "aboutItem2": "It is the perfect introduction to the thrill of flying your body through the sky. You experience the rush of freefall at around 200 km/h before floating peacefully under the parachute. Many people choose a tandem jump to challenge themselves, celebrate a milestone, or simply experience something that has no equal.",
+      "aboutClosing": "We warmly welcome you and guarantee you an experience of a lifetime.",
+      "pricingTitle": "Tandem Jump",
+      "priceSubtitle": "Per jump on weekdays",
+      "videoPricingTitle": "Video & photos",
+      "videoPricingDesc": "Video and photo packages cost extra and are booked separately. See the pricing section below for full details."
     },
     "pricingCards": {
       "tandemTitle": "Tandem Jump Prices",
@@ -582,6 +592,10 @@
       }
     },
     "pricing": {
+      "included1": "All equipment, training and guidance from highly experienced instructors",
+      "included2": "Skydive from 4,000m with approx. 40 sec freefall",
+      "included3": "5 minutes canopy ride over beautiful Tønsberg",
+      "included4": "Exceptional atmosphere and safety",
       "badge": "Prices",
       "title": "Pricing Guide",
       "weekday": {
@@ -596,16 +610,16 @@
       "media": {
         "title": "Video Packages",
         "video": {
-          "name": "Video",
-          "description": "Professional video of your jump"
+          "name": "Hand camera",
+          "description": "Video filmed by your instructor from a wrist-mounted camera during freefall"
         },
         "videoPhotos": {
-          "name": "Video and photos",
-          "description": "Video + still images from freefall and landing"
+          "name": "Video skydiver",
+          "description": "A dedicated video skydiver films and photographs your jump from the outside"
         },
         "fullPackage": {
-          "name": "Full video package",
-          "description": "Dedicated camera person + video from instructor's arm + photos"
+          "name": "Full package",
+          "description": "Video skydiver combined with hand camera – maximum coverage of your jump"
         }
       }
     },
@@ -714,7 +728,11 @@
       "contactUs": "Contact us",
       "duration": "7-10 days",
       "jumps": "7 jumps with instructors",
-      "questionsEmail": "Questions? Send email to"
+      "questionsEmail": "Questions? Send email to",
+      "aboutTitle": "Why choose AFF?",
+      "aboutItem1": "The accelerated freefall course (AFF) is the most common way to learn skydiving as a sport. Instead of being attached to an instructor, you learn to skydive independently from the beginning, with instructors guiding you in freefall while you practice body control, stability, and parachute procedures.",
+      "aboutItem2": "Unlike static line training, where the parachute deploys automatically when leaving the aircraft, AFF focuses on freefall skills from the very first jump. This allows students to progress faster and develop the body-flight skills needed to become a licensed, independent skydiver.",
+      "aboutClosing": "We warmly welcome you to Skydive Tønsberg for a course you won't soon forget."
     },
     "pricing": {
       "title": "Course Price",
@@ -781,6 +799,7 @@
       "description": "Here are the goals and detailed information about the individual jumps from Level 1 to Level 8",
       "level1Title": "Level 1 – Body control",
       "level1Instructors": "Instructors:",
+      "level1Instructor": "Instructor:",
       "level1Altitude": "Exit altitude:",
       "level1Deploy": "Deployment altitude:",
       "level1Freefall": "Freefall:",

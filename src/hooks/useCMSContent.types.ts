@@ -78,17 +78,10 @@ export interface CMSContent {
     requirements: string[];
     progressionLevels?: ProgressionLevel[];
     videoUrl?: string;
-    heroStats?: {
-      theoryDays?: string;
-      jumpsCount?: string;
-      windTunnelValue?: string;
-      minAge?: string;
-    };
-    courseDetails?: {
-      durationDesc?: string;
-      jumpsDesc?: string;
-      altitudeDesc?: string;
-      ageDesc?: string;
+    heroCard?: {
+      title?: string;
+      infoItems?: string[];
+      closingText?: string;
     };
     pricingIncluded?: string[];
     aLicense?: {
@@ -144,14 +137,15 @@ export interface CMSContent {
     } | null;
   } | null;
   tandem: {
+    pricingIncluded?: string[];
+    heroCard?: {
+      title?: string;
+      infoItems?: string[];
+      closingText?: string;
+    };
     requirements: string[];
     highlights?: Array<{ title: string; description: string }>;
     jumpDaySteps?: Array<{ title: string; description: string }>;
-    jumpStats?: {
-      exitAltitude?: string;
-      freefallDuration?: string;
-      ageRestriction?: string;
-    };
     videoUrl?: string;
     images?: {
       galleryWide1?: string | null;

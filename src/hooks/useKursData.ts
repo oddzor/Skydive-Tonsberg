@@ -92,20 +92,6 @@ export const useKursData = () => {
         answer: t(`kurs.faq.q${i + 1}.answer`),
       }));
 
-  const heroStats = {
-    theoryDays: content?.course?.heroStats?.theoryDays || '1,5',
-    jumpsCount: content?.course?.heroStats?.jumpsCount || '7',
-    windTunnelValue: content?.course?.heroStats?.windTunnelValue || '10 min',
-    minAge: content?.course?.heroStats?.minAge || '16 år',
-  };
-
-  const courseDetails = {
-    durationDesc: content?.course?.courseDetails?.durationDesc || t('kurs.details.durationDesc'),
-    jumpsDesc: content?.course?.courseDetails?.jumpsDesc || t('kurs.details.jumpsDesc'),
-    altitudeDesc: content?.course?.courseDetails?.altitudeDesc || t('kurs.details.altitudeDesc'),
-    ageDesc: content?.course?.courseDetails?.ageDesc || t('kurs.details.ageDesc'),
-  };
-
   const pricingIncluded: string[] = content?.course?.pricingIncluded?.length
     ? content.course.pricingIncluded
     : [
@@ -115,6 +101,18 @@ export const useKursData = () => {
         t('kurs.pricing.included4'),
         t('kurs.pricing.included5'),
       ];
+
+  const sanityHeroCard = content?.course?.heroCard;
+  const heroCard = {
+    title: sanityHeroCard?.title || t('kurs.hero.aboutTitle'),
+    infoItems: sanityHeroCard?.infoItems?.length
+      ? sanityHeroCard.infoItems
+      : [
+          t('kurs.hero.aboutItem1'),
+          t('kurs.hero.aboutItem2'),
+        ],
+    closingText: sanityHeroCard?.closingText || t('kurs.hero.aboutClosing'),
+  };
 
   const sanityALicense = content?.course?.aLicense;
   const aLicense = {
@@ -156,5 +154,5 @@ export const useKursData = () => {
     mentor: content?.course?.support?.mentor || t('kurs.support.mentor'),
   };
 
-  return { modules, included, requirements, progressionLevels, faqData, heroStats, courseDetails, pricingIncluded, aLicense, payment, declaration, support };
+  return { modules, included, requirements, progressionLevels, faqData, pricingIncluded, heroCard, aLicense, payment, declaration, support };
 };
