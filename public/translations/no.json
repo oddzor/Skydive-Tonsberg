@@ -23,7 +23,7 @@
       "title": "Opplev",
       "titleHighlight": "frihet",
       "titleEnd": "i fritt fall",
-      "description": "Hopp tandem med profesjonelle instruktører, eller start din reise som selvstendig fallskjermhopper. Uforglemmelige opplevelser venter.",
+      "description": "Hopp tandem med profesjonelle instruktører, eller start din reise som selvstendig fallskjermhopper. Vi er fallskjermklubben som ligger nærmest Oslo, uforglemmelige opplevelser venter.",
       "bookTandem": "Tandemhopp",
       "bookCourse": "Bli fallskjermhopper",
       "watchVideo": "Se video",
@@ -138,7 +138,7 @@
       "badge": "Tandemhopp",
       "title": "Opplev",
       "titleHighlight": "frihet i fritt fall",
-      "description": "Ta steget ut i det ukjente. Hopp tandem med våre erfarne instruktører og opplev følelsen av frihet 4000 meter over bakken.",
+      "description": "Ta steget ut i det ukjente. Hopp tandem med våre erfarne instruktører og opplev følelsen av frihet 4000 meter over bakken. Desidert nærmest Oslo.",
       "bookNow": "Book tandemhopp",
       "bookNowCTA": "Book Tandemhopp Nå",
       "learnMore": "Les mer",
@@ -516,7 +516,7 @@
       "accommodation": "Gratis overnatting kursuka (køyeseng)"
     },
     "requirements": {
-      "title": "Krav for å delta",
+      "title": "Krav for godkjent hopp",
       "age": "Fylt 18 år (eller 16 år med skriftlig aksept fra begge foresatte)",
       "medical": "Godkjent legeerklæring (må fremvises ved fremmøte)",
       "weight": "Maksimal vekt 100 kg",
@@ -631,7 +631,7 @@
       "aircraft": "Flyet",
       "insurance": "Forsikring",
       "reporting": "Varsling",
-      "weather": "Vær & Kamera"
+      "weather": "Grasrotandelen"
     },
     "renewal": {
       "badge": "Medlemskap",
@@ -671,7 +671,7 @@
     "cards": {
       "calendar": {
         "title": "Hoppkalender",
-        "desc": "Se når vi hopper og book din plass",
+        "desc": "Sjekk events, kursdatoer, hoppdager og annen informasjon",
         "button": "Åpne kalender"
       },
       "burbleme": {
@@ -683,7 +683,24 @@
         "title": "Priser & Info",
         "desc": "Se alle priser, regler og informasjon",
         "button": "Se priser"
+      },
+      "dashboard": {
+        "title": "Hopperdashboard",
+        "desc": "Sjekk manifest, vind og vær for hoppdagen"
       }
+    },
+    "dashboard": {
+      "openButton": "Hopperdashboard",
+      "title": "Hopperdashboard",
+      "manifest": "Sjekk manifest – LN-JMP",
+      "manifestDesc": "Live liste over neste løft",
+      "wind": "Overflatevind (siste 10 min)",
+      "windDesc": "Vindretning og styrke ved bakken",
+      "windAloft": "Høydevind",
+      "windAloftDesc": "Vind på ulike nivåer fra SFC til 15 000 fot",
+      "weather": "Værmelding – Jarlsberg flyplass",
+      "weatherDesc": "Meteogram med temperatur og skydekke",
+      "cameraButton": "Se kamera"
     },
     "burbleMe": {
       "badge": "Manifestering",
@@ -816,7 +833,7 @@
         "week": "Ukeavgift (7 dager)"
       },
       "equipmentItems": {
-        "rentalRig": "Leie rigg per hopp",
+        "rentalRig": "Leierigg per hopp",
         "studentRig": "Studentrigg per hopp",
         "altimeter": "Høydemåler (ARESII), per dag",
         "packing": "Pakking sportrigg"
@@ -942,10 +959,12 @@
       },
       "links": {
         "calendar": "Hoppkalender",
-        "burbleme": "BurbleMe",
+        "burbleme": "Sjekk manifest",
         "shop": "Gavekort",
         "minIdrett": "Min Idrett",
         "facebook": "Facebook",
+        "instagram": "Instagram",
+        "youtube": "YouTube",
         "handbook": "JLS Driftshåndbok"
       }
     },
@@ -1028,7 +1047,8 @@
         "1": "Vercel - Hosting av nettsiden (behandler IP-adresser og tilgangslogger)",
         "2": "Sanity CMS - Lagrer og leverer CMS-innhold (tekst, priser, bilder) for administrasjon av nettstedets innhold",
         "3": "Outscraper API - Henter offentlige Google-anmeldelser for visning på nettsiden",
-        "4": "Google Analytics - Brukes til besøksstatistikk og trafikkanalyse. Samler inn sidevisninger, tid på siden og trafikkkilder. IP-adresser anonymiseres."
+        "4": "Google Analytics - Brukes til besøksstatistikk og trafikkanalyse. Samler inn sidevisninger, tid på siden og trafikkkilder. IP-adresser anonymiseres.",
+        "5": "Burble (dzm.burblesoft.com) - Brukes i Hopper-dashbordet for å vise manifest. Burble lastes direkte i nettleseren din og kan sette tredjeparts informasjonskapsler samt registrere din IP-adresse. Se Burbles egne personvernvilkår for mer informasjon."
       }
     },
     "dataRetention": {
@@ -1063,6 +1083,18 @@
     "questions": {
       "title": "Har du spørsmål?",
       "content": "Hvis du har spørsmål om hvordan vi håndterer dine personopplysninger, ta gjerne kontakt med oss:"
+    }
+  },
+  "meta": {
+    "pageTitles": {
+      "hjem": "Fallskjermhopping nær Oslo",
+      "kurs": "AFF Grunnkurs",
+      "tandem": "Tandemhopp nær Oslo",
+      "for-hoppere": "For Hoppere",
+      "faq": "FAQ",
+      "hoppkalender": "Hoppkalender",
+      "kontakt": "Kontakt",
+      "personvern": "Personvern"
     }
   }
 }

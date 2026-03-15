@@ -26,19 +26,37 @@ const tandemSchema = {
   },
 };
 
-export const metadata: Metadata = {
-  title: "Tandemhopp nær Oslo | Fra 4690 kr | Skydive Tønsberg",
-  description:
-    "Book tandemhopp hos Skydive Tønsberg – desidert nærmest Oslo! Hopp fra 4000 meter med ca. 40 sekunder fritt fall. Fra kun 4690 kr inkl. alt.",
-  alternates: { canonical: "https://skydivetonsberg.no/tandem" },
-  openGraph: {
-    title: "Tandemhopp nær Oslo | Skydive Tønsberg",
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  if (locale === 'en') {
+    return {
+      title: "Tandem Skydive near Oslo",
+      description:
+        "Book a tandem skydive at Skydive Tønsberg – closest to Oslo! Jump from 4000 metres with approx. 40 seconds of freefall. From only 4690 NOK, everything included.",
+      alternates: { canonical: "https://skydivetonsberg.no/tandem" },
+      openGraph: {
+        title: "Tandem Skydive near Oslo",
+        description:
+          "Experience freefall from 4000 metres with stunning views over the Oslofjord. Book your tandem skydive today!",
+        url: "https://skydivetonsberg.no/en/tandem",
+        images: [{ url: "/og-tandem.jpg", width: 1200, height: 630, alt: "Tandem skydive at Skydive Tønsberg" }],
+      },
+    };
+  }
+  return {
+    title: "Tandemhopp nær Oslo",
     description:
-      "Opplev fritt fall fra 4000 meter med vakker utsikt over Oslofjorden. Book ditt tandemhopp i dag!",
-    url: "https://skydivetonsberg.no/tandem",
-    images: [{ url: "/og-tandem.jpg", width: 1200, height: 630, alt: "Tandemhopp hos Skydive Tønsberg" }],
-  },
-};
+      "Book tandemhopp hos Skydive Tønsberg – desidert nærmest Oslo! Hopp fra 4000 meter med ca. 40 sekunder fritt fall. Fra kun 4690 kr inkl. alt.",
+    alternates: { canonical: "https://skydivetonsberg.no/tandem" },
+    openGraph: {
+      title: "Tandemhopp nær Oslo",
+      description:
+        "Opplev fritt fall fra 4000 meter med vakker utsikt over Oslofjorden. Book ditt tandemhopp i dag!",
+      url: "https://skydivetonsberg.no/no/tandem",
+      images: [{ url: "/og-tandem.jpg", width: 1200, height: 630, alt: "Tandemhopp hos Skydive Tønsberg" }],
+    },
+  };
+}
 
 export default async function TandemPage() {
   const [tandemFAQs, tandemInfo] = await Promise.all([

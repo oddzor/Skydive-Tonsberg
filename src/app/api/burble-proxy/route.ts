@@ -1,0 +1,66 @@
+const BURBLE_URL = 'https://dzm.burblesoft.com/jumper_manifest_public?dz_id=551';
+const BURBLE_BASE = 'https://dzm.burblesoft.com';
+
+const UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36';
+
+export async function GET() {
+  try {
+    const step1 = await fetch(BURBLE_URL, {
+      cache: 'no-store',
+      redirect: 'manual',
+      headers: { 'User-Agent': UA },
+    });
+
+    const cookies = step1.headers.getSetCookie?.() ?? [];
+    const cookieHeader = cookies.map((c) => c.split(';')[0]).join('; ');
+    const location = step1.headers.get('location') ?? BURBLE_BASE;
+    const step2 = await fetch(location, {
+      cache: 'no-store',
+      headers: {
+        'User-Agent': UA,
+        ...(cookieHeader ? { Cookie: cookieHeader } : {}),
+      },
+    });
+
+    if (!step2.ok) {
+      return new Response(placeholder(), {
+        headers: { 'Content-Type': 'text/html; charset=utf-8' },
+      });
+    }
+
+    const html = await step2.text();
+    const patched = html.includes('<head>')
+      ? html.replace('<head>', `<head><base href="${BURBLE_BASE}/">`)
+      : html;
+
+    return new Response(patched, {
+      headers: { 'Content-Type': 'text/html; charset=utf-8' },
+    });
+  } catch {
+    return new Response(placeholder(), {
+      headers: { 'Content-Type': 'text/html; charset=utf-8' },
+    });
+  }
+}
+
+function placeholder() {
+  return `<!DOCTYPE html>
+<html><head>
+  <meta charset="utf-8">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{background:#0f172a;color:#e2e8f0;font-family:system-ui,sans-serif;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:24px;text-align:center}
+    .card{max-width:320px}
+    p{color:#64748b;font-size:0.9rem;line-height:1.6;margin-bottom:20px}
+    a{display:inline-block;padding:10px 20px;background:#1d4ed8;color:#fff;border-radius:8px;text-decoration:none;font-size:0.9rem;font-weight:600}
+    a:hover{background:#2563eb}
+    .icon{font-size:2rem;margin-bottom:12px}
+  </style>
+</head><body>
+  <div class="card">
+    <div class="icon">📋</div>
+    <p>Manifest unavailable right now.</p>
+    <a href="${BURBLE_URL}" target="_blank" rel="noopener">Open Burble ↗</a>
+  </div>
+</body></html>`;
+}

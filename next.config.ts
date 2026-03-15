@@ -21,7 +21,6 @@ const nextConfig: NextConfig = {
       "lucide-react",
       "@radix-ui/react-accordion",
       "@radix-ui/react-dialog",
-      "@radix-ui/react-navigation-menu",
       "@radix-ui/react-tabs",
     ],
   },

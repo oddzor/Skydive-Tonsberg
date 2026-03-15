@@ -38,6 +38,19 @@ export function LanguageProvider({
     };
     loadTranslations();
   }, [language]);
+  useEffect(() => {
+    if (!translationsLoaded) return;
+    const segments = pathname.split('/');
+    const slug = segments[2] ?? 'hjem';
+    const canonical = toCanonical(slug) || slug;
+    const pageTitles = (translations as Record<string, unknown>)?.meta as Record<string, unknown> | undefined;
+    const titlesMap = pageTitles?.pageTitles as Record<string, string> | undefined;
+    const pageTitle = titlesMap?.[canonical];
+    if (pageTitle) {
+      document.title = `${pageTitle} | Skydive Tønsberg`;
+    }
+  }, [translations, translationsLoaded, pathname]);
+
   const setLanguage = (lang: Language) => {
     setLanguageState(lang);
     localStorage.setItem("language", lang);

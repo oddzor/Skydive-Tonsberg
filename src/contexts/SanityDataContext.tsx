@@ -48,10 +48,6 @@ export function SanityDataProvider({
   return <SanityDataContext.Provider value={data}>{children}</SanityDataContext.Provider>
 }
 
-export function useSanityData() {
-  return useContext(SanityDataContext)
-}
-
 export function useSanityFAQs(page: SanityFAQ['page']) {
   const { faqs } = useContext(SanityDataContext)
   const { language } = useLanguage()

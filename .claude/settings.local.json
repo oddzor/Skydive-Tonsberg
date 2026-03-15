@@ -9,7 +9,11 @@
       "Bash(wc:*)",
       "Bash(tail:*)",
       "Bash(cd:*)",
-      "Bash(cd C:/repositories/Skydive-T-nsberg/Skydive-Tonsberg && npx tsc --noEmit 2>&1)"
+      "Bash(cd C:/repositories/Skydive-T-nsberg/Skydive-Tonsberg && npx tsc --noEmit 2>&1)",
+      "Bash(curl:*)",
+      "WebFetch(domain:eu-displays.burblesoft.eu)",
+      "Bash(cd /c/repositories/Skydive-T-nsberg/Skydive-Tonsberg && npm uninstall @sanity/image-url @radix-ui/react-navigation-menu 2>&1)",
+      "Bash(cd /c/repositories/Skydive-T-nsberg/Skydive-Tonsberg && npm run build 2>&1)"
     ]
   }
 }

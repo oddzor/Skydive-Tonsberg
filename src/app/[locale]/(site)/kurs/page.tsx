@@ -46,19 +46,37 @@ const kursSchema = {
   },
 };
 
-export const metadata: Metadata = {
-  title: "AFF Grunnkurs | Lær å hoppe fallskjerm | Skydive Tønsberg",
-  description:
-    "Bli selvstendig fallskjermhopper med AFF grunnkurs hos Skydive Tønsberg. Profesjonelle instruktører, moderne utstyr og 8 progressjonsnivåer ved Jarlsberg Flyplass nær Oslo.",
-  alternates: { canonical: "https://skydivetonsberg.no/kurs" },
-  openGraph: {
-    title: "AFF Grunnkurs | Skydive Tønsberg",
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  if (locale === 'en') {
+    return {
+      title: "AFF Skydiving Course",
+      description:
+        "Become an independent skydiver with the AFF course at Skydive Tønsberg. Professional instructors, modern equipment and 8 progression levels at Jarlsberg Airport near Oslo.",
+      alternates: { canonical: "https://skydivetonsberg.no/kurs" },
+      openGraph: {
+        title: "AFF Skydiving Course",
+        description:
+          "Become an independent skydiver with the AFF course. Professional instructors and modern equipment near Oslo.",
+        url: "https://skydivetonsberg.no/en/course",
+        images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "AFF Skydiving Course at Skydive Tønsberg" }],
+      },
+    };
+  }
+  return {
+    title: "AFF Grunnkurs",
     description:
-      "Bli selvstendig fallskjermhopper med AFF grunnkurs. Profesjonelle instruktører og moderne utstyr nær Oslo.",
-    url: "https://skydivetonsberg.no/kurs",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "AFF Grunnkurs hos Skydive Tønsberg" }],
-  },
-};
+      "Bli selvstendig fallskjermhopper med AFF grunnkurs hos Skydive Tønsberg. Profesjonelle instruktører, moderne utstyr og 8 progressjonsnivåer ved Jarlsberg Flyplass nær Oslo.",
+    alternates: { canonical: "https://skydivetonsberg.no/kurs" },
+    openGraph: {
+      title: "AFF Grunnkurs",
+      description:
+        "Bli selvstendig fallskjermhopper med AFF grunnkurs. Profesjonelle instruktører og moderne utstyr nær Oslo.",
+      url: "https://skydivetonsberg.no/no/kurs",
+      images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "AFF Grunnkurs hos Skydive Tønsberg" }],
+    },
+  };
+}
 
 export default async function KursPage() {
   const [kursFAQs, courseInfo] = await Promise.all([

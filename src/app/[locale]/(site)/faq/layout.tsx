@@ -7,14 +7,14 @@ import type { SanityFAQ } from "@/sanity/types";
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: "FAQ | Vanlige spørsmål om fallskjermhopping",
+  title: "FAQ",
   description:
     "Svar på de vanligste spørsmålene om tandemhopp, AFF-kurs og funjumping hos Skydive Tønsberg. Alt du trenger å vite før du hopper.",
   alternates: {
     canonical: "https://skydivetonsberg.no/faq",
   },
   openGraph: {
-    title: "FAQ | Skydive Tønsberg",
+    title: "FAQ",
     description:
       "Svar på de vanligste spørsmålene om tandemhopp, AFF-kurs og funjumping hos Skydive Tønsberg.",
     url: "https://skydivetonsberg.no/faq",

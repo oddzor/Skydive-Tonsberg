@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Personvern | Personvernserklæring",
+  title: "Personvern",
   description:
     "Personvernserklæring for Skydive Tønsberg. Les om hvordan vi behandler dine personopplysninger.",
   alternates: {

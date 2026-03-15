@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { Hero } from "@/components/sections/Hero";
 import { SanityDataProvider } from "@/contexts/SanityDataContext";
@@ -35,6 +36,36 @@ const CTA = dynamic(() =>
 );
 
 export const revalidate = 3600;
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  if (locale === 'en') {
+    return {
+      title: "Skydiving near Oslo",
+      description:
+        "Experience the thrill of skydiving at Skydive Tønsberg – closest to Oslo! Tandem skydives, AFF courses and fun jumping at Jarlsberg Airport in Vestfold.",
+      openGraph: {
+        title: "Skydiving near Oslo",
+        description:
+          "Experience the thrill of skydiving at Skydive Tønsberg – closest to Oslo!",
+        url: "https://skydivetonsberg.no/en/home",
+        images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Skydiving at Skydive Tønsberg" }],
+      },
+    };
+  }
+  return {
+    title: "Fallskjermhopping nær Oslo",
+    description:
+      "Opplev spenningen ved fallskjermhopping hos Skydive Tønsberg – nærmest Oslo! Tandemhopp, AFF-kurs og funjumping ved Jarlsberg Flyplass i Vestfold.",
+    openGraph: {
+      title: "Fallskjermhopping nær Oslo",
+      description:
+        "Opplev spenningen ved fallskjermhopping hos Skydive Tønsberg – nærmest Oslo!",
+      url: "https://skydivetonsberg.no/no/hjem",
+      images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Fallskjermhopping hos Skydive Tønsberg" }],
+    },
+  };
+}
 
 export default async function Home() {
   const [homeFAQs, tandemPricing, kursPricing, landingPage, generalContent] = await Promise.all([

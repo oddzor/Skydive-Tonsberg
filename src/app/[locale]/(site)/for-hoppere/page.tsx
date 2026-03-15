@@ -8,19 +8,37 @@ import type { SanityFAQ, SanityForHopperePricing, SanityForHoppereInfo } from "@
 
 export const revalidate = 3600;
 
-export const metadata: Metadata = {
-  title: "Skydive Tønsberg | For Hoppere",
-  description:
-    "Erfaren fallskjermhopper? Skydive Tønsberg ønsker deg velkommen til funjumping. Aktivt hoppmiljø, moderne fly og fantastiske forhold ved Tønsberg Flyplass.",
-  alternates: { canonical: "https://skydivetonsberg.no/for-hoppere" },
-  openGraph: {
-    title: "For erfarne hoppere hos Skydive Tønsberg",
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  if (locale === 'en') {
+    return {
+      title: "For Jumpers",
+      description:
+        "Experienced skydiver? Skydive Tønsberg welcomes you for fun jumping. Active jump community, modern aircraft and great conditions at Tønsberg Airport.",
+      alternates: { canonical: "https://skydivetonsberg.no/for-hoppere" },
+      openGraph: {
+        title: "For experienced jumpers at Skydive Tønsberg",
+        description:
+          "Fun jumping, equipment rental and an active skydiving community for licensed skydivers.",
+        url: "https://skydivetonsberg.no/en/for-jumpers",
+        images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Skydivers in formation over Vestfold" }],
+      },
+    };
+  }
+  return {
+    title: "For Hoppere",
     description:
-      "Funjumping, utstyrsleie og et aktivt hoppmiljø for sertifiserte fallskjermhoppere.",
-    url: "https://skydivetonsberg.no/for-hoppere",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Fallskjermhoppere i formasjon over Vestfold" }],
-  },
-};
+      "Erfaren fallskjermhopper? Skydive Tønsberg ønsker deg velkommen til funjumping. Aktivt hoppmiljø, moderne fly og fantastiske forhold ved Tønsberg Flyplass.",
+    alternates: { canonical: "https://skydivetonsberg.no/for-hoppere" },
+    openGraph: {
+      title: "For erfarne hoppere hos Skydive Tønsberg",
+      description:
+        "Funjumping, utstyrsleie og et aktivt hoppmiljø for sertifiserte fallskjermhoppere.",
+      url: "https://skydivetonsberg.no/no/for-hoppere",
+      images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Fallskjermhoppere i formasjon over Vestfold" }],
+    },
+  };
+}
 
 export default async function ForHopperePage() {
   const [forHoppereFAQs, forHopperePricing, forHoppereInfo] = await Promise.all([

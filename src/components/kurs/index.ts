@@ -1,5 +1,4 @@
 export { KursHero } from './KursHero';
-export { KursIncluded } from './KursIncluded';
 export { KursRequirements } from './KursRequirements';
 export { KursFAQ } from './KursFAQ';
 export { KursPayment } from './KursPayment';

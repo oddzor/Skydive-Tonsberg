@@ -20,8 +20,8 @@
   },
   "forHoppere": {
     "hero": {
-      "badge": "For experienced jumpers",
-      "title": "Come get sun, summer and",
+      "badge": "For experienced jumpers", 
+      "title": "Join us for sun, summer and",
       "titleHighlight": "skydiving!",
       "description": "Welcome to Skydive Tønsberg at Jarlsberg Airport – with Norway's largest and best jump plane, Twin Otter LN-JMP!",
       "subDescription": "Practical information for guest jumpers and club members. Check prices, rules, and booking below.",
@@ -47,7 +47,7 @@
       "aircraft": "Aircraft",
       "insurance": "Insurance",
       "reporting": "Reporting",
-      "weather": "Weather & Camera"
+      "weather": "Grasrotandelen"
     },
     "renewal": {
       "badge": "Membership",
@@ -87,7 +87,7 @@
     "cards": {
       "calendar": {
         "title": "Jump Calendar",
-        "desc": "See when we jump and book your spot",
+        "desc": "See events, course dates, jumping days and other information",
         "button": "Open calendar"
       },
       "burbleme": {
@@ -99,7 +99,24 @@
         "title": "Prices & Info",
         "desc": "See all prices, rules and information",
         "button": "View prices"
+      },
+      "dashboard": {
+        "title": "Jumper Dashboard",
+        "desc": "Check manifest, weather and wind for the day"
       }
+    },
+    "dashboard": {
+      "openButton": "Open dashboard",
+      "title": "Jumper Dashboard",
+      "manifest": "Current manifest – LN-JMP",
+      "manifestDesc": "Live list of the next load",
+      "wind": "Surface wind (last 10 min)",
+      "windDesc": "Wind direction and speed at ground level",
+      "windAloft": "Wind aloft",
+      "windAloftDesc": "Wind at various levels from SFC to 15,000 ft",
+      "weather": "Weather – Jarlsberg Airport",
+      "weatherDesc": "Meteogram with temperature and cloud cover",
+      "cameraButton": "See Camera"
     },
     "burbleMe": {
       "badge": "Manifesting",
@@ -361,10 +378,12 @@
       },
       "links": {
         "calendar": "Jump Calendar",
-        "burbleme": "BurbleMe",
+        "burbleme": "Check manifest",
         "shop": "Web Shop",
         "minIdrett": "Min Idrett",
         "facebook": "Facebook",
+        "instagram": "Instagram",
+        "youtube": "YouTube",
         "handbook": "JLS Operations Manual"
       }
     },
@@ -419,7 +438,7 @@
       "title": "Experience",
       "titleHighlight": "freedom",
       "titleEnd": "in freefall",
-      "description": "Jump tandem with professional instructors, or start your journey as an independent skydiver. Unforgettable experiences await.",
+      "description": "Jump tandem with professional instructors, or start your journey as an independent skydiver. We are the closest skydiving club to Oslo, unforgettable experiences await you.",
       "bookTandem": "Tandem Jump",
       "bookCourse": "AFF Course",
       "watchVideo": "Watch video",
@@ -534,7 +553,7 @@
       "badge": "Tandem Jump",
       "title": "Experience",
       "titleHighlight": "freedom in freefall",
-      "description": "Take the step into the unknown. Jump tandem with our experienced instructors and experience the feeling of freedom 4000 meters above ground.",
+      "description": "Take the step into the unknown. Jump tandem with our experienced instructors and experience the feeling of freedom 4000 meters above ground. Nearest club to Oslo.",
       "bookNow": "Book tandem jump",
       "bookNowCTA": "Book Tandem Jump Now",
       "learnMore": "Learn more",
@@ -912,7 +931,7 @@
       "accommodation": "Free accommodation during course week (bunk bed)"
     },
     "requirements": {
-      "title": "Requirements to participate",
+      "title": "Requirement to pass",
       "age": "18 years old (or 16 with written consent from both parents)",
       "medical": "Approved medical certificate (must be presented upon arrival)",
       "weight": "Maximum weight 100 kg",
@@ -1031,7 +1050,8 @@
         "1": "Vercel - Website hosting (processes IP addresses and access logs)",
         "2": "Sanity CMS - Stores and delivers CMS content (text, pricing, images) for website content management",
         "3": "Outscraper API - Fetches public Google reviews for display on website",
-        "4": "Google Analytics - Used for visitor statistics and traffic analysis. Collects page views, time on site and traffic sources. IP addresses are anonymised."
+        "4": "Google Analytics - Used for visitor statistics and traffic analysis. Collects page views, time on site and traffic sources. IP addresses are anonymised.",
+        "5": "Burble (dzm.burblesoft.com) - Used in the Jumper Dashboard to display the manifest. Burble is loaded directly in your browser and may set third-party cookies and record your IP address. See Burble's own privacy policy for more information."
       }
     },
     "dataRetention": {
@@ -1066,6 +1086,18 @@
     "questions": {
       "title": "Questions?",
       "content": "If you have questions about how we handle your personal information, please contact us:"
+    }
+  },
+  "meta": {
+    "pageTitles": {
+      "hjem": "Skydiving near Oslo",
+      "kurs": "AFF Skydiving Course",
+      "tandem": "Tandem Skydive near Oslo",
+      "for-hoppere": "For Jumpers",
+      "faq": "FAQ",
+      "hoppkalender": "Jump Calendar",
+      "kontakt": "Contact",
+      "personvern": "Privacy Policy"
     }
   }
 }

@@ -8,6 +8,7 @@ import { localePath } from "@/lib/locale-href";
 import { useForHoppereData } from "@/hooks/useForHoppereData";
 import { useCMSContent } from "@/hooks/useCMSContent";
 import { ForHoppereNav } from "@/components/for-hoppere/ForHoppereNav";
+import { JumperDashboard } from "@/components/for-hoppere/JumperDashboard";
 import { VideoEmbed } from "@/components/shared";
 import {
   Plane,
@@ -35,9 +36,11 @@ import {
   Bell,
   MessageCircle,
   Facebook,
+  Instagram,
+  Youtube,
   Info,
   BookOpen,
-  DollarSign,
+  LayoutDashboard,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -201,11 +204,10 @@ export function ForHoppereContent() {
                   </p>
                   <Button
                     asChild
-                    variant="outline"
-                    className="w-full"
+                    className="w-full bg-gradient-brand hover:opacity-90 text-white"
                   >
                     <Link href={localePath(language, 'hoppkalender')}>
-                      <ExternalLink className="mr-2 w-4 h-4" />
+                      <Calendar className="mr-2 w-4 h-4" />
                       {t('forHoppere.cards.calendar.button')}
                     </Link>
                   </Button>
@@ -213,20 +215,12 @@ export function ForHoppereContent() {
               </Card>
               <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
                 <CardContent className="p-6">
-                  <DollarSign className="w-10 h-10 text-sky mb-3" />
-                  <h3 className="font-bold text-lg mb-2">{t('forHoppere.cards.pricing.title')}</h3>
+                  <LayoutDashboard className="w-10 h-10 text-sky mb-3" />
+                  <h3 className="font-bold text-lg mb-2">{t('forHoppere.cards.dashboard.title')}</h3>
                   <p className="text-sm text-muted-foreground mb-4">
-                    {t('forHoppere.cards.pricing.desc')}
+                    {t('forHoppere.cards.dashboard.desc')}
                   </p>
-                  <Button
-                    asChild
-                    variant="outline"
-                    className="w-full"
-                  >
-                    <a href="#priser">
-                      {t('forHoppere.cards.pricing.button')}
-                    </a>
-                  </Button>
+                  <JumperDashboard />
                 </CardContent>
               </Card>
             </div>
@@ -428,19 +422,6 @@ export function ForHoppereContent() {
             <p className="text-lg text-muted-foreground mb-4">
               {burbleMeDescription}
             </p>
-            <Button
-              asChild
-              className="bg-gradient-brand hover:opacity-90 text-white font-semibold"
-            >
-              <a
-                href="https://dzm.burblesoft.eu/jmp?dz_id=551"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Smartphone className="mr-2 w-5 h-5" />
-                {t("forHoppere.burbleMe.openButton")}
-              </a>
-            </Button>
           </motion.div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 
@@ -1187,54 +1168,9 @@ export function ForHoppereContent() {
               {t("forHoppere.weather.badge")}
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">
-              {t("forHoppere.weather.title")} <span className="text-gradient">{t("forHoppere.weather.titleHighlight")}</span>
+              {t("forHoppere.weather.grassroots.title")}
             </h2>
           </motion.div>
-          <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto mb-12">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <Card className="h-full border-0 shadow-lg text-center">
-                <CardContent className="p-8">
-                  <Camera className="w-12 h-12 text-sky mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold text-foreground mb-3">{t("forHoppere.weather.webcam")}</h3>
-                  <p className="text-muted-foreground mb-4">
-                    {t("forHoppere.weather.webcamDesc")}
-                  </p>
-                  <Button asChild variant="outline">
-                    <a href="http://79.161.215.227/Cam2/ENJB01.htm" target="_blank" rel="noopener noreferrer">
-                      {t("forHoppere.weather.webcamButton")}
-                      <ExternalLink className="ml-2 w-4 h-4" />
-                    </a>
-                  </Button>
-                </CardContent>
-              </Card>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-            >
-              <Card className="h-full border-0 shadow-lg text-center">
-                <CardContent className="p-8">
-                  <CloudSun className="w-12 h-12 text-sky mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold text-foreground mb-3">{t("forHoppere.weather.forecast")}</h3>
-                  <p className="text-muted-foreground mb-4">
-                    {t("forHoppere.weather.forecastDesc")}
-                  </p>
-                  <Button asChild variant="outline">
-                    <a href="https://www.yr.no/nb/v%C3%A6rvarsel/daglig-tabell/1-211102/Norge/Vestfold%20og%20Telemark/T%C3%B8nsberg/Jarlsberg" target="_blank" rel="noopener noreferrer">
-                      {t("forHoppere.weather.forecastButton")}
-                      <ExternalLink className="ml-2 w-4 h-4" />
-                    </a>
-                  </Button>
-                </CardContent>
-              </Card>
-            </motion.div>
-          </div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -1374,7 +1310,7 @@ export function ForHoppereContent() {
                   </Link>
                 </Button>
                 <Button asChild variant="outline" className="h-auto py-4 flex-col gap-2">
-                  <a href="https://dzm.burblesoft.eu/jmp?dz_id=551" target="_blank" rel="noopener noreferrer">
+                  <a href="https://dzm.burblesoft.com/jumper_manifest_public?dz_id=551" target="_blank" rel="noopener noreferrer">
                     <Smartphone className="w-6 h-6 text-sky" />
                     <span>{t("forHoppere.contact.links.burbleme")}</span>
                   </a>
@@ -1395,6 +1331,18 @@ export function ForHoppereContent() {
                   <a href="https://www.facebook.com/TonsbergFallskjermklubb" target="_blank" rel="noopener noreferrer">
                     <Facebook className="w-6 h-6 text-sky" />
                     <span>{t("forHoppere.contact.links.facebook")}</span>
+                  </a>
+                </Button>
+                <Button asChild variant="outline" className="h-auto py-4 flex-col gap-2">
+                  <a href="https://www.instagram.com/skydivetonsberg" target="_blank" rel="noopener noreferrer">
+                    <Instagram className="w-6 h-6 text-sky" />
+                    <span>{t("forHoppere.contact.links.instagram")}</span>
+                  </a>
+                </Button>
+                <Button asChild variant="outline" className="h-auto py-4 flex-col gap-2">
+                  <a href="https://www.youtube.com/@skydivetonsberg" target="_blank" rel="noopener noreferrer">
+                    <Youtube className="w-6 h-6 text-sky" />
+                    <span>{t("forHoppere.contact.links.youtube")}</span>
                   </a>
                 </Button>
                 <Button asChild variant="outline" className="h-auto py-4 flex-col gap-2">
