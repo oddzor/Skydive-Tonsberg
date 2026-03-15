@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 }
 
 export default async function FAQPage() {
-  const allFAQs = await safeFetch<SanityFAQ[]>(ALL_FAQS_QUERY);
+  const allFAQs = await safeFetch<SanityFAQ[]>(ALL_FAQS_QUERY, undefined, 'faqs.all');
 
   return (
     <SanityDataProvider

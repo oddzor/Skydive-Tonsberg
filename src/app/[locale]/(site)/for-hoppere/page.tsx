@@ -42,9 +42,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
 export default async function ForHopperePage() {
   const [forHoppereFAQs, forHopperePricing, forHoppereInfo] = await Promise.all([
-    safeFetch<SanityFAQ[]>(PAGE_FAQS_QUERY, { page: "forHoppere" }),
-    safeFetch<SanityForHopperePricing>(FOR_HOPPERE_PRICING_QUERY),
-    safeFetch<SanityForHoppereInfo>(FOR_HOPPERE_INFO_QUERY),
+    safeFetch<SanityFAQ[]>(PAGE_FAQS_QUERY, { page: "forHoppere" }, 'faqs.forHoppere'),
+    safeFetch<SanityForHopperePricing>(FOR_HOPPERE_PRICING_QUERY, undefined, 'forHopperePricing'),
+    safeFetch<SanityForHoppereInfo>(FOR_HOPPERE_INFO_QUERY, undefined, 'forHoppereInfo'),
   ]);
 
   const faqSchema = forHoppereFAQs?.length

@@ -69,11 +69,11 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
 export default async function Home() {
   const [homeFAQs, tandemPricing, kursPricing, landingPage, generalContent] = await Promise.all([
-    safeFetch<SanityFAQ[]>(PAGE_FAQS_QUERY, { page: "home" }),
-    safeFetch<SanityTandemPricing>(TANDEM_PRICING_QUERY),
-    safeFetch<SanityKursPricing>(KURS_PRICING_QUERY),
-    safeFetch<SanityLandingPage>(LANDING_PAGE_QUERY),
-    safeFetch<SanityGeneralContent>(GENERAL_CONTENT_QUERY),
+    safeFetch<SanityFAQ[]>(PAGE_FAQS_QUERY, { page: "home" }, 'faqs.home'),
+    safeFetch<SanityTandemPricing>(TANDEM_PRICING_QUERY, undefined, 'tandemPricing'),
+    safeFetch<SanityKursPricing>(KURS_PRICING_QUERY, undefined, 'kursPricing'),
+    safeFetch<SanityLandingPage>(LANDING_PAGE_QUERY, undefined, 'landingPage'),
+    safeFetch<SanityGeneralContent>(GENERAL_CONTENT_QUERY, undefined, 'generalContent'),
   ]);
 
   const faqSchema = homeFAQs?.length

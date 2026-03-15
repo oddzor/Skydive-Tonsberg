@@ -114,7 +114,7 @@
         },
         "q9": {
           "question": "Hvor lenge er gavekortet gyldig?",
-          "answer": "Gavekort er gyldig i 12 måneder fra kjøpsdato. Du kan gi det videre til andre hvis du ikke benytter det selv."
+          "answer": "Gavekort er gyldig i 12 måneder fra kjøpsdato. Du kan gi det videre til andre hvis du ikke benytter det self."
         },
         "q10": {
           "question": "Kan jeg hoppe sammen med venner eller familie?",
@@ -147,14 +147,14 @@
       "canopy": "5 min skjermtur",
       "priceFrom": "fra",
       "experienceTitle": "Hvorfor tandemhopp?",
-      "experienceDesc": "Tandemhopping er den raskeste veien til fritt fall, her trenger du bare å komme med motivasjon (og sikkert litt nerver) så tar vi oss av resten. Du får instruksjoner for alle steg av hoppet og trenger ikke tenke på noe annet enn den unike blandingen av følelser som bare et fallskjermhopp kan fremkalle. Vi ønsker deg hjertelig velkommen til oss og garanterer deg en opplevelse for livet.",
+      "experienceDesc": "Tandemhopping er den raskeste veien til fritt fall, her trenger du bare å komme med motivasjon (og sikkert litt never) så tar vi oss av resten. Du får instruksjoner for alle steg av hoppet og trenger ikke tenke på noe annet enn den unike blandingen av følelser som bare et fallskjermhopp kan fremkalle. Vi ønsker deg hjertelig velkommen til oss og garanterer deg en opplevelse for livet.",
       "aboutItem1": "Et tandemhopp er den enkleste og tryggeste måten å oppleve fallskjermhopping på for første gang. Du er trygt festet til en profesjonell instruktør som håndterer hoppet fra flyet, fritt fall, utløsning av fallskjerm og landingen.",
-      "aboutItem2": "Dette er den perfekte introduksjonen til følelsen av å fly kroppen din gjennom luften. Du opplever adrenalin i fritt fall i rundt 200 km/t før kontrasten av den rolige skjermturen tar over. Mange velger et tandemhopp for å utfordre seg selv, feire en spesiell anledning eller rett og slett bare oppleve noe som ikke kan sammenlignes.",
+      "aboutItem2": "Dette er den perfekte introduksjonen til følelsen av å fly kroppen din gjennom luften. Du opplever adrenalin i fritt fall i rundt 200 km/t før kontrasten av den rolige skjermturen tar over. Mange velger et tandemhopp for å utfordre seg self, feire en spesiell anledning eller rett og slett bare oppleve noe som ikke kan sammenlignes.",
       "aboutClosing": "Vi ønsker deg hjertelig velkommen til vår fantastiske klubb og garanterer deg en en opplevelse du aldri glemmer.",
       "pricingTitle": "Tandemhopp",
       "priceSubtitle": "Per hopp på ukedager",
       "videoPricingTitle": "Video & bilder",
-      "videoPricingDesc": "Video og bildepakker koster ekstra og bestilles separat. Se prisseksjonen nedenfor for full oversikt."
+      "videoPricingDesc": "Video og bildepakker koster ekstra og bestilles separate. Se prisseksjonen nedenfor for full oversikt."
     },
     "pricingCards": {
       "tandemTitle": "Tandemhopp Priser",
@@ -164,7 +164,7 @@
       "weekendDesc": "Helg",
       "includedLabel": "Inkludert:",
       "includedDesc": "Komplett utstyr, trening og veiledning fra svært erfarne instruktører",
-      "videoTitle": "Video & Foto",
+      "videoTitle": "Video & Photo",
       "videoLabel": "Video",
       "videoPhotosLabel": "Video + Bilder",
       "fullPackageLabel": "Full Pakke",
@@ -385,7 +385,7 @@
       "bookingTitle": "Ved booking:",
       "bookingDesc": "Du betaler 2 000 kr depositum når du melder deg på.",
       "startTitle": "Ved kursstart:",
-      "startDesc": "Resten betaler du i resepsjonen på Jarlsberg flyplass. Vi tar debetkort eller kontant. OBS: Vi tar ikke kreditkort.",
+      "startDesc": "Resten betaler du i resepsjonen på Jarlsberg flyplass. Vi tar debetkort eller kontant. OBS: Vi tar ikke kredittkort.",
       "vippsTitle": "Vipps:",
       "vippsDesc": "Du kan også betale med VIPPS, men det koster 3% mer.",
       "rejumpTitle": "Omhopp & Tillegg",

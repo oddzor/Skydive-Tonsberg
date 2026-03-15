@@ -60,8 +60,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
 export default async function TandemPage() {
   const [tandemFAQs, tandemInfo] = await Promise.all([
-    safeFetch<SanityFAQ[]>(PAGE_FAQS_QUERY, { page: "tandem" }),
-    safeFetch<SanityTandemInfo>(TANDEM_INFO_QUERY),
+    safeFetch<SanityFAQ[]>(PAGE_FAQS_QUERY, { page: "tandem" }, 'faqs.tandem'),
+    safeFetch<SanityTandemInfo>(TANDEM_INFO_QUERY, undefined, 'tandemInfo'),
   ]);
 
   const faqSchema = tandemFAQs?.length

@@ -80,8 +80,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
 export default async function KursPage() {
   const [kursFAQs, courseInfo] = await Promise.all([
-    safeFetch<SanityFAQ[]>(PAGE_FAQS_QUERY, { page: "kurs" }),
-    safeFetch<SanityCourseInfo>(COURSE_INFO_QUERY),
+    safeFetch<SanityFAQ[]>(PAGE_FAQS_QUERY, { page: "kurs" }, 'faqs.kurs'),
+    safeFetch<SanityCourseInfo>(COURSE_INFO_QUERY, undefined, 'courseInfo'),
   ]);
 
   const faqSchema = kursFAQs?.length

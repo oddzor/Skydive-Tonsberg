@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 };
 
 export default async function FAQLayout({ children }: { children: React.ReactNode }) {
-  const allFAQs = await safeFetch<SanityFAQ[]>(ALL_FAQS_QUERY);
+  const allFAQs = await safeFetch<SanityFAQ[]>(ALL_FAQS_QUERY, undefined, 'faqs.all');
   const allFAQSchema = allFAQs?.length
     ? buildFAQSchema(allFAQs.map(sanityFaqToSchema))
     : null;
