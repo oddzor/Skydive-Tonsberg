@@ -1,5 +1,35 @@
 const CAMERA_URL = 'http://79.161.215.227/Cam2/ENJB01.htm';
-const CAMERA_BASE = 'http://79.161.215.227/Cam2/';
+const CAMERA_ORIGIN = 'http://79.161.215.227';
+const IMG_PROXY = '/api/camera-proxy/image?path=';
+
+// Rewrites a URL found in camera HTML to go through the server-side image proxy.
+function rewriteUrl(raw: string): string {
+  if (raw.startsWith('data:') || raw.startsWith(IMG_PROXY)) return raw;
+  return IMG_PROXY + encodeURIComponent(raw);
+}
+
+// Injected into the camera HTML so that dynamic img.src assignments
+// (e.g. the timestamp-refresh loop) are also proxied server-side.
+const INTERCEPT_SCRIPT = `<script>
+(function(){
+  var PROXY='${IMG_PROXY}';
+  var CAM='${CAMERA_ORIGIN}';
+  var d=Object.getOwnPropertyDescriptor(HTMLImageElement.prototype,'src');
+  if(!d)return;
+  Object.defineProperty(HTMLImageElement.prototype,'src',{
+    set:function(v){
+      if(typeof v==='string'&&v&&!v.startsWith('data:')&&!v.startsWith(PROXY)){
+        if(v.indexOf(CAM)!==-1||(!v.startsWith('/')&&!v.startsWith('http'))){
+          v=PROXY+encodeURIComponent(v);
+        }
+      }
+      d.set.call(this,v);
+    },
+    get:d.get,
+    configurable:true
+  });
+})();
+</script>`;
 
 export async function GET() {
   try {
@@ -22,24 +52,28 @@ export async function GET() {
   <img src="${dataUri}" alt="Camera" />
 </body></html>`;
       return new Response(html, {
-        headers: {
-          'Content-Type': 'text/html; charset=utf-8',
-          'Cache-Control': 'no-store',
-        },
+        headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store' },
       });
     }
 
     const charsetMatch = contentType.match(/charset=([^\s;]+)/i);
     const charset = charsetMatch?.[1] ?? 'iso-8859-1';
-    const html = new TextDecoder(charset).decode(buffer);
-    const patched = html.includes('<head>')
-      ? html.replace('<head>', `<head><base href="${CAMERA_BASE}">`)
-      : html;
-    return new Response(patched, {
-      headers: {
-        'Content-Type': 'text/html; charset=utf-8',
-        'Cache-Control': 'no-store',
-      },
+    let html = new TextDecoder(charset).decode(buffer);
+
+    // Remove any existing <base> tag so relative URLs resolve against this proxy
+    html = html.replace(/<base[^>]*>/gi, '');
+
+    // Rewrite static src attributes (both absolute camera URLs and relative paths)
+    html = html.replace(/\ssrc="([^"]+)"/gi, (_, url: string) => ` src="${rewriteUrl(url)}"`);
+    html = html.replace(/\ssrc='([^']+)'/gi, (_, url: string) => ` src='${rewriteUrl(url)}'`);
+
+    // Inject the dynamic interceptor script before </head> (or at the top)
+    html = html.includes('</head>')
+      ? html.replace('</head>', `${INTERCEPT_SCRIPT}</head>`)
+      : INTERCEPT_SCRIPT + html;
+
+    return new Response(html, {
+      headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store' },
     });
   } catch {
     return new Response(
