@@ -83,27 +83,6 @@ export interface SanityForHopperePricing {
 export interface SanityGeneralContent {
   _id: string
   _type: 'generalContent'
-  phone?: string
-  email?: string
-  address?: {
-    street?: string
-    city?: string
-    postalCode?: string
-  }
-  season?: {
-    startMonth?: string
-    endMonth?: string
-  }
-  socialLinks?: {
-    facebook?: string
-    instagram?: string
-    youtube?: string
-  }
-  announcement?: {
-    active?: boolean
-    textNo?: string
-    textEn?: string
-  }
   bookingUrl?: string
   shopUrl?: string
   jumpCalendarUrl?: string
@@ -258,9 +237,6 @@ export interface SanityCourseInfo {
     soloStudent: string | null
     soloStudentAltNo?: string | null
     soloStudentAltEn?: string | null
-    instructorCoaching?: string | null
-    instructorCoachingAltNo?: string | null
-    instructorCoachingAltEn?: string | null
     packingCourse?: string | null
     packingCourseAltNo?: string | null
     packingCourseAltEn?: string | null

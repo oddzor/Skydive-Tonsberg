@@ -43,54 +43,28 @@ export default defineConfig({
         S.list()
           .title('Skydive Tønsberg')
           .items([
-            S.listItem()
-              .title('Landing Page')
-              .child(
-                S.list()
-                  .title('Landing Page')
-                  .items([
-                    singleton(S, 'Content & Media', 'landingPage'),
-                    faqList(S, 'FAQs', 'home'),
-                  ])
-              ),
+            singleton(S, 'Landing Page', 'landingPage'),
 
             S.divider(),
 
-            S.listItem()
-              .title('Tandem Page')
-              .child(
-                S.list()
-                  .title('Tandem Page')
-                  .items([
-                    singleton(S, 'Content & Media', 'tandemInfo'),
-                    singleton(S, 'Pricing', 'tandemPricing'),
-                    faqList(S, 'FAQs', 'tandem'),
-                  ])
-              ),
+            singleton(S, 'Tandem Page', 'tandemInfo'),
+
+            singleton(S, 'Kurs Page', 'courseInfo'),
+
+            singleton(S, 'For Hoppere Page', 'forHoppereInfo'),
+
+            S.divider(),
 
 
             S.listItem()
-              .title('Kurs Page')
+              .title('Pricing')
               .child(
                 S.list()
-                  .title('Kurs Page')
+                  .title('Pricing')
                   .items([
-                    singleton(S, 'Content & Media', 'courseInfo'),
-                    singleton(S, 'Pricing', 'kursPricing'),
-                    faqList(S, 'FAQs', 'kurs'),
-                  ])
-              ),
-
-
-            S.listItem()
-              .title('For Hoppere Page')
-              .child(
-                S.list()
-                  .title('For Hoppere Page')
-                  .items([
-                    singleton(S, 'Content & Media', 'forHoppereInfo'),
-                    singleton(S, 'Pricing', 'forHopperePricing'),
-                    faqList(S, 'FAQs', 'forHoppere'),
+                    singleton(S, 'Tandem', 'tandemPricing'),
+                    singleton(S, 'Kurs', 'kursPricing'),
+                    singleton(S, 'For Hoppere', 'forHopperePricing'),
                   ])
               ),
 
@@ -98,11 +72,12 @@ export default defineConfig({
 
 
             S.listItem()
-              .title('FAQ Page')
+              .title('FAQs')
               .child(
                 S.list()
-                  .title('FAQ Page')
+                  .title('FAQs')
                   .items([
+                    faqList(S, 'Home', 'home'),
                     faqList(S, 'Tandem', 'tandem'),
                     faqList(S, 'Kurs', 'kurs'),
                     faqList(S, 'For Hoppere', 'forHoppere'),

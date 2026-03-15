@@ -50,8 +50,6 @@ const COURSE_INFO_QUERY = `*[_type == "courseInfo"][0]{
     "studentInActionAltNo": studentInAction.altNo, "studentInActionAltEn": studentInAction.altEn,
     "soloStudent": soloStudent.asset->url,
     "soloStudentAltNo": soloStudent.altNo, "soloStudentAltEn": soloStudent.altEn,
-    "instructorCoaching": instructorCoaching.asset->url,
-    "instructorCoachingAltNo": instructorCoaching.altNo, "instructorCoachingAltEn": instructorCoaching.altEn,
     "packingCourse": packingCourse.asset->url,
     "packingCourseAltNo": packingCourse.altNo, "packingCourseAltEn": packingCourse.altEn,
     "licenseCelebration": licenseCelebration.asset->url,

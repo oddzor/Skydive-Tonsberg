@@ -47,7 +47,8 @@
       "aircraft": "Aircraft",
       "insurance": "Insurance",
       "reporting": "Reporting",
-      "weather": "Grasrotandelen"
+      "grasrotandelen": "Grasrotandelen",
+      "faq": "FAQ"
     },
     "renewal": {
       "badge": "Membership",
@@ -737,6 +738,14 @@
     }
   },
   "kurs": {
+    "quickLinks": {
+      "kursinfo": "Course Info",
+      "progresjon": "Levels 1-8",
+      "aLisens": "Path to A-license",
+      "betaling": "Payment",
+      "krav": "Requirements",
+      "faq": "FAQ"
+    },
     "hero": {
       "badge": "AFF Skydiving Course",
       "title": "Become a",
@@ -931,7 +940,7 @@
       "accommodation": "Free accommodation during course week (bunk bed)"
     },
     "requirements": {
-      "title": "Requirement to pass",
+      "title": "Requirements to participate",
       "age": "18 years old (or 16 with written consent from both parents)",
       "medical": "Approved medical certificate (must be presented upon arrival)",
       "weight": "Maximum weight 100 kg",

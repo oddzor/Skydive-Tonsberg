@@ -15,7 +15,7 @@ export function KursFAQ() {
   const { faqData } = useKursData();
   return (
     <>
-      <section className="py-24 lg:py-32">
+      <section id="faq" className="py-24 lg:py-32">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

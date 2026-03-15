@@ -14,6 +14,16 @@ import {
   PhotoCarousel,
 } from '@/components/kurs';
 import { localImageSrc } from '@/components/kurs/imageHelpers';
+import { PageNav } from '@/components/shared/PageNav';
+
+const KURS_NAV_SECTIONS = [
+  { id: 'kursinfo',  labelKey: 'kurs.quickLinks.kursinfo' },
+  { id: 'progresjon', labelKey: 'kurs.quickLinks.progresjon' },
+  { id: 'a-lisens',  labelKey: 'kurs.quickLinks.aLisens' },
+  { id: 'betaling',  labelKey: 'kurs.quickLinks.betaling' },
+  { id: 'krav',      labelKey: 'kurs.quickLinks.krav' },
+  { id: 'faq',       labelKey: 'kurs.quickLinks.faq' },
+];
 
 function pickAlt(no: string | null | undefined, en: string | null | undefined, fallback: string, language: string): string {
   return (language === 'en' ? (en || no) : (no || en)) || fallback;
@@ -58,9 +68,10 @@ export function KursContent() {
 
   return (
     <>
+      <PageNav sections={KURS_NAV_SECTIONS} />
       <KursHero />
 
-      <section className="py-12 lg:py-16">
+      <section id="kursinfo" className="py-12 lg:py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

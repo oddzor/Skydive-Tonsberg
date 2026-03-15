@@ -322,6 +322,14 @@
     }
   },
   "kurs": {
+    "quickLinks": {
+      "kursinfo": "Kursinfo",
+      "progresjon": "Nivå 1-8 Progresjon",
+      "aLisens": "Veien til A-lisens",
+      "betaling": "Betaling",
+      "krav": "Krav for å delta",
+      "faq": "FAQ"
+    },
     "hero": {
       "badge": "AFF Fallskjermkurs",
       "title": "Bli",
@@ -426,7 +434,7 @@
       "level6Goal": "Solo exit, gjenvinne stabilitet, baklengs salto, marsj",
       "level7Title": "Solohoppet",
       "level7Goal": "Solo dykkendel exit, forlengs salto, marsj",
-      "level8Title": "Nivå 8 – Veien til A-bevis",
+      "level8Title": "Nivå 8 – Veien til A-lisens",
       "level8Desc": "Etter kurset er du på Nivå 8. Elever på dette nivået gjennomfører solo fritt fall hopp alene. En instruktør sjekker utstyret etter påseling på bakken, og er alltid med i flyet.",
       "level8Requirements": "Krav:",
       "level8Req1": "13 solo hopp (11 solo + 2 utsjekk)",
@@ -438,7 +446,7 @@
       "level8Next3": "Ren Utøver kurs"
     },
     "aLicense": {
-      "title": "Veien til A-bevis",
+      "title": "Veien til A-lisens",
       "description": "Etter AFF-kurset (Nivå 1-7) fortsetter du med Nivå 8 og ytterligere krav for å få A-lisens",
       "progressionTitle": "Nivå 8 progresjon",
       "soloJumps": "13 solo hopp",
@@ -516,7 +524,7 @@
       "accommodation": "Gratis overnatting kursuka (køyeseng)"
     },
     "requirements": {
-      "title": "Krav for godkjent hopp",
+      "title": "Krav for å delta",
       "age": "Fylt 18 år (eller 16 år med skriftlig aksept fra begge foresatte)",
       "medical": "Godkjent legeerklæring (må fremvises ved fremmøte)",
       "weight": "Maksimal vekt 100 kg",
@@ -631,7 +639,8 @@
       "aircraft": "Flyet",
       "insurance": "Forsikring",
       "reporting": "Varsling",
-      "weather": "Grasrotandelen"
+      "grasrotandelen": "Grasrotandelen",
+      "faq": "FAQ"
     },
     "renewal": {
       "badge": "Medlemskap",

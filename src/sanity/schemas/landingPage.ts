@@ -10,10 +10,10 @@ export const landingPageSchema = defineType({
     { name: 'video', title: 'Video' },
   ],
   fields: [
-    defineField({ name: 'aboutGrid1', title: 'Photo Grid — Left, Tall (top)', type: 'image', group: 'introSection', options: { hotspot: true }, fields: [defineField({ name: 'altNo', title: 'Alt Text (Norwegian)', type: 'string' }), defineField({ name: 'altEn', title: 'Alt Text (English)', type: 'string' })] }),
-    defineField({ name: 'aboutGrid2', title: 'Photo Grid — Left, Square (bottom)', type: 'image', group: 'introSection', options: { hotspot: true }, fields: [defineField({ name: 'altNo', title: 'Alt Text (Norwegian)', type: 'string' }), defineField({ name: 'altEn', title: 'Alt Text (English)', type: 'string' })] }),
-    defineField({ name: 'aboutGrid3', title: 'Photo Grid — Right, Square (top)', type: 'image', group: 'introSection', options: { hotspot: true }, fields: [defineField({ name: 'altNo', title: 'Alt Text (Norwegian)', type: 'string' }), defineField({ name: 'altEn', title: 'Alt Text (English)', type: 'string' })] }),
-    defineField({ name: 'aboutGrid4', title: 'Photo Grid — Right, Tall (bottom)', type: 'image', group: 'introSection', options: { hotspot: true }, fields: [defineField({ name: 'altNo', title: 'Alt Text (Norwegian)', type: 'string' }), defineField({ name: 'altEn', title: 'Alt Text (English)', type: 'string' })] }),
+    defineField({ name: 'aboutGrid1', title: 'Photo Grid — Left, Tall (top)', type: 'image', group: 'introSection', options: { hotspot: true }, fields: [defineField({ name: 'altNo', title: 'Alt Text (Norwegian)', type: 'string', validation: (Rule) => Rule.required() }), defineField({ name: 'altEn', title: 'Alt Text (English)', type: 'string', validation: (Rule) => Rule.required() })] }),
+    defineField({ name: 'aboutGrid2', title: 'Photo Grid — Left, Square (bottom)', type: 'image', group: 'introSection', options: { hotspot: true }, fields: [defineField({ name: 'altNo', title: 'Alt Text (Norwegian)', type: 'string', validation: (Rule) => Rule.required() }), defineField({ name: 'altEn', title: 'Alt Text (English)', type: 'string', validation: (Rule) => Rule.required() })] }),
+    defineField({ name: 'aboutGrid3', title: 'Photo Grid — Right, Square (top)', type: 'image', group: 'introSection', options: { hotspot: true }, fields: [defineField({ name: 'altNo', title: 'Alt Text (Norwegian)', type: 'string', validation: (Rule) => Rule.required() }), defineField({ name: 'altEn', title: 'Alt Text (English)', type: 'string', validation: (Rule) => Rule.required() })] }),
+    defineField({ name: 'aboutGrid4', title: 'Photo Grid — Right, Tall (bottom)', type: 'image', group: 'introSection', options: { hotspot: true }, fields: [defineField({ name: 'altNo', title: 'Alt Text (Norwegian)', type: 'string', validation: (Rule) => Rule.required() }), defineField({ name: 'altEn', title: 'Alt Text (English)', type: 'string', validation: (Rule) => Rule.required() })] }),
     defineField({
       name: 'introContent',
       title: 'Text & Stats',
@@ -59,9 +59,9 @@ export const landingPageSchema = defineType({
       ],
     }),
 
-    defineField({ name: 'serviceTandem', title: 'Service Card — Tandem Image', type: 'image', group: 'servicesSection', options: { hotspot: true }, fields: [defineField({ name: 'altNo', title: 'Alt Text (Norwegian)', type: 'string' }), defineField({ name: 'altEn', title: 'Alt Text (English)', type: 'string' })] }),
-    defineField({ name: 'serviceAff', title: 'Service Card — AFF/Kurs Image', type: 'image', group: 'servicesSection', options: { hotspot: true }, fields: [defineField({ name: 'altNo', title: 'Alt Text (Norwegian)', type: 'string' }), defineField({ name: 'altEn', title: 'Alt Text (English)', type: 'string' })] }),
-    defineField({ name: 'serviceExperienced', title: 'Service Card — For Hoppere Image', type: 'image', group: 'servicesSection', options: { hotspot: true }, fields: [defineField({ name: 'altNo', title: 'Alt Text (Norwegian)', type: 'string' }), defineField({ name: 'altEn', title: 'Alt Text (English)', type: 'string' })] }),
+    defineField({ name: 'serviceTandem', title: 'Service Card — Tandem Image', type: 'image', group: 'servicesSection', options: { hotspot: true }, fields: [defineField({ name: 'altNo', title: 'Alt Text (Norwegian)', type: 'string', validation: (Rule) => Rule.required() }), defineField({ name: 'altEn', title: 'Alt Text (English)', type: 'string', validation: (Rule) => Rule.required() })] }),
+    defineField({ name: 'serviceAff', title: 'Service Card — AFF/Kurs Image', type: 'image', group: 'servicesSection', options: { hotspot: true }, fields: [defineField({ name: 'altNo', title: 'Alt Text (Norwegian)', type: 'string', validation: (Rule) => Rule.required() }), defineField({ name: 'altEn', title: 'Alt Text (English)', type: 'string', validation: (Rule) => Rule.required() })] }),
+    defineField({ name: 'serviceExperienced', title: 'Service Card — For Hoppere Image', type: 'image', group: 'servicesSection', options: { hotspot: true }, fields: [defineField({ name: 'altNo', title: 'Alt Text (Norwegian)', type: 'string', validation: (Rule) => Rule.required() }), defineField({ name: 'altEn', title: 'Alt Text (English)', type: 'string', validation: (Rule) => Rule.required() })] }),
     defineField({
       name: 'servicesContent',
       title: 'Card Text',

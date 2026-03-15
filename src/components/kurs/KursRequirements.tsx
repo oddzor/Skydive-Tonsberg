@@ -8,7 +8,7 @@ export function KursRequirements() {
   const { t } = useLanguage();
   const { requirements, declaration, support } = useKursData();
   return (
-    <section className="py-24 lg:py-32">
+    <section id="krav" className="py-24 lg:py-32">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">

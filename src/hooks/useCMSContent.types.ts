@@ -115,9 +115,6 @@ export interface CMSContent {
       soloStudent?: string | null;
       soloStudentAltNo?: string | null;
       soloStudentAltEn?: string | null;
-      instructorCoaching?: string | null;
-      instructorCoachingAltNo?: string | null;
-      instructorCoachingAltEn?: string | null;
       packingCourse?: string | null;
       packingCourseAltNo?: string | null;
       packingCourseAltEn?: string | null;
