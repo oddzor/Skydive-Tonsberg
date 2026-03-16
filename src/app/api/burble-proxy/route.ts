@@ -52,7 +52,10 @@ export async function GET() {
     patched = patched.replace(/https:\/\/dzm\.burblesoft\.com\//g, burbleDataBase);
 
     return new Response(patched, {
-      headers: { 'Content-Type': 'text/html; charset=utf-8' },
+      headers: {
+        'Content-Type': 'text/html; charset=utf-8',
+        'Cache-Control': 'no-store',
+      },
     });
   } catch {
     return new Response(placeholder(), {

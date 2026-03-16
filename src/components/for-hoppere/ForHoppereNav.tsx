@@ -2,6 +2,7 @@
 import { PageNav } from '@/components/shared/PageNav';
 
 const SECTIONS = [
+  // { id: 'events', labelKey: 'forHoppere.quickLinks.events' },
   { id: 'fornye',         labelKey: 'forHoppere.quickLinks.renewal' },
   { id: 'bunkhouse',      labelKey: 'forHoppere.quickLinks.bunkhouse' },
   { id: 'burbleme',       labelKey: 'forHoppere.quickLinks.burbleme' },

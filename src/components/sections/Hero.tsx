@@ -27,11 +27,12 @@ export function Hero() {
         <div className="max-w-4xl mx-auto">
           <div className="mb-4 -mt-12 sm:-mt-16 md:-mt-20">
             <Image
-              src="/Skydive_Tonsberg_hero_header.png"
+              src="/Skydive_Tonsberg_hero_header.webp"
               alt="Skydive Tønsberg"
               width={2048}
               height={510}
               className="max-w-[min(1000px,85vw)] h-auto mx-auto drop-shadow-2xl"
+              sizes="min(1000px, 85vw)"
               priority
               fetchPriority="high"
               quality={75}

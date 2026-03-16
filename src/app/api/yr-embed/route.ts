@@ -120,7 +120,7 @@ export async function GET(req: NextRequest) {
     return new Response(html, {
       headers: {
         'Content-Type': 'text/html; charset=utf-8',
-        'Cache-Control': 'no-cache',
+        'Cache-Control': 'public, max-age=1800, stale-while-revalidate=300',
       },
     });
   } catch {

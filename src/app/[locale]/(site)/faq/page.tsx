@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+
+export const revalidate = 3600;
 import { SanityDataProvider } from "@/contexts/SanityDataContext";
 import { safeFetch } from "@/sanity/client";
 import { ALL_FAQS_QUERY } from "@/sanity/queries";

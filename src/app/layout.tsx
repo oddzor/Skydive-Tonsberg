@@ -162,7 +162,7 @@ export default function RootLayout({
         <link
           rel="preload"
           as="image"
-          href="/hero-poster.webp"
+          href="/Skydive_Tonsberg_hero_header.webp"
           fetchPriority="high"
         />
 

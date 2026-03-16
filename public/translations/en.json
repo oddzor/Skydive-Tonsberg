@@ -38,6 +38,7 @@
       "openDays": "4-7 days/week"
     },
     "quickLinks": {
+      "events": "Events",
       "renewal": "How to renew",
       "bunkhouse": "Bunkhouse",
       "burbleme": "BurbleMe",
@@ -49,6 +50,16 @@
       "reporting": "Reporting",
       "grasrotandelen": "Grasrotandelen",
       "faq": "FAQ"
+    },
+    "events": {
+      "badge": "Facebook",
+      "title": "Upcoming",
+      "titleHighlight": "events",
+      "description": "Upcoming jump days, courses and events from Skydive Tønsberg.",
+      "empty": "No upcoming events right now.",
+      "viewOnFacebook": "View on Facebook",
+      "attending": "attending",
+      "canceled": "Canceled"
     },
     "renewal": {
       "badge": "Membership",

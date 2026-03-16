@@ -631,6 +631,7 @@
       "openDays": "4-7 dager/uke"
     },
     "quickLinks": {
+      "events": "Arrangementer",
       "renewal": "Slik fornyer du",
       "bunkhouse": "Bunkhouse",
       "burbleme": "BurbleMe",
@@ -642,6 +643,16 @@
       "reporting": "Varsling",
       "grasrotandelen": "Grasrotandelen",
       "faq": "FAQ"
+    },
+    "events": {
+      "badge": "Facebook",
+      "title": "Kommende",
+      "titleHighlight": "arrangementer",
+      "description": "Kommende hoppedager, kurs og events fra Skydive Tønsberg.",
+      "empty": "Ingen kommende arrangementer akkurat nå.",
+      "viewOnFacebook": "Se på Facebook",
+      "attending": "deltar",
+      "canceled": "Avlyst"
     },
     "renewal": {
       "badge": "Medlemskap",

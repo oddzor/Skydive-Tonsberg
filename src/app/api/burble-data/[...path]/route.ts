@@ -43,7 +43,7 @@ async function proxy(req: NextRequest, pathSegments: string[], method: string, b
     );
     return new Response(patched, {
       status: res.status,
-      headers: { 'Content-Type': contentType },
+      headers: { 'Content-Type': contentType, 'Cache-Control': 'no-store' },
     });
   }
 
@@ -53,14 +53,14 @@ async function proxy(req: NextRequest, pathSegments: string[], method: string, b
     const patched = text.replace(/https:\/\/dzm\.burblesoft\.com\//g, burbleDataBase);
     return new Response(patched, {
       status: res.status,
-      headers: { 'Content-Type': contentType },
+      headers: { 'Content-Type': contentType, 'Cache-Control': 'private, max-age=3600' },
     });
   }
 
   const data = await res.arrayBuffer();
   return new Response(data, {
     status: res.status,
-    headers: { 'Content-Type': contentType },
+    headers: { 'Content-Type': contentType, 'Cache-Control': 'private, max-age=3600' },
   });
 }
 
