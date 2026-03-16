@@ -11,27 +11,45 @@ export async function GET() {
       headers: { 'User-Agent': UA },
     });
 
-    const cookies = step1.headers.getSetCookie?.() ?? [];
-    const cookieHeader = cookies.map((c) => c.split(';')[0]).join('; ');
-    const location = step1.headers.get('location') ?? BURBLE_BASE;
-    const step2 = await fetch(location, {
-      cache: 'no-store',
-      headers: {
-        'User-Agent': UA,
-        ...(cookieHeader ? { Cookie: cookieHeader } : {}),
-      },
-    });
+    const setCookies = step1.headers.getSetCookie?.() ?? [];
+    const cookieHeader = setCookies.map((c) => c.split(';')[0]).join('; ');
+    const sessionEntry = setCookies.find((c) => c.startsWith('burblesoft='));
+    const sessionToken = sessionEntry ? sessionEntry.split(';')[0].split('=')[1] : '';
 
-    if (!step2.ok) {
+    let rawHtml: string;
+
+    if (step1.ok) {
+      rawHtml = await step1.text();
+    } else if (step1.status >= 300 && step1.status < 400) {
+      const location = step1.headers.get('location') ?? BURBLE_BASE;
+      const step2 = await fetch(location, {
+        cache: 'no-store',
+        headers: {
+          'User-Agent': UA,
+          ...(cookieHeader ? { Cookie: cookieHeader } : {}),
+        },
+      });
+      if (!step2.ok) {
+        return new Response(placeholder(), {
+          headers: { 'Content-Type': 'text/html; charset=utf-8' },
+        });
+      }
+      rawHtml = await step2.text();
+    } else {
       return new Response(placeholder(), {
         headers: { 'Content-Type': 'text/html; charset=utf-8' },
       });
     }
 
-    const html = await step2.text();
-    const patched = html.includes('<head>')
-      ? html.replace('<head>', `<head><base href="${BURBLE_BASE}/">`)
-      : html;
+    const burbleDataBase = sessionToken
+      ? `/api/burble-data/${sessionToken}/`
+      : '/api/burble-data/';
+
+    let patched = rawHtml.includes('<head>')
+      ? rawHtml.replace('<head>', `<head><base href="${burbleDataBase}">`)
+      : rawHtml;
+
+    patched = patched.replace(/https:\/\/dzm\.burblesoft\.com\//g, burbleDataBase);
 
     return new Response(patched, {
       headers: { 'Content-Type': 'text/html; charset=utf-8' },
@@ -60,7 +78,7 @@ function placeholder() {
   <div class="card">
     <div class="icon">📋</div>
     <p>Manifest unavailable right now.</p>
-    <a href="${BURBLE_URL}" target="_blank" rel="noopener">Open Burble ↗</a>
+    <a href="https://dzm.burblesoft.com/jumper_manifest_public?dz_id=551" target="_blank" rel="noopener">Open Burble ↗</a>
   </div>
 </body></html>`;
 }

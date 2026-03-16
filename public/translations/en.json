@@ -824,6 +824,7 @@
     },
     "progression": {
       "title": "AFF Progression – Level 1-8",
+      "requirementsLabel": "Requirement to pass",
       "description": "Here are the goals and detailed information about the individual jumps from Level 1 to Level 8",
       "level1Title": "Level 1 – Body control",
       "level1Instructors": "Instructors:",

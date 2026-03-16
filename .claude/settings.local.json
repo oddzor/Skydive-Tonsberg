@@ -13,7 +13,10 @@
       "Bash(curl:*)",
       "WebFetch(domain:eu-displays.burblesoft.eu)",
       "Bash(cd /c/repositories/Skydive-T-nsberg/Skydive-Tonsberg && npm uninstall @sanity/image-url @radix-ui/react-navigation-menu 2>&1)",
-      "Bash(cd /c/repositories/Skydive-T-nsberg/Skydive-Tonsberg && npm run build 2>&1)"
+      "Bash(cd /c/repositories/Skydive-T-nsberg/Skydive-Tonsberg && npm run build 2>&1)",
+      "Bash(node:*)",
+      "Bash(echo:*)",
+      "Bash(echo === getSetting without cookie ===:*)"
     ]
   }
 }

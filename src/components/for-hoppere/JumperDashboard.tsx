@@ -30,7 +30,7 @@ export function JumperDashboard() {
       id: 'manifest' as SectionId,
       icon: ClipboardList,
       label: t('forHoppere.dashboard.manifest'),
-      src: 'https://dzm.burblesoft.com/jumper_manifest_public?dz_id=551',
+      src: '/api/burble-proxy',
     },
     {
       id: 'wind' as SectionId,
@@ -103,7 +103,6 @@ export function JumperDashboard() {
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-50 bg-background flex flex-col"
           >
-            {/* Header */}
             <div className="flex items-center justify-between px-4 py-3 border-b shrink-0">
               <div className="flex items-center gap-2">
                 {expanded && (
@@ -140,7 +139,6 @@ export function JumperDashboard() {
 
             <AnimatePresence mode="wait">
               {expanded ? (
-                /* Full-screen expanded view */
                 <motion.div
                   key={`expanded-${expanded}`}
                   initial={{ opacity: 0 }}
@@ -160,7 +158,6 @@ export function JumperDashboard() {
                   transition={{ duration: 0.15 }}
                   className="flex-1 min-h-0 flex flex-col"
                 >
-                  {/* Desktop: 2×2 live grid */}
                   <div className="hidden lg:grid grid-cols-2 grid-rows-2 gap-3 flex-1 min-h-0 p-3">
                     {sections.map((section) => (
                       <div key={section.id} className="flex flex-col gap-1 min-h-0">
@@ -182,8 +179,6 @@ export function JumperDashboard() {
                       </div>
                     ))}
                   </div>
-
-                  {/* Mobile/Tablet: tab bar + single active view */}
                   <div className="flex lg:hidden flex-col flex-1 min-h-0">
                     <div className="flex border-b shrink-0">
                       {sections.map((section) => (

@@ -73,7 +73,7 @@ export function KursProgression() {
                       </div>
                     </div>
                     <p className="text-muted-foreground mt-3">
-                      <strong>{t('kurs.requirements.title')}:</strong> {level(1).goal}
+                      <strong>{t('kurs.progression.requirementsLabel')}:</strong> {level(1).goal}
                     </p>
                     {level(1).desc && (
                       <p className="text-sm text-muted-foreground mt-2">{level(1).desc}</p>
@@ -110,7 +110,7 @@ export function KursProgression() {
                       </div>
                     </div>
                     <p className="text-muted-foreground mt-3">
-                      <strong>{t('kurs.requirements.title')}:</strong> {level(2).goal}
+                      <strong>{t('kurs.progression.requirementsLabel')}:</strong> {level(2).goal}
                     </p>
                   </div>
                 </div>
@@ -144,7 +144,7 @@ export function KursProgression() {
                       </div>
                     </div>
                     <p className="text-muted-foreground mt-3">
-                      <strong>{t('kurs.requirements.title')}:</strong> {level(3).goal}
+                      <strong>{t('kurs.progression.requirementsLabel')}:</strong> {level(3).goal}
                     </p>
                     {level(3).desc && (
                       <p className="text-sm text-muted-foreground mt-2">{level(3).desc}</p>
@@ -190,7 +190,7 @@ export function KursProgression() {
                         : ` | ${t('kurs.progression.level1Deploy')}: 4 000 fot`}
                     </p>
                     <p className="text-sm text-muted-foreground">
-                      <strong>{t('kurs.requirements.title')}:</strong> {level(n).goal}
+                      <strong>{t('kurs.progression.requirementsLabel')}:</strong> {level(n).goal}
                     </p>
                   </CardContent>
                 </Card>

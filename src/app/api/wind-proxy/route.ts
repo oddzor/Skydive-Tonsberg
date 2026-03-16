@@ -8,7 +8,6 @@ export async function GET() {
     const buffer = await res.arrayBuffer()
 
     if (contentType.startsWith('image/')) {
-      // It's a PNG/image — embed it in a dark-themed page
       const base64 = Buffer.from(buffer).toString('base64')
       const dataUri = `data:${contentType.split(';')[0]};base64,${base64}`
       const html = `<!DOCTYPE html>
@@ -29,8 +28,6 @@ export async function GET() {
         },
       })
     }
-
-    // HTML response — decode with correct charset and inject base href
     const charsetMatch = contentType.match(/charset=([^\s;]+)/i)
     const charset = charsetMatch?.[1] ?? 'iso-8859-1'
     const html = new TextDecoder(charset).decode(buffer)

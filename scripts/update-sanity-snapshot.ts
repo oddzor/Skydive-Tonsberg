@@ -1,17 +1,3 @@
-/**
- * Fetches all Sanity content and saves it to src/sanity/snapshot.json.
- *
- * This runs automatically before every Vercel build (see prebuild in package.json).
- * Non-technical users never touch this — publishing in Sanity Studio triggers a
- * Vercel Deploy Hook which rebuilds the site with a fresh snapshot.
- *
- * On failure (e.g. Sanity unreachable), the build continues using the existing
- * snapshot.json from the previous build. The build is never blocked.
- *
- * Manual run:
- *   npm run sanity:snapshot
- */
-
 import { createClient } from 'next-sanity'
 import { writeFileSync } from 'fs'
 import { join } from 'path'
@@ -30,9 +16,6 @@ if (!token) {
 }
 
 const client = createClient({ projectId, dataset, apiVersion: '2024-01-01', useCdn: false, token })
-
-// ── Queries (mirrors src/sanity/queries.ts) ──────────────────────────────────
-
 const TANDEM_PRICING_QUERY = `*[_type == "tandemPricing"][0]`
 const KURS_PRICING_QUERY = `*[_type == "kursPricing"][0]`
 const FOR_HOPPERE_PRICING_QUERY = `*[_type == "forHopperePricing"][0]`
@@ -103,8 +86,6 @@ const LANDING_PAGE_QUERY = `*[_type == "landingPage"][0]{
   }
 }`
 
-// ── Main ─────────────────────────────────────────────────────────────────────
-
 async function main() {
   console.log('📡 Fetching all Sanity content...')
 
@@ -157,7 +138,6 @@ async function main() {
 }
 
 main().catch((err) => {
-  // Never block the build — warn and continue with the existing snapshot
   console.warn('⚠️  Snapshot update failed (existing snapshot will be used as fallback):', err.message)
   process.exit(0)
 })

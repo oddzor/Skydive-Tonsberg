@@ -2,11 +2,11 @@ import { type NextRequest } from 'next/server';
 
 const LOCATION_ID = '1-46887'; // Jarlsberg/Tønsberg flyplass
 
-function cloudBase(tempC: number, dewPointC: number): string {
-  const spread = tempC - dewPointC;
-  if (spread <= 0.5) return 'Tåke / SFC';
-  const ft = Math.round(Math.max(0, spread * 400) / 100) * 100;
-  return `~${ft.toLocaleString('en')} ft`;
+function cloudBase(tempC: number, dewPointC: number, lang: string): { label: string; color: string } {
+  const ft = Math.max(0, (tempC - dewPointC) * 400);
+  if (ft < 3000) return { label: lang === 'en' ? 'Low'    : 'Lav',    color: '#ef4444' };
+  if (ft < 6000) return { label: lang === 'en' ? 'Medium' : 'Middels', color: '#eab308' };
+  return             { label: lang === 'en' ? 'High'   : 'Høy',    color: '#22c55e' };
 }
 
 function toKnots(ms: number) {
@@ -47,7 +47,6 @@ export async function GET(req: NextRequest) {
       precipitation: { value: number; probability: number };
     }[] = data.shortIntervals ?? [];
 
-    // Show next 10 hours from now
     const now = new Date();
     const upcoming = intervals
       .filter((iv) => new Date(iv.start) >= now)
@@ -71,14 +70,14 @@ export async function GET(req: NextRequest) {
         const precip = iv.precipitation?.value ?? 0;
         const precipProb = iv.precipitation?.probability ?? 0;
         const tempColor = temp <= 0 ? '#93c5fd' : temp >= 20 ? '#f97316' : '#e2e8f0';
-        const base = cloudBase(tempRaw, dewPointRaw);
+        const base = cloudBase(tempRaw, dewPointRaw, lang);
 
         return `<tr style="border-bottom:1px solid #1e293b">
           <td style="padding:9px 12px;color:#64748b;font-size:0.85rem;white-space:nowrap">${timeStr}</td>
           <td style="padding:9px 12px;font-weight:700;color:${tempColor}">${temp > 0 ? '+' : ''}${temp}°</td>
           <td style="padding:9px 12px;color:#e2e8f0;white-space:nowrap">${windKt}<span style="color:#64748b;font-size:0.8em"> kt</span> <span style="color:#94a3b8;font-size:0.8em">(${gustKt})</span> ${toCardinal(windDir)}</td>
           <td style="padding:9px 12px">${cloudBar(cloud)}</td>
-          <td style="padding:9px 12px;color:#e2e8f0;white-space:nowrap">${base}</td>
+          <td style="padding:9px 12px;color:${base.color};white-space:nowrap">${base.label}</td>
           <td style="padding:9px 12px;color:${precip > 0 ? '#60a5fa' : '#334155'};white-space:nowrap">${precip > 0 ? `${precip.toFixed(1)}mm` : '–'}${precipProb > 10 ? `<span style="color:#475569;font-size:0.75em"> ${precipProb}%</span>` : ''}</td>
         </tr>`;
       })
@@ -121,7 +120,7 @@ export async function GET(req: NextRequest) {
     return new Response(html, {
       headers: {
         'Content-Type': 'text/html; charset=utf-8',
-        'Cache-Control': 'public, max-age=600, stale-while-revalidate=120',
+        'Cache-Control': 'no-cache',
       },
     });
   } catch {

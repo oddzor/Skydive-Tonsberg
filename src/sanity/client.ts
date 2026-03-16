@@ -20,12 +20,6 @@ export const serverClient = createClient({
   token: process.env.SANITY_API_READ_TOKEN,
 })
 
-/**
- * Fetch from Sanity, falling back to the committed snapshot on failure.
- * Pass a `fallbackKey` (dot-notation) matching a key in src/sanity/snapshot.json,
- * e.g. 'tandemPricing' or 'faqs.kurs'.
- * Keep the snapshot current by running: npm run sanity:snapshot
- */
 export async function safeFetch<T>(
   query: string,
   params?: Record<string, string>,

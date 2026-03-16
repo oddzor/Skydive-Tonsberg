@@ -14,9 +14,6 @@ function loadSnapshot(): Record<string, unknown> {
   }
 }
 
-/** Look up a value from the committed Sanity snapshot by dot-notation key.
- *  e.g. getFromSnapshot('faqs.kurs') or getFromSnapshot('tandemPricing')
- */
 export function getFromSnapshot<T>(key: string): T | null {
   const snapshot = loadSnapshot()
   const parts = key.split('.')

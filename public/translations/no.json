@@ -408,6 +408,7 @@
     },
     "progression": {
       "title": "AFF Progresjon – Nivå 1-8",
+      "requirementsLabel": "Krav for å bestå",
       "description": "Her er målene og detaljert informasjon om de enkelte hoppene fra Nivå 1 til Nivå 8",
       "level1Title": "Nivå 1 – Kroppskontroll",
       "level1Instructors": "Instruktører:",

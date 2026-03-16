@@ -2,14 +2,11 @@ const CAMERA_URL = 'http://79.161.215.227/Cam2/ENJB01.htm';
 const CAMERA_ORIGIN = 'http://79.161.215.227';
 const IMG_PROXY = '/api/camera-proxy/image?path=';
 
-// Rewrites a URL found in camera HTML to go through the server-side image proxy.
 function rewriteUrl(raw: string): string {
   if (raw.startsWith('data:') || raw.startsWith(IMG_PROXY)) return raw;
   return IMG_PROXY + encodeURIComponent(raw);
 }
 
-// Injected into the camera HTML so that dynamic img.src assignments
-// (e.g. the timestamp-refresh loop) are also proxied server-side.
 const INTERCEPT_SCRIPT = `<script>
 (function(){
   var PROXY='${IMG_PROXY}';
@@ -60,14 +57,11 @@ export async function GET() {
     const charset = charsetMatch?.[1] ?? 'iso-8859-1';
     let html = new TextDecoder(charset).decode(buffer);
 
-    // Remove any existing <base> tag so relative URLs resolve against this proxy
     html = html.replace(/<base[^>]*>/gi, '');
 
-    // Rewrite static src attributes (both absolute camera URLs and relative paths)
     html = html.replace(/\ssrc="([^"]+)"/gi, (_, url: string) => ` src="${rewriteUrl(url)}"`);
     html = html.replace(/\ssrc='([^']+)'/gi, (_, url: string) => ` src='${rewriteUrl(url)}'`);
 
-    // Inject the dynamic interceptor script before </head> (or at the top)
     html = html.includes('</head>')
       ? html.replace('</head>', `${INTERCEPT_SCRIPT}</head>`)
       : INTERCEPT_SCRIPT + html;
