@@ -98,7 +98,7 @@ export async function GET(req: NextRequest) {
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
     *{box-sizing:border-box;margin:0;padding:0}
-    body{background:#0f172a;color:#e2e8f0;font-family:system-ui,-apple-system,sans-serif;padding:16px;min-height:100vh}
+    body{background:#0f172a;color:#e2e8f0;font-family:system-ui,-apple-system,sans-serif;padding:16px;min-height:100vh;display:flex;flex-direction:column;justify-content:center}
     h2{font-size:0.75rem;text-transform:uppercase;letter-spacing:0.08em;color:#475569;margin-bottom:14px}
     .dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:#3b82f6;margin-right:6px;vertical-align:middle}
     table{width:100%;border-collapse:collapse}

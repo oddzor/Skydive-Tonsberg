@@ -158,7 +158,7 @@ export function Header() {
 
   return (
     <>
-      <div className={cn("fixed top-3 right-3 z-100 lg:hidden [backface-visibility:hidden]", mobileOpen && "hidden")}>
+      <div className={cn("fixed top-3 right-6 z-100 lg:hidden backface-hidden in-[.dashboard-open]:hidden", mobileOpen && "hidden")}>
         <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
           <SheetTrigger asChild>
             <Button

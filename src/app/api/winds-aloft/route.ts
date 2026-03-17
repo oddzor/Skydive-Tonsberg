@@ -169,7 +169,7 @@ export async function GET() {
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
     *{box-sizing:border-box;margin:0;padding:0}
-    body{background:#0f172a;color:#e2e8f0;font-family:system-ui,-apple-system,sans-serif;padding:16px;min-height:100vh}
+    body{background:#0f172a;color:#e2e8f0;font-family:system-ui,-apple-system,sans-serif;padding:16px;min-height:100vh;display:flex;flex-direction:column;justify-content:center}
     h2{font-size:0.75rem;text-transform:uppercase;letter-spacing:0.08em;color:#475569;margin-bottom:14px}
     table{width:100%;border-collapse:collapse}
     th{padding:6px 14px;text-align:left;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.06em;color:#475569;border-bottom:1px solid #334155}

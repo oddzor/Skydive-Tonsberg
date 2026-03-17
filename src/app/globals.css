@@ -224,6 +224,7 @@
 html {
   scroll-padding-top: 80px;
   scrollbar-gutter: stable;
+  overflow-x: clip;
 }
 
 html body[data-scroll-locked] {
