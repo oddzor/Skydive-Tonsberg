@@ -32,7 +32,7 @@ export function Hero() {
               width={2048}
               height={510}
               className="max-w-[min(1000px,85vw)] h-auto mx-auto drop-shadow-2xl"
-              sizes="min(1000px, 85vw)"
+              sizes="(max-width: 1024px) 85vw, 1000px"
               priority
               fetchPriority="high"
               quality={75}
