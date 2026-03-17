@@ -18,25 +18,25 @@ const fallbackReviews: Review[] = [
     author_name: "Maria Johansen",
     rating: 5,
     text: "Fantastisk opplevelse! Instruktørene var utrolig profesjonelle og fikk meg til å føle meg trygg hele veien. Anbefales på det sterkeste!",
-    time: Date.now() - 86400000 * 7,
+    time: 1706745600000,
   },
   {
     author_name: "Erik Hansen",
     rating: 5,
     text: "Gjorde mitt første tandemhopp her og det var helt utrolig. Fra briefing til landing var alt perfekt organisert. Kommer tilbake!",
-    time: Date.now() - 86400000 * 14,
+    time: 1706140800000,
   },
   {
     author_name: "Silje Andersen",
     rating: 5,
     text: "Tok AFF-kurset her og kan ikke anbefale det nok. Lærte masse og føler meg godt forberedt på å fortsette hoppingen. Topp instruktører!",
-    time: Date.now() - 86400000 * 21,
+    time: 1705536000000,
   },
   {
     author_name: "Thomas Berg",
     rating: 5,
     text: "Skydive Tønsberg har et fantastisk miljø. Alle er velkomne og stemningen er alltid god. Perfekt sted for både nybegynnere og erfarne.",
-    time: Date.now() - 86400000 * 30,
+    time: 1704931200000,
   },
 ];
 export function Testimonials() {
@@ -98,8 +98,8 @@ export function Testimonials() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto mb-16"
@@ -127,8 +127,8 @@ export function Testimonials() {
             {visibleReviews.map((review, index) => (
               <motion.div
                 key={`${review.author_name}-${index}`}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <ReviewCard review={review} />
@@ -139,9 +139,9 @@ export function Testimonials() {
           <div className="lg:hidden">
             <motion.div
               key={currentIndex}
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -20 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
             >
               <ReviewCard review={reviews[currentIndex]} />

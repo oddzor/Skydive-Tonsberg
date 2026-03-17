@@ -69,10 +69,9 @@ const containerVariants = {
   },
 };
 const cardVariants = {
-  hidden: { opacity: 0, y: 40 },
+  hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    y: 0,
     transition: { duration: 0.6, ease: "easeOut" as const },
   },
 };
@@ -87,8 +86,8 @@ export function Services() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto mb-16"

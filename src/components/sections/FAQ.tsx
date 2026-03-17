@@ -19,8 +19,8 @@ export function FAQ() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto mb-16"
@@ -38,8 +38,8 @@ export function FAQ() {
 
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.6 }}
           className="max-w-3xl mx-auto"
         >
@@ -47,8 +47,8 @@ export function FAQ() {
             {faqData.map((faq: { question: string; answer: string }, index: number) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                initial={{ opacity: 0 }}
+                animate={isInView ? { opacity: 1 } : {}}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
               >
                 <AccordionItem

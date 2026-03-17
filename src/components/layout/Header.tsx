@@ -1,5 +1,7 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useSyncExternalStore } from "react";
+
+const emptySubscribe = () => () => {};
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
@@ -24,6 +26,7 @@ function FlagImg({ code, alt }: { code: string; alt: string }) {
 }
 
 export function Header() {
+  const mounted = useSyncExternalStore(emptySubscribe, () => true, () => false);
   const [scrolled, setScrolled] = useState(false);
   const [showDesktopHeader, setShowDesktopHeader] = useState(true);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -203,7 +206,7 @@ export function Header() {
 
             <div className="flex items-center gap-1">
               {navigation.map((item) => {
-                const active = pathname === item.href;
+                const active = mounted && pathname === item.href;
                 return (
                   <Link
                     key={item.href}
@@ -225,7 +228,7 @@ export function Header() {
               })}
               <div className="w-px h-6 bg-border mx-2" />
               {rightNavigation.map((item) => {
-                const active = pathname === item.href;
+                const active = mounted && pathname === item.href;
                 return item.external ? (
                   <a
                     key={item.href}

@@ -26,27 +26,27 @@ export function CTA() {
     <section ref={ref} className="py-24 lg:py-32 relative overflow-hidden bg-linear-to-b from-sky to-leaf text-white">
 
       <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={isInView ? { opacity: 0.3, scale: 1 } : {}}
+        initial={{ opacity: 0 }}
+        animate={isInView ? { opacity: 0.3 } : {}}
         transition={{ duration: 1 }}
         className="absolute top-10 right-10 w-64 h-64 bg-white rounded-full blur-3xl"
       />
       <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={isInView ? { opacity: 0.2, scale: 1 } : {}}
+        initial={{ opacity: 0 }}
+        animate={isInView ? { opacity: 0.2 } : {}}
         transition={{ duration: 1, delay: 0.2 }}
         className="absolute bottom-10 left-10 w-48 h-48 bg-white rounded-full blur-3xl"
       />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.8 }}
           className="max-w-4xl mx-auto text-center text-white"
         >
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 leading-tight"
           >
@@ -57,16 +57,16 @@ export function CTA() {
             {t('home.cta.titleEnd')}
           </motion.h2>
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.4 }}
             className="text-lg sm:text-xl text-white/90 mb-10 max-w-2xl mx-auto"
           >
             {t('home.cta.description')}
           </motion.p>
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.6 }}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
