@@ -25,6 +25,7 @@ export function FAQPageContent() {
       badge: "Tandem",
       color: "text-sky",
       bgColor: "bg-sky/10",
+      borderClass: "border-sky/30",
       faqs: tandemFAQs,
     },
     {
@@ -34,6 +35,7 @@ export function FAQPageContent() {
       badge: "AFF Kurs",
       color: "text-leaf",
       bgColor: "bg-leaf/10",
+      borderClass: "border-leaf/30",
       faqs: kursFAQs,
     },
     {
@@ -41,8 +43,9 @@ export function FAQPageContent() {
       label: t('nav.forJumpers'),
       icon: Users,
       badge: "For Hoppere",
-      color: "text-purple-600",
-      bgColor: "bg-purple-600/10",
+      color: "text-[#4FBE71]",
+      bgColor: "bg-[#4FBE71]/10",
+      borderClass: "border-[#4FBE71]/30",
       faqs: forHoppereFAQs,
     },
   ];
@@ -96,7 +99,7 @@ export function FAQPageContent() {
                 const Icon = category.icon;
                 return (
                   <TabsContent key={category.id} value={category.id} className="space-y-6">
-                    <div className={`flex items-center gap-3 p-4 rounded-lg ${category.bgColor} border border-${category.color.split('-')[1]}-200`}>
+                    <div className={`flex items-center gap-3 p-4 rounded-lg ${category.bgColor} border ${category.borderClass}`}>
                       <Icon className={`w-6 h-6 ${category.color}`} />
                       <div>
                         <h2 className="text-xl font-bold text-foreground">{category.label}</h2>
