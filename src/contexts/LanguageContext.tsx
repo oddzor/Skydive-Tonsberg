@@ -2,12 +2,18 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { slugMap, toCanonical } from "@/lib/locale-href";
+import noTranslations from "../../public/translations/no.json";
+import enTranslations from "../../public/translations/en.json";
 type Language = "no" | "en";
 interface LanguageContextType {
   language: Language;
   setLanguage: (lang: Language) => void;
   t: (key: string) => string;
 }
+const TRANSLATION_MAP: Record<Language, Record<string, unknown>> = {
+  no: noTranslations as Record<string, unknown>,
+  en: enTranslations as Record<string, unknown>,
+};
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 export function LanguageProvider({
   children,
@@ -18,28 +24,15 @@ export function LanguageProvider({
 }) {
   const pathname = usePathname();
   const [language, setLanguageState] = useState<Language>(initialLocale ?? "no");
-  const [translations, setTranslations] = useState<Record<string, unknown>>({});
-  const [translationsLoaded, setTranslationsLoaded] = useState(false);
+  const [translations, setTranslations] = useState<Record<string, unknown>>(
+    TRANSLATION_MAP[initialLocale ?? "no"]
+  );
   useEffect(() => {
     if (initialLocale) {
       localStorage.setItem("language", initialLocale);
     }
   }, [initialLocale]);
   useEffect(() => {
-    const loadTranslations = async () => {
-      try {
-        const response = await fetch(`/translations/${language}.json`);
-        const data = await response.json();
-        setTranslations(data);
-        setTranslationsLoaded(true);
-      } catch {
-        setTranslationsLoaded(true);
-      }
-    };
-    loadTranslations();
-  }, [language]);
-  useEffect(() => {
-    if (!translationsLoaded) return;
     const segments = pathname.split('/');
     const slug = segments[2] ?? 'hjem';
     const canonical = toCanonical(slug) || slug;
@@ -49,10 +42,11 @@ export function LanguageProvider({
     if (pageTitle) {
       document.title = `${pageTitle} | Skydive Tønsberg`;
     }
-  }, [translations, translationsLoaded, pathname]);
+  }, [translations, pathname]);
 
   const setLanguage = (lang: Language) => {
     setLanguageState(lang);
+    setTranslations(TRANSLATION_MAP[lang]);
     localStorage.setItem("language", lang);
     const segments = pathname.split('/');
     if (segments.length >= 2 && (segments[1] === 'no' || segments[1] === 'en')) {
@@ -65,7 +59,6 @@ export function LanguageProvider({
     }
   };
   const t = (key: string): string => {
-    if (!translationsLoaded) return "";
     const keys = key.split(".");
     let value: unknown = translations;
     for (const k of keys) {

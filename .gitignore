@@ -40,7 +40,8 @@ next-env.d.ts
 
 # Temp files
 *.log
-lighthouse-report.json
+lighthouse-report*.json
+scripts/parse-lighthouse-cls.js
 
 # Documentation (markdown files)
 *.md
