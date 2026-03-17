@@ -219,8 +219,8 @@ export function Header() {
                     {item.name}
                     <span
                       className={cn(
-                        "absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 bg-gradient-brand transition-all duration-300",
-                        active ? "w-3/4" : "w-0 group-hover:w-3/4"
+                        "absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 w-3/4 bg-gradient-brand transition-transform duration-300 origin-center",
+                        active ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
                       )}
                     />
                   </Link>
@@ -251,8 +251,8 @@ export function Header() {
                     {item.name}
                     <span
                       className={cn(
-                        "absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 bg-gradient-brand transition-all duration-300",
-                        active ? "w-3/4" : "w-0 group-hover:w-3/4"
+                        "absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 w-3/4 bg-gradient-brand transition-transform duration-300 origin-center",
+                        active ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
                       )}
                     />
                   </Link>

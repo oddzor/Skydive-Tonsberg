@@ -23,7 +23,7 @@ export function Hero() {
         <div className="absolute inset-0 bg-linear-to-r from-sky/10 to-leaf/10 mix-blend-overlay" />
       </div>
 
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center" style={{ contain: 'layout style' }}>
         <div className="max-w-4xl mx-auto">
           <div className="mb-4 -mt-12 sm:-mt-16 md:-mt-20">
             <Image
