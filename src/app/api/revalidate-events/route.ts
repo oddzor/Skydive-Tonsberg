@@ -8,7 +8,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ message: 'Invalid secret' }, { status: 401 });
   }
 
-  revalidateTag('facebook-events');
+  revalidateTag('facebook-events', { expire: 604800 });
 
   return NextResponse.json({ revalidated: true, tag: 'facebook-events', timestamp: new Date().toISOString() });
 }
