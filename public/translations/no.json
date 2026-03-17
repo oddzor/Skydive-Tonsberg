@@ -650,6 +650,7 @@
       "titleHighlight": "arrangementer",
       "description": "Kommende hoppedager, kurs og events fra Skydive Tønsberg.",
       "empty": "Ingen kommende arrangementer akkurat nå.",
+      "tokenExpired": "Facebook-tilkobling utløpt. Ta kontakt med administrator.",
       "viewOnFacebook": "Se på Facebook",
       "attending": "deltar",
       "canceled": "Avlyst"

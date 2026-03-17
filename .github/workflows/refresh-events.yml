@@ -1,0 +1,15 @@
+name: Refresh Facebook Events
+
+on:
+  schedule:
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+
+jobs:
+  revalidate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Bust Facebook events cache
+        run: |
+          curl -f -X POST \
+            "https://skydivetonsberg.no/api/revalidate-events?secret=${{ secrets.CRON_SECRET }}"

@@ -41,6 +41,7 @@ next-env.d.ts
 # Temp files
 *.log
 lighthouse-report*.json
+fbtoken.json
 scripts/parse-lighthouse-cls.js
 
 # Documentation (markdown files)

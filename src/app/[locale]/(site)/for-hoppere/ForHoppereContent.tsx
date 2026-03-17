@@ -32,8 +32,6 @@ import {
   Phone,
   Mail,
   Heart,
-  Camera,
-  CloudSun,
   Bell,
   MessageCircle,
   Facebook,
@@ -268,8 +266,7 @@ export function ForHoppereContent() {
         </div>
       </section>
 
-      {/* EVENTS SECTION — uncomment when FACEBOOK_PAGE_ACCESS_TOKEN + FACEBOOK_PAGE_ID are set in env
-      <section id="events" className="py-24 lg:py-32">
+          <section id="events" className="py-24 lg:py-32">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -289,7 +286,7 @@ export function ForHoppereContent() {
           <EventsCarousel />
         </div>
       </section>
-      */}
+
 
       <section id="fornye" className="py-16 bg-gradient-hero">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

@@ -39,6 +39,7 @@ export function useForHoppereData() {
   ];
 
   const quickLinks = [
+    { label: t("forHoppere.quickLinks.events"), href: "#events" },
     { label: t("forHoppere.quickLinks.renewal"), href: "#fornye" },
     { label: t("forHoppere.quickLinks.bunkhouse"), href: "#bunkhouse" },
     { label: t("forHoppere.quickLinks.burbleme"), href: "#burbleme" },
@@ -48,7 +49,6 @@ export function useForHoppereData() {
     { label: t("forHoppere.quickLinks.aircraft"), href: "#flyet" },
     { label: t("forHoppere.quickLinks.insurance"), href: "#forsikring" },
     { label: t("forHoppere.quickLinks.reporting"), href: "#varsling" },
-    { label: t("forHoppere.quickLinks.weather"), href: "#vaer" },
   ];
 
   const bunkhousingPricing = [
