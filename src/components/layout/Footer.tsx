@@ -181,6 +181,14 @@ export function Footer() {
             </Link>
           </div>
         </motion.div>
+        <div className="mt-8 text-center">
+          <a
+            href="mailto:odd@ogsolutions.dev"
+            className="text-xs text-background/30 hover:text-background/50 transition-colors"
+          >
+            For web development, contact OG Solutions
+          </a>
+        </div>
       </div>
     </footer>
   );
