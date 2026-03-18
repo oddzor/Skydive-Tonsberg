@@ -159,13 +159,6 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
 
-        <link
-          rel="preload"
-          as="image"
-          href="/Skydive_Tonsberg_hero_header.webp"
-          fetchPriority="high"
-        />
-
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}

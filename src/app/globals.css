@@ -2,7 +2,7 @@
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
-
+/* eslint-disable-next-line */
 @font-face {
   font-family: 'Masque';
   font-style: normal;

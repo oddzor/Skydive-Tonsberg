@@ -81,6 +81,8 @@ export default async function Home() {
     : null;
 
   return (
+    <>
+    <link rel="preload" as="image" href="/hero-poster.webp" fetchPriority="high" type="image/webp" />
     <SanityDataProvider
       data={{
         faqs: homeFAQs ?? [],
@@ -107,5 +109,6 @@ export default async function Home() {
       <FAQ />
       <CTA />
     </SanityDataProvider>
+    </>
   );
 }

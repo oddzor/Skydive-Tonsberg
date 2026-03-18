@@ -32,6 +32,17 @@ export function JumperDashboard() {
     return () => document.body.classList.remove('dashboard-open');
   }, [open]);
 
+  useEffect(() => {
+    if (!open) return;
+    const timer = setTimeout(() => {
+      setOpen(false);
+      setExpanded(null);
+      setCameraOpen(false);
+      setLoaded(new Set());
+    }, 60_000);
+    return () => clearTimeout(timer);
+  }, [open]);
+
   const sections = [
     {
       id: 'manifest' as SectionId,

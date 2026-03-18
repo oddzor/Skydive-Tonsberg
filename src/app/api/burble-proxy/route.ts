@@ -45,11 +45,8 @@ export async function GET() {
       ? `/api/burble-data/${sessionToken}/`
       : '/api/burble-data/';
 
-    // Block all ajax_ network calls after 8s post-load; also clear any intervals
-    const noAutoRefresh = `<script>(function(){var _si=window.setInterval,_fe=window.fetch,_op=XMLHttpRequest.prototype.open,_se=XMLHttpRequest.prototype.send,ids=[],block=false;window.setInterval=function(fn,ms){var id=_si.call(window,fn,ms);ids.push(id);return id;};window.fetch=function(url,opts){if(block&&String(url).indexOf('ajax_')!==-1)return Promise.resolve(new Response('{}',{status:200}));return _fe.apply(this,arguments);};XMLHttpRequest.prototype.open=function(m,u){this._u=u;return _op.apply(this,arguments);};XMLHttpRequest.prototype.send=function(){if(block&&this._u&&String(this._u).indexOf('ajax_')!==-1)return;return _se.apply(this,arguments);};window.addEventListener('load',function(){setTimeout(function(){block=true;ids.forEach(clearInterval);},8000);});}());<\/script>`;
-
     let patched = rawHtml.includes('<head>')
-      ? rawHtml.replace('<head>', `<head><base href="${burbleDataBase}">${noAutoRefresh}`)
+      ? rawHtml.replace('<head>', `<head><base href="${burbleDataBase}">`)
       : rawHtml;
 
     patched = patched.replace(/https:\/\/dzm\.burblesoft\.com\//g, burbleDataBase);
