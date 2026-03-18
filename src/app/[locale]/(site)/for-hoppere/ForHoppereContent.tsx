@@ -149,14 +149,14 @@ export function ForHoppereContent() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative max-w-5xl w-full max-h-[85vh] cursor-default"
+              className="cursor-default"
             >
               <Image
                 src={selectedImage}
                 alt="Hoppfeltbrief"
                 width={1200}
                 height={800}
-                className="w-full h-auto max-h-[85vh] object-contain rounded-lg"
+                className="max-w-[90vw] max-h-[85vh] w-auto h-auto rounded-lg block"
               />
             </motion.div>
           </motion.div>

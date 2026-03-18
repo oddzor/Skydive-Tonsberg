@@ -83,7 +83,7 @@ export function PageNav({ sections }: PageNavProps) {
       <button
         onClick={() => setIsOpen(v => !v)}
         aria-label="Page navigation"
-        className="flex flex-col items-center justify-center gap-1 md:gap-1.5 bg-background/95 backdrop-blur-md border border-r-0 border-border shadow-lg rounded-l-lg md:rounded-l-xl px-1.5 md:px-2.5 py-2 md:py-3 transition-colors hover:bg-accent"
+        className="flex flex-col items-center justify-center gap-1.5 md:gap-1.5 bg-background/95 backdrop-blur-md border border-r-0 border-border shadow-lg rounded-l-xl md:rounded-l-xl px-2 md:px-2.5 py-4 md:py-3 transition-colors hover:bg-accent"
       >
         {sections.map(({ id }) => {
           const isActive = id === activeId;
@@ -93,8 +93,8 @@ export function PageNav({ sections }: PageNavProps) {
               className={cn(
                 'block rounded-full transition-all duration-300',
                 isActive
-                  ? 'w-3 md:w-4 h-px md:h-0.5 bg-sky'
-                  : 'w-2 md:w-2.5 h-px bg-foreground/25'
+                  ? 'w-4 md:w-4 h-0.5 md:h-0.5 bg-sky'
+                  : 'w-3 md:w-2.5 h-px bg-foreground/25'
               )}
             />
           );
