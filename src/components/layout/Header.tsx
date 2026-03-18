@@ -72,35 +72,37 @@ export function Header() {
   const targetFlagAlt = language === "no" ? "English" : "Norsk";
 
   const mobileNavContent = (
-    <div className="flex flex-col h-full">
-      <div className="flex items-center p-4 border-b">
+    <div className="flex flex-col h-full relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-48 h-48 bg-sky/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-20 left-0 w-36 h-36 bg-leaf/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="flex items-center justify-center px-6 py-8 border-b relative">
         <Image
           src="/Skydive_Tonsberg_hero_header.png"
           alt="Skydive Tønsberg"
           width={2048}
           height={510}
-          className="h-8 w-auto"
+          className="w-full h-auto"
           quality={75}
         />
       </div>
-      <nav className="flex-1 overflow-auto py-6 px-4">
-        <div className="space-y-1">
+      <nav className="flex-1 overflow-auto py-3 px-4 relative">
+        <div className="space-y-0.5">
           {navigation.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               onClick={() => setMobileOpen(false)}
-              className="block px-4 py-3 text-lg font-medium text-foreground hover:bg-accent rounded-lg transition-colors"
+              className="block px-4 py-2 text-base font-medium text-foreground hover:bg-accent rounded-lg transition-colors text-center"
             >
               {item.name}
             </Link>
           ))}
         </div>
-        <div className="my-6 border-t pt-6">
-          <p className="px-4 text-sm font-medium text-muted-foreground mb-3">
+        <div className="my-3 border-t pt-3">
+          <p className="px-4 text-xs font-medium text-muted-foreground mb-1 text-center">
             {t("nav.externalLinks")}
           </p>
-          <div className="space-y-1">
+          <div className="space-y-0.5">
             {rightNavigation.map((item) =>
               item.external ? (
                 <a
@@ -108,7 +110,7 @@ export function Header() {
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block px-4 py-3 text-lg font-medium text-foreground hover:bg-accent rounded-lg transition-colors"
+                  className="block px-4 py-2 text-base font-medium text-foreground hover:bg-accent rounded-lg transition-colors text-center"
                 >
                   {item.name}
                 </a>
@@ -117,7 +119,7 @@ export function Header() {
                   key={item.href}
                   href={item.href}
                   onClick={() => setMobileOpen(false)}
-                  className="block px-4 py-3 text-lg font-medium text-foreground hover:bg-accent rounded-lg transition-colors"
+                  className="block px-4 py-2 text-base font-medium text-foreground hover:bg-accent rounded-lg transition-colors text-center"
                 >
                   {item.name}
                 </Link>
@@ -126,23 +128,20 @@ export function Header() {
           </div>
         </div>
       </nav>
-      <div className="p-4 border-t space-y-3">
+      <div className="p-4 border-t flex gap-2">
         <Button
           variant="outline"
           onClick={() => {
             setLanguage(language === "no" ? "en" : "no");
             setMobileOpen(false);
           }}
-          className="w-full flex items-center justify-center gap-3"
+          className="flex items-center justify-center gap-2 shrink-0"
         >
           <FlagImg code={targetFlagCode} alt={targetFlagAlt} />
-          <span>
-            {language === "no" ? t("nav.switchToEnglish") : t("nav.switchToNorwegian")}
-          </span>
         </Button>
         <Button
           asChild
-          className="w-full bg-gradient-brand hover:opacity-90 text-white font-semibold shadow-lg"
+          className="flex-1 bg-gradient-brand hover:opacity-90 text-white font-semibold shadow-lg"
         >
           <a
             href="https://bookings.burblesoft.eu/551/18"
@@ -158,17 +157,17 @@ export function Header() {
 
   return (
     <>
-      <div className={cn("fixed top-3 right-6 z-100 lg:hidden backface-hidden in-[.dashboard-open]:hidden", mobileOpen && "hidden")}>
+      <div className={cn("fixed top-2 right-2 z-100 lg:hidden backface-hidden in-[.dashboard-open]:hidden", mobileOpen && "hidden")}>
         <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
           <SheetTrigger asChild>
             <Button
               variant="ghost"
               size="icon"
               className={cn(
-                "backdrop-blur-sm transition-colors",
+                "backdrop-blur-md transition-colors",
                 scrolled
-                  ? "bg-background/90 text-foreground hover:bg-background border border-border shadow-sm"
-                  : "bg-black/30 text-white hover:bg-black/50 hover:text-white"
+                  ? "bg-background/60 text-foreground hover:bg-background/80 border border-border/50 shadow-sm"
+                  : "bg-black/20 text-white hover:bg-black/35 hover:text-white"
               )}
             >
               <Menu className="h-6 w-6" />
