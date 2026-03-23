@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { HeroVideo } from "@/components/ui/hero-video";
-import { ChevronDown } from "lucide-react";
+import { Mouse, ChevronDown } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { localePath } from "@/lib/locale-href";
 
@@ -44,7 +44,7 @@ export function Hero() {
             style={{ animationDelay: "0.25s" }}
           >
             {t("home.hero.title")}{" "}
-            <span className="text-gradient">{t("home.hero.titleHighlight")}</span>
+            <span className="text-gradient drop-shadow-[0_0_12px_rgba(255,255,255,0.4)]">{t("home.hero.titleHighlight")}</span>
             <br />
             {t("home.hero.titleEnd")}
           </h1>
@@ -63,7 +63,7 @@ export function Hero() {
             <Button
               asChild
               size="lg"
-              className="bg-gradient-brand hover:opacity-90 text-white font-semibold px-8 py-6 text-lg shadow-2xl shadow-sky/30"
+              className="bg-gradient-brand hover:opacity-90 text-white font-semibold px-8 py-6 text-lg shadow-2xl shadow-sky/30 border border-white/30 w-full sm:w-64"
             >
               <a href={localePath(language, "tandem")}>
                 {t("home.hero.bookTandem")}
@@ -72,7 +72,7 @@ export function Hero() {
             <Button
               asChild
               size="lg"
-              className="bg-gradient-brand hover:opacity-90 text-white font-semibold px-8 py-6 text-lg shadow-2xl shadow-sky/30"
+              className="bg-gradient-brand hover:opacity-90 text-white font-semibold px-8 py-6 text-lg shadow-2xl shadow-sky/30 border border-white/30 w-full sm:w-64"
             >
               <a href={localePath(language, "kurs")}>
                 {t("home.hero.bookCourse")}
@@ -91,7 +91,8 @@ export function Hero() {
           className="flex flex-col items-center gap-2 text-white/70 hover:text-white transition-colors"
         >
           <span className="text-sm font-medium">{t("home.hero.scrollDown")}</span>
-          <ChevronDown className="w-6 h-6 animate-bounce" />
+          <Mouse className="w-6 h-6" />
+          <ChevronDown className="w-4 h-4 animate-bounce" />
         </a>
       </div>
     </section>

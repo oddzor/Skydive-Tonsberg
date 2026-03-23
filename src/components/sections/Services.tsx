@@ -109,7 +109,7 @@ export function Services() {
         >
           {services.map((service) => (
             <motion.div key={service.href} variants={cardVariants}>
-              <Card className="group h-full overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-shadow duration-300">
+              <Card className="group h-full flex flex-col overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-shadow duration-300">
                 <div className="relative aspect-4/3 overflow-hidden">
                   <Image
                     src={service.image}
@@ -124,13 +124,14 @@ export function Services() {
                     </div>
                   </div>
                 </div>
-                <CardContent className="p-6">
+                <CardContent className="p-6 flex flex-col flex-1">
                   <h3 className="text-xl font-bold text-foreground mb-3">
                     {service.title}
                   </h3>
                   <p className="text-muted-foreground mb-6 leading-relaxed">
                     {service.description}
                   </p>
+                  <div className="mt-auto">
                   {service.external ? (
                     <Button asChild className="bg-gradient-brand hover:opacity-90 text-white font-semibold group/btn">
                       <a
@@ -151,6 +152,7 @@ export function Services() {
                       </Link>
                     </Button>
                   )}
+                  </div>
                 </CardContent>
               </Card>
             </motion.div>
