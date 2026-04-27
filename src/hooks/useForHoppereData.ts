@@ -211,7 +211,7 @@ export function useForHoppereData() {
     name: pick(f.nameNo, f.nameEn),
     description: pick(f.descriptionNo, f.descriptionEn) || undefined,
     imageUrl: f.imageUrl ?? null,
-    imageAlt: pick(f.imageAltNo, f.imageAltEn) || undefined,
+    imageAlt: pick(f.imageAltNo ?? undefined, f.imageAltEn ?? undefined) || undefined,
   }));
 
   const pricing = [
