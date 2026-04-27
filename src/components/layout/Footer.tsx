@@ -190,6 +190,6 @@ export function Footer() {
           </a>
         </div>
       </div>
-    </footer>
+    </footer> 
   );
 }

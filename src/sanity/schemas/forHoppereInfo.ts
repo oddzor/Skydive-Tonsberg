@@ -45,6 +45,7 @@ export const forHoppereInfoSchema = defineType({
     { name: 'insurance', title: 'Insurance' },
     { name: 'reporting', title: 'Reporting' },
     { name: 'aircraft', title: 'Aircraft' },
+    { name: 'facilities', title: 'Facilities' },
   ],
   fields: [
     defineField({
@@ -133,6 +134,35 @@ export const forHoppereInfoSchema = defineType({
     textField('aircraftHistoryEn', 'Aircraft History Paragraph (English)', 'aircraft', 3),
     textField('aircraftRenovationNo', 'Aircraft Renovation Paragraph (Norwegian)', 'aircraft', 3),
     textField('aircraftRenovationEn', 'Aircraft Renovation Paragraph (English)', 'aircraft', 3),
+
+    defineField({
+      name: 'facilities',
+      title: 'Facilities',
+      type: 'array',
+      group: 'facilities',
+      of: [
+        {
+          type: 'object' as const,
+          fields: [
+            defineField({ name: 'nameNo', title: 'Name (Norwegian)', type: 'string', validation: (Rule) => Rule.required() }),
+            defineField({ name: 'nameEn', title: 'Name (English)', type: 'string', validation: (Rule) => Rule.required() }),
+            defineField({ name: 'descriptionNo', title: 'Description (Norwegian)', type: 'text', rows: 2 }),
+            defineField({ name: 'descriptionEn', title: 'Description (English)', type: 'text', rows: 2 }),
+            defineField({
+              name: 'image',
+              title: 'Image',
+              type: 'image',
+              options: { hotspot: true },
+              fields: [
+                defineField({ name: 'altNo', title: 'Alt Text (Norwegian)', type: 'string' }),
+                defineField({ name: 'altEn', title: 'Alt Text (English)', type: 'string' }),
+              ],
+            }),
+          ],
+          preview: { select: { title: 'nameNo', media: 'image' } },
+        },
+      ],
+    }),
   ],
   preview: {
     select: {},

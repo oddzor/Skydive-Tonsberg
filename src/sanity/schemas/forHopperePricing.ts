@@ -9,7 +9,6 @@ export const forHopperePricingSchema = defineType({
     { name: 'registration', title: 'Registration' },
     { name: 'equipment', title: 'Equipment' },
     { name: 'courses', title: 'Courses' },
-    { name: 'tandem', title: 'Tandem' },
     { name: 'bunkhouse', title: 'Bunkhouse' },
     { name: 'misc', title: 'Misc' },
   ],
@@ -64,19 +63,6 @@ export const forHopperePricingSchema = defineType({
         defineField({ name: 'rejump47', title: 'Rejump Level 4-7 (kr)', type: 'number' }),
         defineField({ name: 'level8', title: 'Level 8 jump (kr)', type: 'number' }),
         defineField({ name: 'checkoutJump', title: 'Checkout jump (kr)', type: 'number' }),
-      ],
-    }),
-    defineField({
-      name: 'tandemPrices',
-      title: 'Tandem Prices (for reference)',
-      type: 'object',
-      group: 'tandem',
-      fields: [
-        defineField({ name: 'weekday', title: 'Weekday (kr)', type: 'number' }),
-        defineField({ name: 'weekend', title: 'Weekend (kr)', type: 'number' }),
-        defineField({ name: 'video', title: 'Video Add-on (kr)', type: 'number' }),
-        defineField({ name: 'videoPhotos', title: 'Video + Photos Add-on (kr)', type: 'number' }),
-        defineField({ name: 'fullPackage', title: 'Full Package Add-on (kr)', type: 'number' }),
       ],
     }),
     defineField({

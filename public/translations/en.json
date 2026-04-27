@@ -49,6 +49,7 @@
       "insurance": "Insurance",
       "reporting": "Reporting",
       "grasrotandelen": "Grasrotandelen",
+      "facilities": "Facilities",
       "faq": "FAQ"
     },
     "events": {
@@ -96,6 +97,13 @@
       },
       "contactText": "Arriving outside opening hours? Send us an email at",
       "warningText": "All accommodation must be pre-registered at reception. Violation results in a 500 NOK fee."
+    },
+    "facilities": {
+      "badge": "Facilities",
+      "title": "Our",
+      "titleHighlight": "Facilities",
+      "description": "Everything you need for a great jump day – food, relaxation and social time.",
+      "noImage": "Photo coming soon"
     },
     "cards": {
       "calendar": {
@@ -459,8 +467,8 @@
     },
     "about": {
       "badge": "About us",
-      "title": "Your gateway to the",
-      "titleHighlight": "sky",
+      "title": "Welcome to",
+      "titleHighlight": "Tønsberg",
       "description1": "Skydive Tønsberg is one of Norway's most established and active skydiving clubs. Based at Tønsberg Airport (Jarlsberg), we offer everything from tandem jumps for beginners to advanced training for experienced jumpers.",
       "description2": "Our dedicated team of instructors and experienced jumpers ensures that every single experience is safe, exciting and memorable. Join our community and discover the joy of freefall!",
       "stats": {

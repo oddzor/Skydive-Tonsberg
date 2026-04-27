@@ -16,7 +16,8 @@
       "Bash(cd /c/repositories/Skydive-T-nsberg/Skydive-Tonsberg && npm run build 2>&1)",
       "Bash(node:*)",
       "Bash(echo:*)",
-      "Bash(echo === getSetting without cookie ===:*)"
+      "Bash(echo === getSetting without cookie ===:*)",
+      "mcp__ide__getDiagnostics"
     ]
   }
 }

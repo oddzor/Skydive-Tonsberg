@@ -5,6 +5,7 @@ const SECTIONS = [
   { id: 'events', labelKey: 'forHoppere.quickLinks.events' },
   { id: 'fornye',         labelKey: 'forHoppere.quickLinks.renewal' },
   { id: 'bunkhouse',      labelKey: 'forHoppere.quickLinks.bunkhouse' },
+  { id: 'fasiliteter',    labelKey: 'forHoppere.quickLinks.facilities' },
   { id: 'burbleme',       labelKey: 'forHoppere.quickLinks.burbleme' },
   { id: 'hoppfeltbrief',  labelKey: 'forHoppere.quickLinks.dropzoneBrief' },
   { id: 'priser',         labelKey: 'forHoppere.quickLinks.pricing' },

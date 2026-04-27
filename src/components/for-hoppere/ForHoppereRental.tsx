@@ -83,14 +83,14 @@ export function ForHoppereRental() {
                   <div className="p-4 bg-muted rounded-xl">
                     <div className="flex justify-between items-center mb-1">
                       <span className="font-semibold text-foreground">{t('forHoppere.rental.pricing.rental')}</span>
-                      <span className="text-2xl font-bold text-sky">{content?.pricing?.forHoppere?.equipment?.rentalRig || 215} kr</span>
+                      <span className="text-2xl font-bold text-sky">{content?.pricing?.forHoppere?.equipment?.rentalRig ?? 0} kr</span>
                     </div>
                     <p className="text-xs text-muted-foreground">{t('forHoppere.rental.pricing.perJump')}</p>
                   </div>
                   <div className="p-4 bg-muted rounded-xl">
                     <div className="flex justify-between items-center mb-1">
                       <span className="font-semibold text-foreground">{t('forHoppere.rental.pricing.student')}</span>
-                      <span className="text-2xl font-bold text-sky">{content?.pricing?.forHoppere?.equipment?.studentRig || 125} kr</span>
+                      <span className="text-2xl font-bold text-sky">{content?.pricing?.forHoppere?.equipment?.studentRig ?? 0} kr</span>
                     </div>
                     <p className="text-xs text-muted-foreground">{t('forHoppere.rental.pricing.perJump')}</p>
                   </div>

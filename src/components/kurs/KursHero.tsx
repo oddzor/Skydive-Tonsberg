@@ -49,7 +49,7 @@ export function KursHero() {
                 </h3>
                 <div className="text-center mb-6">
                   <p className="text-5xl font-bold text-sky mb-2">
-                    {content?.pricing?.kurs?.affCourse || 18990} kr
+                    {content?.pricing?.forHoppere?.courses?.affCourse ?? 0} kr
                   </p>
                   <p className="text-muted-foreground">{t('kurs.pricing.completeCourse')}</p>
                 </div>

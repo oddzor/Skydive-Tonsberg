@@ -2,49 +2,11 @@ import type { Metadata } from "next";
 import { KursContent } from "./KursContent";
 import { SanityDataProvider } from "@/contexts/SanityDataContext";
 import { safeFetch } from "@/sanity/client";
-import { PAGE_FAQS_QUERY, COURSE_INFO_QUERY } from "@/sanity/queries";
+import { PAGE_FAQS_QUERY, COURSE_INFO_QUERY, TANDEM_PRICING_QUERY, FOR_HOPPERE_PRICING_QUERY } from "@/sanity/queries";
 import { buildFAQSchema, sanityFaqToSchema } from "@/lib/faqSchema";
-import type { SanityFAQ, SanityCourseInfo } from "@/sanity/types";
+import type { SanityFAQ, SanityCourseInfo, SanityTandemPricing, SanityForHopperePricing } from "@/sanity/types";
 
 export const revalidate = 3600;
-
-const kursSchema = {
-  "@context": "https://schema.org",
-  "@type": "Course",
-  name: "AFF Grunnkurs",
-  description:
-    "Bli selvstendig fallskjermhopper med AFF-metoden (Accelerated Freefall). 8 progressjonsnivåer fra tandemhopp til solo. Inkluderer teori, vindtunneltrening og veiledede hopp ved Jarlsberg Flyplass nær Oslo.",
-  provider: {
-    "@type": "Organization",
-    name: "Skydive Tønsberg",
-    url: "https://skydivetonsberg.no",
-  },
-  url: "https://skydivetonsberg.no/kurs",
-  hasCourseInstance: {
-    "@type": "CourseInstance",
-    courseMode: "onsite",
-    location: {
-      "@type": "Place",
-      name: "Jarlsberg Flyplass",
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "Jarlsberg Flyplass",
-        addressLocality: "Tønsberg",
-        addressRegion: "Vestfold",
-        postalCode: "3145",
-        addressCountry: "NO",
-      },
-    },
-  },
-  offers: {
-    "@type": "Offer",
-    price: 18990,
-    priceCurrency: "NOK",
-    availability: "https://schema.org/InStock",
-    url: "https://skydivetonsberg.no/kurs",
-    seller: { "@type": "Organization", name: "Skydive Tønsberg" },
-  },
-};
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -79,22 +41,61 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 }
 
 export default async function KursPage() {
-  const [kursFAQs, courseInfo] = await Promise.all([
+  const [kursFAQs, courseInfo, tandemPricing, forHopperePricing] = await Promise.all([
     safeFetch<SanityFAQ[]>(PAGE_FAQS_QUERY, { page: "kurs" }, 'faqs.kurs'),
     safeFetch<SanityCourseInfo>(COURSE_INFO_QUERY, undefined, 'courseInfo'),
+    safeFetch<SanityTandemPricing>(TANDEM_PRICING_QUERY, undefined, 'tandemPricing'),
+    safeFetch<SanityForHopperePricing>(FOR_HOPPERE_PRICING_QUERY, undefined, 'forHopperePricing'),
   ]);
 
   const faqSchema = kursFAQs?.length
     ? buildFAQSchema(kursFAQs.map(sanityFaqToSchema))
     : null;
 
+  const kursSchema = {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    name: "AFF Grunnkurs",
+    description:
+      "Bli selvstendig fallskjermhopper med AFF-metoden (Accelerated Freefall). 8 progressjonsnivåer fra tandemhopp til solo. Inkluderer teori, vindtunneltrening og veiledede hopp ved Jarlsberg Flyplass nær Oslo.",
+    provider: {
+      "@type": "Organization",
+      name: "Skydive Tønsberg",
+      url: "https://skydivetonsberg.no",
+    },
+    url: "https://skydivetonsberg.no/kurs",
+    hasCourseInstance: {
+      "@type": "CourseInstance",
+      courseMode: "onsite",
+      location: {
+        "@type": "Place",
+        name: "Jarlsberg Flyplass",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "Jarlsberg Flyplass",
+          addressLocality: "Tønsberg",
+          addressRegion: "Vestfold",
+          postalCode: "3145",
+          addressCountry: "NO",
+        },
+      },
+    },
+    offers: {
+      "@type": "Offer",
+      price: forHopperePricing?.courses?.affCourse ?? 0,
+      priceCurrency: "NOK",
+      availability: "https://schema.org/InStock",
+      url: "https://skydivetonsberg.no/kurs",
+      seller: { "@type": "Organization", name: "Skydive Tønsberg" },
+    },
+  };
+
   return (
     <SanityDataProvider
       data={{
         faqs: kursFAQs ?? [],
-        tandemPricing: null,
-        kursPricing: null,
-        forHopperePricing: null,
+        tandemPricing: tandemPricing ?? null,
+        forHopperePricing: forHopperePricing ?? null,
         courseInfo: courseInfo ?? null,
         tandemInfo: null,
         generalContent: null,

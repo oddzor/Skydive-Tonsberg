@@ -37,7 +37,7 @@ export function KursPayment() {
             <CardContent className="p-8">
               <h3 className="text-xl font-bold mb-4">{t('kurs.payment.priceTitle')}</h3>
               <div className="text-4xl font-bold text-sky mb-2">
-                {content?.pricing?.kurs?.affCourse || 18990} kr
+                {content?.pricing?.forHoppere?.courses?.affCourse ?? 0} kr
               </div>
               <p className="text-muted-foreground mb-6">{t('kurs.payment.completeCourse')}</p>
               <div className="space-y-4">

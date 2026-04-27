@@ -3,8 +3,8 @@ import type { Metadata } from "next";
 export const revalidate = 3600;
 import { SanityDataProvider } from "@/contexts/SanityDataContext";
 import { safeFetch } from "@/sanity/client";
-import { ALL_FAQS_QUERY } from "@/sanity/queries";
-import type { SanityFAQ } from "@/sanity/types";
+import { ALL_FAQS_QUERY, TANDEM_PRICING_QUERY, FOR_HOPPERE_PRICING_QUERY } from "@/sanity/queries";
+import type { SanityFAQ, SanityTandemPricing, SanityForHopperePricing } from "@/sanity/types";
 import { FAQPageContent } from "./FAQPageContent";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -36,11 +36,15 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 }
 
 export default async function FAQPage() {
-  const allFAQs = await safeFetch<SanityFAQ[]>(ALL_FAQS_QUERY, undefined, 'faqs.all');
+  const [allFAQs, tandemPricing, forHopperePricing] = await Promise.all([
+    safeFetch<SanityFAQ[]>(ALL_FAQS_QUERY, undefined, 'faqs.all'),
+    safeFetch<SanityTandemPricing>(TANDEM_PRICING_QUERY, undefined, 'tandemPricing'),
+    safeFetch<SanityForHopperePricing>(FOR_HOPPERE_PRICING_QUERY, undefined, 'forHopperePricing'),
+  ]);
 
   return (
     <SanityDataProvider
-      data={{ faqs: allFAQs ?? [], tandemPricing: null, kursPricing: null, forHopperePricing: null, courseInfo: null, tandemInfo: null, generalContent: null, landingPage: null, forHoppereInfo: null }}
+      data={{ faqs: allFAQs ?? [], tandemPricing: tandemPricing ?? null, forHopperePricing: forHopperePricing ?? null, courseInfo: null, tandemInfo: null, generalContent: null, landingPage: null, forHoppereInfo: null }}
     >
       <FAQPageContent />
     </SanityDataProvider>

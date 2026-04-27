@@ -2,29 +2,11 @@ import type { Metadata } from "next";
 import { TandemContent } from "./TandemContent";
 import { SanityDataProvider } from "@/contexts/SanityDataContext";
 import { safeFetch } from "@/sanity/client";
-import { PAGE_FAQS_QUERY, TANDEM_INFO_QUERY } from "@/sanity/queries";
+import { PAGE_FAQS_QUERY, TANDEM_INFO_QUERY, TANDEM_PRICING_QUERY, FOR_HOPPERE_PRICING_QUERY } from "@/sanity/queries";
 import { buildFAQSchema, sanityFaqToSchema } from "@/lib/faqSchema";
-import type { SanityFAQ, SanityTandemInfo } from "@/sanity/types";
+import type { SanityFAQ, SanityTandemInfo, SanityTandemPricing, SanityForHopperePricing } from "@/sanity/types";
 
 export const revalidate = 3600;
-
-const tandemSchema = {
-  "@context": "https://schema.org",
-  "@type": "Product",
-  name: "Tandemhopp",
-  description:
-    "Opplev fritt fall fra 4000 meter med vakker utsikt over Oslofjorden. Ca. 40 sekunder fritt fall med profesjonell instruktør. Nærmest Oslo.",
-  brand: { "@type": "Brand", name: "Skydive Tønsberg" },
-  url: "https://skydivetonsberg.no/tandem",
-  offers: {
-    "@type": "Offer",
-    price: 4690,
-    priceCurrency: "NOK",
-    availability: "https://schema.org/InStock",
-    url: "https://skydivetonsberg.no/tandem",
-    seller: { "@type": "Organization", name: "Skydive Tønsberg" },
-  },
-};
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -59,22 +41,41 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 }
 
 export default async function TandemPage() {
-  const [tandemFAQs, tandemInfo] = await Promise.all([
+  const [tandemFAQs, tandemInfo, tandemPricing, forHopperePricing] = await Promise.all([
     safeFetch<SanityFAQ[]>(PAGE_FAQS_QUERY, { page: "tandem" }, 'faqs.tandem'),
     safeFetch<SanityTandemInfo>(TANDEM_INFO_QUERY, undefined, 'tandemInfo'),
+    safeFetch<SanityTandemPricing>(TANDEM_PRICING_QUERY, undefined, 'tandemPricing'),
+    safeFetch<SanityForHopperePricing>(FOR_HOPPERE_PRICING_QUERY, undefined, 'forHopperePricing'),
   ]);
 
   const faqSchema = tandemFAQs?.length
     ? buildFAQSchema(tandemFAQs.map(sanityFaqToSchema))
     : null;
 
+  const tandemSchema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: "Tandemhopp",
+    description:
+      "Opplev fritt fall fra 4000 meter med vakker utsikt over Oslofjorden. Ca. 40 sekunder fritt fall med profesjonell instruktør. Nærmest Oslo.",
+    brand: { "@type": "Brand", name: "Skydive Tønsberg" },
+    url: "https://skydivetonsberg.no/tandem",
+    offers: {
+      "@type": "Offer",
+      price: tandemPricing?.weekday ?? 0,
+      priceCurrency: "NOK",
+      availability: "https://schema.org/InStock",
+      url: "https://skydivetonsberg.no/tandem",
+      seller: { "@type": "Organization", name: "Skydive Tønsberg" },
+    },
+  };
+
   return (
     <SanityDataProvider
       data={{
         faqs: tandemFAQs ?? [],
-        tandemPricing: null,
-        kursPricing: null,
-        forHopperePricing: null,
+        tandemPricing: tandemPricing ?? null,
+        forHopperePricing: forHopperePricing ?? null,
         courseInfo: null,
         tandemInfo: tandemInfo ?? null,
         generalContent: null,

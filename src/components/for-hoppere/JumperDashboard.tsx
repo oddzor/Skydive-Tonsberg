@@ -140,7 +140,6 @@ export function JumperDashboard() {
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-50 bg-background flex flex-col"
           >
-            {/* Header */}
             <div className="flex items-center justify-between px-4 py-3 border-b shrink-0">
               <div className="flex items-center gap-2">
                 {expanded && (
@@ -157,7 +156,6 @@ export function JumperDashboard() {
                 </h2>
               </div>
               <div className="flex items-center gap-2">
-                {/* Camera button — desktop only */}
                 <button
                   onClick={() => setCameraOpen(true)}
                   className="hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-lg hover:bg-muted transition-colors text-muted-foreground hover:text-foreground text-sm"
@@ -195,7 +193,6 @@ export function JumperDashboard() {
                   transition={{ duration: 0.15 }}
                   className="flex-1 min-h-0 flex flex-col"
                 >
-                  {/* Desktop: 2×2 grid (camera excluded — lives in header button) */}
                   <div className="hidden lg:grid lg:grid-cols-2 lg:grid-rows-2 gap-3 flex-1 min-h-0 p-3">
                     {desktopSections.map((section) => (
                       <div key={section.id} className="flex flex-col gap-1 h-full">
@@ -218,7 +215,6 @@ export function JumperDashboard() {
                     ))}
                   </div>
 
-                  {/* Mobile: tabs with all sections including camera */}
                   <div className="flex lg:hidden flex-col flex-1 min-h-0">
                     <div className="flex border-b shrink-0">
                       {sections.map((section) => (
@@ -268,7 +264,6 @@ export function JumperDashboard() {
               )}
             </AnimatePresence>
 
-            {/* Camera modal — desktop only */}
             <AnimatePresence>
               {cameraOpen && (
                 <motion.div

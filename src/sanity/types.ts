@@ -19,12 +19,6 @@ export interface SanityTandemPricing {
   fullPackage: number
 }
 
-export interface SanityKursPricing {
-  _id: string
-  _type: 'kursPricing'
-  affCourse: number
-}
-
 export interface SanityForHopperePricing {
   _id: string
   _type: 'forHopperePricing'
@@ -55,13 +49,6 @@ export interface SanityForHopperePricing {
     rejump47: number
     level8: number
     checkoutJump: number
-  }
-  tandemPrices: {
-    weekday: number
-    weekend: number
-    video: number
-    videoPhotos: number
-    fullPackage: number
   }
   misc: {
     tofskMembership: number
@@ -376,4 +363,13 @@ export interface SanityForHoppereInfo {
   aircraftHistoryEn?: string
   aircraftRenovationNo?: string
   aircraftRenovationEn?: string
+  facilities?: Array<{
+    nameNo: string
+    nameEn: string
+    descriptionNo?: string
+    descriptionEn?: string
+    imageUrl?: string | null
+    imageAltNo?: string | null
+    imageAltEn?: string | null
+  }>
 }

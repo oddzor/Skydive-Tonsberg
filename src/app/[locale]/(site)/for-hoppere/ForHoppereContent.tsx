@@ -7,6 +7,7 @@ import {
   ForHoppereEvents,
   ForHoppereRenewal,
   ForHoppereBunkhouse,
+  ForHoppereFacilities,
   ForHoppereBurbleMe,
   ForHoppereHoppfeltbrief,
   ForHopperePricing,
@@ -29,6 +30,7 @@ export function ForHoppereContent() {
       <ForHoppereEvents />
       <ForHoppereRenewal />
       <ForHoppereBunkhouse />
+      <ForHoppereFacilities />
       <ForHoppereBurbleMe />
       <ForHoppereHoppfeltbrief />
       <ForHopperePricing />

@@ -136,11 +136,11 @@ export function ForHopperePricing() {
               <ul className="space-y-3">
                 <li className="flex justify-between items-center">
                   <span className="text-foreground text-sm">{t('forHoppere.pricing.miscItems.membership')}</span>
-                  <span className="font-semibold text-sky">{content?.pricing?.forHoppere?.misc?.tofskMembership || 350} kr</span>
+                  <span className="font-semibold text-sky">{content?.pricing?.forHoppere?.misc?.tofskMembership ?? 0} kr</span>
                 </li>
                 <li className="flex justify-between items-center">
                   <span className="text-foreground text-sm">{t('forHoppere.pricing.miscItems.withdrawal')}</span>
-                  <span className="font-semibold text-sky">{content?.pricing?.forHoppere?.misc?.burbleWithdrawal || 100} kr</span>
+                  <span className="font-semibold text-sky">{content?.pricing?.forHoppere?.misc?.burbleWithdrawal ?? 0} kr</span>
                 </li>
                 <li className="flex justify-between items-center">
                   <span className="text-foreground text-sm">{t('forHoppere.pricing.miscItems.referTandem')}</span>
@@ -152,7 +152,7 @@ export function ForHopperePricing() {
                 </li>
                 <li className="flex justify-between items-center">
                   <span className="text-foreground text-sm">{t('forHoppere.pricing.miscItems.familyDiscount')}</span>
-                  <span className="font-semibold text-leaf">{content?.pricing?.forHoppere?.misc?.familyDiscount || 500} kr</span>
+                  <span className="font-semibold text-leaf">{content?.pricing?.forHoppere?.misc?.familyDiscount ?? 0} kr</span>
                 </li>
               </ul>
             </CardContent>

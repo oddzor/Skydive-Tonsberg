@@ -42,6 +42,7 @@ export function useForHoppereData() {
     { label: t("forHoppere.quickLinks.events"), href: "#events" },
     { label: t("forHoppere.quickLinks.renewal"), href: "#fornye" },
     { label: t("forHoppere.quickLinks.bunkhouse"), href: "#bunkhouse" },
+    { label: t("forHoppere.quickLinks.facilities"), href: "#fasiliteter" },
     { label: t("forHoppere.quickLinks.burbleme"), href: "#burbleme" },
     { label: t("forHoppere.quickLinks.dropzoneBrief"), href: "#hoppfeltbrief" },
     { label: t("forHoppere.quickLinks.pricing"), href: "#priser" },
@@ -52,13 +53,13 @@ export function useForHoppereData() {
   ];
 
   const bunkhousingPricing = [
-    { name: t("forHoppere.bunkhouse.pricing.threeMan"), price: `${content?.pricing?.forHoppere?.bunkhouse?.threeMan || 210} kr` },
-    { name: t("forHoppere.bunkhouse.pricing.doubleSingle"), price: `${content?.pricing?.forHoppere?.bunkhouse?.doubleSingle || 370} kr` },
-    { name: t("forHoppere.bunkhouse.pricing.doubleTwo"), price: `${content?.pricing?.forHoppere?.bunkhouse?.doubleTwo || 520} kr` },
-    { name: t("forHoppere.bunkhouse.pricing.bedding"), price: `${content?.pricing?.forHoppere?.bunkhouse?.bedding || 200} kr` },
-    { name: t("forHoppere.bunkhouse.pricing.rvPower"), price: `${content?.pricing?.forHoppere?.bunkhouse?.rvPower || 150} kr` },
-    { name: t("forHoppere.bunkhouse.pricing.rvPowerWeek"), price: `${content?.pricing?.forHoppere?.bunkhouse?.rvPowerWeek || 600} kr` },
-    { name: t("forHoppere.bunkhouse.pricing.tentNoPower"), price: `${content?.pricing?.forHoppere?.bunkhouse?.tentNoPower || 80} kr` },
+    { name: t("forHoppere.bunkhouse.pricing.threeMan"), price: `${content?.pricing?.forHoppere?.bunkhouse?.threeMan ?? 0} kr` },
+    { name: t("forHoppere.bunkhouse.pricing.doubleSingle"), price: `${content?.pricing?.forHoppere?.bunkhouse?.doubleSingle ?? 0} kr` },
+    { name: t("forHoppere.bunkhouse.pricing.doubleTwo"), price: `${content?.pricing?.forHoppere?.bunkhouse?.doubleTwo ?? 0} kr` },
+    { name: t("forHoppere.bunkhouse.pricing.bedding"), price: `${content?.pricing?.forHoppere?.bunkhouse?.bedding ?? 0} kr` },
+    { name: t("forHoppere.bunkhouse.pricing.rvPower"), price: `${content?.pricing?.forHoppere?.bunkhouse?.rvPower ?? 0} kr` },
+    { name: t("forHoppere.bunkhouse.pricing.rvPowerWeek"), price: `${content?.pricing?.forHoppere?.bunkhouse?.rvPowerWeek ?? 0} kr` },
+    { name: t("forHoppere.bunkhouse.pricing.tentNoPower"), price: `${content?.pricing?.forHoppere?.bunkhouse?.tentNoPower ?? 0} kr` },
   ];
 
  
@@ -206,38 +207,45 @@ export function useForHoppereData() {
   const reportingGroup = pick(info?.reportingGroupNo, info?.reportingGroupEn)
     || t("forHoppere.reporting.group");
 
+  const facilities = (info?.facilities ?? []).map((f) => ({
+    name: pick(f.nameNo, f.nameEn),
+    description: pick(f.descriptionNo, f.descriptionEn) || undefined,
+    imageUrl: f.imageUrl ?? null,
+    imageAlt: pick(f.imageAltNo, f.imageAltEn) || undefined,
+  }));
+
   const pricing = [
-    { name: t("forHoppere.pricing.jumps.normal"), price: `${content?.pricing?.forHoppere?.jumps?.normal || 385} kr`, note: "" },
-    { name: t("forHoppere.pricing.jumps.deal"), price: `${content?.pricing?.forHoppere?.jumps?.deal || 335} kr`, note: `+ ${content?.pricing?.forHoppere?.jumps?.dealDeposit || 2500} ${t("forHoppere.pricing.jumps.depositSuffix")}` },
-    { name: t("forHoppere.pricing.jumps.bigDeal"), price: `${content?.pricing?.forHoppere?.jumps?.bigDeal || 285} kr`, note: `+ ${content?.pricing?.forHoppere?.jumps?.bigDealDeposit || 10000} ${t("forHoppere.pricing.jumps.depositSuffix")}` },
-    { name: t("forHoppere.pricing.jumps.highAlt"), price: `+${content?.pricing?.forHoppere?.jumps?.highAltitude || 60} kr`, note: "" },
+    { name: t("forHoppere.pricing.jumps.normal"), price: `${content?.pricing?.forHoppere?.jumps?.normal ?? 0} kr`, note: "" },
+    { name: t("forHoppere.pricing.jumps.deal"), price: `${content?.pricing?.forHoppere?.jumps?.deal ?? 0} kr`, note: `+ ${content?.pricing?.forHoppere?.jumps?.dealDeposit ?? 0} ${t("forHoppere.pricing.jumps.depositSuffix")}` },
+    { name: t("forHoppere.pricing.jumps.bigDeal"), price: `${content?.pricing?.forHoppere?.jumps?.bigDeal ?? 0} kr`, note: `+ ${content?.pricing?.forHoppere?.jumps?.bigDealDeposit ?? 0} ${t("forHoppere.pricing.jumps.depositSuffix")}` },
+    { name: t("forHoppere.pricing.jumps.highAlt"), price: `+${content?.pricing?.forHoppere?.jumps?.highAltitude ?? 0} kr`, note: "" },
   ];
   const registrationFees = [
-    { name: t("forHoppere.pricing.registration.annual"), price: `${content?.pricing?.forHoppere?.registration?.annual || 1350} kr` },
-    { name: t("forHoppere.pricing.registration.annualVeteran"), price: `${content?.pricing?.forHoppere?.registration?.annualVeteran || 950} kr` },
-    { name: t("forHoppere.pricing.registration.day"), price: `${content?.pricing?.forHoppere?.registration?.day || 150} kr` },
-    { name: t("forHoppere.pricing.registration.weekend"), price: `${content?.pricing?.forHoppere?.registration?.weekend || 250} kr` },
-    { name: t("forHoppere.pricing.registration.week"), price: `${content?.pricing?.forHoppere?.registration?.week || 750} kr` },
+    { name: t("forHoppere.pricing.registration.annual"), price: `${content?.pricing?.forHoppere?.registration?.annual ?? 0} kr` },
+    { name: t("forHoppere.pricing.registration.annualVeteran"), price: `${content?.pricing?.forHoppere?.registration?.annualVeteran ?? 0} kr` },
+    { name: t("forHoppere.pricing.registration.day"), price: `${content?.pricing?.forHoppere?.registration?.day ?? 0} kr` },
+    { name: t("forHoppere.pricing.registration.weekend"), price: `${content?.pricing?.forHoppere?.registration?.weekend ?? 0} kr` },
+    { name: t("forHoppere.pricing.registration.week"), price: `${content?.pricing?.forHoppere?.registration?.week ?? 0} kr` },
   ];
   const equipmentPricing = [
-    { name: t("forHoppere.pricing.equipmentItems.rentalRig"), price: `${content?.pricing?.forHoppere?.equipment?.rentalRig || 215} kr` },
-    { name: t("forHoppere.pricing.equipmentItems.studentRig"), price: `${content?.pricing?.forHoppere?.equipment?.studentRig || 125} kr` },
-    { name: t("forHoppere.pricing.equipmentItems.altimeter"), price: `${content?.pricing?.forHoppere?.equipment?.altimeter || 100} kr` },
-    { name: t("forHoppere.pricing.equipmentItems.packing"), price: `${content?.pricing?.forHoppere?.equipment?.packing || 85} kr` },
+    { name: t("forHoppere.pricing.equipmentItems.rentalRig"), price: `${content?.pricing?.forHoppere?.equipment?.rentalRig ?? 0} kr` },
+    { name: t("forHoppere.pricing.equipmentItems.studentRig"), price: `${content?.pricing?.forHoppere?.equipment?.studentRig ?? 0} kr` },
+    { name: t("forHoppere.pricing.equipmentItems.altimeter"), price: `${content?.pricing?.forHoppere?.equipment?.altimeter ?? 0} kr` },
+    { name: t("forHoppere.pricing.equipmentItems.packing"), price: `${content?.pricing?.forHoppere?.equipment?.packing ?? 0} kr` },
   ];
   const coursePricing = [
-    { name: t("forHoppere.pricing.courseItems.affCourse"), price: `${content?.pricing?.forHoppere?.courses?.affCourse || 18990} kr` },
-    { name: t("forHoppere.pricing.courseItems.rejump13"), price: `${content?.pricing?.forHoppere?.courses?.rejump13 || 2070} kr` },
-    { name: t("forHoppere.pricing.courseItems.rejump47"), price: `${content?.pricing?.forHoppere?.courses?.rejump47 || 1300} kr` },
-    { name: t("forHoppere.pricing.courseItems.level8"), price: `${content?.pricing?.forHoppere?.courses?.level8 || 530} kr` },
-    { name: t("forHoppere.pricing.courseItems.checkoutJump"), price: `${content?.pricing?.forHoppere?.courses?.checkoutJump || 1065} kr` },
+    { name: t("forHoppere.pricing.courseItems.affCourse"), price: `${content?.pricing?.forHoppere?.courses?.affCourse ?? 0} kr` },
+    { name: t("forHoppere.pricing.courseItems.rejump13"), price: `${content?.pricing?.forHoppere?.courses?.rejump13 ?? 0} kr` },
+    { name: t("forHoppere.pricing.courseItems.rejump47"), price: `${content?.pricing?.forHoppere?.courses?.rejump47 ?? 0} kr` },
+    { name: t("forHoppere.pricing.courseItems.level8"), price: `${content?.pricing?.forHoppere?.courses?.level8 ?? 0} kr` },
+    { name: t("forHoppere.pricing.courseItems.checkoutJump"), price: `${content?.pricing?.forHoppere?.courses?.checkoutJump ?? 0} kr` },
   ];
   const tandemPricing = [
-    { name: t("forHoppere.pricing.tandemItems.weekday"), price: `${content?.pricing?.forHoppere?.tandemPrices?.weekday || 4690} kr` },
-    { name: t("forHoppere.pricing.tandemItems.weekend"), price: `${content?.pricing?.forHoppere?.tandemPrices?.weekend || 5190} kr` },
-    { name: t("forHoppere.pricing.tandemItems.video"), price: `${content?.pricing?.forHoppere?.tandemPrices?.video || 800} kr` },
-    { name: t("forHoppere.pricing.tandemItems.videoPhotos"), price: `${content?.pricing?.forHoppere?.tandemPrices?.videoPhotos || 1290} kr` },
-    { name: t("forHoppere.pricing.tandemItems.fullPackage"), price: `${content?.pricing?.forHoppere?.tandemPrices?.fullPackage || 1780} kr` },
+    { name: t("forHoppere.pricing.tandemItems.weekday"), price: `${content?.pricing?.tandem?.weekday ?? 0} kr` },
+    { name: t("forHoppere.pricing.tandemItems.weekend"), price: `${content?.pricing?.tandem?.weekend ?? 0} kr` },
+    { name: t("forHoppere.pricing.tandemItems.video"), price: `${content?.pricing?.tandem?.video ?? 0} kr` },
+    { name: t("forHoppere.pricing.tandemItems.videoPhotos"), price: `${content?.pricing?.tandem?.videoPhotos ?? 0} kr` },
+    { name: t("forHoppere.pricing.tandemItems.fullPackage"), price: `${content?.pricing?.tandem?.fullPackage ?? 0} kr` },
   ];
   const openingHours = [
     { day: t("forHoppere.contact.hours.weekday"), hours: "10:00 - 18:00" },
@@ -299,5 +307,6 @@ export function useForHoppereData() {
     tandemPricing,
     openingHours,
     faqs,
+    facilities,
   };
 }

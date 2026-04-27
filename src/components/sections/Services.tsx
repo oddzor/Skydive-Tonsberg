@@ -23,7 +23,7 @@ const getServices = (
     {
       title: cards?.tandemTitle || t('home.services.tandem.title'),
       description: cards?.tandemDesc || t('home.services.tandem.description'),
-      price: `${cmsContent?.pricing?.tandem?.weekday || 4690} kr`,
+      price: `${cmsContent?.pricing?.tandem?.weekday ?? 0} kr`,
       image: imgs?.serviceTandem || "/service-tandem.webp",
       alt: pickAlt(imgs?.serviceTandemAltNo, imgs?.serviceTandemAltEn, t('home.services.tandem.title'), language),
       icon: Users,
@@ -36,7 +36,7 @@ const getServices = (
     {
       title: cards?.affTitle || t('home.services.aff.title'),
       description: cards?.affDesc || t('home.services.aff.description'),
-      price: `${cmsContent?.pricing?.kurs?.affCourse || 18990} kr`,
+      price: `${cmsContent?.pricing?.forHoppere?.courses?.affCourse ?? 0} kr`,
       image: imgs?.serviceAff || "/service-aff.webp",
       alt: pickAlt(imgs?.serviceAffAltNo, imgs?.serviceAffAltEn, t('home.services.aff.title'), language),
       icon: GraduationCap,

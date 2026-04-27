@@ -1,10 +1,10 @@
 'use client'
 
 import { createContext, useContext } from 'react'
+import { interpolatePrices } from '@/lib/interpolatePrices'
 import type {
   SanityFAQ,
   SanityTandemPricing,
-  SanityKursPricing,
   SanityForHopperePricing,
   SanityCourseInfo,
   SanityTandemInfo,
@@ -17,7 +17,6 @@ import { useLanguage } from './LanguageContext'
 export interface SanityData {
   faqs: SanityFAQ[]
   tandemPricing: SanityTandemPricing | null
-  kursPricing: SanityKursPricing | null
   forHopperePricing: SanityForHopperePricing | null
   courseInfo: SanityCourseInfo | null
   tandemInfo: SanityTandemInfo | null
@@ -29,7 +28,6 @@ export interface SanityData {
 const SanityDataContext = createContext<SanityData>({
   faqs: [],
   tandemPricing: null,
-  kursPricing: null,
   forHopperePricing: null,
   courseInfo: null,
   tandemInfo: null,
@@ -49,14 +47,15 @@ export function SanityDataProvider({
 }
 
 export function useSanityFAQs(page: SanityFAQ['page']) {
-  const { faqs } = useContext(SanityDataContext)
+  const { faqs, tandemPricing, forHopperePricing } = useContext(SanityDataContext)
   const { language } = useLanguage()
+  const pricingCtx = { tandemPricing, kursPricing: null, forHopperePricing }
   return faqs
     .filter((f) => f.page === page)
     .sort((a, b) => a.order - b.order)
     .map((f) => ({
       question: language === 'en' ? f.questionEn : f.questionNo,
-      answer: language === 'en' ? f.answerEn : f.answerNo,
+      answer: interpolatePrices(language === 'en' ? f.answerEn : f.answerNo, pricingCtx),
     }))
 }
 
@@ -71,14 +70,14 @@ export function useForHoppereInfo() {
 }
 
 export function useCMSDataFromSanity() {
-  const { tandemPricing, kursPricing, forHopperePricing, courseInfo, tandemInfo, landingPage } =
+  const { tandemPricing, forHopperePricing, courseInfo, tandemInfo, landingPage } =
     useContext(SanityDataContext)
   const { language } = useLanguage()
 
   const pick = (no: string | undefined, en: string | undefined) =>
     language === 'en' ? (en ?? no ?? '') : (no ?? '')
 
-  const hasPricing = tandemPricing || kursPricing || forHopperePricing
+  const hasPricing = tandemPricing || forHopperePricing
 
   const home = landingPage
     ? {
@@ -140,10 +139,7 @@ export function useCMSDataFromSanity() {
   return {
     pricing: hasPricing
       ? {
-          tandem: tandemPricing ?? {
-            weekday: 0, weekend: 0, video: 0, videoPhotos: 0, fullPackage: 0,
-          },
-          kurs: kursPricing ?? { affCourse: 0 },
+          tandem: tandemPricing ?? null,
           forHoppere: forHopperePricing ?? null,
         }
       : null,

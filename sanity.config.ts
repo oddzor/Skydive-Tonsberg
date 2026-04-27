@@ -6,7 +6,6 @@ import { schema } from './src/sanity/schema'
 const singletonTypes = [
   'landingPage',
   'tandemPricing',
-  'kursPricing',
   'forHopperePricing',
   'forHoppereInfo',
   'courseInfo',
@@ -63,7 +62,6 @@ export default defineConfig({
                   .title('Pricing')
                   .items([
                     singleton(S, 'Tandem', 'tandemPricing'),
-                    singleton(S, 'Kurs', 'kursPricing'),
                     singleton(S, 'For Hoppere', 'forHopperePricing'),
                   ])
               ),

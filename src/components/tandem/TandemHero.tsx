@@ -47,7 +47,7 @@ export function TandemHero() {
                 <div className="text-center mb-6">
                   <p className="text-sm text-muted-foreground mb-1">{t('tandem.hero.priceFrom')}</p>
                   <p className="text-5xl font-bold text-sky mb-2">
-                    {content?.pricing?.tandem?.weekday || 4690} kr
+                    {content?.pricing?.tandem?.weekday ?? 0} kr
                   </p>
                   <p className="text-muted-foreground">{t('tandem.hero.priceSubtitle')}</p>
                 </div>

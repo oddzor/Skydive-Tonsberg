@@ -185,7 +185,7 @@ export function KontaktContent() {
 
       <section className="py-16 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-start max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-16 items-stretch max-w-6xl mx-auto">
 
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -364,7 +364,7 @@ export function KontaktContent() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="space-y-8"
+              className="flex flex-col space-y-8"
             >
 
               <div>
@@ -392,7 +392,7 @@ export function KontaktContent() {
                 </div>
               </div>
 
-              <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-xl">
+              <div className="relative flex-1 min-h-[300px] rounded-2xl overflow-hidden shadow-xl">
                 <Image
                   src="/skydive-tonsberg-northernlights-1.webp"
                   alt="Skydive Tønsberg Northern Lights"

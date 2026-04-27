@@ -31,8 +31,8 @@
     },
     "about": {
       "badge": "Om oss",
-      "title": "Din port til",
-      "titleHighlight": "himmelen",
+      "title": "Velkommen til",
+      "titleHighlight": "Tønsberg",
       "description1": "Skydive Tønsberg er en av Norges mest etablerte og aktive fallskjermklubber. Med base på Tønsberg Flyplass (Jarlsberg) tilbyr vi alt fra tandemhopp for nybegynnere til avansert trening for erfarne hoppere.",
       "description2": "Vårt dedikerte team av instruktører og erfarne hoppere sørger for at hver eneste opplevelse er trygg, spennende og minneverdig. Bli med i vårt fellesskap og oppdag gleden ved fritt fall!",
       "stats": {
@@ -642,6 +642,7 @@
       "insurance": "Forsikring",
       "reporting": "Varsling",
       "grasrotandelen": "Grasrotandelen",
+      "facilities": "Fasiliteter",
       "faq": "FAQ"
     },
     "events": {
@@ -689,6 +690,13 @@
       },
       "contactText": "Kommer du utenom åpningstid? Send oss en e-post til",
       "warningText": "All overnatting skal forhåndsregistreres i resepsjonen. Brudd på dette medfører 500 kr i gebyr."
+    },
+    "facilities": {
+      "badge": "Fasiliteter",
+      "title": "Våre",
+      "titleHighlight": "Fasiliteter",
+      "description": "Alt du trenger for en god hoppdag – mat, avslapning og sosialt samvær.",
+      "noImage": "Bilde kommer snart"
     },
     "cards": {
       "calendar": {

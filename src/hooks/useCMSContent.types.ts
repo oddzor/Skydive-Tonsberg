@@ -172,10 +172,7 @@ export interface CMSContent {
       video: number;
       videoPhotos: number;
       fullPackage: number;
-    };
-    kurs: {
-      affCourse: number;
-    };
+    } | null;
     forHoppere: {
       jumps: {
         normal: number;
@@ -204,13 +201,6 @@ export interface CMSContent {
         rejump47: number;
         level8: number;
         checkoutJump: number;
-      };
-      tandemPrices: {
-        weekday: number;
-        weekend: number;
-        video: number;
-        videoPhotos: number;
-        fullPackage: number;
       };
       misc: {
         tofskMembership: number;

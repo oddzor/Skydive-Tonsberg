@@ -1,7 +1,6 @@
 import { groq } from 'next-sanity'
 
 export const TANDEM_PRICING_QUERY = groq`*[_type == "tandemPricing"][0]`
-export const KURS_PRICING_QUERY = groq`*[_type == "kursPricing"][0]`
 export const FOR_HOPPERE_PRICING_QUERY = groq`*[_type == "forHopperePricing"][0]`
 export const PAGE_FAQS_QUERY = groq`*[_type == "faq" && page == $page] | order(order asc)`
 export const ALL_FAQS_QUERY = groq`*[_type == "faq"] | order(page asc, order asc)`
@@ -86,4 +85,15 @@ export const LANDING_PAGE_QUERY = groq`*[_type == "landingPage"][0]{
     "serviceExperiencedAltEn": serviceExperienced.altEn
   }
 }`
-export const FOR_HOPPERE_INFO_QUERY = groq`*[_type == "forHoppereInfo"][0]`
+export const FOR_HOPPERE_INFO_QUERY = groq`*[_type == "forHoppereInfo"][0]{
+  ...,
+  "facilities": facilities[]{
+    nameNo,
+    nameEn,
+    descriptionNo,
+    descriptionEn,
+    "imageUrl": image.asset->url,
+    "imageAltNo": image.altNo,
+    "imageAltEn": image.altEn,
+  }
+}`

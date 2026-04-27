@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     template: "%s | Skydive Tønsberg",
   },
   description:
-    "Opplev fallskjermhopping ved Tønsberg Flyplass – nærmest Oslo! Tandemhopp fra 4690 kr, AFF grunnkurs og funjumping for erfarne hoppere. Norges mest tilgjengelige fallskjermklubb.",
+    "Opplev fallskjermhopping ved Tønsberg Flyplass – nærmest Oslo! Tandemhopp, AFF grunnkurs og funjumping for erfarne hoppere. Norges mest tilgjengelige fallskjermklubb.",
   keywords: [
     "fallskjermhopping",
     "fallskjerm",
@@ -130,7 +130,7 @@ const localBusinessSchema = {
       description: "Hoppdager i sesongen (mai–oktober)",
     },
   ],
-  priceRange: "kr4690–kr18990",
+  priceRange: "kr",
   currenciesAccepted: "NOK",
   paymentAccepted: "Cash, Credit Card",
   image: "https://skydivetonsberg.no/og-image.jpg",

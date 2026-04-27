@@ -6,7 +6,7 @@ import { safeFetch } from "@/sanity/client";
 import {
   PAGE_FAQS_QUERY,
   TANDEM_PRICING_QUERY,
-  KURS_PRICING_QUERY,
+  FOR_HOPPERE_PRICING_QUERY,
   LANDING_PAGE_QUERY,
   GENERAL_CONTENT_QUERY,
 } from "@/sanity/queries";
@@ -14,7 +14,7 @@ import { buildFAQSchema, sanityFaqToSchema } from "@/lib/faqSchema";
 import type {
   SanityFAQ,
   SanityTandemPricing,
-  SanityKursPricing,
+  SanityForHopperePricing,
   SanityLandingPage,
   SanityGeneralContent,
 } from "@/sanity/types";
@@ -68,10 +68,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 }
 
 export default async function Home() {
-  const [homeFAQs, tandemPricing, kursPricing, landingPage, generalContent] = await Promise.all([
+  const [homeFAQs, tandemPricing, forHopperePricing, landingPage, generalContent] = await Promise.all([
     safeFetch<SanityFAQ[]>(PAGE_FAQS_QUERY, { page: "home" }, 'faqs.home'),
     safeFetch<SanityTandemPricing>(TANDEM_PRICING_QUERY, undefined, 'tandemPricing'),
-    safeFetch<SanityKursPricing>(KURS_PRICING_QUERY, undefined, 'kursPricing'),
+    safeFetch<SanityForHopperePricing>(FOR_HOPPERE_PRICING_QUERY, undefined, 'forHopperePricing'),
     safeFetch<SanityLandingPage>(LANDING_PAGE_QUERY, undefined, 'landingPage'),
     safeFetch<SanityGeneralContent>(GENERAL_CONTENT_QUERY, undefined, 'generalContent'),
   ]);
@@ -87,8 +87,7 @@ export default async function Home() {
       data={{
         faqs: homeFAQs ?? [],
         tandemPricing: tandemPricing ?? null,
-        kursPricing: kursPricing ?? null,
-        forHopperePricing: null,
+        forHopperePricing: forHopperePricing ?? null,
         courseInfo: null,
         tandemInfo: null,
         generalContent: generalContent ?? null,

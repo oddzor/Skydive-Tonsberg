@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { ForHoppereContent } from "./ForHoppereContent";
 import { SanityDataProvider } from "@/contexts/SanityDataContext";
 import { safeFetch } from "@/sanity/client";
-import { PAGE_FAQS_QUERY, FOR_HOPPERE_PRICING_QUERY, FOR_HOPPERE_INFO_QUERY } from "@/sanity/queries";
+import { PAGE_FAQS_QUERY, FOR_HOPPERE_PRICING_QUERY, FOR_HOPPERE_INFO_QUERY, TANDEM_PRICING_QUERY } from "@/sanity/queries";
 import { buildFAQSchema, sanityFaqToSchema } from "@/lib/faqSchema";
-import type { SanityFAQ, SanityForHopperePricing, SanityForHoppereInfo } from "@/sanity/types";
+import type { SanityFAQ, SanityForHopperePricing, SanityForHoppereInfo, SanityTandemPricing } from "@/sanity/types";
 
 export const revalidate = 3600;
 
@@ -41,10 +41,11 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 }
 
 export default async function ForHopperePage() {
-  const [forHoppereFAQs, forHopperePricing, forHoppereInfo] = await Promise.all([
+  const [forHoppereFAQs, forHopperePricing, forHoppereInfo, tandemPricing] = await Promise.all([
     safeFetch<SanityFAQ[]>(PAGE_FAQS_QUERY, { page: "forHoppere" }, 'faqs.forHoppere'),
     safeFetch<SanityForHopperePricing>(FOR_HOPPERE_PRICING_QUERY, undefined, 'forHopperePricing'),
     safeFetch<SanityForHoppereInfo>(FOR_HOPPERE_INFO_QUERY, undefined, 'forHoppereInfo'),
+    safeFetch<SanityTandemPricing>(TANDEM_PRICING_QUERY, undefined, 'tandemPricing'),
   ]);
 
   const faqSchema = forHoppereFAQs?.length
@@ -55,8 +56,7 @@ export default async function ForHopperePage() {
     <SanityDataProvider
       data={{
         faqs: forHoppereFAQs ?? [],
-        tandemPricing: null,
-        kursPricing: null,
+        tandemPricing: tandemPricing ?? null,
         forHopperePricing: forHopperePricing ?? null,
         courseInfo: null,
         tandemInfo: null,

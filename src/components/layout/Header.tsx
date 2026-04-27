@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, useSyncExternalStore } from "react";
+import { useState, useEffect, useRef, useSyncExternalStore } from "react";
 
 const emptySubscribe = () => () => {};
 import { usePathname } from "next/navigation";
@@ -32,6 +32,7 @@ export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { language, setLanguage, t } = useLanguage();
   const pathname = usePathname();
+  const headerShownRef = useRef(false);
 
   const navigation = [
     { name: t("nav.home"), href: localePath(language, "hjem") },
@@ -45,15 +46,24 @@ export function Header() {
     { name: t("nav.jumpCalendar"), href: localePath(language, "hoppkalender"), external: false },
   ];
 
+  const isHomePath = (p: string) => p === "/no/hjem" || p === "/en/home" || p === "/en/hjem";
+
   useEffect(() => {
+    if (isHomePath(pathname)) {
+      headerShownRef.current = false;
+    }
+
     const update = () => {
       const p = window.location.pathname;
-      const isHome = p === "/no/hjem" || p === "/en/home" || p === "/en/hjem";
+      const isHome = isHomePath(p);
       const isDesktop = window.innerWidth >= 1024;
       if (isHome && isDesktop) {
-        const threshold = window.innerHeight * 0.9;
-        setShowDesktopHeader(window.scrollY > threshold);
-        setScrolled(window.scrollY > threshold + 50);
+        const threshold = window.innerHeight * 1.1;
+        if (window.scrollY > threshold) {
+          headerShownRef.current = true;
+        }
+        setShowDesktopHeader(headerShownRef.current);
+        setScrolled(headerShownRef.current);
       } else {
         setShowDesktopHeader(true);
         setScrolled(true);
@@ -66,7 +76,7 @@ export function Header() {
       window.removeEventListener("scroll", update);
       window.removeEventListener("resize", update);
     };
-  }, []);
+  }, [pathname]);
 
   const targetFlagCode = language === "no" ? "gb" : "no";
   const targetFlagAlt = language === "no" ? "English" : "Norsk";

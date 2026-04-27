@@ -7,6 +7,7 @@ export { ForHoppereQuickLinks } from './ForHoppereQuickLinks';
 export { ForHoppereEvents } from './ForHoppereEvents';
 export { ForHoppereRenewal } from './ForHoppereRenewal';
 export { ForHoppereBunkhouse } from './ForHoppereBunkhouse';
+export { ForHoppereFacilities } from './ForHoppereFacilities';
 export { ForHoppereBurbleMe } from './ForHoppereBurbleMe';
 export { ForHoppereHoppfeltbrief } from './ForHoppereHoppfeltbrief';
 export { ForHopperePricing } from './ForHopperePricing';

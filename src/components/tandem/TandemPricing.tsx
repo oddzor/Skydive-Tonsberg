@@ -11,13 +11,13 @@ export function TandemPricing() {
   const getPricing = () => [
     {
       name: t('tandem.pricing.weekday.name'),
-      price: String(content?.pricing?.tandem?.weekday || 4690),
+      price: String(content?.pricing?.tandem?.weekday ?? 0),
       description: t('tandem.pricing.weekday.description'),
       popular: false,
     },
     {
       name: t('tandem.pricing.weekend.name'),
-      price: String(content?.pricing?.tandem?.weekend || 5190),
+      price: String(content?.pricing?.tandem?.weekend ?? 0),
       description: t('tandem.pricing.weekend.description'),
       popular: true,
     },
@@ -25,17 +25,17 @@ export function TandemPricing() {
   const getMediaPackages = () => [
     {
       name: t('tandem.pricing.media.video.name'),
-      price: `${content?.pricing?.tandem?.video || 800} kr`,
+      price: `${content?.pricing?.tandem?.video ?? 0} kr`,
       description: t('tandem.pricing.media.video.description'),
     },
     {
       name: t('tandem.pricing.media.videoPhotos.name'),
-      price: `${content?.pricing?.tandem?.videoPhotos || 1290} kr`,
+      price: `${content?.pricing?.tandem?.videoPhotos ?? 0} kr`,
       description: t('tandem.pricing.media.videoPhotos.description'),
     },
     {
       name: t('tandem.pricing.media.fullPackage.name'),
-      price: `${content?.pricing?.tandem?.fullPackage || 1780} kr`,
+      price: `${content?.pricing?.tandem?.fullPackage ?? 0} kr`,
       description: t('tandem.pricing.media.fullPackage.description'),
     },
   ];
