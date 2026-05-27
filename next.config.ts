@@ -13,6 +13,30 @@ const securityHeaders = [
     key: "Permissions-Policy",
     value: "camera=(), microphone=(), geolocation=(self), interest-cohort=()",
   },
+  {
+    key: "Content-Security-Policy",
+    value: [
+      "default-src 'self'",
+      // Next.js requires unsafe-inline for hydration scripts
+      "script-src 'self' 'unsafe-inline'",
+      // Tailwind/framer-motion use inline styles
+      "style-src 'self' 'unsafe-inline'",
+      // Images: Sanity CDN, YouTube thumbnails, Facebook CDN, flag icons
+      "img-src 'self' data: blob: https://cdn.sanity.io https://img.youtube.com https://*.fbcdn.net https://flagcdn.com",
+      // Fonts: Next.js serves fonts from self
+      "font-src 'self' data:",
+      // API connections: Sanity, Burble, YR weather
+      "connect-src 'self' https://*.sanity.io https://api.sanity.io https://*.burblesoft.eu https://*.burblesoft.com https://api.met.no https://www.yr.no https://graph.facebook.com",
+      // Videos served from self
+      "media-src 'self' blob:",
+      // Embeds: YouTube, YR weather widget
+      "frame-src 'self' https://www.youtube.com https://youtube.com https://www.yr.no",
+      "object-src 'none'",
+      "base-uri 'self'",
+      "form-action 'self'",
+      "upgrade-insecure-requests",
+    ].join("; "),
+  },
 ];
 
 const nextConfig: NextConfig = {

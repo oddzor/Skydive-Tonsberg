@@ -184,7 +184,7 @@ export function Footer() {
         <div className="mt-8 text-center">
           <a
             href="mailto:odd@ogsolutions.dev"
-            className="text-xs text-background/30 hover:text-background/50 transition-colors"
+            className="text-xs text-background/60 hover:text-background/80 transition-colors"
           >
             For web development, contact OG Solutions
           </a>
