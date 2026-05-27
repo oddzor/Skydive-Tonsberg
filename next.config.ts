@@ -17,8 +17,8 @@ const securityHeaders = [
     key: "Content-Security-Policy",
     value: [
       "default-src 'self'",
-      // Next.js requires unsafe-inline for hydration scripts
-      "script-src 'self' 'unsafe-inline'",
+      // Next.js requires unsafe-inline for hydration; framer-motion/dev tools require unsafe-eval
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
       // Tailwind/framer-motion use inline styles
       "style-src 'self' 'unsafe-inline'",
       // Images: Sanity CDN, YouTube thumbnails, Facebook CDN, flag icons
