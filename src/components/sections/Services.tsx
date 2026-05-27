@@ -4,7 +4,6 @@ import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Users, GraduationCap, Plane } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useCMSContent } from "@/hooks/useCMSContent";
@@ -109,52 +108,78 @@ export function Services() {
         >
           {services.map((service) => (
             <motion.div key={service.href} variants={cardVariants}>
-              <Card className="group h-full flex flex-col overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-shadow duration-300">
-                <div className="relative aspect-4/3 overflow-hidden">
-                  <Image
-                    src={service.image}
-                    alt={service.alt}
-                    fill
-                    sizes="(max-width: 768px) calc(100vw - 32px), (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute top-4 left-4">
-                    <div className="p-3 rounded-xl bg-white/90 backdrop-blur-sm">
-                      <service.icon className="w-6 h-6 text-foreground" />
+              {service.external ? (
+                <a
+                  href={service.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block h-full"
+                >
+                  <Card className="group h-full flex flex-col overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-shadow duration-300 cursor-pointer">
+                    <div className="relative aspect-4/3 overflow-hidden">
+                      <Image
+                        src={service.image}
+                        alt={service.alt}
+                        fill
+                        sizes="(max-width: 768px) calc(100vw - 32px), (max-width: 1024px) 50vw, 33vw"
+                        className="object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                      <div className="absolute top-4 left-4">
+                        <div className="p-3 rounded-xl bg-white/90 backdrop-blur-sm">
+                          <service.icon className="w-6 h-6 text-foreground" />
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
-                <CardContent className="p-6 flex flex-col flex-1">
-                  <h3 className="text-xl font-bold text-foreground mb-3">
-                    {service.title}
-                  </h3>
-                  <p className="text-muted-foreground mb-6 leading-relaxed">
-                    {service.description}
-                  </p>
-                  <div className="mt-auto">
-                  {service.external ? (
-                    <Button asChild className="bg-gradient-brand hover:opacity-90 text-white font-semibold group/btn">
-                      <a
-                        href={service.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2"
-                      >
-                        {service.cta}
-                        <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
-                      </a>
-                    </Button>
-                  ) : (
-                    <Button asChild className="bg-gradient-brand hover:opacity-90 text-white font-semibold group/btn">
-                      <Link href={service.href} className="flex items-center gap-2">
-                        {service.cta}
-                        <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
-                      </Link>
-                    </Button>
-                  )}
-                  </div>
-                </CardContent>
-              </Card>
+                    <CardContent className="p-6 flex flex-col flex-1">
+                      <h3 className="text-xl font-bold text-foreground mb-3">
+                        {service.title}
+                      </h3>
+                      <p className="text-muted-foreground mb-6 leading-relaxed">
+                        {service.description}
+                      </p>
+                      <div className="mt-auto">
+                        <span className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-gradient-brand text-white font-semibold text-sm pointer-events-none">
+                          {service.cta}
+                          <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                        </span>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </a>
+              ) : (
+                <Link href={service.href} className="block h-full">
+                  <Card className="group h-full flex flex-col overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-shadow duration-300 cursor-pointer">
+                    <div className="relative aspect-4/3 overflow-hidden">
+                      <Image
+                        src={service.image}
+                        alt={service.alt}
+                        fill
+                        sizes="(max-width: 768px) calc(100vw - 32px), (max-width: 1024px) 50vw, 33vw"
+                        className="object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                      <div className="absolute top-4 left-4">
+                        <div className="p-3 rounded-xl bg-white/90 backdrop-blur-sm">
+                          <service.icon className="w-6 h-6 text-foreground" />
+                        </div>
+                      </div>
+                    </div>
+                    <CardContent className="p-6 flex flex-col flex-1">
+                      <h3 className="text-xl font-bold text-foreground mb-3">
+                        {service.title}
+                      </h3>
+                      <p className="text-muted-foreground mb-6 leading-relaxed">
+                        {service.description}
+                      </p>
+                      <div className="mt-auto">
+                        <span className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-gradient-brand text-white font-semibold text-sm pointer-events-none">
+                          {service.cta}
+                          <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                        </span>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </Link>
+              )}
             </motion.div>
           ))}
         </motion.div>

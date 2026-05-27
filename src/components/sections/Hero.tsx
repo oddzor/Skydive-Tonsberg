@@ -10,7 +10,7 @@ export function Hero() {
   const { t, language } = useLanguage();
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen overflow-hidden">
       <div className="absolute inset-0 z-0">
         <HeroVideo
           desktopSrc="/herovideo-optimized.webm"
@@ -23,22 +23,27 @@ export function Hero() {
         <div className="absolute inset-0 bg-linear-to-r from-sky/10 to-leaf/10 mix-blend-overlay" />
       </div>
 
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center" style={{ contain: 'layout style' }}>
-        <div className="max-w-4xl mx-auto">
-          <div className="mb-4 -mt-12 sm:-mt-16 md:-mt-20">
-            <Image
-              src="/Skydive_Tonsberg_hero_header.webp"
-              alt="Skydive Tønsberg"
-              width={2048}
-              height={510}
-              className="max-w-[min(1000px,85vw)] h-auto mx-auto drop-shadow-2xl"
-              sizes="(max-width: 1024px) 85vw, 1000px"
-              priority
-              fetchPriority="high"
-              quality={75}
-            />
-          </div>
+      <div
+        className="relative z-10 min-h-screen flex flex-col items-center text-center container mx-auto px-4 sm:px-6 lg:px-8 justify-center gap-6 md:justify-between md:gap-0"
+        style={{ contain: 'layout style' }}
+      >
+        {/* Logo — centered on mobile, pushed to top on desktop */}
+        <div className="-mt-12 sm:-mt-16 md:mt-0 md:pt-28 lg:pt-32">
+          <Image
+            src="/Skydive_Tonsberg_hero_header.webp"
+            alt="Skydive Tønsberg"
+            width={2048}
+            height={510}
+            className="max-w-[min(1000px,85vw)] h-auto mx-auto drop-shadow-2xl"
+            sizes="(max-width: 1024px) 85vw, 1000px"
+            priority
+            fetchPriority="high"
+            quality={75}
+          />
+        </div>
 
+        {/* Text + buttons + scroll indicator — centered on mobile, pushed to bottom on desktop */}
+        <div className="max-w-4xl w-full md:pb-8 lg:pb-10">
           <h1
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 hero-text-shadow leading-tight hero-slide-up"
             style={{ animationDelay: "0.25s" }}
@@ -79,21 +84,21 @@ export function Hero() {
               </a>
             </Button>
           </div>
-        </div>
-      </div>
 
-      <div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 hero-fade-in"
-        style={{ animationDelay: "1s" }}
-      >
-        <a
-          href="#about"
-          className="flex flex-col items-center gap-2 text-white/70 hover:text-white transition-colors"
-        >
-          <span className="text-sm font-medium">{t("home.hero.scrollDown")}</span>
-          <Mouse className="w-6 h-6" />
-          <ChevronDown className="w-4 h-4 animate-bounce" />
-        </a>
+          <div
+            className="mt-8 hero-fade-in flex flex-col items-center"
+            style={{ animationDelay: "1s" }}
+          >
+            <a
+              href="#about"
+              className="flex flex-col items-center gap-2 text-white/70 hover:text-white transition-colors"
+            >
+              <span className="text-sm font-medium">{t("home.hero.scrollDown")}</span>
+              <Mouse className="w-6 h-6" />
+              <ChevronDown className="w-4 h-4 animate-bounce" />
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -50,6 +50,7 @@ export function useForHoppereData() {
     { label: t("forHoppere.quickLinks.aircraft"), href: "#flyet" },
     { label: t("forHoppere.quickLinks.insurance"), href: "#forsikring" },
     { label: t("forHoppere.quickLinks.reporting"), href: "#varsling" },
+    { label: t("forHoppere.quickLinks.handbook"), href: "https://nlf.readin.no/", external: true },
   ];
 
   const bunkhousingPricing = [

@@ -26,21 +26,39 @@ export function ForHoppereRenewal() {
           <p className="text-lg text-muted-foreground mb-8">
             {renewalDescription}
           </p>
-          <Button
-            asChild
-            size="lg"
-            className="bg-gradient-brand hover:opacity-90 text-white font-semibold"
-          >
-            <a
-              href="https://nlf.no/grener/fallskjerm/Medlem/minidrett/"
-              target="_blank"
-              rel="noopener noreferrer"
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button
+              asChild
+              size="lg"
+              className="bg-gradient-brand hover:opacity-90 text-white font-semibold"
             >
-              <FileText className="mr-2 w-5 h-5" />
-              {t('forHoppere.renewal.button')}
-              <ExternalLink className="ml-2 w-4 h-4" />
-            </a>
-          </Button>
+              <a
+                href="https://nlf.no/grener/fallskjerm/Medlem/minidrett/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FileText className="mr-2 w-5 h-5" />
+                {t('forHoppere.renewal.button')}
+                <ExternalLink className="ml-2 w-4 h-4" />
+              </a>
+            </Button>
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="font-semibold"
+            >
+              <a
+                href="https://tms.nlf.no/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FileText className="mr-2 w-5 h-5" />
+                {t('forHoppere.renewal.button2')}
+                <ExternalLink className="ml-2 w-4 h-4" />
+              </a>
+            </Button>
+          </div>
         </motion.div>
       </div>
     </section>

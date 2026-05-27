@@ -48,6 +48,7 @@
       "aircraft": "Aircraft",
       "insurance": "Insurance",
       "reporting": "Reporting",
+      "handbook": "Handbook",
       "grasrotandelen": "Grasrotandelen",
       "facilities": "Facilities",
       "faq": "FAQ"
@@ -68,7 +69,8 @@
       "title": "How to renew your",
       "titleHighlight": "membership",
       "description": "Renew membership, insurance and license via Min Idrett.",
-      "button": "Go to Min Idrett"
+      "button": "Membership and insurance",
+      "button2": "Renewal and license application"
     },
     "bunkhouse": {
       "badge": "Accommodation",
@@ -314,7 +316,7 @@
         "sizes": "Different sizes available"
       },
       "pricing": {
-        "rental": "Rig rental (experienced jumper)",
+        "rental": "Sports rig rental",
         "student": "Student rig rental",
         "perJump": "per jump"
       },

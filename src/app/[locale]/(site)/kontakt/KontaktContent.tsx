@@ -51,7 +51,6 @@ const socialLinksWithIcons = [
     name: "Instagram",
     href: "https://instagram.com/skydivetonsberg",
     icon: Instagram,
-
   },
   {
     name: "YouTube",
@@ -179,6 +178,25 @@ export function KontaktContent() {
                 </Card>
               </motion.a>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-6">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <div className="justify-center rounded-lg px-6 py-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+              <Mail className="w-5 h-5 text-leaf shrink-0" />
+              <p className="text-sm text-foreground">
+                For tekniske spørsmål, regelverk og lignende, kontakt Hovedinstruktør:{" "}
+                <a
+                  href="mailto:hi@hoppfallskjerm.no"
+                  className="font-medium text-leaf hover:underline"
+                >
+                  hi@hoppfallskjerm.no
+                </a>
+              </p>
+            </div>
           </div>
         </div>
       </section>

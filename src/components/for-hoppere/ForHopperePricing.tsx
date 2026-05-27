@@ -172,14 +172,14 @@ export function ForHopperePricing() {
               <div className="grid md:grid-cols-2 gap-6 mb-6">
                 <div className="p-4 bg-muted rounded-xl">
                   <h4 className="font-semibold text-foreground mb-2">{t('forHoppere.pricing.deals.dealTitle')}</h4>
-                  <p className="text-2xl font-bold text-sky mb-2">{t('forHoppere.pricing.deals.dealPrice')}</p>
+                  <p className="text-2xl font-bold text-sky mb-2">{content?.pricing?.forHoppere?.jumps?.deal ?? 0} kr</p>
                   <p className="text-sm text-muted-foreground">
                     {t('forHoppere.pricing.deals.dealDesc')}
                   </p>
                 </div>
                 <div className="p-4 bg-muted rounded-xl">
                   <h4 className="font-semibold text-foreground mb-2">{t('forHoppere.pricing.deals.bigDealTitle')}</h4>
-                  <p className="text-2xl font-bold text-sky mb-2">{t('forHoppere.pricing.deals.bigDealPrice')}</p>
+                  <p className="text-2xl font-bold text-sky mb-2">{content?.pricing?.forHoppere?.jumps?.bigDeal ?? 0} kr</p>
                   <p className="text-sm text-muted-foreground">
                     {t('forHoppere.pricing.deals.bigDealDesc')}
                   </p>

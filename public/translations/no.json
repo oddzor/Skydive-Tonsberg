@@ -641,6 +641,7 @@
       "aircraft": "Flyet",
       "insurance": "Forsikring",
       "reporting": "Varsling",
+      "handbook": "Håndbok",
       "grasrotandelen": "Grasrotandelen",
       "facilities": "Fasiliteter",
       "faq": "FAQ"
@@ -659,9 +660,10 @@
     "renewal": {
       "badge": "Medlemskap",
       "title": "Slik fornyer du",
-      "titleHighlight": "medlemskapet",
+      "titleHighlight": "det viktigste",
       "description": "Forny medlemskap, forsikring og kompetansebevis via Min Idrett.",
-      "button": "Gå til Min Idrett"
+      "button": "Medlemsskap og forsikringer",
+      "button2": "Fornyelse og søknad om kompetansebevis"
     },
     "bunkhouse": {
       "badge": "Overnatting",
@@ -904,7 +906,7 @@
         "sizes": "Forskjellige størrelser tilgjengelig"
       },
       "pricing": {
-        "rental": "Leie av rigg (erfaren hopper)",
+        "rental": "Leie av sportsrigg",
         "student": "Leie av studentrigg",
         "perJump": "per hopp"
       },
