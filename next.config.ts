@@ -29,8 +29,8 @@ const securityHeaders = [
       "connect-src 'self' https://*.sanity.io https://api.sanity.io https://*.burblesoft.eu https://*.burblesoft.com https://api.met.no https://www.yr.no https://graph.facebook.com",
       // Videos served from self
       "media-src 'self' blob:",
-      // Embeds: YouTube, YR weather widget
-      "frame-src 'self' https://www.youtube.com https://youtube.com https://www.yr.no",
+      // Embeds: YouTube, YR weather widget, Google Calendar (hoppkalender)
+      "frame-src 'self' https://www.youtube.com https://youtube.com https://www.yr.no https://calendar.google.com",
       "object-src 'none'",
       "base-uri 'self'",
       "form-action 'self'",

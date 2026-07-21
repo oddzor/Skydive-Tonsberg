@@ -10,5 +10,20 @@ export async function POST(request: NextRequest) {
 
   revalidateTag('facebook-events', { expire: 604800 });
 
+  const token = process.env.FACEBOOK_PAGE_ACCESS_TOKEN;
+  const pageId = process.env.FACEBOOK_PAGE_ID;
+  const checkRes = await fetch(
+    `https://graph.facebook.com/v21.0/${pageId}/events?fields=id&since=now&limit=1&access_token=${token}`
+  );
+  const checkData = await checkRes.json();
+
+  if (checkData.error) {
+    console.error('[revalidate-events] Facebook token check failed:', checkData.error.message, '| code:', checkData.error.code);
+    return NextResponse.json(
+      { revalidated: true, tag: 'facebook-events', tokenError: checkData.error.message },
+      { status: 502 }
+    );
+  }
+
   return NextResponse.json({ revalidated: true, tag: 'facebook-events', timestamp: new Date().toISOString() });
 }
