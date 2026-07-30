@@ -665,6 +665,13 @@
       "button": "Medlemsskap og forsikringer",
       "button2": "Fornyelse og søknad om kompetansebevis"
     },
+    "handbook": {
+      "badge": "Håndbok",
+      "title": "Alt du trenger å",
+      "titleHighlight": "vite",
+      "description": "Regler, rutiner og retningslinjer for hoppfeltet finner du i driftshåndboken.",
+      "button": "Åpne håndboken"
+    },
     "bunkhouse": {
       "badge": "Overnatting",
       "title": "Bunkhouse –",

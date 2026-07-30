@@ -6,6 +6,7 @@ import {
   ForHoppereQuickLinks,
   ForHoppereEvents,
   ForHoppereRenewal,
+  ForHoppereHandbook,
   ForHoppereBunkhouse,
   ForHoppereFacilities,
   ForHoppereBurbleMe,
@@ -29,6 +30,7 @@ export function ForHoppereContent() {
       <ForHoppereQuickLinks />
       <ForHoppereEvents />
       <ForHoppereRenewal />
+      <ForHoppereHandbook />
       <ForHoppereBunkhouse />
       <ForHoppereFacilities />
       <ForHoppereBurbleMe />

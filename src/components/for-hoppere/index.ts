@@ -6,6 +6,7 @@ export { ForHoppereSeasonBar } from './ForHoppereSeasonBar';
 export { ForHoppereQuickLinks } from './ForHoppereQuickLinks';
 export { ForHoppereEvents } from './ForHoppereEvents';
 export { ForHoppereRenewal } from './ForHoppereRenewal';
+export { ForHoppereHandbook } from './ForHoppereHandbook';
 export { ForHoppereBunkhouse } from './ForHoppereBunkhouse';
 export { ForHoppereFacilities } from './ForHoppereFacilities';
 export { ForHoppereBurbleMe } from './ForHoppereBurbleMe';

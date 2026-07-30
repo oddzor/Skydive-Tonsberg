@@ -72,6 +72,13 @@
       "button": "Membership and insurance",
       "button2": "Renewal and license application"
     },
+    "handbook": {
+      "badge": "Handbook",
+      "title": "Everything you need to",
+      "titleHighlight": "know",
+      "description": "Rules, routines and guidelines for the dropzone can be found in the operations handbook.",
+      "button": "Open the handbook"
+    },
     "bunkhouse": {
       "badge": "Accommodation",
       "title": "Bunkhouse –",
