@@ -30,7 +30,7 @@ const securityHeaders = [
       // Videos served from self
       "media-src 'self' blob:",
       // Embeds: YouTube, YR weather widget, Google Calendar (hoppkalender)
-      "frame-src 'self' https://www.youtube.com https://youtube.com https://www.yr.no https://calendar.google.com",
+      "frame-src 'self' https://www.youtube.com https://youtube.com https://www.youtube-nocookie.com https://www.yr.no https://calendar.google.com",
       "object-src 'none'",
       "base-uri 'self'",
       "form-action 'self'",
