@@ -10,8 +10,6 @@ export function ForHoppereQuickLinks() {
             <a
               key={link.href}
               href={link.href}
-              target={link.external ? "_blank" : undefined}
-              rel={link.external ? "noopener noreferrer" : undefined}
               className="px-4 py-2 text-sm font-medium text-foreground/70 hover:text-foreground bg-background rounded-full border hover:border-sky transition-colors"
             >
               {link.label}
